@@ -1,2 +1,2 @@
-# 261DASA230179_06-H-th-ng-th-vi-n-m-n-t-i-li-u
+# 261DASA230179_06-
 Đồ án nhóm môn DSA (DASA230179) - Hệ thống Quản lý Thư viện.
