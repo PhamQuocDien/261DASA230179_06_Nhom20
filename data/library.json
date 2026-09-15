@@ -1,302 +1,448 @@
 {
     "books": [
         {
-            "bookId": "B001",
-            "title": "C++ Cơ Bản",
-            "author": "Nguyễn Văn An",
-            "category": "Lập trình",
+            "bookCode": "LSVN",
+            "title": "Lịch sử Việt Nam",
+            "author": "Nguyen Van A",
+            "category": "Lịch sử",
             "year": 2024,
-            "quantity": 5,
-            "available": 3
+            "quantity": 10,
+            "copies": [
+                {
+                    "bookId": "LSVN001",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "LSVN002",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "LSVN003",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "LSVN004",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "LSVN005",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "LSVN006",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "LSVN007",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "LSVN008",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "LSVN009",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "LSVN010",
+                    "status": "BORROWED"
+                }
+            ]
         },
         {
-            "bookId": "B002",
-            "title": "Cấu Trúc Dữ Liệu",
-            "author": "Trần Văn Bình",
-            "category": "Lập trình",
+            "bookCode": "DTVN",
+            "title": "Địa lý Việt Nam",
+            "author": "Tran Thi B",
+            "category": "Địa lý",
             "year": 2023,
-            "quantity": 4,
-            "available": 2
+            "quantity": 10,
+            "copies": [
+                {
+                    "bookId": "DTVN001",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "DTVN002",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "DTVN003",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "DTVN004",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "DTVN005",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "DTVN006",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "DTVN007",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "DTVN008",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "DTVN009",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "DTVN010",
+                    "status": "AVAILABLE"
+                }
+            ]
         },
         {
-            "bookId": "B003",
-            "title": "Giải Thuật Nâng Cao",
-            "author": "Lê Minh Cường",
-            "category": "Lập trình",
+            "bookCode": "TCC",
+            "title": "Toán cao cấp",
+            "author": "Le Van C",
+            "category": "Toán học",
             "year": 2022,
-            "quantity": 3,
-            "available": 1
+            "quantity": 10,
+            "copies": [
+                {
+                    "bookId": "TCC001",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "TCC002",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "TCC003",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "TCC004",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "TCC005",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "TCC006",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "TCC007",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "TCC008",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "TCC009",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "TCC010",
+                    "status": "AVAILABLE"
+                }
+            ]
         },
         {
-            "bookId": "B004",
-            "title": "Lập Trình Hướng Đối Tượng",
-            "author": "Phạm Quốc Dũng",
+            "bookCode": "KTLT",
+            "title": "Kỹ thuật lập trình",
+            "author": "Pham Van D",
             "category": "Lập trình",
-            "year": 2024,
-            "quantity": 6,
-            "available": 5
-        },
-        {
-            "bookId": "B005",
-            "title": "Cơ Sở Dữ Liệu",
-            "author": "Hoàng Văn Em",
-            "category": "Công nghệ thông tin",
-            "year": 2021,
-            "quantity": 5,
-            "available": 4
-        },
-        {
-            "bookId": "B006",
-            "title": "Lập Trình Web",
-            "author": "Nguyễn Thị Hà",
-            "category": "Web",
             "year": 2025,
-            "quantity": 4,
-            "available": 3
-        },
-        {
-            "bookId": "B007",
-            "title": "Java Cơ Bản",
-            "author": "Trần Minh Hoàng",
-            "category": "Lập trình",
-            "year": 2023,
-            "quantity": 3,
-            "available": 3
-        },
-        {
-            "bookId": "B008",
-            "title": "Thuật Toán",
-            "author": "Lê Quốc Khánh",
-            "category": "Giải thuật",
-            "year": 2022,
-            "quantity": 5,
-            "available": 4
-        },
-        {
-            "bookId": "B009",
-            "title": "Hệ Điều Hành",
-            "author": "Phạm Minh Long",
-            "category": "Hệ thống",
-            "year": 2021,
-            "quantity": 4,
-            "available": 4
-        },
-        {
-            "bookId": "B010",
-            "title": "Mạng Máy Tính",
-            "author": "Nguyễn Hoàng Nam",
-            "category": "Mạng",
-            "year": 2020,
-            "quantity": 3,
-            "available": 2
+            "quantity": 10,
+            "copies": [
+                {
+                    "bookId": "KTLT001",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "KTLT002",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "KTLT003",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "KTLT004",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "KTLT005",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "KTLT006",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "KTLT007",
+                    "status": "BORROWED"
+                },
+                {
+                    "bookId": "KTLT008",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "KTLT009",
+                    "status": "AVAILABLE"
+                },
+                {
+                    "bookId": "KTLT010",
+                    "status": "BORROWED"
+                }
+            ]
         }
     ],
+
     "members": [
         {
             "memberId": "M001",
-            "name": "Nguyễn An",
+            "name": "Nguyen Van An",
             "email": "an@gmail.com",
             "phone": "0900000001",
             "status": "ACTIVE"
         },
         {
             "memberId": "M002",
-            "name": "Trần Bình",
+            "name": "Tran Van Binh",
             "email": "binh@gmail.com",
             "phone": "0900000002",
             "status": "ACTIVE"
         },
         {
             "memberId": "M003",
-            "name": "Lê Chi",
+            "name": "Le Thi Chi",
             "email": "chi@gmail.com",
             "phone": "0900000003",
             "status": "ACTIVE"
         },
         {
             "memberId": "M004",
-            "name": "Phạm Dũng",
+            "name": "Pham Van Dung",
             "email": "dung@gmail.com",
             "phone": "0900000004",
             "status": "ACTIVE"
-        },
-        {
-            "memberId": "M005",
-            "name": "Hoàng Em",
-            "email": "em@gmail.com",
-            "phone": "0900000005",
-            "status": "LOCKED"
         }
     ],
+
     "loans": [
         {
             "loanId": "L001",
             "memberId": "M001",
-            "bookId": "B001",
-            "borrowDate": "2026-09-01",
-            "dueDate": "2026-09-15",
+            "bookId": "LSVN002",
+            "borrowDate": "2026-09-10",
+            "dueDate": "2026-09-24",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L002",
-            "memberId": "M001",
-            "bookId": "B002",
-            "borrowDate": "2026-09-03",
-            "dueDate": "2026-09-17",
+            "memberId": "M002",
+            "bookId": "LSVN004",
+            "borrowDate": "2026-09-11",
+            "dueDate": "2026-09-25",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 1,
             "status": "BORROWING"
         },
         {
             "loanId": "L003",
-            "memberId": "M002",
-            "bookId": "B003",
-            "borrowDate": "2026-09-02",
-            "dueDate": "2026-09-16",
-            "returnDate": "2026-09-10",
-            "quality": "Tot",
-            "status": "RETURNED"
+            "memberId": "M003",
+            "bookId": "LSVN007",
+            "borrowDate": "2026-09-08",
+            "dueDate": "2026-09-22",
+            "returnDate": null,
+            "renewalCount": 0,
+            "status": "BORROWING"
         },
         {
             "loanId": "L004",
-            "memberId": "M001",
-            "bookId": "B004",
-            "borrowDate": "2026-09-05",
-            "dueDate": "2026-09-19",
+            "memberId": "M004",
+            "bookId": "LSVN010",
+            "borrowDate": "2026-09-09",
+            "dueDate": "2026-09-23",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L005",
-            "memberId": "M003",
-            "bookId": "B005",
-            "borrowDate": "2026-09-04",
-            "dueDate": "2026-09-18",
-            "returnDate": "2026-09-20",
-            "quality": "Hu hong nhe",
-            "status": "RETURNED"
+            "memberId": "M001",
+            "bookId": "DTVN003",
+            "borrowDate": "2026-09-10",
+            "dueDate": "2026-09-24",
+            "returnDate": null,
+            "renewalCount": 0,
+            "status": "BORROWING"
         },
         {
             "loanId": "L006",
-            "memberId": "M001",
-            "bookId": "B003",
-            "borrowDate": "2026-09-06",
-            "dueDate": "2026-09-20",
+            "memberId": "M002",
+            "bookId": "DTVN005",
+            "borrowDate": "2026-09-11",
+            "dueDate": "2026-09-25",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L007",
-            "memberId": "M002",
-            "bookId": "B006",
-            "borrowDate": "2026-09-07",
-            "dueDate": "2026-09-21",
+            "memberId": "M003",
+            "bookId": "DTVN008",
+            "borrowDate": "2026-09-12",
+            "dueDate": "2026-09-26",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L008",
             "memberId": "M004",
-            "bookId": "B008",
+            "bookId": "TCC001",
             "borrowDate": "2026-09-08",
             "dueDate": "2026-09-22",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L009",
             "memberId": "M001",
-            "bookId": "B005",
+            "bookId": "TCC004",
             "borrowDate": "2026-09-09",
             "dueDate": "2026-09-23",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L010",
-            "memberId": "M003",
-            "bookId": "B007",
+            "memberId": "M002",
+            "bookId": "TCC008",
             "borrowDate": "2026-09-10",
             "dueDate": "2026-09-24",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L011",
-            "memberId": "M001",
-            "bookId": "B006",
+            "memberId": "M003",
+            "bookId": "KTLT002",
             "borrowDate": "2026-09-11",
             "dueDate": "2026-09-25",
             "returnDate": null,
-            "quality": null,
+            "renewalCount": 0,
             "status": "BORROWING"
         },
         {
             "loanId": "L012",
             "memberId": "M004",
-            "bookId": "B010",
+            "bookId": "KTLT005",
             "borrowDate": "2026-09-12",
             "dueDate": "2026-09-26",
-            "returnDate": "2026-09-28",
-            "quality": "Hu hong nang",
+            "returnDate": null,
+            "renewalCount": 0,
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L013",
+            "memberId": "M001",
+            "bookId": "KTLT007",
+            "borrowDate": "2026-09-13",
+            "dueDate": "2026-09-27",
+            "returnDate": null,
+            "renewalCount": 0,
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L014",
+            "memberId": "M002",
+            "bookId": "KTLT010",
+            "borrowDate": "2026-09-14",
+            "dueDate": "2026-09-28",
+            "returnDate": null,
+            "renewalCount": 0,
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L015",
+            "memberId": "M003",
+            "bookId": "DTVN001",
+            "borrowDate": "2026-08-20",
+            "dueDate": "2026-09-03",
+            "returnDate": "2026-09-02",
+            "renewalCount": 0,
+            "status": "RETURNED"
+        },
+        {
+            "loanId": "L016",
+            "memberId": "M004",
+            "bookId": "TCC002",
+            "borrowDate": "2026-08-22",
+            "dueDate": "2026-09-05",
+            "returnDate": "2026-09-04",
+            "renewalCount": 0,
             "status": "RETURNED"
         }
     ],
+
     "reservations": [
         {
             "reservationId": "R001",
-            "memberId": "M002",
-            "bookId": "B001",
-            "reservationDate": "2026-09-08",
+            "memberId": "M003",
+            "bookCode": "LSVN",
+            "reservationDate": "2026-09-15",
             "status": "WAITING"
         },
         {
             "reservationId": "R002",
-            "memberId": "M003",
-            "bookId": "B002",
-            "reservationDate": "2026-09-09",
+            "memberId": "M004",
+            "bookCode": "DTVN",
+            "reservationDate": "2026-09-15",
             "status": "WAITING"
         },
         {
             "reservationId": "R003",
-            "memberId": "M004",
-            "bookId": "B003",
-            "reservationDate": "2026-09-10",
+            "memberId": "M001",
+            "bookCode": "TCC",
+            "reservationDate": "2026-09-14",
+            "status": "WAITING"
+        },
+        {
+            "reservationId": "R004",
+            "memberId": "M002",
+            "bookCode": "KTLT",
+            "reservationDate": "2026-09-13",
             "status": "WAITING"
         }
     ],
+
     "fines": [
         {
             "fineId": "F001",
-            "loanId": "L003",
-            "memberId": "M002",
+            "loanId": "L015",
+            "memberId": "M003",
             "amount": 10000,
-            "reason": "Trả sách trễ 1 ngày (10.000 VNĐ/ngày)",
+            "reason": "Trả sách trễ",
             "status": "UNPAID"
         },
         {
             "fineId": "F002",
-            "loanId": "L005",
-            "memberId": "M003",
-            "amount": 40000,
-            "reason": "Trả sách trễ 2 ngày (20.000 VNĐ) + Sách hư hỏng nhẹ (20.000 VNĐ)",
-            "status": "PAID"
-        },
-        {
-            "fineId": "F003",
-            "loanId": "L012",
+            "loanId": "L016",
             "memberId": "M004",
-            "amount": 120000,
-            "reason": "Trả sách trễ 2 ngày (20.000 VNĐ) + Sách hư hỏng nặng (100.000 VNĐ giá bìa)",
-            "status": "UNPAID"
+            "amount": 20000,
+            "reason": "Trả sách trễ",
+            "status": "PAID"
         }
     ]
 }
