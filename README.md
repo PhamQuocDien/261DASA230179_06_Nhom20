@@ -15,7 +15,43 @@ Project được tổ chức theo hướng tách biệt:
 - **Data**: dữ liệu JSON của hệ thống.
 
 ---
+# Tổng Hợp Trạng Thái và Luồng Nghiệp Vụ
 
+## 1. Bảng Trạng Thái Thực Thể
+
+Dưới đây là danh sách các thực thể trong hệ thống và những trạng thái tương ứng:
+
+| Thực thể (Entity) | Trạng thái (Status) | Ghi chú |
+| :--- | :--- | :--- |
+| **BookCopy** | `AVAILABLE`, `BORROWED` | Trạng thái của từng cuốn sách vật lý. |
+| **Loan** | `BORROWING`, `RETURNED` | Trạng thái của một lượt mượn. |
+| **Reservation**| `WAITING` | Trạng thái đặt trước sách. |
+| **Fine** | `UNPAID`, `PAID` | Trạng thái nộp phạt. |
+| **Member** | `ACTIVE` | Trạng thái hoạt động của thành viên. |
+
+---
+
+## 2. Giải Thích Luồng Nghiệp Vụ (Flow)
+
+### 📌 Luồng Mượn Sách (Borrow)
+Khi một thành viên mượn sách thành công, các trạng thái sẽ thay đổi như sau:
+* **BookCopy:** `AVAILABLE` ➔ `BORROWED`
+* **Loan:** (Tạo mới) ➔ `BORROWING`
+
+### 📌 Luồng Trả Sách (Return)
+Khi thành viên đem sách đến trả, hệ thống cập nhật:
+* **BookCopy:** `BORROWED` ➔ `AVAILABLE`
+* **Loan:** `BORROWING` ➔ `RETURNED`
+
+---
+
+## 3. Quy Tắc Đặc Biệt (Business Rules)
+
+Theo quy tắc đã chốt dành cho Service quản lý phiếu mượn:
+
+**Đối với `LoanSlipService`:**
+* 🟢 **CHỈ hiển thị** các Loan đang có `status = BORROWING`.
+* 🔴 **KHÔNG hiển thị** các Loan đã có `status = RETURNED`.
 ## 2. Cấu trúc project
 
 ```text
