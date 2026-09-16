@@ -3,7 +3,7 @@
         {
             "bookCode": "LSVN",
             "title": "Lịch sử Việt Nam",
-            "author": "Nguyen Van A",
+            "author": "Nguyen Van Toan",
             "category": "Lịch sử",
             "year": 2024,
             "quantity": 10,
@@ -53,7 +53,7 @@
         {
             "bookCode": "DTVN",
             "title": "Địa lý Việt Nam",
-            "author": "Tran Thi B",
+            "author": "Tran Thi Bang",
             "category": "Địa lý",
             "year": 2023,
             "quantity": 10,
@@ -103,7 +103,7 @@
         {
             "bookCode": "TCC",
             "title": "Toán cao cấp",
-            "author": "Le Van C",
+            "author": "Le Van Chi",
             "category": "Toán học",
             "year": 2022,
             "quantity": 10,
@@ -153,7 +153,7 @@
         {
             "bookCode": "KTLT",
             "title": "Kỹ thuật lập trình",
-            "author": "Pham Van D",
+            "author": "Pham Van Dong",
             "category": "Lập trình",
             "year": 2025,
             "quantity": 10,
@@ -395,7 +395,6 @@
             "status": "RETURNED"
         }
     ],
-
     "reservations": [
         {
             "reservationId": "R001",
