@@ -6,7 +6,6 @@
             "author": "Nguyen Van Toan",
             "category": "Lịch sử",
             "year": 2024,
-            "quantity": 10,
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -56,7 +55,6 @@
             "author": "Tran Thi Bang",
             "category": "Địa lý",
             "year": 2023,
-            "quantity": 10,
             "copies": [
                 {
                     "bookId": "DTVN001",
@@ -106,7 +104,6 @@
             "author": "Le Van Chi",
             "category": "Toán học",
             "year": 2022,
-            "quantity": 10,
             "copies": [
                 {
                     "bookId": "TCC001",
@@ -156,7 +153,6 @@
             "author": "Pham Van Dong",
             "category": "Lập trình",
             "year": 2025,
-            "quantity": 10,
             "copies": [
                 {
                     "bookId": "KTLT001",
