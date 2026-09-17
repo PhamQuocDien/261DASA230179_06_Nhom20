@@ -1,11 +1,9 @@
 {
     "books": [
         {
-            "bookCode": "LSVN",
-            "title": "Lịch sử Việt Nam",
             "author": "Nguyen Van Toan",
+            "bookCode": "LSVN",
             "category": "Lịch sử",
-            "year": 2024,
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -47,63 +45,14 @@
                     "bookId": "LSVN010",
                     "status": "BORROWED"
                 }
-            ]
+            ],
+            "title": "Lich su Viet Nam",
+            "year": 2024
         },
         {
-            "bookCode": "DTVN",
-            "title": "Địa lý Việt Nam",
-            "author": "Tran Thi Bang",
-            "category": "Địa lý",
-            "year": 2023,
-            "copies": [
-                {
-                    "bookId": "DTVN001",
-                    "status": "AVAILABLE"
-                },
-                {
-                    "bookId": "DTVN002",
-                    "status": "AVAILABLE"
-                },
-                {
-                    "bookId": "DTVN003",
-                    "status": "BORROWED"
-                },
-                {
-                    "bookId": "DTVN004",
-                    "status": "AVAILABLE"
-                },
-                {
-                    "bookId": "DTVN005",
-                    "status": "BORROWED"
-                },
-                {
-                    "bookId": "DTVN006",
-                    "status": "AVAILABLE"
-                },
-                {
-                    "bookId": "DTVN007",
-                    "status": "AVAILABLE"
-                },
-                {
-                    "bookId": "DTVN008",
-                    "status": "BORROWED"
-                },
-                {
-                    "bookId": "DTVN009",
-                    "status": "AVAILABLE"
-                },
-                {
-                    "bookId": "DTVN010",
-                    "status": "AVAILABLE"
-                }
-            ]
-        },
-        {
-            "bookCode": "TCC",
-            "title": "Toán cao cấp",
             "author": "Le Van Chi",
+            "bookCode": "TCC",
             "category": "Toán học",
-            "year": 2022,
             "copies": [
                 {
                     "bookId": "TCC001",
@@ -145,14 +94,14 @@
                     "bookId": "TCC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "title": "Toán cao cấp",
+            "year": 2022
         },
         {
-            "bookCode": "KTLT",
-            "title": "Kỹ thuật lập trình",
             "author": "Pham Van Dong",
+            "bookCode": "KTLT",
             "category": "Lập trình",
-            "year": 2025,
             "copies": [
                 {
                     "bookId": "KTLT001",
@@ -194,250 +143,666 @@
                     "bookId": "KTLT010",
                     "status": "BORROWED"
                 }
-            ]
+            ],
+            "title": "Kỹ thuật lập trình",
+            "year": 2025
+        },
+        {
+            "author": "Nguyen Van Nam",
+            "bookCode": "NMLT",
+            "category": "Lập Trình",
+            "copies": [],
+            "title": "Nhập môn lập trình",
+            "year": 2000
+        },
+        {
+            "author": "Nguyen Quoc Viet",
+            "bookCode": "LSD",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "LSD001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD010",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD011",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD012",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD013",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD014",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD015",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD016",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD017",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD018",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD019",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD020",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD021",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD022",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD023",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD024",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD025",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD026",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD027",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD028",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD029",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD030",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD031",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD032",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD033",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD034",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD035",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD036",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD037",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD038",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD039",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD040",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD041",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD042",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD043",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD044",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD045",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD046",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD047",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD048",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD049",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD050",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD051",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD052",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD053",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD054",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD055",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD056",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD057",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD058",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD059",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD060",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD061",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD062",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD063",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD064",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD065",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD066",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD067",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD068",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD069",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD070",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD071",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD072",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD073",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD074",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD075",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD076",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD077",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD078",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD079",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD080",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD081",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD082",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD083",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD084",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD085",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD086",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD087",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD088",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD089",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD090",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD091",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD092",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD093",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD094",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD095",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD096",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD097",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD098",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD099",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD100",
+                    "status": "available"
+                }
+            ],
+            "title": "Lich su Dang",
+            "year": 1999
         }
     ],
-
-    "members": [
-        {
-            "memberId": "M001",
-            "name": "Nguyen Van An",
-            "email": "an@gmail.com",
-            "phone": "0900000001",
-            "status": "ACTIVE"
-        },
-        {
-            "memberId": "M002",
-            "name": "Tran Van Binh",
-            "email": "binh@gmail.com",
-            "phone": "0900000002",
-            "status": "ACTIVE"
-        },
-        {
-            "memberId": "M003",
-            "name": "Le Thi Chi",
-            "email": "chi@gmail.com",
-            "phone": "0900000003",
-            "status": "ACTIVE"
-        },
-        {
-            "memberId": "M004",
-            "name": "Pham Van Dung",
-            "email": "dung@gmail.com",
-            "phone": "0900000004",
-            "status": "ACTIVE"
-        }
-    ],
-
-    "loans": [
-        {
-            "loanId": "L001",
-            "memberId": "M001",
-            "bookId": "LSVN002",
-            "borrowDate": "2026-09-10",
-            "dueDate": "2026-09-24",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L002",
-            "memberId": "M002",
-            "bookId": "LSVN004",
-            "borrowDate": "2026-09-11",
-            "dueDate": "2026-09-25",
-            "returnDate": null,
-            "renewalCount": 1,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L003",
-            "memberId": "M003",
-            "bookId": "LSVN007",
-            "borrowDate": "2026-09-08",
-            "dueDate": "2026-09-22",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L004",
-            "memberId": "M004",
-            "bookId": "LSVN010",
-            "borrowDate": "2026-09-09",
-            "dueDate": "2026-09-23",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L005",
-            "memberId": "M001",
-            "bookId": "DTVN003",
-            "borrowDate": "2026-09-10",
-            "dueDate": "2026-09-24",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L006",
-            "memberId": "M002",
-            "bookId": "DTVN005",
-            "borrowDate": "2026-09-11",
-            "dueDate": "2026-09-25",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L007",
-            "memberId": "M003",
-            "bookId": "DTVN008",
-            "borrowDate": "2026-09-12",
-            "dueDate": "2026-09-26",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L008",
-            "memberId": "M004",
-            "bookId": "TCC001",
-            "borrowDate": "2026-09-08",
-            "dueDate": "2026-09-22",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L009",
-            "memberId": "M001",
-            "bookId": "TCC004",
-            "borrowDate": "2026-09-09",
-            "dueDate": "2026-09-23",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L010",
-            "memberId": "M002",
-            "bookId": "TCC008",
-            "borrowDate": "2026-09-10",
-            "dueDate": "2026-09-24",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L011",
-            "memberId": "M003",
-            "bookId": "KTLT002",
-            "borrowDate": "2026-09-11",
-            "dueDate": "2026-09-25",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L012",
-            "memberId": "M004",
-            "bookId": "KTLT005",
-            "borrowDate": "2026-09-12",
-            "dueDate": "2026-09-26",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L013",
-            "memberId": "M001",
-            "bookId": "KTLT007",
-            "borrowDate": "2026-09-13",
-            "dueDate": "2026-09-27",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L014",
-            "memberId": "M002",
-            "bookId": "KTLT010",
-            "borrowDate": "2026-09-14",
-            "dueDate": "2026-09-28",
-            "returnDate": null,
-            "renewalCount": 0,
-            "status": "BORROWING"
-        },
-        {
-            "loanId": "L015",
-            "memberId": "M003",
-            "bookId": "DTVN001",
-            "borrowDate": "2026-08-20",
-            "dueDate": "2026-09-03",
-            "returnDate": "2026-09-02",
-            "renewalCount": 0,
-            "status": "RETURNED"
-        },
-        {
-            "loanId": "L016",
-            "memberId": "M004",
-            "bookId": "TCC002",
-            "borrowDate": "2026-08-22",
-            "dueDate": "2026-09-05",
-            "returnDate": "2026-09-04",
-            "renewalCount": 0,
-            "status": "RETURNED"
-        }
-    ],
-    "reservations": [
-        {
-            "reservationId": "R001",
-            "memberId": "M003",
-            "bookCode": "LSVN",
-            "reservationDate": "2026-09-15",
-            "status": "WAITING"
-        },
-        {
-            "reservationId": "R002",
-            "memberId": "M004",
-            "bookCode": "DTVN",
-            "reservationDate": "2026-09-15",
-            "status": "WAITING"
-        },
-        {
-            "reservationId": "R003",
-            "memberId": "M001",
-            "bookCode": "TCC",
-            "reservationDate": "2026-09-14",
-            "status": "WAITING"
-        },
-        {
-            "reservationId": "R004",
-            "memberId": "M002",
-            "bookCode": "KTLT",
-            "reservationDate": "2026-09-13",
-            "status": "WAITING"
-        }
-    ],
-
     "fines": [
         {
+            "amount": 10000,
             "fineId": "F001",
             "loanId": "L015",
             "memberId": "M003",
-            "amount": 10000,
             "reason": "Trả sách trễ",
             "status": "UNPAID"
         },
         {
+            "amount": 20000,
             "fineId": "F002",
             "loanId": "L016",
             "memberId": "M004",
-            "amount": 20000,
             "reason": "Trả sách trễ",
             "status": "PAID"
+        }
+    ],
+    "loans": [
+        {
+            "bookId": "LSVN002",
+            "borrowDate": "2026-09-10",
+            "dueDate": "2026-09-24",
+            "loanId": "L001",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "LSVN004",
+            "borrowDate": "2026-09-11",
+            "dueDate": "2026-09-25",
+            "loanId": "L002",
+            "memberId": "M002",
+            "renewalCount": 1,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "LSVN007",
+            "borrowDate": "2026-09-08",
+            "dueDate": "2026-09-22",
+            "loanId": "L003",
+            "memberId": "M003",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "LSVN010",
+            "borrowDate": "2026-09-09",
+            "dueDate": "2026-09-23",
+            "loanId": "L004",
+            "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "DTVN003",
+            "borrowDate": "2026-09-10",
+            "dueDate": "2026-09-24",
+            "loanId": "L005",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "DTVN005",
+            "borrowDate": "2026-09-11",
+            "dueDate": "2026-09-25",
+            "loanId": "L006",
+            "memberId": "M002",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "DTVN008",
+            "borrowDate": "2026-09-12",
+            "dueDate": "2026-09-26",
+            "loanId": "L007",
+            "memberId": "M003",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "TCC001",
+            "borrowDate": "2026-09-08",
+            "dueDate": "2026-09-22",
+            "loanId": "L008",
+            "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "TCC004",
+            "borrowDate": "2026-09-09",
+            "dueDate": "2026-09-23",
+            "loanId": "L009",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "TCC008",
+            "borrowDate": "2026-09-10",
+            "dueDate": "2026-09-24",
+            "loanId": "L010",
+            "memberId": "M002",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "KTLT002",
+            "borrowDate": "2026-09-11",
+            "dueDate": "2026-09-25",
+            "loanId": "L011",
+            "memberId": "M003",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "KTLT005",
+            "borrowDate": "2026-09-12",
+            "dueDate": "2026-09-26",
+            "loanId": "L012",
+            "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "KTLT007",
+            "borrowDate": "2026-09-13",
+            "dueDate": "2026-09-27",
+            "loanId": "L013",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "KTLT010",
+            "borrowDate": "2026-09-14",
+            "dueDate": "2026-09-28",
+            "loanId": "L014",
+            "memberId": "M002",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "BORROWING"
+        },
+        {
+            "bookId": "DTVN001",
+            "borrowDate": "2026-08-20",
+            "dueDate": "2026-09-03",
+            "loanId": "L015",
+            "memberId": "M003",
+            "renewalCount": 0,
+            "returnDate": "2026-09-02",
+            "status": "RETURNED"
+        },
+        {
+            "bookId": "TCC002",
+            "borrowDate": "2026-08-22",
+            "dueDate": "2026-09-05",
+            "loanId": "L016",
+            "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": "2026-09-04",
+            "status": "RETURNED"
+        }
+    ],
+    "members": [
+        {
+            "email": "an@gmail.com",
+            "memberId": "M001",
+            "name": "Nguyen Van An",
+            "phone": "0900000001",
+            "status": "ACTIVE"
+        },
+        {
+            "email": "binh@gmail.com",
+            "memberId": "M002",
+            "name": "Tran Van Binh",
+            "phone": "0900000002",
+            "status": "ACTIVE"
+        },
+        {
+            "email": "chi@gmail.com",
+            "memberId": "M003",
+            "name": "Le Thi Chi",
+            "phone": "0900000003",
+            "status": "ACTIVE"
+        },
+        {
+            "email": "dung@gmail.com",
+            "memberId": "M004",
+            "name": "Pham Van Dung",
+            "phone": "0900000004",
+            "status": "ACTIVE"
+        }
+    ],
+    "reservations": [
+        {
+            "bookCode": "LSVN",
+            "memberId": "M003",
+            "reservationDate": "2026-09-15",
+            "reservationId": "R001",
+            "status": "WAITING"
+        },
+        {
+            "bookCode": "DTVN",
+            "memberId": "M004",
+            "reservationDate": "2026-09-15",
+            "reservationId": "R002",
+            "status": "WAITING"
+        },
+        {
+            "bookCode": "TCC",
+            "memberId": "M001",
+            "reservationDate": "2026-09-14",
+            "reservationId": "R003",
+            "status": "WAITING"
+        },
+        {
+            "bookCode": "KTLT",
+            "memberId": "M002",
+            "reservationDate": "2026-09-13",
+            "reservationId": "R004",
+            "status": "WAITING"
         }
     ]
 }

@@ -10,5 +10,4 @@ struct Member
     string phone;
     string status;
 };
-
 #endif

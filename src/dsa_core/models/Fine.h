@@ -9,6 +9,7 @@ struct Fine
     string memberId;
     double amount;
     string reason;
+
     string status;
 };
 #endif

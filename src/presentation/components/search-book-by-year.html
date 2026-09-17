@@ -1,0 +1,103 @@
+﻿<!-- ========================================= -->
+<!-- SEARCH BOOK BY YEAR -->
+<!-- MC2 - TRA CỨU THEO KHOẢNG NĂM -->
+<!-- ========================================= -->
+
+<section class="search-book-by-year-section">
+
+    <div class="section-header">
+
+        <h2>
+            Tìm kiếm sách theo năm xuất bản
+        </h2>
+
+        <p>
+            Tra cứu sách theo khoảng năm và sắp xếp kết quả
+        </p>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- ĐIỀU KIỆN TÌM KIẾM -->
+    <!-- ===================================== -->
+
+    <div class="search-year-form">
+
+        <div class="form-group">
+
+            <label for="fromYear">
+                Từ năm
+            </label>
+
+            <input type="number"
+                   id="fromYear"
+                   placeholder="Ví dụ: 2000">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="toYear">
+                Đến năm
+            </label>
+
+            <input type="number"
+                   id="toYear"
+                   placeholder="Ví dụ: 2020">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="yearSortOrder">
+                Thứ tự
+            </label>
+
+            <select id="yearSortOrder">
+
+                <option value="asc">
+                    Tăng dần
+                </option>
+
+                <option value="desc">
+                    Giảm dần
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button type="button"
+                id="btnSearchBookByYear">
+            Tìm kiếm
+        </button>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- KẾT QUẢ -->
+    <!-- ===================================== -->
+
+    <div class="search-year-result">
+
+        <h3>
+            Kết quả tìm kiếm
+        </h3>
+
+
+        <div id="searchBookByYearResult">
+
+            <p>
+                Chưa có kết quả tìm kiếm.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
