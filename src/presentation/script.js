@@ -17,6 +17,14 @@ import {
 } from "./js/loanSlip.js";
 
 import {
+    initReturnBook
+} from "./js/returnBook.js";
+
+import {
+    initFine
+} from "./js/fine.js";
+
+import {
     initNavigation
 } from "./js/navigation.js";
 
@@ -64,6 +72,20 @@ document.addEventListener(
         // =============================
 
         initLoanSlip();
+
+
+        // =============================
+        // KHOI DONG TRA SACH
+        // =============================
+
+        initReturnBook();
+
+
+        // =============================
+        // KHOI DONG TRA CUU TIEN PHAT
+        // =============================
+
+        initFine();
 
 
         // =============================
