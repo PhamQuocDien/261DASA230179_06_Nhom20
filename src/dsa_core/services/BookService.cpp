@@ -102,3 +102,25 @@ bool BookService::deleteBook(const string& bookCode) {
     }
     return repository.removeByCode(bookCode);
 }
+bool BookService::deleteBookCopy(const string& bookCode, const string& bookId) {
+    if (bookCode.empty()) {
+        return false;
+    }
+    if (bookId.empty()) {
+        return false;
+    }
+    Book* existingBook = repository.findByCode(bookCode);
+    if (existingBook == nullptr) {
+        return false;
+    }
+    for (auto it = existingBook->copies.begin(); it != existingBook->copies.end(); ++it) {
+        if (it->bookId == bookId) {
+            if (it->status != "available") {
+                return false;
+            }
+            existingBook->copies.erase(it);
+            return repository.update(*existingBook);
+        }
+    }
+    return false;
+}

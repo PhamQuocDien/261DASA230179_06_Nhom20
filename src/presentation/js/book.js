@@ -3,6 +3,7 @@ let currentBookCopies = [];
 function getBookElements() {
     return {
         bookCodeInput: document.querySelector("#bookCode"),
+        bookIdInput: document.querySelector("#bookId"),
         titleInput: document.querySelector("#title"),
         authorInput: document.querySelector("#author"),
         categoryInput: document.querySelector("#category"),
@@ -18,6 +19,7 @@ function getBookElements() {
 }
 function clearForm(elements) {
     elements.bookCodeInput.value = "";
+    elements.bookIdInput.value = "";
     elements.titleInput.value = "";
     elements.authorInput.value = "";
     elements.categoryInput.value = "";
@@ -127,13 +129,13 @@ async function updateBook(book, quantity) {
     showBookMessage("✅ Cập nhật sách thành công!", "success");
     return result.data;
 }
-async function deleteBook(bookCode) {
+async function deleteBook(bookCode, bookId) {
     if (!bookCode) {
         console.warn("Vui long nhap ma sach.");
         showBookMessage("❌ Vui lòng nhập mã sách.", "error");
         return null;
     }
-    const result = await sendApiRequest({ action: "deleteBook", bookCode: bookCode });
+    const result = await sendApiRequest({ action: "deleteBook", bookCode: bookCode, bookId: bookId });
     if (!result.success) {
         console.error("Delete Book that bai:", result.error);
         showBookMessage("❌ Xóa sách thất bại: " + (result.error ?? "Lỗi không xác định."), "error");
@@ -213,7 +215,7 @@ async function loadBooks(elements) {
 export function initBook() {
     console.log("=== INIT BOOK MODULE ===");
     const elements = getBookElements();
-    if (!elements.bookCodeInput || !elements.titleInput || !elements.authorInput || !elements.categoryInput || !elements.yearInput || !elements.quantityInput || !elements.btnCreate || !elements.btnRead || !elements.btnUpdate || !elements.btnDelete || !elements.btnReset || !elements.bookTableBody) {
+    if (!elements.bookCodeInput || !elements.bookIdInput || !elements.titleInput || !elements.authorInput || !elements.categoryInput || !elements.yearInput || !elements.quantityInput || !elements.btnCreate || !elements.btnRead || !elements.btnUpdate || !elements.btnDelete || !elements.btnReset || !elements.bookTableBody) {
         console.error("Khong tim thay day du HTML cua Book.");
         return;
     }
@@ -283,13 +285,16 @@ export function initBook() {
     });
     elements.btnDelete.addEventListener("click", async () => {
         const bookCode = elements.bookCodeInput.value.trim();
+        const bookId = elements.bookIdInput.value.trim();
         console.log("=== DELETE BOOK ===");
+        console.log("BookCode:", bookCode);
+        console.log("Book_ID:", bookId || "(Xoa toan bo)");
         if (bookCode === "") {
             console.warn("Vui long nhap ma sach.");
             showBookMessage("❌ Vui lòng nhập mã sách.", "error");
             return;
         }
-        const result = await deleteBook(bookCode);
+        const result = await deleteBook(bookCode, bookId);
         if (result !== null) {
             clearForm(elements);
             await loadBooks(elements);
