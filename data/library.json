@@ -565,13 +565,13 @@
             "year": 1999
         }
     ],
-    "fines": [
+   "fines": [
         {
             "amount": 10000,
             "fineId": "F001",
             "loanId": "L015",
             "memberId": "M003",
-            "reason": "Trả sách trễ",
+            "reason": "Trả sách trễ 1 ngày (10.000đ/ngày)",
             "status": "UNPAID"
         },
         {
@@ -579,8 +579,88 @@
             "fineId": "F002",
             "loanId": "L016",
             "memberId": "M004",
-            "reason": "Trả sách trễ",
+            "reason": "Trả sách trễ 2 ngày (10.000đ/ngày)",
             "status": "PAID"
+        },
+        {
+            "amount": 30000,
+            "fineId": "F003",
+            "loanId": "L001",
+            "memberId": "M001",
+            "reason": "Trả sách trễ 3 ngày",
+            "status": "UNPAID"
+        },
+        {
+            "amount": 25000,
+            "fineId": "F004",
+            "loanId": "L002",
+            "memberId": "M002",
+            "reason": "Làm rách trang sách (hư hỏng nhẹ)",
+            "status": "PAID"
+        },
+        {
+            "amount": 50000,
+            "fineId": "F005",
+            "loanId": "L003",
+            "memberId": "M003",
+            "reason": "Làm ướt và bong gáy bìa sách",
+            "status": "UNPAID"
+        },
+        {
+            "amount": 10000,
+            "fineId": "F006",
+            "loanId": "L004",
+            "memberId": "M004",
+            "reason": "Trả sách trễ 1 ngày",
+            "status": "PAID"
+        },
+        {
+            "amount": 120000,
+            "fineId": "F007",
+            "loanId": "L005",
+            "memberId": "M001",
+            "reason": "Làm mất sách - bồi thường 100% giá trị sách",
+            "status": "UNPAID"
+        },
+        {
+            "amount": 40000,
+            "fineId": "F008",
+            "loanId": "L006",
+            "memberId": "M002",
+            "reason": "Trả trễ 2 ngày (20.000đ) + Viết bẩn lên sách (20.000đ)",
+            "status": "UNPAID"
+        },
+        {
+            "amount": 15000,
+            "fineId": "F009",
+            "loanId": "L007",
+            "memberId": "M003",
+            "reason": "Làm rách bìa bao ngoài",
+            "status": "PAID"
+        },
+        {
+            "amount": 70000,
+            "fineId": "F010",
+            "loanId": "L008",
+            "memberId": "M004",
+            "reason": "Trả trễ 5 ngày (50.000đ) + Hư hại nhẹ (20.000đ)",
+            "status": "UNPAID"
+        },
+        {
+            "amount": 20000,
+            "fineId": "F011",
+            "loanId": "L009",
+            "memberId": "M001",
+            "reason": "Trả sách trễ 2 ngày",
+            "status": "PAID"
+        },
+        {
+            "amount": 95000,
+            "fineId": "F012",
+            "loanId": "L010",
+            "memberId": "M002",
+            "reason": "Làm mất sách Kỹ thuật lập trình (KTLT005)",
+            "status": "UNPAID"
         }
     ],
     "loans": [
