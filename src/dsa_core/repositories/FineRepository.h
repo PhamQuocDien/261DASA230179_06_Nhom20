@@ -12,6 +12,8 @@ public:
     const std::vector<Fine>& getAll() const;
     Fine* findById(const std::string& fineId);
     const Fine* findById(const std::string& fineId) const;
+    Fine* findByLoanId(const std::string& loanId);
+    const Fine* findByLoanId(const std::string& loanId) const;
     bool add(const Fine& fine);
     bool update(const Fine& fine);
     bool removeById(const std::string& fineId);
