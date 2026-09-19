@@ -12,7 +12,7 @@ public:
     bool addBook(const Book& book, int quantity);
     const std::vector<Book>& getAllBooks() const;
     Book* getBookByCode(const std::string& bookCode);
-    bool updateBook(const Book& book);
+    bool updateBook(const Book& book, int quantity);
     bool deleteBook(const std::string& bookCode);
 };
 #endif
