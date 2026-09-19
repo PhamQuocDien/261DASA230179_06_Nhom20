@@ -141,6 +141,7 @@
     <ClCompile Include="src\dsa_core\repositories\MemberRepository.cpp" />
     <ClCompile Include="src\dsa_core\repositories\ReservationRepository.cpp" />
     <ClCompile Include="src\dsa_core\services\BookService.cpp" />
+    <ClCompile Include="src\dsa_core\services\LoanService.cpp" />
     <ClCompile Include="src\dsa_core\services\LoanSlipService.cpp" />
     <ClCompile Include="src\dsa_core\structures\ALVTree.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\dsa_core\repositories\MemberRepository.h" />
     <ClInclude Include="src\dsa_core\repositories\ReservationRepository.h" />
     <ClInclude Include="src\dsa_core\services\BookService.h" />
+    <ClInclude Include="src\dsa_core\services\LoanService.h" />
     <ClInclude Include="src\dsa_core\services\LoanSlipService.h" />
     <ClInclude Include="src\dsa_core\structures\AVLTree.h" />
     <ClInclude Include="src\dsa_core\structures\HashTable.h" />
