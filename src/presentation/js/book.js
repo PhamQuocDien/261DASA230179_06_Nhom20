@@ -12,6 +12,7 @@ function getBookElements() {
         btnCreate: document.querySelector("#btnCreate"),
         btnRead: document.querySelector("#btnRead"),
         btnUpdate: document.querySelector("#btnUpdate"),
+        btnAddCopy: document.querySelector("#btnAddCopy"),
         btnDelete: document.querySelector("#btnDelete"),
         btnReset: document.querySelector("#btnReset"),
         bookTableBody: document.querySelector("#bookTableBody")
@@ -33,8 +34,8 @@ function setBookFormData(elements, book) {
         return;
     }
     elements.bookCodeInput.value = book.bookCode ?? "";
-    elements.titleInput.value = book.title ?? "";
     elements.authorInput.value = book.author ?? "";
+    elements.titleInput.value = book.title ?? "";
     elements.categoryInput.value = book.category ?? "";
     elements.yearInput.value = book.year ?? "";
     currentBookCopies = Array.isArray(book.copies) ? book.copies : [];
@@ -129,6 +130,23 @@ async function updateBook(book, quantity) {
     showBookMessage("✅ Cập nhật sách thành công!", "success");
     return result.data;
 }
+async function addBookCopy(bookCode) {
+    if (!bookCode) {
+        console.warn("Vui long nhap ma sach.");
+        showBookMessage("❌ Vui lòng nhập mã sách.", "error");
+        return null;
+    }
+    const result = await sendApiRequest({ action: "addBookCopy", bookCode: bookCode });
+    if (!result.success) {
+        console.error("Add BookCopy that bai:", result.error);
+        showBookMessage("❌ Thêm cuốn vật lý thất bại: " + (result.error ?? "Lỗi không xác định."), "error");
+        return null;
+    }
+    console.log("Add BookCopy thanh cong:", result.data);
+    currentBookCopies = Array.isArray(result.data?.copies) ? result.data.copies : currentBookCopies;
+    showBookMessage("✅ Đã thêm 1 cuốn vật lý.", "success");
+    return result.data;
+}
 async function deleteBook(bookCode, bookId) {
     if (!bookCode) {
         console.warn("Vui long nhap ma sach.");
@@ -215,7 +233,7 @@ async function loadBooks(elements) {
 export function initBook() {
     console.log("=== INIT BOOK MODULE ===");
     const elements = getBookElements();
-    if (!elements.bookCodeInput || !elements.bookIdInput || !elements.titleInput || !elements.authorInput || !elements.categoryInput || !elements.yearInput || !elements.quantityInput || !elements.btnCreate || !elements.btnRead || !elements.btnUpdate || !elements.btnDelete || !elements.btnReset || !elements.bookTableBody) {
+    if (!elements.bookCodeInput || !elements.bookIdInput || !elements.titleInput || !elements.authorInput || !elements.categoryInput || !elements.yearInput || !elements.quantityInput || !elements.btnCreate || !elements.btnRead || !elements.btnUpdate || !elements.btnAddCopy || !elements.btnDelete || !elements.btnReset || !elements.bookTableBody) {
         console.error("Khong tim thay day du HTML cua Book.");
         return;
     }
@@ -278,6 +296,20 @@ export function initBook() {
             return;
         }
         const result = await updateBook(book, quantity);
+        if (result !== null) {
+            setBookFormData(elements, result);
+            await loadBooks(elements);
+        }
+    });
+    elements.btnAddCopy.addEventListener("click", async () => {
+        const bookCode = elements.bookCodeInput.value.trim();
+        console.log("=== ADD BOOK COPY ===");
+        if (bookCode === "") {
+            console.warn("Vui long nhap ma sach.");
+            showBookMessage("❌ Vui lòng nhập mã sách.", "error");
+            return;
+        }
+        const result = await addBookCopy(bookCode);
         if (result !== null) {
             setBookFormData(elements, result);
             await loadBooks(elements);

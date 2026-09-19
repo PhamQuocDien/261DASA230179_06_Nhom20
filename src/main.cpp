@@ -224,6 +224,31 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
             return 1;
         }
     }
+    if (action == "addBookCopy") {
+        string bookCode = request.value("bookCode", "");
+        if (bookCode.empty()) {
+            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
+            return 1;
+        }
+        bool added = bookService.addBookCopy(bookCode);
+        if (!added) {
+            cout << json{ {"success", false}, {"error", "Khong the them BookCopy. Book khong ton tai hoac khong the them."} }.dump();
+            return 0;
+        }
+        bool saved = saveBooksToDatabase(database, data, bookRepository);
+        if (!saved) {
+            cout << json{ {"success", false}, {"error", "BookCopy da duoc them vao bo nho nhung khong the luu library.json."} }.dump();
+            return 1;
+        }
+        Book* updatedBook = bookService.getBookByCode(bookCode);
+        if (updatedBook == nullptr) {
+            cout << json{ {"success", false}, {"error", "Book da duoc cap nhat nhung khong the doc lai du lieu."} }.dump();
+            return 1;
+        }
+        json response = { {"success", true}, {"data", JsonMapper::bookToJson(*updatedBook)} };
+        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+        return 0;
+    }
     if (action == "deleteBook") {
         string bookCode = request.value("bookCode", "");
         string bookId = request.value("bookId", "");

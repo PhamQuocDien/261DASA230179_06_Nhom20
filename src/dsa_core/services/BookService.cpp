@@ -96,6 +96,38 @@ bool BookService::updateBook(const Book& book, int quantity) {
     }
     return repository.update(updatedBook);
 }
+bool BookService::addBookCopy(const string& bookCode) {
+    if (bookCode.empty()) {
+        return false;
+    }
+    Book* existingBook = repository.findByCode(bookCode);
+    if (existingBook == nullptr) {
+        return false;
+    }
+    int nextNumber = 1;
+    for (const BookCopy& bookCopy : existingBook->copies) {
+        if (bookCopy.bookId.rfind(bookCode, 0) == 0) {
+            string suffix = bookCopy.bookId.substr(bookCode.size());
+            if (!suffix.empty()) {
+                try {
+                    int number = stoi(suffix);
+                    if (number >= nextNumber) {
+                        nextNumber = number + 1;
+                    }
+                }
+                catch (...) {
+                }
+            }
+        }
+    }
+    ostringstream stream;
+    stream << bookCode << setw(3) << setfill('0') << nextNumber;
+    BookCopy bookCopy;
+    bookCopy.bookId = stream.str();
+    bookCopy.status = "available";
+    existingBook->copies.push_back(bookCopy);
+    return repository.update(*existingBook);
+}
 bool BookService::deleteBook(const string& bookCode) {
     if (bookCode.empty()) {
         return false;
