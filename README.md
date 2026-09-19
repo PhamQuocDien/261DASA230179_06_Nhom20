@@ -3,7 +3,98 @@
 Dự án này là một hệ thống quản lý thư viện được viết bằng C++, áp dụng kiến trúc phần mềm đa tầng (Multi-tier Architecture) và tích hợp các Cấu trúc dữ liệu & Thuật toán (DSA) tự cài đặt để tối ưu hóa hiệu suất truy vấn.
 
 Hệ thống hỗ trợ hai chế độ hoạt động: Giao diện dòng lệnh (Console Mode) dành cho người dùng cuối và Giao diện lập trình ứng dụng (API Mode) thông qua giao tiếp JSON.
+## 2. Cấu trúc project
 
+```text
+261DASA230179_06_Nhom20/
+│
+├── docs/
+│
+├── src/
+│   ├── index.php
+│   ├── main.cpp
+│   │
+│   ├── api/
+│   │   └── api.php
+│   │
+│   ├── presentation/
+│   │   ├── index.html
+│   │   ├── style.css
+│   │   ├── script.js
+│   │   │
+│   │   ├── components/
+│   │   │   ├── header.html
+│   │   │   ├── sidebar.html
+│   │   │   ├── home-tabs.html
+│   │   │   ├── all-books.html
+│   │   │   ├── trending-books.html
+│   │   │   ├── book-management.html
+│   │   │   ├── search-book.html
+│   │   │   ├── search-book-by-year.html
+│   │   │   ├── borrow-book.html
+│   │   │   ├── reservation.html
+│   │   │   ├── return-book.html
+│   │   │   ├── loan-slip.html
+│   │   │   └── fine.html
+│   │   │
+│   │   └── js/
+│   │       ├── componentLoader.js
+│   │       ├── navigation.js
+│   │       ├── api.js
+│   │       ├── book.js
+│   │       └── loanSlip.js
+│   │
+│   ├── dsa_core/
+│   │   ├── models/
+│   │   │   ├── Book.h
+│   │   │   ├── Member.h
+│   │   │   ├── Loan.h
+│   │   │   ├── Reservation.h
+│   │   │   └── Fine.h
+│   │   │
+│   │   ├── structures/
+│   │   │   ├── Node.h
+│   │   │   ├── DynamicArray.h
+│   │   │   ├── LinkedList.h
+│   │   │   └── HashTable.h
+│   │   │
+│   │   ├── algorithms/
+│   │   │   ├── Search/
+│   │   │   │   └── LinearSearch.h
+│   │   │   └── Sort/
+│   │   │       ├── MergeSort.h
+│   │   │       └── QuickSort.h
+│   │   │
+│   │   ├── repositories/
+│   │   │   ├── BookRepository.h
+│   │   │   ├── BookRepository.cpp
+│   │   │   ├── MemberRepository.h
+│   │   │   ├── MemberRepository.cpp
+│   │   │   ├── LoanRepository.h
+│   │   │   ├── LoanRepository.cpp
+│   │   │   ├── ReservationRepository.h
+│   │   │   └── FineRepository.h
+│   │   │
+│   │   └── services/
+│   │       ├── BookService.h
+│   │       ├── BookService.cpp
+│   │       ├── MemberService.h
+│   │       ├── LoanService.h
+│   │       ├── ReservationService.h
+│   │       ├── FineService.h
+│   │       └── LoanSlipService.h
+│   │
+│   └── persistence/
+│       ├── JsonDatabase.h
+│       ├── JsonDatabase.cpp
+│       ├── JsonMapper.h
+│       └── JsonMapper.cpp
+│
+├── data/
+│   └── library.json
+│
+├── README.md
+└── .gitignore
 ## 1. Cấu Trúc Thư Mục Và Giải Thích File
 
 Dự án được chia thành các module độc lập, đảm bảo tính đóng gói và dễ bảo trì.
