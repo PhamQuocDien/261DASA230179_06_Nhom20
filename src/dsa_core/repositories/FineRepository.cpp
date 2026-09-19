@@ -22,6 +22,25 @@ const Fine* FineRepository::findById(const std::string& fineId) const {
     }
     return nullptr;
 }
+
+Fine* FineRepository::findByLoanId(const std::string& loanId) {
+    for (Fine& fine : fines) {
+        if (fine.loanId == loanId) {
+            return &fine;
+        }
+    }
+    return nullptr;
+}
+
+const Fine* FineRepository::findByLoanId(const std::string& loanId) const {
+    for (const Fine& fine : fines) {
+        if (fine.loanId == loanId) {
+            return &fine;
+        }
+    }
+    return nullptr;
+}
+
 bool FineRepository::add(const Fine& fine) {
     if (findById(fine.fineId) != nullptr) {
         return false;
