@@ -1,747 +1,115 @@
-# 261DASA230179_06-
-Đồ án nhóm môn DSA (DASA230179) - Hệ thống Quản lý Thư viện.
-# 261DASA230179_06_Nhom20
-
-## 1. Giới thiệu
-
-Đây là repository của nhóm **261DASA230179_06_Nhom20** cho project hệ thống quản lý thư viện.
-
-Project được tổ chức theo hướng tách biệt:
-
-- **Presentation**: giao diện người dùng.
-- **API**: cầu nối giữa giao diện và phần xử lý phía sau.
-- **DSA Core**: mô hình dữ liệu, cấu trúc dữ liệu, thuật toán, repository và service.
-- **Persistence**: đọc/ghi dữ liệu.
-- **Data**: dữ liệu JSON của hệ thống.
-
----
-# Tổng Hợp Trạng Thái và Luồng Nghiệp Vụ
-
-## 1. Bảng Trạng Thái Thực Thể
-
-Dưới đây là danh sách các thực thể trong hệ thống và những trạng thái tương ứng:
-
-| Thực thể (Entity) | Trạng thái (Status) | Ghi chú |
-| :--- | :--- | :--- |
-| **BookCopy** | `AVAILABLE`, `BORROWED` | Trạng thái của từng cuốn sách vật lý. |
-| **Loan** | `BORROWING`, `RETURNED` | Trạng thái của một lượt mượn. |
-| **Reservation**| `WAITING` | Trạng thái đặt trước sách. |
-| **Fine** | `UNPAID`, `PAID` | Trạng thái nộp phạt. |
-| **Member** | `ACTIVE` | Trạng thái hoạt động của thành viên. |
-
----
-
-## 2. Giải Thích Luồng Nghiệp Vụ (Flow)
-
-### 📌 Luồng Mượn Sách (Borrow)
-Khi một thành viên mượn sách thành công, các trạng thái sẽ thay đổi như sau:
-* **BookCopy:** `AVAILABLE` ➔ `BORROWED`
-* **Loan:** (Tạo mới) ➔ `BORROWING`
-
-### 📌 Luồng Trả Sách (Return)
-Khi thành viên đem sách đến trả, hệ thống cập nhật:
-* **BookCopy:** `BORROWED` ➔ `AVAILABLE`
-* **Loan:** `BORROWING` ➔ `RETURNED`
-
----
-
-## 3. Quy Tắc Đặc Biệt (Business Rules)
-
-Theo quy tắc đã chốt dành cho Service quản lý phiếu mượn:
-
-**Đối với `LoanSlipService`:**
-* 🟢 **CHỈ hiển thị** các Loan đang có `status = BORROWING`.
-* 🔴 **KHÔNG hiển thị** các Loan đã có `status = RETURNED`.
-## 2. Cấu trúc project
-
-```text
-261DASA230179_06_Nhom20/
-│
-├── docs/
-│
-├── src/
-│   ├── main.cpp
-│   │
-│   ├── presentation/
-│   │   ├── index.html
-│   │   ├── style.css
-│   │   └── script.js
-│   │
-│   ├── api/
-│   │   └── api.php
-│   │
-│   ├── dsa_core/
-│   │   ├── models/
-│   │   │   ├── Book.h
-│   │   │   ├── Member.h
-│   │   │   ├── Loan.h
-│   │   │   ├── Reservation.h
-│   │   │   └── Fine.h
-│   │   │
-│   │   ├── structures/
-│   │   │   ├── Node.h
-│   │   │   ├── DynamicArray.h
-│   │   │   ├── LinkedList.h
-│   │   │   └── HashTable.h
-│   │   │
-│   │   ├── algorithms/
-│   │   │   ├── Search/
-│   │   │   │   └── LinearSearch.h
-│   │   │   └── Sort/
-│   │   │       ├── MergeSort.h
-│   │   │       └── QuickSort.h
-│   │   │
-│   │   ├── repositories/
-│   │   │   ├── BookRepository.h
-│   │   │   ├── MemberRepository.h
-│   │   │   ├── LoanRepository.h
-│   │   │   ├── ReservationRepository.h
-│   │   │   └── FineRepository.h
-│   │   │
-│   │   └── services/
-│   │       ├── BookService.h
-│   │       ├── MemberService.h
-│   │       ├── LoanService.h
-│   │       ├── ReservationService.h
-│   │       ├── FineService.h
-│   │       └── LoanSlipService.h
-│   │
-│   └── persistence/
-│       ├── JsonDatabase.h
-│       └── JsonDatabase.cpp
-│
-├── data/
-│   └── library.json
-│
-├── README.md
-└── .gitignore
-```
-
----
-
----
-
-# 2. Giải thích từng file
-
-## A. `docs/`
-
-**Chứa:**
-- D2, D3, D4.
-- Tài liệu yêu cầu.
-- Sơ đồ.
-- Tài liệu thiết kế.
-- Hình ảnh minh họa.
-
-**Làm:**
-- Lưu tài liệu của project.
-
----
-
-# 3. `src/main.cpp`
-
-**Chứa:**
-- Hàm `main()`.
-- Khởi tạo chương trình.
-- Khởi tạo các thành phần cần thiết.
-
-**Làm:**
-- Điểm bắt đầu của chương trình C++.
-- Điều phối việc khởi chạy hệ thống.
-
-**Không làm:**
-- Không chứa toàn bộ CRUD.
-- Không chứa toàn bộ DSA.
-- Không xử lý giao diện.
-
----
-
-# 4. `src/presentation/`
-
-Phần giao diện người dùng.
-
-## `index.html`
-
-**Chứa:**
-- Form.
-- Button.
-- Table.
-- Khu vực hiển thị sách.
-- Khu vực hiển thị thành viên.
-- Khu vực hiển thị phiếu mượn.
-
-**Làm:**
-- Tạo giao diện mà người dùng nhìn thấy và thao tác.
-
-## `style.css`
-
-**Chứa:**
-- CSS.
-- Layout.
-- Font.
-- Màu sắc.
-- Button.
-- Table.
-- Form.
-
-**Làm:**
-- Trang trí và bố trí giao diện.
-
-## `script.js`
-
-**Chứa:**
-- JavaScript.
-- Event.
-- Hàm lấy dữ liệu từ form.
-- Hàm gọi API.
-- Hàm nhận kết quả.
-
-**Làm:**
-
-```text
-Người dùng bấm nút
-        ↓
-script.js lấy dữ liệu
-        ↓
-gọi api.php
-        ↓
-nhận kết quả
-        ↓
-cập nhật index.html
-```
-
-**Không làm:**
-- Không triển khai HashTable.
-- Không triển khai MergeSort.
-- Không chứa business logic chính.
-
----
-
-# 5. `src/api/api.php`
-
-**Chứa:**
-- Các API/action.
-- Nhận request.
-- Kiểm tra input.
-- Gọi Service.
-- Trả kết quả.
-
-**Làm:**
-- Là cầu nối giữa giao diện và DSA Core.
-
-Ví dụ action:
-
-```text
-listBooks
-getBook
-addBook
-updateBook
-deleteBook
-listLoans
-getLoanSlip
-```
-
-**Không làm:**
-- Không chứa HashTable.
-- Không chứa MergeSort.
-- Không chứa toàn bộ business logic.
-
----
-
-# 6. `src/dsa_core/models/`
-
-## `Book.h`
-
-**Chứa:**
-```text
-bookId
-title
-author
-category
-year
-quantity
-availableQuantity
-```
-
-**Làm:**
-- Định nghĩa kiểu dữ liệu `Book`.
-
-## `Member.h`
-
-**Chứa:**
-```text
-memberId
-name
-email
-phone
-```
-
-**Làm:**
-- Định nghĩa kiểu dữ liệu `Member`.
-
-## `Loan.h`
-
-**Chứa:**
-```text
-loanId
-memberId
-bookId
-borrowDate
-dueDate
-returnDate
-status
-```
-
-**Làm:**
-- Định nghĩa dữ liệu một lượt/phiếu mượn.
-
-## `Reservation.h`
-
-**Chứa:**
-```text
-reservationId
-memberId
-bookId
-reservationDate
-status
-```
-
-**Làm:**
-- Định nghĩa dữ liệu đặt trước sách.
-
-## `Fine.h`
-
-**Chứa:**
-```text
-fineId
-loanId
-memberId
-amount
-reason
-status
-```
-
-**Làm:**
-- Định nghĩa dữ liệu tiền phạt.
-
----
-
-# 7. `src/dsa_core/structures/`
-
-## `Node.h`
-
-**Chứa:**
-- `Node<T>`.
-- `data`.
-- `next`.
-
-**Làm:**
-- Node cơ bản cho Linked List và cấu trúc dựa trên Node.
-
-## `DynamicArray.h`
+# Hệ Thống Quản Lý Thư Viện (Library Management System)
 
-**Chứa:**
-- Mảng động.
-- Bộ nhớ.
-- Kích thước.
-- Số lượng phần tử.
+Dự án này là một hệ thống quản lý thư viện được viết bằng C++, áp dụng kiến trúc phần mềm đa tầng (Multi-tier Architecture) và tích hợp các Cấu trúc dữ liệu & Thuật toán (DSA) tự cài đặt để tối ưu hóa hiệu suất truy vấn.
 
-**Làm:**
-- `add()`
-- `remove()`
-- `get()`
-- `set()`
-- `resize()`
-- `size()`
+Hệ thống hỗ trợ hai chế độ hoạt động: Giao diện dòng lệnh (Console Mode) dành cho người dùng cuối và Giao diện lập trình ứng dụng (API Mode) thông qua giao tiếp JSON.
 
-Có thể dùng cho:
+## 1. Cấu Trúc Thư Mục Và Giải Thích File
 
-```text
-DynamicArray<Book>
-DynamicArray<Member>
-DynamicArray<Loan>
-```
-
-## `LinkedList.h`
+Dự án được chia thành các module độc lập, đảm bảo tính đóng gói và dễ bảo trì.
 
-**Chứa:**
-- Linked List.
-- Node.
-- Head/tail nếu cần.
+### 1.1. Tầng Dữ Liệu Lưu Trữ (Persistence Layer)
 
-**Làm:**
-- `insert()`
-- `remove()`
-- `find()`
-- `traverse()`
+Tầng này chịu trách nhiệm giao tiếp với hệ thống file, chuyển đổi qua lại giữa Object trong C++ và định dạng JSON.
 
-Chỉ dùng khi requirement cần Linked List.
+| **Tên File**         | **Chức Năng Cốt Lõi**                                                                                                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `JsonDatabase.h/cpp` | Cung cấp cơ chế đọc/ghi file `library.json` an toàn thông qua khối `try-catch`. Đóng vai trò như một Database Engine thao tác trực tiếp lên ổ đĩa.                                       |
+| `JsonMapper.h/cpp`   | Lớp chuyển đổi (Serialization/Deserialization). Chứa các hàm ánh xạ dữ liệu từ Cấu trúc C++ (như `Book`, `Member`, `Loan`) sang JSON (để lưu trữ/trả API) và ngược lại (để nạp vào RAM). |
 
-## `HashTable.h`
+### 1.2. Tầng Cấu Trúc Dữ Liệu Cốt Lõi (DSA Core)
 
-**Chứa:**
-- Hash function.
-- Bucket.
-- Key/value.
-- Xử lý collision.
-- Các thao tác Hash Table.
+Nơi chứa các cấu trúc dữ liệu nền tảng tự xây dựng để phục vụ cho các logic nghiệp vụ phức tạp.
 
-**Làm:**
-- `insert(key, value)`
-- `find(key)`
-- `remove(key)`
-- `contains(key)`
+| **Tên File**  | **Chức Năng Cốt Lõi**                                                                                                                                                                                                             |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `HashTable.h` | Cấu trúc Bảng băm (Hash Table) sử dụng kỹ thuật Chaining (mảng các danh sách liên kết) để giải quyết đụng độ (collision). Hỗ trợ các thao tác `insert`, `find`, `remove`, `contains` với độ phức tạp thời gian trung bình $O(1)$. |
 
-Ví dụ:
+### 1.3. Tầng Lớp Thực Thể (Models)
 
-```text
-"B001" → Book
-"M001" → Member
-"L001" → Loan
-```
+Định nghĩa các khuôn mẫu dữ liệu (Data Objects) phản ánh thực tế trong thư viện.
 
-**Lưu ý:** Nếu `find()` đã thực hiện tra cứu bằng hash thì không cần tạo `HashSearch.h` riêng chỉ để tách file.
+*(Ghi chú: Nội dung file dựa trên các hàm* *`JsonMapper`* *và Service)*
 
----
+| **Tên File**    | **Chức Năng Cốt Lõi**                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `Book.h`        | Quản lý thông tin đầu sách (Mã sách, tên, tác giả) và danh sách các cuốn sách vật lý (Book Copies) thuộc đầu sách đó. |
+| `Member.h`      | Thông tin người dùng thư viện (Mã, tên, email, sđt, trạng thái thẻ).                                                  |
+| `Loan.h`        | Lưu trữ thông tin một phiên mượn sách cơ bản (Ngày mượn, hạn trả, ngày trả thực tế, trạng thái).                      |
+| `Reservation.h` | Lưu trữ lịch sử/thông tin đặt trước sách của thành viên.                                                              |
+| `Fine.h`        | Lưu trữ thông tin phạt (do trễ hạn, làm hỏng sách).                                                                   |
 
-# 8. `src/dsa_core/algorithms/`
+### 1.4. Tầng Kho Dữ Liệu (Repositories)
 
-## `Search/LinearSearch.h`
+Tầng này đóng vai trò như bộ nhớ đệm (In-memory Database). Khi chương trình khởi chạy, toàn bộ dữ liệu từ JSON được nạp vào đây.
 
-**Chứa:**
-- Thuật toán Linear Search.
+| **Tên File**                  | **Chức Năng Cốt Lõi**                                                                                       |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `BookRepository.h/cpp`        | Cung cấp các thao tác CRUD (Thêm, Sửa, Xóa, Lấy danh sách, Tìm theo ID) trực tiếp trên mảng vector `books`. |
+| `MemberRepository.h/cpp`      | Cung cấp các thao tác CRUD trên mảng vector `members`.                                                      |
+| `LoanRepository.h/cpp`        | Cung cấp các thao tác CRUD trên mảng vector `loans`.                                                        |
+| `ReservationRepository.h/cpp` | Cung cấp các thao tác CRUD trên mảng vector `reservations`.                                                 |
+| `FineRepository.h/cpp`        | Cung cấp các thao tác CRUD trên mảng vector `fines`.                                                        |
 
-**Làm:**
-- Duyệt tuần tự dữ liệu để tìm phần tử.
+### 1.5. Tầng Dịch Vụ Nghiệp Vụ (Services)
 
-## `Sort/MergeSort.h`
+Nơi chứa toàn bộ Logic tính toán, liên kết nhiều bảng và xử lý quy trình kinh doanh của thư viện.
 
-**Chứa:**
-- Thuật toán Merge Sort.
+| **Tên File**            | **Chức Năng Cốt Lõi**                                                                                                                                                                                                                                                                       |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BookService.h/cpp`     | Xử lý logic nghiệp vụ về Sách. Nổi bật nhất là hàm `addBook`: Khi nhận yêu cầu thêm 1 đầu sách mới cùng số lượng (VD: 5 cuốn), Service sẽ tự động sinh ra 5 ID sách vật lý riêng biệt (hậu tố `001` đến `005`) trước khi đưa xuống Repository để lưu.                                       |
+| `LoanSlipService.h/cpp` | Dịch vụ tổng hợp Phiếu Mượn. File này kết nối dữ liệu từ 3 Repository (Loan, Member, Book) để tạo ra `LoanSlip` hoàn chỉnh (chứa đầy đủ tên người mượn, tên sách). Đồng thời, **áp dụng HashTable** để lập chỉ mục (Index) các khoản mượn theo `Member_ID`, giúp tốc độ truy vấn cực nhanh. |
+| `MergeSort.h`           | Chứa thuật toán sắp xếp. Cụ thể là hàm `sortBooksByYear` dùng để sắp xếp danh sách các cuốn sách theo năm xuất bản.                                                                                                                                                                         |
 
-**Làm:**
-- Sắp xếp dữ liệu theo tiêu chí như năm, tên sách hoặc ngày mượn.
+### 1.6. File Khởi Chạy (Entry Point)
 
-## `Sort/QuickSort.h`
+| **Tên File** | **Chức Năng Cốt Lõi**                                                                                                                                                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `main.cpp`   | Trái tim của ứng dụng. Khởi tạo Database, load dữ liệu nạp vào Repository, khởi tạo các Service. Phân luồng chạy chương trình thành 2 chế độ: API (nhận JSON/trả JSON qua luồng I/O) hoặc Console (Giao diện CLI tương tác trực tiếp). |
 
-**Chứa:**
-- Thuật toán Quick Sort.
+## 2. Giải Thích Luồng Nghiệp Vụ Chi Tiết
 
-**Làm:**
-- Sắp xếp dữ liệu khi requirement phù hợp.
+Hệ thống không thao tác dữ liệu một cách trực tiếp mà tuân thủ luồng quy trình nghiêm ngặt: **Request -> Controller (main) -> Service -> Repository -> Persistence**.
 
-**Lưu ý:** Không dùng thuật toán chỉ để “cho đủ DSA”.
+### 2.1. Nghiệp Vụ Quản Lý Sách (Book Service Logic)
 
----
+1. **Thêm Sách Mới (****`createBook`****):**
+   - Hệ thống không chỉ lưu thông tin chung (Title, Author) mà còn yêu cầu nhập `quantity` (số lượng cuốn vật lý).
+   - `BookService` tự động lặp vòng `for` để sinh mã ID duy nhất cho từng cuốn sách (ví dụ mã đầu sách là `B01`, sinh ra 3 cuốn sẽ có ID: `B01001`, `B01002`, `B01003`).
+   - Sau khi lưu vào biến RAM (`BookRepository`), hệ thống gọi ngay `JsonDatabase` để cập nhật xuống file cứng `library.json`. Đảm bảo dữ liệu không bị mất khi tắt app.
 
-# 9. `src/dsa_core/repositories/`
+### 2.2. Nghiệp Vụ Phiếu Mượn Và Tối Ưu Hóa (Loan Slip Service Logic)
 
-Repository quản lý và truy xuất dữ liệu trong DSA Core.
+Đây là nghiệp vụ phức tạp nhất nhằm giải quyết bài toán: *"Làm sao để tìm kiếm toàn bộ lịch sử mượn sách của một người dùng cụ thể với tốc độ nhanh nhất?"*
 
-## `BookRepository.h`
+1. **Lập chỉ mục bằng Bảng băm (Hash Table):**
+   - Thay vì mỗi lần tìm kiếm phải quét toàn bộ danh sách hàng ngàn lượt mượn (độ phức tạp $O(n)$), `LoanSlipService` khởi tạo một Bảng băm `memberLoanIndex`.
+   - Bảng băm này map `Member_ID` (Khóa - Key) với một `vector<string>` chứa danh sách các `Loan_ID` (Giá trị - Value).
+   - Việc lập chỉ mục diễn ra một lần duy nhất lúc khởi động (`buildMemberLoanIndex()`).
+2. **Truy xuất Phiếu Mượn (Loan Slip):**
+   - Khi có yêu cầu tra cứu từ người dùng, hệ thống truyền `memberId` vào Hash Table. Ngay lập tức ($O(1)$), hệ thống lấy được danh sách `Loan_ID`.
+   - Từ các `Loan_ID` này, hàm `createLoanSlip()` sẽ đi gom thông tin Tên sách (từ `BookRepository`) và Tên người dùng (từ `MemberRepository`) để đúc thành một Phiếu mượn `LoanSlip` hoàn chỉnh mang ý nghĩa thực tế để hiển thị ra màn hình hoặc trả về JSON.
+   - Các phiếu mượn được sắp xếp theo thời gian (`borrowDate`) tăng dần trước khi trả về.
 
-**Chứa:**
-- Tập dữ liệu Book.
-- Các thao tác dữ liệu Book.
+### 2.3. Hai Chế Độ Hoạt Động Của Hệ Thống
 
-**Làm:**
-- `add()`
-- `findById()`
-- `update()`
-- `remove()`
-- `getAll()`
+Chương trình được thiết kế linh hoạt cho hai môi trường:
 
-Luồng:
-
-```text
-BookService
-    ↓
-BookRepository
-    ↓
-HashTable / DynamicArray
-```
-
-## `MemberRepository.h`
-
-**Chứa:** dữ liệu Member.
-
-**Làm:** thêm, tìm, sửa, xóa và lấy danh sách Member.
-
-## `LoanRepository.h`
-
-**Chứa:** dữ liệu Loan.
-
-**Làm:** thêm, tìm, sửa, xóa và lấy danh sách Loan.
-
-## `ReservationRepository.h`
-
-**Chứa:** dữ liệu Reservation.
-
-**Làm:** thêm, tìm, sửa, xóa và lấy danh sách Reservation.
-
-## `FineRepository.h`
-
-**Chứa:** dữ liệu Fine.
-
-**Làm:** thêm, tìm, cập nhật, xóa và lấy danh sách Fine.
-
----
-
-# 10. `src/dsa_core/services/`
-
-Service xử lý nghiệp vụ.
-
-## `BookService.h`
-
-**Chứa:** logic nghiệp vụ Book.
-
-**Làm:**
-- Thêm sách.
-- Tìm sách.
-- Sửa sách.
-- Xóa sách.
-- Liệt kê sách.
-- Tìm kiếm/sắp xếp khi cần.
-
-Luồng:
-
-```text
-API
- ↓
-BookService
- ↓
-BookRepository
- ↓
-DSA
-```
-
-## `MemberService.h`
-
-**Chứa:** logic nghiệp vụ Member.
-
-**Làm:** thêm, tìm, sửa, xóa và liệt kê Member.
-
-## `LoanService.h`
-
-**Chứa:** logic nghiệp vụ mượn/trả.
-
-**Làm:**
-- Tạo lượt mượn.
-- Kiểm tra điều kiện mượn.
-- Trả sách.
-- Cập nhật trạng thái.
-- Gia hạn nếu có requirement.
-
-## `ReservationService.h`
-
-**Chứa:** logic nghiệp vụ Reservation.
-
-**Làm:** đặt trước, hủy đặt, kiểm tra trạng thái và xử lý quy tắc đặt trước.
-
-## `FineService.h`
-
-**Chứa:** logic nghiệp vụ Fine.
-
-**Làm:** tính phạt, lấy thông tin phạt và cập nhật trạng thái.
-
-## `LoanSlipService.h`
-
-**Chứa:** logic chuẩn bị dữ liệu cho phiếu mượn.
-
-**Kết hợp:**
-
-```text
-Member
-+
-Loan
-+
-Book
-```
-
-**Làm:** chuẩn bị dữ liệu:
-
-```text
-Loan ID
-Member ID / Name
-Book ID / Title
-Borrow Date
-Due Date
-Return Date
-Status
-```
-
-Luồng:
-
-```text
-LoanSlipService
-       ↓
-Dữ liệu phiếu mượn
-       ↓
-API
-       ↓
-Presentation
-```
-
----
-
-# 11. `src/persistence/`
-
-## `JsonDatabase.h`
-
-**Chứa:**
-- Khai báo các hàm đọc/ghi JSON.
-
-Ví dụ:
-
-```cpp
-load()
-save()
-```
-
-**Làm:**
-- Định nghĩa interface của tầng Persistence.
-
-## `JsonDatabase.cpp`
-
-**Chứa:**
-- Phần cài đặt `JsonDatabase.h`.
-
-**Làm:**
-- Đọc `data/library.json`.
-- Chuyển JSON thành dữ liệu chương trình.
-- Ghi dữ liệu chương trình ra JSON.
-
-Luồng:
-
-```text
-library.json
-     ↕
-JsonDatabase
-     ↕
-RAM
-```
-
----
-
-# 12. `data/library.json`
-
-**Chứa:** dữ liệu thực tế của hệ thống thư viện.
-
-Ví dụ:
-
-```json
-{
-  "books": [],
-  "members": [],
-  "loans": [],
-  "reservations": [],
-  "fines": []
-}
-```
-
-**Làm:**
-- Lưu dữ liệu lâu dài của hệ thống.
-
----
-
-# 13. `README.md`
-
-**Chứa:**
-- Giới thiệu project.
-- Cấu trúc thư mục.
-- Vai trò từng file.
-- Kiến trúc.
-- Hướng dẫn chạy nếu cần.
-
-**Làm:**
-- Giúp thành viên và người chấm hiểu project nhanh.
-
----
-
-# 14. `.gitignore`
-
-**Chứa:** các file/thư mục không cần đưa lên Git.
-
-Ví dụ:
-
-```gitignore
-.vs/
-build/
-bin/
-obj/
-*.exe
-*.o
-*.obj
-*.log
-```
-
-**Làm:**
-- Giữ repository sạch.
-- Không commit file build hoặc file tạm.
-
----
-
-# 15. Luồng hệ thống
-
-```text
-USER
- ↓
-presentation/index.html
- ↓
-presentation/script.js
- ↓
-api/api.php
- ↓
-dsa_core/services/
- ↓
-dsa_core/repositories/
- ↓
-dsa_core/structures/
-      +
-dsa_core/algorithms/
- ↓
-RAM
- ↕
-persistence/JsonDatabase
- ↕
-data/library.json
-```
-
-## Ghi nhớ
-
-```text
-models
-→ Dữ liệu là gì?
-
-structures
-→ Dữ liệu được tổ chức thế nào?
-
-algorithms
-→ Tìm kiếm / sắp xếp thế nào?
-
-repositories
-→ Quản lý dữ liệu thế nào?
-
-services
-→ Nghiệp vụ hoạt động thế nào?
-
-api
-→ Web giao tiếp với Core thế nào?
-
-presentation
-→ Người dùng nhìn và thao tác thế nào?
-
-persistence
-→ Dữ liệu được lưu/đọc thế nào?
-
-library.json
-→ Dữ liệu được lưu ở đâu?
-```
-
-# 16. Nguyên tắc
-
-- Mỗi file có một trách nhiệm chính.
-- Không đưa DSA vào Presentation.
-- `api.php` chỉ làm cầu nối.
-- `repositories` và `persistence` tách riêng.
-- Chỉ sử dụng cấu trúc dữ liệu/thuật toán khi có requirement thực tế.
-- Không tạo file chỉ để làm project nhiều file hơn.
+| **Đặc điểm**          | **Giao Diện Dòng Lệnh (Console Mode)**                   | **Giao Diện API (API Mode)**                          |
+| --------------------- | -------------------------------------------------------- | ----------------------------------------------------- |
+| **Cách kích hoạt**    | Chạy file thực thi trực tiếp (VD: `./library`)           | Chạy với tham số `--api` (VD: `./library --api`)      |
+| **Giao tiếp đầu vào** | Người dùng gõ trực tiếp từ bàn phím                      | Hệ thống khác gửi chuỗi JSON thô qua `stdin`          |
+| **Đầu ra hiển thị**   | Các đoạn văn bản có khung viền đẹp mắt (Phieu Muon Sach) | Chuỗi JSON chuẩn hóa qua `stdout`                     |
+| **Mục đích sử dụng**  | Nhân viên thư viện dùng trực tiếp                        | Dùng làm Backend Core kết nối với Frontend Web/Mobile |
+
+## 3. Tổng Hợp Các Chức Năng Chính (API Endpoints)
+
+Nếu hệ thống chạy ở chế độ API, nó xử lý các `action` sau từ cục JSON request:
+
+1. **`getBooks`**: Lấy toàn bộ kho sách của thư viện.
+2. **`getBook`**: Tìm và trả về chi tiết một đầu sách kèm các mã cuốn vật lý.
+3. **`createBook`**: Nhập đầu sách mới và khởi tạo số lượng cuốn vật lý.
+4. **`updateBook`**: Cập nhật thông tin tiêu đề, tác giả... của đầu sách đang có.
+5. **`deleteBook`**: Xóa hoàn toàn một đầu sách khỏi cơ sở dữ liệu.
+6. **`getLoanSlipsByMember`**: Trích xuất lịch sử mượn sách (các phiếu mượn) của một thành viên bất kỳ.
+7. **`getLoanSlipByLoanId`**: In chi tiết nội dung của một mã phiếu mượn cụ thể.
