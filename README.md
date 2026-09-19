@@ -120,7 +120,7 @@ Nơi chứa các cấu trúc dữ liệu nền tảng tự xây dựng để ph�
 
 Định nghĩa các khuôn mẫu dữ liệu (Data Objects) phản ánh thực tế trong thư viện.
 
-*(Ghi chú: Nội dung file dựa trên các hàm* *`JsonMapper`* *và Service)*
+*(Ghi chú: Nội dung file dựa trên các hàm`JsonMapper`và Service)*
 
 | **Tên File**    | **Chức Năng Cốt Lõi**                                                                                                 |
 | --------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -164,7 +164,7 @@ Hệ thống không thao tác dữ liệu một cách trực tiếp mà tuân th
 
 ### 2.1. Nghiệp Vụ Quản Lý Sách (Book Service Logic)
 
-1. **Thêm Sách Mới (****`createBook`****):**
+1. **Thêm Sách Mới (`createBook`):**
    - Hệ thống không chỉ lưu thông tin chung (Title, Author) mà còn yêu cầu nhập `quantity` (số lượng cuốn vật lý).
    - `BookService` tự động lặp vòng `for` để sinh mã ID duy nhất cho từng cuốn sách (ví dụ mã đầu sách là `B01`, sinh ra 3 cuốn sẽ có ID: `B01001`, `B01002`, `B01003`).
    - Sau khi lưu vào biến RAM (`BookRepository`), hệ thống gọi ngay `JsonDatabase` để cập nhật xuống file cứng `library.json`. Đảm bảo dữ liệu không bị mất khi tắt app.
@@ -199,7 +199,7 @@ Nếu hệ thống chạy ở chế độ API, nó xử lý các `action` sau t�
 
 1. **`getBooks`**: Lấy toàn bộ kho sách của thư viện.
 2. **`getBook`**: Tìm và trả về chi tiết một đầu sách kèm các mã cuốn vật lý.
-3. **`createBook`**: Nhập đầu sách mới và khởi tạo số lượng cuốn vật lý.
+3. `createBook`: Nhập đầu sách mới và khởi tạo số lượng cuốn vật lý.
 4. **`updateBook`**: Cập nhật thông tin tiêu đề, tác giả... của đầu sách đang có.
 5. **`deleteBook`**: Xóa hoàn toàn một đầu sách khỏi cơ sở dữ liệu.
 6. **`getLoanSlipsByMember`**: Trích xuất lịch sử mượn sách (các phiếu mượn) của một thành viên bất kỳ.
