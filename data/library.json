@@ -565,323 +565,328 @@
             "year": 1999
         }
     ],
-   "fines": [
-        {
-            "amount": 10000,
-            "fineId": "F001",
-            "loanId": "L015",
-            "memberId": "M003",
-            "reason": "Trả sách trễ 1 ngày (10.000đ/ngày)",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 20000,
-            "fineId": "F002",
-            "loanId": "L016",
-            "memberId": "M004",
-            "reason": "Trả sách trễ 2 ngày (10.000đ/ngày)",
-            "status": "PAID"
-        },
-        {
-            "amount": 30000,
-            "fineId": "F003",
-            "loanId": "L001",
-            "memberId": "M001",
-            "reason": "Trả sách trễ 3 ngày",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 25000,
-            "fineId": "F004",
-            "loanId": "L002",
-            "memberId": "M002",
-            "reason": "Làm rách trang sách (hư hỏng nhẹ)",
-            "status": "PAID"
-        },
-        {
-            "amount": 50000,
-            "fineId": "F005",
-            "loanId": "L003",
-            "memberId": "M003",
-            "reason": "Làm ướt và bong gáy bìa sách",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 10000,
-            "fineId": "F006",
-            "loanId": "L004",
-            "memberId": "M004",
-            "reason": "Trả sách trễ 1 ngày",
-            "status": "PAID"
-        },
-        {
-            "amount": 120000,
-            "fineId": "F007",
-            "loanId": "L005",
-            "memberId": "M001",
-            "reason": "Làm mất sách - bồi thường 100% giá trị sách",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 40000,
-            "fineId": "F008",
-            "loanId": "L006",
-            "memberId": "M002",
-            "reason": "Trả trễ 2 ngày (20.000đ) + Viết bẩn lên sách (20.000đ)",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 15000,
-            "fineId": "F009",
-            "loanId": "L007",
-            "memberId": "M003",
-            "reason": "Làm rách bìa bao ngoài",
-            "status": "PAID"
-        },
-        {
-            "amount": 70000,
-            "fineId": "F010",
-            "loanId": "L008",
-            "memberId": "M004",
-            "reason": "Trả trễ 5 ngày (50.000đ) + Hư hại nhẹ (20.000đ)",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 20000,
-            "fineId": "F011",
-            "loanId": "L009",
-            "memberId": "M001",
-            "reason": "Trả sách trễ 2 ngày",
-            "status": "PAID"
-        },
-        {
-            "amount": 95000,
-            "fineId": "F012",
-            "loanId": "L010",
-            "memberId": "M002",
-            "reason": "Làm mất sách Kỹ thuật lập trình (KTLT005)",
-            "status": "UNPAID"
-        }
-    ],
-    "loans": [
-        {
-            "bookId": "LSVN002",
-            "borrowDate": "2026-09-10",
-            "dueDate": "2026-09-24",
-            "loanId": "L001",
-            "memberId": "M001",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "LSVN004",
-            "borrowDate": "2026-09-11",
-            "dueDate": "2026-09-25",
-            "loanId": "L002",
-            "memberId": "M002",
-            "renewalCount": 1,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "LSVN007",
-            "borrowDate": "2026-09-08",
-            "dueDate": "2026-09-22",
-            "loanId": "L003",
-            "memberId": "M003",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "LSVN010",
-            "borrowDate": "2026-09-09",
-            "dueDate": "2026-09-23",
-            "loanId": "L004",
-            "memberId": "M004",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "DTVN003",
-            "borrowDate": "2026-09-10",
-            "dueDate": "2026-09-24",
-            "loanId": "L005",
-            "memberId": "M001",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "DTVN005",
-            "borrowDate": "2026-09-11",
-            "dueDate": "2026-09-25",
-            "loanId": "L006",
-            "memberId": "M002",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "DTVN008",
-            "borrowDate": "2026-09-12",
-            "dueDate": "2026-09-26",
-            "loanId": "L007",
-            "memberId": "M003",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "TCC001",
-            "borrowDate": "2026-09-08",
-            "dueDate": "2026-09-22",
-            "loanId": "L008",
-            "memberId": "M004",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "TCC004",
-            "borrowDate": "2026-09-09",
-            "dueDate": "2026-09-23",
-            "loanId": "L009",
-            "memberId": "M001",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "TCC008",
-            "borrowDate": "2026-09-10",
-            "dueDate": "2026-09-24",
-            "loanId": "L010",
-            "memberId": "M002",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "KTLT002",
-            "borrowDate": "2026-09-11",
-            "dueDate": "2026-09-25",
-            "loanId": "L011",
-            "memberId": "M003",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "KTLT005",
-            "borrowDate": "2026-09-12",
-            "dueDate": "2026-09-26",
-            "loanId": "L012",
-            "memberId": "M004",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "KTLT007",
-            "borrowDate": "2026-09-13",
-            "dueDate": "2026-09-27",
-            "loanId": "L013",
-            "memberId": "M001",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "KTLT010",
-            "borrowDate": "2026-09-14",
-            "dueDate": "2026-09-28",
-            "loanId": "L014",
-            "memberId": "M002",
-            "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
-        },
-        {
-            "bookId": "DTVN001",
-            "borrowDate": "2026-08-20",
-            "dueDate": "2026-09-03",
-            "loanId": "L015",
-            "memberId": "M003",
-            "renewalCount": 0,
-            "returnDate": "2026-09-02",
-            "status": "RETURNED"
-        },
-        {
-            "bookId": "TCC002",
-            "borrowDate": "2026-08-22",
-            "dueDate": "2026-09-05",
-            "loanId": "L016",
-            "memberId": "M004",
-            "renewalCount": 0,
-            "returnDate": "2026-09-04",
-            "status": "RETURNED"
-        }
-    ],
-    "members": [
-        {
-            "email": "an@gmail.com",
-            "memberId": "M001",
-            "name": "Nguyen Van An",
-            "phone": "0900000001",
-            "status": "ACTIVE"
-        },
-        {
-            "email": "binh@gmail.com",
-            "memberId": "M002",
-            "name": "Tran Van Binh",
-            "phone": "0900000002",
-            "status": "ACTIVE"
-        },
-        {
-            "email": "chi@gmail.com",
-            "memberId": "M003",
-            "name": "Le Thi Chi",
-            "phone": "0900000003",
-            "status": "ACTIVE"
-        },
-        {
-            "email": "dung@gmail.com",
-            "memberId": "M004",
-            "name": "Pham Van Dung",
-            "phone": "0900000004",
-            "status": "ACTIVE"
-        }
-    ],
-    "reservations": [
-        {
-            "bookCode": "LSVN",
-            "memberId": "M003",
-            "reservationDate": "2026-09-15",
-            "reservationId": "R001",
-            "status": "WAITING"
-        },
-        {
-            "bookCode": "DTVN",
-            "memberId": "M004",
-            "reservationDate": "2026-09-15",
-            "reservationId": "R002",
-            "status": "WAITING"
-        },
-        {
-            "bookCode": "TCC",
-            "memberId": "M001",
-            "reservationDate": "2026-09-14",
-            "reservationId": "R003",
-            "status": "WAITING"
-        },
-        {
-            "bookCode": "KTLT",
-            "memberId": "M002",
-            "reservationDate": "2026-09-13",
-            "reservationId": "R004",
+    "fines": [
+    {
+      "amount": 10000,
+      "fineId": "F001",
+      "loanId": "L015",
+      "memberId": "M003",
+      "reason": "Trả sách trễ 1 ngày (10.000đ/ngày)",
+      "status": "UNPAID"
+    },
+    {
+      "amount": 20000,
+      "fineId": "F002",
+      "loanId": "L016",
+      "memberId": "M004",
+      "reason": "Trả sách trễ 2 ngày (10.000đ/ngày)",
+      "status": "PAID"
+    },
+    {
+      "amount": 30000,
+      "fineId": "F003",
+      "loanId": "L001",
+      "memberId": "M001",
+      "reason": "Trả sách trễ 3 ngày (10.000đ/ngày)",
+      "status": "UNPAID"
+    },
+    {
+      "amount": 20000,
+      "fineId": "F004",
+      "loanId": "L002",
+      "memberId": "M002",
+      "reason": "Hư hỏng nhẹ (+20.000đ)",
+      "status": "PAID"
+    },
+    {
+      "amount": 100000,
+      "fineId": "F005",
+      "loanId": "L003",
+      "memberId": "M003",
+      "reason": "Hư hỏng nặng (+100.000đ)",
+      "status": "UNPAID"
+    },
+    {
+      "amount": 10000,
+      "fineId": "F006",
+      "loanId": "L004",
+      "memberId": "M004",
+      "reason": "Trả sách trễ 1 ngày (10.000đ/ngày)",
+      "status": "PAID"
+    },
+    {
+      "amount": 100000,
+      "fineId": "F007",
+      "loanId": "L005",
+      "memberId": "M001",
+      "reason": "Hư hỏng nặng (+100.000đ)",
+      "status": "UNPAID"
+    },
+    {
+      "amount": 40000,
+      "fineId": "F008",
+      "loanId": "L006",
+      "memberId": "M002",
+      "reason": "Trả sách trễ 2 ngày (20.000đ) + Hư hỏng nhẹ (20.000đ)",
+      "status": "UNPAID"
+    },
+    {
+      "amount": 20000,
+      "fineId": "F009",
+      "loanId": "L007",
+      "memberId": "M003",
+      "reason": "Hư hỏng nhẹ (+20.000đ)",
+      "status": "PAID"
+    },
+    {
+      "amount": 70000,
+      "fineId": "F010",
+      "loanId": "L008",
+      "memberId": "M004",
+      "reason": "Trả sách trễ 5 ngày (50.000đ) + Hư hỏng nhẹ (20.000đ)",
+      "status": "UNPAID"
+    },
+    {
+      "amount": 20000,
+      "fineId": "F011",
+      "loanId": "L009",
+      "memberId": "M001",
+      "reason": "Trả sách trễ 2 ngày (10.000đ/ngày)",
+      "status": "PAID"
+    },
+    {
+      "amount": 100000,
+      "fineId": "F012",
+      "loanId": "L010",
+      "memberId": "M002",
+      "reason": "Hư hỏng nặng (+100.000đ)",
+      "status": "UNPAID"
+    }
+  ],
+  "loans": [
+    {
+      "bookId": "LSVN002",
+      "borrowDate": "2026-09-10",
+      "dueDate": "2026-09-24",
+      "loanId": "L001",
+      "memberId": "M001",
+      "renewalCount": 0,
+      "returnDate": "2026-09-27",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "LSVN004",
+      "borrowDate": "2026-09-11",
+      "dueDate": "2026-09-25",
+      "loanId": "L002",
+      "memberId": "M002",
+      "renewalCount": 1,
+      "returnDate": "2026-09-25",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "LSVN007",
+      "borrowDate": "2026-09-08",
+      "dueDate": "2026-09-22",
+      "loanId": "L003",
+      "memberId": "M003",
+      "renewalCount": 0,
+      "returnDate": "2026-09-22",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "LSVN010",
+      "borrowDate": "2026-09-09",
+      "dueDate": "2026-09-23",
+      "loanId": "L004",
+      "memberId": "M004",
+      "renewalCount": 0,
+      "returnDate": "2026-09-24",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "DTVN003",
+      "borrowDate": "2026-09-10",
+      "dueDate": "2026-09-24",
+      "loanId": "L005",
+      "memberId": "M001",
+      "renewalCount": 0,
+      "returnDate": "2026-09-24",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "DTVN005",
+      "borrowDate": "2026-09-11",
+      "dueDate": "2026-09-25",
+      "loanId": "L006",
+      "memberId": "M002",
+      "renewalCount": 0,
+      "returnDate": "2026-09-27",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "DTVN008",
+      "borrowDate": "2026-09-12",
+      "dueDate": "2026-09-26",
+      "loanId": "L007",
+      "memberId": "M003",
+      "renewalCount": 0,
+      "returnDate": "2026-09-26",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "TCC001",
+      "borrowDate": "2026-09-08",
+      "dueDate": "2026-09-22",
+      "loanId": "L008",
+      "memberId": "M004",
+      "renewalCount": 0,
+      "returnDate": "2026-09-27",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "TCC004",
+      "borrowDate": "2026-09-09",
+      "dueDate": "2026-09-23",
+      "loanId": "L009",
+      "memberId": "M001",
+      "renewalCount": 0,
+      "returnDate": "2026-09-25",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "TCC008",
+      "borrowDate": "2026-09-10",
+      "dueDate": "2026-09-24",
+      "loanId": "L010",
+      "memberId": "M002",
+      "renewalCount": 0,
+      "returnDate": "2026-09-24",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "KTLT002",
+      "borrowDate": "2026-09-11",
+      "dueDate": "2026-09-25",
+      "loanId": "L011",
+      "memberId": "M003",
+      "renewalCount": 0,
+      "returnDate": null,
+      "status": "BORROWING"
+    },
+    {
+      "bookId": "KTLT005",
+      "borrowDate": "2026-09-12",
+      "dueDate": "2026-09-26",
+      "loanId": "L012",
+      "memberId": "M004",
+      "renewalCount": 0,
+      "returnDate": null,
+      "status": "BORROWING"
+    },
+    {
+      "bookId": "KTLT007",
+      "borrowDate": "2026-09-13",
+      "dueDate": "2026-09-27",
+      "loanId": "L013",
+      "memberId": "M001",
+      "renewalCount": 0,
+      "returnDate": null,
+      "status": "BORROWING"
+    },
+    {
+      "bookId": "KTLT010",
+      "borrowDate": "2026-09-14",
+      "dueDate": "2026-09-28",
+      "loanId": "L014",
+      "memberId": "M002",
+      "renewalCount": 0,
+      "returnDate": null,
+      "status": "BORROWING"
+    },
+    {
+      "bookId": "DTVN001",
+      "borrowDate": "2026-08-20",
+      "dueDate": "2026-09-03",
+      "loanId": "L015",
+      "memberId": "M003",
+      "renewalCount": 0,
+      "returnDate": "2026-09-04",
+      "status": "RETURNED"
+    },
+    {
+      "bookId": "TCC002",
+      "borrowDate": "2026-08-22",
+      "dueDate": "2026-09-05",
+      "loanId": "L016",
+      "memberId": "M004",
+      "renewalCount": 0,
+      "returnDate": "2026-09-07",
+      "status": "RETURNED"
+    }
+  ],
+  "members": [
+    {
+      "email": "an@gmail.com",
+      "memberId": "M001",
+      "name": "Nguyen Van An",
+      "phone": "0900000001",
+      "status": "ACTIVE"
+    },
+    {
+      "email": "binh@gmail.com",
+      "memberId": "M002",
+      "name": "Tran Van Binh",
+      "phone": "0900000002",
+      "status": "ACTIVE"
+    },
+    {
+      "email": "chi@gmail.com",
+      "memberId": "M003",
+      "name": "Le Thi Chi",
+      "phone": "0900000003",
+      "status": "ACTIVE"
+    },
+    {
+      "email": "dung@gmail.com",
+      "memberId": "M004",
+      "name": "Pham Van Dung",
+      "phone": "0900000004",
+      "status": "ACTIVE"
+    }
+  ],
+  "reservations": [
+    {
+      "bookCode": "LSVN",
+      "memberId": "M003",
+      "reservationDate": "2026-09-15",
+      "reservationId": "R001",
+      "status": "WAITING"
+    },
+    {
+      "bookCode": "DTVN",
+      "memberId": "M004",
+      "reservationDate": "2026-09-15",
+      "reservationId": "R002",
+      "status": "WAITING"
+    },
+    {
+      "bookCode": "TCC",
+      "memberId": "M001",
+      "reservationDate": "2026-09-14",
+      "reservationId": "R003",
+      "status": "WAITING"
+    },
+    {
+      "bookCode": "KTLT",
+      "memberId": "M002",
+      "reservationDate": "2026-09-13",
+      "reservationId": "R004",
+      "status": "WAITING"
+    }
+  ]
+}
+
             "status": "WAITING"
         }
     ]
