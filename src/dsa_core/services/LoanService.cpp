@@ -1,75 +1,122 @@
 #include "LoanService.h"
 
 ReturnReceipt LoanService::returnBook(const string& loanId, const Date& returnDate, const string& quality) {
-    ReturnReceipt receipt;
+    ReturnReceipt receipt{};
     receipt.loanId = loanId;
-    receipt.isSuccess = false;
-    receipt.lateDays = 0;
-    receipt.lateFee = 0.0;
-    receipt.damageFee = 0.0;
-    receipt.totalFee = 0.0;
 
-    // 1. Tra cứu phiếu mượn trên Bảng băm: O(1) trung bình
     Loan* loan = loanRepo.findById(loanId);
     if (!loan) {
-        receipt.message = "Lỗi: Không tìm thấy mã phiếu mượn.";
+        receipt.message = "Loi: Khong tim thay ma phieu muon.";
         return receipt;
     }
     if (loan->status == "RETURNED") {
-        receipt.message = "Lỗi: Phiếu mượn đã được hoàn tất trước đó.";
+        receipt.message = "Loi: Phieu muon da duoc tra truoc do.";
+        return receipt;
+    }
+    if (returnDate.year <= 0 || returnDate.month <= 0 || returnDate.day <= 0) {
+        receipt.message = "Loi: Ngay tra khong hop le.";
         return receipt;
     }
 
-    // 2. Tra cứu đầu sách trên Bảng băm: O(1) trung bình
-    Book* book = bookRepo.findById(loan->bookId);
+    Book* book = nullptr;
+    for (Book& candidate : bookRepo.getAll()) {
+        for (const BookCopy& copy : candidate.copies) {
+            if (copy.bookId == loan->bookId) {
+                book = &candidate;
+                break;
+            }
+        }
+        if (book != nullptr) break;
+    }
     if (!book) {
-        receipt.message = "Lỗi: Dữ liệu sách liên kết không tồn tại.";
+        receipt.message = "Loi: Du lieu sach lien ket khong ton tai.";
         return receipt;
     }
 
-    // 3. Tính phạt trễ: 10.000 đ/ngày
-    int lateDays = 0;
-    if (returnDate > loan->dueDate) {
-        lateDays = returnDate.toDays() - loan->dueDate.toDays();
+    const Date dueDate = Date::parse(loan->dueDate);
+    if (dueDate.year <= 0 || dueDate.month <= 0 || dueDate.day <= 0) {
+        receipt.message = "Loi: Han tra cua phieu muon khong hop le.";
+        return receipt;
     }
-    double lateFee = lateDays * 10000.0;
+    if (returnDate < dueDate) {
+ 
+        receipt.lateDays = 0;
+    } else if (returnDate > dueDate) {
+        receipt.lateDays = returnDate.toDays() - dueDate.toDays();
+    }
 
-    // 4. Tính phạt hư hại
-    double damageFee = 0.0;
-    if (quality == "Hu hong nhe") {
-        damageFee = 20000.0;
+
+    receipt.lateFee = receipt.lateDays * 10000.0;
+
+    if (quality == "Tot") {
+        receipt.damageFee = 0.0;
+    } else if (quality == "Hu hong nhe") {
+        receipt.damageFee = 20000.0;
     } else if (quality == "Hu hong nang") {
-        damageFee = book->price;
+        receipt.damageFee = 100000.0;
+    } else {
+        receipt.message = "Loi: Tinh trang sach khong hop le.";
+        return receipt;
     }
-    double totalFee = lateFee + damageFee;
 
-    // 5. Cập nhật tại chỗ (In-place Mutation): O(1)
-    loan->returnDate = returnDate;
+    receipt.totalFee = receipt.lateFee + receipt.damageFee;
+
+
+    loan->returnDate = returnDate.toString();
     loan->status = "RETURNED";
 
-    // 6. Cập nhật kho sách
+
     if (quality != "Hu hong nang") {
-        book->available += 1;
+        bool restored = false;
+        for (BookCopy& copy : book->copies) {
+            if (copy.bookId == loan->bookId) {
+                if (copy.status == "BORROWED") {
+                    copy.status = "AVAILABLE";
+                    restored = true;
+                }
+                break;
+            }
+        }
+        if (!restored) {
+
+            for (BookCopy& copy : book->copies) {
+                if (copy.bookId == loan->bookId) {
+                    copy.status = "AVAILABLE";
+                    break;
+                }
+            }
+        }
+    } else {
+        for (BookCopy& copy : book->copies) {
+            if (copy.bookId == loan->bookId) {
+                copy.status = "DAMAGED";
+                break;
+            }
+        }
     }
 
-    // 7. Ghi nhận phiếu phạt nếu có
-    if (totalFee > 0) {
-        Fine* fine = new Fine();
-        fine->fineId = "F_" + loanId;
-        fine->loanId = loanId;
-        fine->memberId = loan->memberId;
-        fine->amount = totalFee;
-        fine->reason = (lateDays > 0 ? "Tre " + to_string(lateDays) + " ngay. " : "") +
-                       (damageFee > 0 ? "Hu hai: " + quality : "");
-        fine->status = "UNPAID";
-        fineRepo.add(fine);
-    }
+    if (receipt.totalFee > 0.0) {
+        Fine fine;
+        fine.fineId = "F_" + loanId;
+        fine.loanId = loanId;
+        fine.memberId = loan->memberId;
+        fine.amount = receipt.totalFee;
+        fine.reason = (receipt.lateDays > 0
+            ? "Tre " + to_string(receipt.lateDays) + " ngay. "
+            : "") +
+            (receipt.damageFee > 0
+                ? "Hu hai: " + quality
+                : "");
+        fine.status = "UNPAID";
 
+        Fine* existing = fineRepo.findByLoanId(loanId);
+        if (existing != nullptr) {
+            *existing = fine;
+        } else {
+            fineRepo.add(fine);
+        }
+    }
     receipt.isSuccess = true;
-    receipt.lateDays = lateDays;
-    receipt.lateFee = lateFee;
-    receipt.damageFee = damageFee;
-    receipt.totalFee = totalFee;
-    receipt.message = "Xử lý trả sách thành công.";
+    receipt.message = "Xu ly tra sach thanh cong.";
     return receipt;
 }
