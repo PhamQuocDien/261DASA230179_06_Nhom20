@@ -52,6 +52,31 @@ bool saveBooksToDatabase(JsonDatabase& database, json& data, const BookRepositor
     return database.save(data);
 }
 
+bool saveLoanAndFineDataToDatabase(
+    JsonDatabase& database,
+    json& data,
+    const BookRepository& bookRepository,
+    const LoanRepository& loanRepository,
+    const FineRepository& fineRepository
+) {
+    data["books"] = json::array();
+    for (const Book& book : bookRepository.getAll()) {
+        data["books"].push_back(JsonMapper::bookToJson(book));
+    }
+
+    data["loans"] = json::array();
+    for (const Loan& loan : loanRepository.getAll()) {
+        data["loans"].push_back(JsonMapper::loanToJson(loan));
+    }
+
+    data["fines"] = json::array();
+    for (const Fine& fine : fineRepository.getAll()) {
+        data["fines"].push_back(JsonMapper::fineToJson(fine));
+    }
+
+    return database.save(data);
+}
+
 void printLoanSlip(const LoanSlip& slip) {
     cout << endl;
     cout << "========================================" << endl;
@@ -92,7 +117,7 @@ void printLoanSlips(const vector<LoanSlip>& slips) {
 
 int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberRepository, 
                BookService& bookService, BookRepository& bookRepository, 
-               LoanService& loanService, FineRepository& fineRepository,
+               LoanRepository& loanRepository, LoanService& loanService, FineRepository& fineRepository,
                JsonDatabase& database, json& data) {
     json request;
     if (!(cin >> request)) {
@@ -290,7 +315,23 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
             return 1;
         }
 
-        ReturnReceipt receipt = loanService.returnBook(loanId, Date::parse(returnDateStr), quality);
+        Date returnDate = Date::parse(returnDateStr);
+        if (returnDate.year <= 0 || returnDate.month <= 0 || returnDate.day <= 0) {
+            cout << json{{"success", false}, {"error", "returnDate khong hop le. Dinh dang dung: YYYY-MM-DD."}}.dump();
+            return 0;
+        }
+
+        ReturnReceipt receipt = loanService.returnBook(loanId, returnDate, quality);
+
+        if (receipt.isSuccess) {
+            bool saved = saveLoanAndFineDataToDatabase(
+                database, data, bookRepository, loanRepository, fineRepository
+            );
+            if (!saved) {
+                cout << json{{"success", false}, {"error", "Da cap nhat trong bo nho nhung khong the luu library.json."}}.dump();
+                return 1;
+            }
+        }
 
         json response = {
             {"success", receipt.isSuccess},
@@ -381,6 +422,7 @@ int main(int argc, char* argv[]) {
     vector<Book> books = JsonMapper::booksFromJson(data);
     vector<Member> members = JsonMapper::membersFromJson(data);
     vector<Loan> loans = JsonMapper::loansFromJson(data);
+    vector<Fine> fines = JsonMapper::finesFromJson(data);
 
     BookRepository bookRepository;
     MemberRepository memberRepository;
@@ -390,14 +432,15 @@ int main(int argc, char* argv[]) {
     bookRepository.getAll() = books;
     memberRepository.getAll() = members;
     loanRepository.getAll() = loans;
+    fineRepository.getAll() = fines;
 
     BookService bookService(bookRepository);
     LoanSlipService loanSlipService(loanRepository, memberRepository, bookRepository);
     LoanService loanService(loanRepository, bookRepository, fineRepository);
 
     if (apiMode) {
-        return runApiMode(loanSlipService, memberRepository, bookService, bookRepository, 
-                          loanService, fineRepository, database, data);
+        return runApiMode(loanSlipService, memberRepository, bookService, bookRepository,
+                          loanRepository, loanService, fineRepository, database, data);
     }
     return runConsoleMode(loanSlipService, bookService);
 }
