@@ -13,8 +13,8 @@ RUN mkdir -p /app/bin \
        -I/app/src \
        /app/src/main.cpp \
        $(find /app/src/dsa_core /app/src/persistence -name "*.cpp") \
-       -o /app/bin/library_api.exe \
-    && chmod +x /app/bin/library_api.exe
+       -o /app/bin/ThuVien.exe \
+    && chmod +x /app/bin/ThuVien.exe
 
 RUN chown -R www-data:www-data /app/data /app/bin
 
