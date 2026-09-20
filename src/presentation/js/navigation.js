@@ -76,15 +76,15 @@ async function loginAdmin() {
 }
 function showMemberRegistration(memberId) {
     hideAllSections();
-    showSection("memberRegistration");
-    setActiveMenu("menuMemberRegistration");
+    showSection("memberRegister");
+    setActiveMenu("menuMemberRegister");
     const memberName = document.querySelector("#memberName");
     if (memberName) {
         memberName.focus();
     }
     console.log("Da chuyen sang trang Dang ky thanh vien.", memberId || "");
 }
-const sectionIds = ["homeTabs", "allBooks", "trendingBooks", "bookManagement", "searchBook", "searchBookByYear", "borrowBook", "reservation", "returnBook", "loanSlip", "fine", "memberRegistration"];
+const sectionIds = ["homeTabs", "allBooks", "trendingBooks", "bookManagement", "searchBook", "searchBookByYear", "borrowBook", "reservation", "returnBook", "loanSlip", "fine", "memberRegister"];
 let homeBooks = [];
 let currentHomePage = 1;
 const homeBooksPerPage = 10;
@@ -449,9 +449,9 @@ export function initNavigation() {
             showBookManagement();
         });
     }
-    const menuMemberRegistration = document.querySelector("#menuMemberRegistration");
-    if (menuMemberRegistration) {
-        menuMemberRegistration.addEventListener("click", () => { showMemberRegistration(); });
+    const menuMemberRegister = document.querySelector("#menuMemberRegister");
+    if (menuMemberRegister) {
+        menuMemberRegister.addEventListener("click", () => { showMemberRegistration(); });
     }
     const menuSearchBook = document.querySelector("#menuSearchBook");
     if (menuSearchBook) {
