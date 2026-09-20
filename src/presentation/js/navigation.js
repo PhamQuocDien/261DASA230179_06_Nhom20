@@ -450,10 +450,6 @@ export function initNavigation() {
             showBookManagement();
         });
     }
-    const menuMemberRegistration = document.querySelector("#menuMemberRegistration");
-    if (menuMemberRegistration) {
-        menuMemberRegistration.addEventListener("click", () => { showMemberRegistration(); });
-    }
     const menuSearchBook = document.querySelector("#menuSearchBook");
     if (menuSearchBook) {
         menuSearchBook.addEventListener("click", () => {
@@ -537,9 +533,17 @@ export function initNavigation() {
         });
     }
     window.addEventListener("openMemberRegistration", event => {
-        const memberId = event.detail && event.detail.memberId ? event.detail.memberId : sessionStorage.getItem("pendingMemberId");
-        showMemberRegistration(memberId);
-    });
+    const memberId =
+        event.detail && event.detail.memberId
+            ? event.detail.memberId
+            : "";
+
+    if (!memberId) {
+        return;
+    }
+
+    showMemberRegistration(memberId);
+});
     showHome();
     console.log("Navigation module da san sang.");
 }
