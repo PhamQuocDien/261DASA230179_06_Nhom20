@@ -78,12 +78,11 @@ function showMemberRegistration(memberId) {
     hideAllSections();
     showSection("memberRegistration");
     setActiveMenu("menuMemberRegistration");
-    const registerMemberId = document.querySelector("#registerMemberId");
-    if (registerMemberId) {
-        registerMemberId.value = memberId || sessionStorage.getItem("pendingMemberId") || "";
-        registerMemberId.focus();
+    const memberName = document.querySelector("#memberName");
+    if (memberName) {
+        memberName.focus();
     }
-    console.log("Da chuyen sang trang Dang ky thanh vien.");
+    console.log("Da chuyen sang trang Dang ky thanh vien.", memberId || "");
 }
 const sectionIds = ["homeTabs", "allBooks", "trendingBooks", "bookManagement", "searchBook", "searchBookByYear", "borrowBook", "reservation", "returnBook", "loanSlip", "fine", "memberRegistration"];
 let homeBooks = [];
@@ -450,6 +449,10 @@ export function initNavigation() {
             showBookManagement();
         });
     }
+    const menuMemberRegistration = document.querySelector("#menuMemberRegistration");
+    if (menuMemberRegistration) {
+        menuMemberRegistration.addEventListener("click", () => { showMemberRegistration(); });
+    }
     const menuSearchBook = document.querySelector("#menuSearchBook");
     if (menuSearchBook) {
         menuSearchBook.addEventListener("click", () => {
@@ -533,17 +536,12 @@ export function initNavigation() {
         });
     }
     window.addEventListener("openMemberRegistration", event => {
-    const memberId =
-        event.detail && event.detail.memberId
-            ? event.detail.memberId
-            : "";
-
-    if (!memberId) {
-        return;
-    }
-
-    showMemberRegistration(memberId);
-});
+        const memberId = event.detail && event.detail.memberId ? event.detail.memberId : "";
+        if (!memberId) {
+            return;
+        }
+        showMemberRegistration(memberId);
+    });
     showHome();
     console.log("Navigation module da san sang.");
 }
