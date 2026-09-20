@@ -262,13 +262,12 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
     }
 
     Member member;
-    member.memberId = generateNextMemberId(memberRepository);
     member.name = name;
     member.email = email;
     member.phone = phone;
     member.status = "ACTIVE";
 
-    if (!memberRepository.add(member)) {
+    if (!memberService.addMember(member)) {
         cout << json{{"success", false}, {"error", "Khong the tao thanh vien moi."}}.dump();
         return 0;
     }
