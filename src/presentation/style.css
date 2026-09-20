@@ -1249,3 +1249,381 @@ tbody tr {
         padding: 20px;
     }
 }
+/* =====================================
+   LIBRARY UI - CLEAN MODERN OVERRIDE
+   ===================================== */
+
+:root {
+    --bg-main: #f1f5f9;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e2e8f0;
+
+    --bg-card: #ffffff;
+    --bg-card-light: #ffffff;
+
+    --border: #e2e8f0;
+    --border-light: #cbd5e1;
+    --border-primary: #93c5fd;
+
+    --text-main: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --text-dark: #334155;
+
+    --primary: #2563eb;
+    --primary-light: #3b82f6;
+    --primary-dark: #1d4ed8;
+    --primary-deep: #1e40af;
+
+    --success: #16a34a;
+    --warning: #d97706;
+    --danger: #dc2626;
+
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.10);
+    --shadow-primary: 0 4px 12px rgba(37, 99, 235, 0.18);
+
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 14px;
+
+    --gradient-surface: #ffffff;
+}
+
+body {
+    background: #f1f5f9;
+    color: var(--text-main);
+}
+
+/* HEADER */
+
+.header {
+    background: #ffffff;
+    color: #0f172a;
+    padding: 22px 32px;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+.header::before,
+.header::after {
+    display: none;
+}
+
+.header h1 {
+    color: #0f172a;
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+.header p {
+    color: #64748b;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+    background: #ffffff;
+    padding: 24px 16px;
+    border-right: 1px solid #e2e8f0;
+    box-shadow: 2px 0 10px rgba(15, 23, 42, 0.04);
+}
+
+.sidebar::after {
+    display: none;
+}
+
+.sidebar-title {
+    color: #0f172a;
+    padding: 4px 12px 18px;
+}
+
+.sidebar-menu {
+    gap: 4px;
+}
+
+.sidebar-item {
+    padding: 12px 14px;
+    color: #475569;
+    border-radius: 8px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-item:hover {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #dbeafe;
+    transform: none;
+    box-shadow: none;
+}
+
+.sidebar-item.active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+    box-shadow: inset 3px 0 0 #2563eb;
+}
+
+/* MAIN */
+
+.container {
+    background: #f8fafc;
+    padding: 30px 34px;
+}
+
+.section-header {
+    margin-bottom: 22px;
+}
+
+.section-header h2 {
+    color: #0f172a;
+    font-size: 25px;
+}
+
+.section-header p {
+    color: #64748b;
+}
+
+/* CARD */
+
+.all-books-section,
+.trending-books-section,
+.book-management-section,
+.search-book-section,
+.search-book-by-year-section,
+.borrow-book-section,
+.reservation-section,
+.return-book-section,
+.loan-slip-section,
+.fine-section,
+.member-register-section {
+    background: #ffffff;
+    padding: 26px;
+    margin-bottom: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.all-books-section::before,
+.trending-books-section::before,
+.book-management-section::before,
+.search-book-section::before,
+.search-book-by-year-section::before,
+.borrow-book-section::before,
+.reservation-section::before,
+.return-book-section::before,
+.loan-slip-section::before,
+.fine-section::before,
+.member-register-section::before {
+    display: none;
+}
+
+.all-books-section:hover,
+.trending-books-section:hover,
+.book-management-section:hover,
+.search-book-section:hover,
+.search-book-by-year-section:hover,
+.borrow-book-section:hover,
+.reservation-section:hover,
+.return-book-section:hover,
+.loan-slip-section:hover,
+.fine-section:hover,
+.member-register-section:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+}
+
+/* TABS */
+
+.home-tabs,
+.loan-slip-tabs {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+}
+
+.home-tab,
+.loan-slip-tab {
+    color: #64748b;
+}
+
+.home-tab:hover,
+.loan-slip-tab:hover {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.home-tab.active,
+.loan-slip-tab.active {
+    color: #1d4ed8;
+    background: #dbeafe;
+    border-color: #bfdbfe;
+    box-shadow: none;
+    transform: none;
+}
+
+/* FORM */
+
+.book-form,
+.member-register-form,
+.reservation-register-panel,
+.reservation-queue-panel {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+}
+
+.book-form label,
+.form-group label,
+.search-book-form label,
+.loan-slip-search label,
+.fine-search label,
+.reservation-form label,
+.member-register-form label {
+    color: #334155;
+}
+
+.book-form input,
+.form-group input,
+.search-book-form input,
+.loan-slip-search input,
+.fine-search input,
+.reservation-form input,
+.member-register-form input,
+.search-year-form select {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+    box-shadow: none;
+}
+
+.book-form input:focus,
+.form-group input:focus,
+.search-book-form input:focus,
+.loan-slip-search input:focus,
+.fine-search input:focus,
+.reservation-form input:focus,
+.member-register-form input:focus,
+.search-year-form select:focus {
+    border-color: #3b82f6;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+/* BUTTON */
+
+.buttons button,
+.search-book-form button,
+.search-year-form button,
+.borrow-book-form button,
+.reservation-form button,
+.return-book-form button,
+.loan-slip-search button,
+.fine-search button,
+.member-register-form button {
+    background: #2563eb;
+    border: 1px solid #2563eb;
+    box-shadow: none;
+}
+
+.buttons button:hover,
+.search-book-form button:hover,
+.search-year-form button:hover,
+.borrow-book-form button:hover,
+.reservation-form button:hover,
+.return-book-form button:hover,
+.loan-slip-search button:hover,
+.fine-search button:hover,
+.member-register-form button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
+}
+
+/* RESULT */
+
+.book-list,
+.search-book-result,
+.search-year-result,
+.borrow-book-result,
+.reservation-result,
+.return-book-result,
+.loan-slip-list,
+.fine-result,
+.member-register-result {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+}
+
+/* TABLE */
+
+table {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
+}
+
+th {
+    background: #f8fafc;
+    color: #334155;
+    border-color: #e2e8f0;
+}
+
+td {
+    color: #475569;
+    border-color: #e2e8f0;
+}
+
+tbody tr:hover td {
+    background: #f8fbff;
+    color: #0f172a;
+}
+
+/* LOAN SLIP */
+
+.loan-slip-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+}
+
+.loan-slip-card:hover {
+    transform: none;
+    border-color: #cbd5e1;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.loan-slip-card-header {
+    background: #2563eb;
+}
+
+/* FOOTER */
+
+.footer {
+    background: #ffffff;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* FLOATING BUTTON */
+
+.home-management-button {
+    background: #2563eb;
+    border: 1px solid #2563eb;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.20);
+}
+
+.home-management-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+}
