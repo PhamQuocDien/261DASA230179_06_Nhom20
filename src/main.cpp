@@ -241,7 +241,6 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
     }
 
     Member member;
-    member.memberId = generateNextMemberId(memberRepository);
     member.name = name;
     member.email = email;
     member.phone = phone;
