@@ -17,6 +17,7 @@ const sectionIds = [
     "bookManagement",
     "searchBook",
     "searchBookByYear",
+    "memberRegister",
     "borrowBook",
     "reservation",
     "returnBook",
@@ -392,6 +393,36 @@ export function initNavigation() {
 
                 setActiveMenu(
                     "menuSearchBookByYear"
+                );
+
+            }
+        );
+    }
+
+
+    // =================================
+    // MENU DANG KY THANH VIEN
+    // =================================
+
+    const menuMemberRegister =
+        document.querySelector(
+            "#menuMemberRegister"
+        );
+
+    if (menuMemberRegister) {
+
+        menuMemberRegister.addEventListener(
+            "click",
+            () => {
+
+                hideAllSections();
+
+                showSection(
+                    "memberRegister"
+                );
+
+                setActiveMenu(
+                    "menuMemberRegister"
                 );
 
             }
