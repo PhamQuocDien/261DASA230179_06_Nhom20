@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cctype>
 #include "dsa_core/models/Book.h"
 #include "dsa_core/models/Member.h"
 #include "dsa_core/models/Date.h"
@@ -52,6 +53,76 @@ bool saveBooksToDatabase(JsonDatabase& database, json& data, const BookRepositor
     return database.save(data);
 }
 
+
+bool saveMembersToDatabase(
+    JsonDatabase& database,
+    json& data,
+    const MemberRepository& memberRepository
+) {
+    data["members"] = json::array();
+    for (const Member& member : memberRepository.getAll()) {
+        data["members"].push_back(JsonMapper::memberToJson(member));
+    }
+    return database.save(data);
+}
+
+string generateNextMemberId(const MemberRepository& memberRepository) {
+    unsigned long long maxId = 0;
+
+    for (const Member& member : memberRepository.getAll()) {
+        const string& id = member.memberId;
+        if (id.size() <= 1 || (id[0] != 'M' && id[0] != 'm')) {
+            continue;
+        }
+
+        bool numeric = true;
+        unsigned long long value = 0;
+        for (size_t i = 1; i < id.size(); ++i) {
+            unsigned char ch = static_cast<unsigned char>(id[i]);
+            if (!std::isdigit(ch)) {
+                numeric = false;
+                break;
+            }
+            value = value * 10 + static_cast<unsigned long long>(id[i] - '0');
+        }
+
+        if (numeric && value > maxId) {
+            maxId = value;
+        }
+    }
+
+    string nextId = to_string(maxId + 1);
+    while (nextId.size() < 3) {
+        nextId = "0" + nextId;
+    }
+    return "M" + nextId;
+}
+
+bool saveLoanAndFineDataToDatabase(
+    JsonDatabase& database,
+    json& data,
+    const BookRepository& bookRepository,
+    const LoanRepository& loanRepository,
+    const FineRepository& fineRepository
+) {
+    data["books"] = json::array();
+    for (const Book& book : bookRepository.getAll()) {
+        data["books"].push_back(JsonMapper::bookToJson(book));
+    }
+
+    data["loans"] = json::array();
+    for (const Loan& loan : loanRepository.getAll()) {
+        data["loans"].push_back(JsonMapper::loanToJson(loan));
+    }
+
+    data["fines"] = json::array();
+    for (const Fine& fine : fineRepository.getAll()) {
+        data["fines"].push_back(JsonMapper::fineToJson(fine));
+    }
+
+    return database.save(data);
+}
+
 void printLoanSlip(const LoanSlip& slip) {
     cout << endl;
     cout << "========================================" << endl;
@@ -92,7 +163,7 @@ void printLoanSlips(const vector<LoanSlip>& slips) {
 
 int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberRepository, 
                BookService& bookService, BookRepository& bookRepository, 
-               LoanService& loanService, FineRepository& fineRepository,
+               LoanRepository& loanRepository, LoanService& loanService, FineRepository& fineRepository,
                JsonDatabase& database, json& data) {
     json request;
     if (!(cin >> request)) {
@@ -242,6 +313,82 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
         return 0;
     }
 
+    if (action == "registerMember") {
+        string name = request.value("name", "");
+        string email = request.value("email", "");
+        string phone = request.value("phone", "");
+
+        auto trim = [](string value) {
+            const string whitespace = " \t\r\n";
+            size_t start = value.find_first_not_of(whitespace);
+            if (start == string::npos) {
+                return string();
+            }
+            size_t end = value.find_last_not_of(whitespace);
+            return value.substr(start, end - start + 1);
+        };
+
+        name = trim(name);
+        email = trim(email);
+        phone = trim(phone);
+
+        if (name.empty() || email.empty() || phone.empty()) {
+            cout << json{{"success", false}, {"error", "Vui long nhap day du name, email va phone."}}.dump();
+            return 0;
+        }
+
+        if (name.size() > 100 || email.size() > 150 || phone.size() > 30) {
+            cout << json{{"success", false}, {"error", "Du lieu vuot qua do dai cho phep."}}.dump();
+            return 0;
+        }
+
+        size_t atPos = email.find('@');
+        size_t dotPos = email.find('.', atPos == string::npos ? 0 : atPos);
+        if (atPos == string::npos || atPos == 0 || dotPos == string::npos || dotPos <= atPos + 1 || dotPos + 1 >= email.size()) {
+            cout << json{{"success", false}, {"error", "Email khong hop le."}}.dump();
+            return 0;
+        }
+
+        for (char ch : phone) {
+            if (!std::isdigit(static_cast<unsigned char>(ch)) && ch != '+' && ch != '-' && ch != ' ' && ch != '(' && ch != ')') {
+                cout << json{{"success", false}, {"error", "So dien thoai khong hop le."}}.dump();
+                return 0;
+            }
+        }
+
+        for (const Member& existing : memberRepository.getAll()) {
+            if (existing.email == email) {
+                cout << json{{"success", false}, {"error", "Email da duoc dang ky."}}.dump();
+                return 0;
+            }
+            if (existing.phone == phone) {
+                cout << json{{"success", false}, {"error", "So dien thoai da duoc dang ky."}}.dump();
+                return 0;
+            }
+        }
+
+        Member member;
+        member.memberId = generateNextMemberId(memberRepository);
+        member.name = name;
+        member.email = email;
+        member.phone = phone;
+        member.status = "ACTIVE";
+
+        if (!memberRepository.add(member)) {
+            cout << json{{"success", false}, {"error", "Khong the tao thanh vien moi."}}.dump();
+            return 0;
+        }
+
+        if (!saveMembersToDatabase(database, data, memberRepository)) {
+            memberRepository.removeById(member.memberId);
+            cout << json{{"success", false}, {"error", "Da tao thanh vien trong bo nho nhung khong the luu library.json."}}.dump();
+            return 1;
+        }
+
+        cout << json{{"success", true}, {"data", JsonMapper::memberToJson(member)}}.dump(-1, ' ', false, json::error_handler_t::replace);
+        return 0;
+    }
+
     if (action == "getLoanSlipsByMember") {
         string memberId = request.value("memberId", "");
         if (memberId.empty()) {
@@ -290,7 +437,23 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
             return 1;
         }
 
-        ReturnReceipt receipt = loanService.returnBook(loanId, Date::parse(returnDateStr), quality);
+        Date returnDate = Date::parse(returnDateStr);
+        if (returnDate.year <= 0 || returnDate.month <= 0 || returnDate.day <= 0) {
+            cout << json{{"success", false}, {"error", "returnDate khong hop le. Dinh dang dung: YYYY-MM-DD."}}.dump();
+            return 0;
+        }
+
+        ReturnReceipt receipt = loanService.returnBook(loanId, returnDate, quality);
+
+        if (receipt.isSuccess) {
+            bool saved = saveLoanAndFineDataToDatabase(
+                database, data, bookRepository, loanRepository, fineRepository
+            );
+            if (!saved) {
+                cout << json{{"success", false}, {"error", "Da cap nhat trong bo nho nhung khong the luu library.json."}}.dump();
+                return 1;
+            }
+        }
 
         json response = {
             {"success", receipt.isSuccess},
@@ -381,6 +544,7 @@ int main(int argc, char* argv[]) {
     vector<Book> books = JsonMapper::booksFromJson(data);
     vector<Member> members = JsonMapper::membersFromJson(data);
     vector<Loan> loans = JsonMapper::loansFromJson(data);
+    vector<Fine> fines = JsonMapper::finesFromJson(data);
 
     BookRepository bookRepository;
     MemberRepository memberRepository;
@@ -390,14 +554,15 @@ int main(int argc, char* argv[]) {
     bookRepository.getAll() = books;
     memberRepository.getAll() = members;
     loanRepository.getAll() = loans;
+    fineRepository.getAll() = fines;
 
     BookService bookService(bookRepository);
     LoanSlipService loanSlipService(loanRepository, memberRepository, bookRepository);
     LoanService loanService(loanRepository, bookRepository, fineRepository);
 
     if (apiMode) {
-        return runApiMode(loanSlipService, memberRepository, bookService, bookRepository, 
-                          loanService, fineRepository, database, data);
+        return runApiMode(loanSlipService, memberRepository, bookService, bookRepository,
+                          loanRepository, loanService, fineRepository, database, data);
     }
     return runConsoleMode(loanSlipService, bookService);
 }
