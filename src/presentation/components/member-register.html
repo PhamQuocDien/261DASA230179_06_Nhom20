@@ -1,29 +1,23 @@
-<section class="member-register-section">
+<section class="member-register-section" id="memberRegistration" style="display: none;">
     <div class="section-header">
         <h2>Đăng ký thành viên</h2>
         <p>Đăng ký thành viên mới khi chưa có Member_ID.</p>
     </div>
-
     <form id="memberRegisterForm" class="member-register-form">
         <div class="form-group">
             <label for="memberName">Họ và tên</label>
             <input id="memberName" name="name" type="text" maxlength="100" required placeholder="Nguyễn Văn A">
         </div>
-
         <div class="form-group">
             <label for="memberEmail">Email</label>
             <input id="memberEmail" name="email" type="email" maxlength="150" required placeholder="nguyenvana@email.com">
         </div>
-
         <div class="form-group">
             <label for="memberPhone">Số điện thoại</label>
             <input id="memberPhone" name="phone" type="tel" maxlength="30" required placeholder="0901234567">
         </div>
-
         <button type="submit">Đăng ký thành viên</button>
     </form>
-
     <div id="memberRegisterMessage" class="member-register-message"></div>
-
     <div id="memberRegisterResult" class="member-register-result" style="display:none;"></div>
 </section>
