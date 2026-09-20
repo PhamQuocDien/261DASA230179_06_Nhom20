@@ -50,6 +50,27 @@ bool static saveBooksToDatabase(JsonDatabase& database, json& data, const BookRe
     }
     return database.save(data);
 }
+string static generateNextMemberId(const MemberRepository& memberRepository) {
+    unsigned long long maxId = 0;
+    for (const Member& member : memberRepository.getAll()) {
+        const string& id = member.memberId;
+        if (id.size() < 2 || (id[0] != 'M' && id[0] != 'm')) continue;
+        unsigned long long value = 0;
+        bool numeric = true;
+        for (size_t i = 1; i < id.size(); ++i) {
+            if (!isdigit(static_cast<unsigned char>(id[i]))) {
+                numeric = false;
+                break;
+            }
+            value = value * 10 + static_cast<unsigned long long>(id[i] - '0');
+        }
+        if (numeric && value > maxId) maxId = value;
+    }
+    string number = to_string(maxId + 1);
+    while (number.size() < 3) number = "0" + number;
+    return "M" + number;
+}
+
 bool static saveMembersToDatabase(JsonDatabase& database, json& data, const MemberRepository& memberRepository) {
     data["members"] = json::array();
     for (const Member& member : memberRepository.getAll()) {
@@ -241,6 +262,7 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
     }
 
     Member member;
+    member.memberId = generateNextMemberId(memberRepository);
     member.name = name;
     member.email = email;
     member.phone = phone;
