@@ -1,3 +1,4 @@
+
 // =====================================
 // API MODULE
 // BUOI 50
@@ -11,9 +12,10 @@
 
 // api.js nam tai:
 //
-// presentation/
-// └── js/
-//     └── api.js
+// src/
+// └── presentation/
+//     └── js/
+//         └── api.js
 //
 // api.php nam tai:
 //
@@ -21,7 +23,18 @@
 // └── api/
 //     └── api.php
 //
-// Vi vay can di len 2 cap.
+// Vi vay can di len 2 cap:
+//
+// js/
+//   ↓ ../
+// presentation/
+//   ↓ ../
+// src/
+//
+// Sau do vao:
+//
+// api/
+// └── api.php
 
 const API_URL =
     new URL(
@@ -46,6 +59,11 @@ export async function sendApiRequest(
         console.log(
             "Request:",
             requestData
+        );
+
+        console.log(
+            "API URL:",
+            API_URL
         );
 
 
@@ -81,11 +99,42 @@ export async function sendApiRequest(
 
 
         // =================================
-        // DOC JSON
+        // DOC RESPONSE
         // =================================
 
-        const result =
-            await response.json();
+        const responseText =
+            await response.text();
+
+
+        // =================================
+        // KIEM TRA JSON
+        // =================================
+
+        let result;
+
+        try {
+
+            result =
+                JSON.parse(
+                    responseText
+                );
+
+        }
+        catch (jsonError) {
+
+            console.error(
+                "API khong tra ve JSON."
+            );
+
+            console.error(
+                "Response:",
+                responseText
+            );
+
+            throw new Error(
+                "API khong tra ve JSON."
+            );
+        }
 
 
         console.log(
@@ -130,7 +179,9 @@ export async function sendApiRequest(
         return {
             success: false,
             error:
+                error.message ||
                 "Khong the ket noi API."
         };
     }
 }
+

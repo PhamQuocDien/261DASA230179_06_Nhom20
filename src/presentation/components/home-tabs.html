@@ -1,6 +1,7 @@
-﻿<!-- ========================================= -->
+﻿
+<!-- ========================================= -->
 <!-- HOME TABS -->
-<!-- ĐIỀU HƯỚNG 2 TAB TRANG CHỦ -->
+<!-- ĐIỀU HƯỚNG 4 TAB TRANG CHỦ -->
 <!-- ========================================= -->
 
 <div class="home-tabs">
@@ -19,6 +20,20 @@
     </button>
 
 
+    <button type="button"
+            id="tabAvailableBooks"
+            class="home-tab">
+        Sách có thể mượn
+    </button>
+
+
+    <button type="button"
+            id="tabBorrowedBooks"
+            class="home-tab">
+        Sách đang được mượn
+    </button>
+
+
     <!-- ===================================== -->
     <!-- NÚT QUẢN LÝ SÁCH -->
     <!-- NẰM CỐ ĐỊNH GÓC DƯỚI BÊN PHẢI -->
@@ -30,4 +45,74 @@
         Quản lý sách
     </button>
 
+
+    <!-- ===================================== -->
+    <!-- ĐĂNG NHẬP QUẢN LÝ THƯ VIỆN -->
+    <!-- ===================================== -->
+
+    <div id="adminLoginModal"
+         style="display: none;">
+
+        <div class="admin-login-box">
+
+            <div class="admin-login-header">
+
+                <h3>
+                    Đăng nhập quản lý thư viện
+                </h3>
+
+                <p>
+                    Vui lòng xác nhận thông tin quản lý.
+                </p>
+
+            </div>
+
+
+            <div class="admin-login-form">
+
+                <label for="adminId">
+                    ID quản lý
+                </label>
+
+                <input type="text"
+                       id="adminId"
+                       placeholder="Nhập ID quản lý...">
+
+
+                <label for="adminPassword">
+                    Mật khẩu
+                </label>
+
+                <input type="password"
+                       id="adminPassword"
+                       placeholder="Nhập mật khẩu...">
+
+
+                <p id="adminLoginMessage"
+                   class="admin-login-message">
+                </p>
+
+
+                <div class="admin-login-buttons">
+
+                    <button type="button"
+                            id="btnAdminLogin">
+                        Đăng nhập
+                    </button>
+
+
+                    <button type="button"
+                            id="btnAdminCancel">
+                        Hủy
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
+

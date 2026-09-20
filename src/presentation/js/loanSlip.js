@@ -44,7 +44,7 @@ async function getLoanSlipsByMember(
             result.error
         );
 
-        return null;
+        return result;
     }
 
 
@@ -54,7 +54,100 @@ async function getLoanSlipsByMember(
     );
 
 
-    return result.data;
+    return result;
+}
+
+
+// =====================================
+// CHUYEN SANG DANG KY THANH VIEN
+// =====================================
+
+function openMemberRegistration(
+    memberId
+) {
+
+    console.log(
+        "Member_ID khong ton tai:",
+        memberId
+    );
+
+
+    // =================================
+    // LUU MEMBER_ID CAN DANG KY
+    // =================================
+
+    sessionStorage.setItem(
+        "pendingMemberId",
+        memberId
+    );
+
+
+    // =================================
+    // TIM NUT DANG KY THANH VIEN
+    // =================================
+
+    const navigationElements =
+        Array.from(
+            document.querySelectorAll(
+                "button, a, [role='button']"
+            )
+        );
+
+
+    const memberRegistrationElement =
+        navigationElements.find(
+            element => {
+
+                const text =
+                    element.textContent
+                        .trim()
+                        .toLowerCase();
+
+                return text.includes(
+                    "đăng ký thành viên"
+                );
+            }
+        );
+
+
+    // =================================
+    // NEU TIM THAY NUT
+    // =================================
+
+    if (memberRegistrationElement) {
+
+        console.log(
+            "Dang chuyen sang trang Dang ky thanh vien."
+        );
+
+
+        memberRegistrationElement.click();
+
+        return;
+    }
+
+
+    // =================================
+    // NEU CHUA TIM THAY
+    // GIAO CHO NAVIGATION XU LY
+    // =================================
+
+    console.warn(
+        "Chua tim thay nut Dang ky thanh vien."
+    );
+
+
+    window.dispatchEvent(
+        new CustomEvent(
+            "openMemberRegistration",
+            {
+                detail: {
+                    memberId:
+                        memberId
+                }
+            }
+        )
+    );
 }
 
 
@@ -332,10 +425,13 @@ function createLoanSlipCard(
 
 function renderLoanSlips(
     loanSlipList,
-    loanSlips
+    loanSlips,
+    returnedLoanSlipList
 ) {
 
     loanSlipList.innerHTML = "";
+
+    returnedLoanSlipList.innerHTML = "";
 
 
     // =================================
@@ -347,40 +443,87 @@ function renderLoanSlips(
         loanSlipList.textContent =
             "Du lieu phieu muon khong hop le.";
 
+        returnedLoanSlipList.textContent =
+            "Du lieu phieu muon khong hop le.";
+
         return;
     }
 
 
     // =================================
-    // KHONG CO PHIEU
+    // PHAN LOAI PHIEU
     // =================================
 
-    if (loanSlips.length === 0) {
+    const borrowingLoanSlips =
+        loanSlips.filter(
+            loan =>
+                loan.status &&
+                loan.status.toUpperCase() ===
+                "BORROWING"
+        );
+
+
+    const returnedLoanSlips =
+        loanSlips.filter(
+            loan =>
+                loan.status &&
+                loan.status.toUpperCase() ===
+                "RETURNED"
+        );
+
+
+    // =================================
+    // DANH SACH DANG MUON
+    // =================================
+
+    if (borrowingLoanSlips.length === 0) {
 
         loanSlipList.textContent =
-            "Member_ID nay chua co sach dang muon.";
+            "Member_ID nay khong co sach dang muon.";
 
-        return;
+    } else {
+
+        borrowingLoanSlips.forEach(
+            loan => {
+
+                const card =
+                    createLoanSlipCard(
+                        loan
+                    );
+
+                loanSlipList.appendChild(
+                    card
+                );
+            }
+        );
     }
 
 
     // =================================
-    // TAO TUNG CARD
+    // DANH SACH DA TRA
     // =================================
 
-    loanSlips.forEach(
-        loan => {
+    if (returnedLoanSlips.length === 0) {
 
-            const card =
-                createLoanSlipCard(
-                    loan
+        returnedLoanSlipList.textContent =
+            "Member_ID nay chua co sach da tra.";
+
+    } else {
+
+        returnedLoanSlips.forEach(
+            loan => {
+
+                const card =
+                    createLoanSlipCard(
+                        loan
+                    );
+
+                returnedLoanSlipList.appendChild(
+                    card
                 );
-
-            loanSlipList.appendChild(
-                card
-            );
-        }
-    );
+            }
+        );
+    }
 }
 
 
@@ -409,7 +552,25 @@ export function initLoanSlip() {
 
     const loanSlipList =
         document.querySelector(
-            "#loanSlipList"
+            "#borrowingLoanSlipList"
+        );
+
+
+    const returnedLoanSlipList =
+        document.querySelector(
+            "#returnedLoanSlipList"
+        );
+
+
+    const tabBorrowing =
+        document.querySelector(
+            "#tabBorrowing"
+        );
+
+
+    const tabReturned =
+        document.querySelector(
+            "#tabReturned"
         );
 
 
@@ -420,7 +581,10 @@ export function initLoanSlip() {
     if (
         !memberIdInput ||
         !btnLoadLoanSlips ||
-        !loanSlipList
+        !loanSlipList ||
+        !returnedLoanSlipList ||
+        !tabBorrowing ||
+        !tabReturned
     ) {
 
         console.warn(
@@ -429,6 +593,58 @@ export function initLoanSlip() {
 
         return;
     }
+
+
+    // =================================
+    // CLICK TAB SACH DANG MUON
+    // =================================
+
+    tabBorrowing.addEventListener(
+        "click",
+        () => {
+
+            loanSlipList.style.display =
+                "block";
+
+            returnedLoanSlipList.style.display =
+                "none";
+
+
+            tabBorrowing.classList.add(
+                "active"
+            );
+
+            tabReturned.classList.remove(
+                "active"
+            );
+        }
+    );
+
+
+    // =================================
+    // CLICK TAB SACH DA TRA
+    // =================================
+
+    tabReturned.addEventListener(
+        "click",
+        () => {
+
+            loanSlipList.style.display =
+                "none";
+
+            returnedLoanSlipList.style.display =
+                "block";
+
+
+            tabReturned.classList.add(
+                "active"
+            );
+
+            tabBorrowing.classList.remove(
+                "active"
+            );
+        }
+    );
 
 
     // =================================
@@ -469,6 +685,9 @@ export function initLoanSlip() {
                 loanSlipList.textContent =
                     "Vui long nhap Member_ID.";
 
+                returnedLoanSlipList.textContent =
+                    "Vui long nhap Member_ID.";
+
                 return;
             }
 
@@ -477,7 +696,7 @@ export function initLoanSlip() {
             // GOI API
             // =============================
 
-            const loanSlips =
+            const result =
                 await getLoanSlipsByMember(
                     memberId
                 );
@@ -487,9 +706,54 @@ export function initLoanSlip() {
             // API LOI
             // =============================
 
-            if (loanSlips === null) {
+            if (result === null) {
 
                 loanSlipList.textContent =
+                    "Khong the tai phieu muon.";
+
+                returnedLoanSlipList.textContent =
+                    "Khong the tai phieu muon.";
+
+                return;
+            }
+
+
+            // =============================
+            // MEMBER KHONG TON TAI
+            // =============================
+
+            if (
+                !result.success &&
+                result.error ===
+                "Member_ID khong ton tai."
+            ) {
+
+                loanSlipList.textContent =
+                    "Member_ID khong ton tai.";
+
+                returnedLoanSlipList.textContent =
+                    "Dang chuyen sang trang Dang ky thanh vien...";
+
+
+                openMemberRegistration(
+                    memberId
+                );
+
+                return;
+            }
+
+
+            // =============================
+            // API LOI KHAC
+            // =============================
+
+            if (!result.success) {
+
+                loanSlipList.textContent =
+                    "Khong the tai phieu muon.";
+
+                returnedLoanSlipList.textContent =
+                    result.error ||
                     "Khong the tai phieu muon.";
 
                 return;
@@ -502,7 +766,8 @@ export function initLoanSlip() {
 
             renderLoanSlips(
                 loanSlipList,
-                loanSlips
+                result.data,
+                returnedLoanSlipList
             );
         }
     );

@@ -2,14 +2,15 @@
 #define LOAN_H
 #include <string>
 using namespace std;
-struct Loan{
+struct Loan {
     string loanId;
     string memberId;
     string bookId;
     string borrowDate;
     string dueDate;
     string returnDate;
-    int renewalCount;
+    int renewalCount = 0;
     string status;
 };
+
 #endif

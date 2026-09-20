@@ -143,6 +143,7 @@
     <ClCompile Include="src\dsa_core\services\BookService.cpp" />
     <ClCompile Include="src\dsa_core\services\LoanService.cpp" />
     <ClCompile Include="src\dsa_core\services\LoanSlipService.cpp" />
+    <ClCompile Include="src\dsa_core\services\MemberService.cpp" />
     <ClCompile Include="src\dsa_core\structures\ALVTree.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\persistence\JsonDatabase.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="src\dsa_core\services\BookService.h" />
     <ClInclude Include="src\dsa_core\services\LoanService.h" />
     <ClInclude Include="src\dsa_core\services\LoanSlipService.h" />
+    <ClInclude Include="src\dsa_core\services\MemberService.h" />
     <ClInclude Include="src\dsa_core\structures\AVLTree.h" />
     <ClInclude Include="src\dsa_core\structures\HashTable.h" />
     <ClInclude Include="src\persistence\JsonDatabase.h" />

@@ -12,7 +12,7 @@
         </h2>
 
         <p>
-            Xem các sách đang được mượn theo Member_ID
+            Xem phiếu mượn theo Member_ID
         </p>
 
     </div>
@@ -35,27 +35,51 @@
 
         <button type="button"
                 id="btnLoadLoanSlips">
-            Xem sách đang mượn
+            Xem phiếu mượn
         </button>
 
     </div>
 
 
     <!-- ===================================== -->
-    <!-- DANH SÁCH SÁCH ĐANG MƯỢN -->
+    <!-- DANH SÁCH PHIẾU MƯỢN -->
     <!-- ===================================== -->
 
     <div class="loan-slip-list">
 
-        <h3>
-            Sách đang được mượn
-        </h3>
+        <div class="loan-slip-tabs">
+
+            <button type="button"
+                    id="tabBorrowing"
+                    class="loan-slip-tab active">
+                Sách đang được mượn
+            </button>
+
+            <button type="button"
+                    id="tabReturned"
+                    class="loan-slip-tab">
+                Sách đã trả
+            </button>
+
+        </div>
 
 
-        <div id="loanSlipList">
+        <div id="borrowingLoanSlipList"
+             class="loan-slip-tab-content">
 
             <p>
                 Chưa có dữ liệu sách đang mượn.
+            </p>
+
+        </div>
+
+
+        <div id="returnedLoanSlipList"
+             class="loan-slip-tab-content"
+             style="display: none;">
+
+            <p>
+                Chưa có dữ liệu sách đã trả.
             </p>
 
         </div>

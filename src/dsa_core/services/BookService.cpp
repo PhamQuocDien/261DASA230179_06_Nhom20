@@ -1,84 +1,170 @@
+
 #include "BookService.h"
 #include <iomanip>
 #include <sstream>
+
 using namespace std;
+
 BookService::BookService(BookRepository& repository) : repository(repository) {}
+
 bool BookService::addBook(const Book& book, int quantity) {
     if (book.bookCode.empty()) {
         return false;
     }
+
     if (book.title.empty()) {
         return false;
     }
+
     if (book.year < 0) {
         return false;
     }
+
     if (quantity <= 0) {
         return false;
     }
+
     if (quantity > 999) {
         return false;
     }
+
     if (repository.findByCode(book.bookCode) != nullptr) {
         return false;
     }
+
     Book newBook = book;
     newBook.copies.clear();
+
     for (int i = 1; i <= quantity; i++) {
+
         ostringstream stream;
-        stream << book.bookCode << setw(3) << setfill('0') << i;
+
+        stream
+            << book.bookCode
+            << setw(3)
+            << setfill('0')
+            << i;
+
         BookCopy bookCopy;
-        bookCopy.bookId = stream.str();
-        bookCopy.status = "available";
-        newBook.copies.push_back(bookCopy);
+
+        bookCopy.bookId =
+            stream.str();
+
+        bookCopy.status =
+            "available";
+
+        newBook.copies.push_back(
+            bookCopy
+        );
     }
-    return repository.add(newBook);
+
+    return repository.add(
+        newBook
+    );
 }
+
+
 const vector<Book>& BookService::getAllBooks() const {
     return repository.getAll();
 }
-Book* BookService::getBookByCode(const string& bookCode) {
+
+
+Book* BookService::getBookByCode(
+    const string& bookCode
+) {
+
     if (bookCode.empty()) {
         return nullptr;
     }
-    return repository.findByCode(bookCode);
+
+    return repository.findByCode(
+        bookCode
+    );
 }
-bool BookService::updateBook(const Book& book, int quantity) {
+
+
+bool BookService::updateBook(
+    const Book& book,
+    int quantity
+) {
+
     if (book.bookCode.empty()) {
         return false;
     }
+
     if (book.title.empty()) {
         return false;
     }
+
     if (book.year < 0) {
         return false;
     }
+
     if (quantity <= 0) {
         return false;
     }
+
     if (quantity > 999) {
         return false;
     }
-    Book* existingBook = repository.findByCode(book.bookCode);
+
+    Book* existingBook =
+        repository.findByCode(
+            book.bookCode
+        );
+
     if (existingBook == nullptr) {
         return false;
     }
-    int oldQuantity = static_cast<int>(existingBook->copies.size());
+
+    int oldQuantity =
+        static_cast<int>(
+            existingBook->copies.size()
+            );
+
     if (quantity < oldQuantity) {
         return false;
     }
-    Book updatedBook = book;
-    updatedBook.copies = existingBook->copies;
-    int addCount = quantity - oldQuantity;
-    int nextNumber = 1;
-    for (const BookCopy& bookCopy : existingBook->copies) {
-        if (bookCopy.bookId.rfind(book.bookCode, 0) == 0) {
-            string suffix = bookCopy.bookId.substr(book.bookCode.size());
+
+    Book updatedBook =
+        book;
+
+    updatedBook.copies =
+        existingBook->copies;
+
+    int addCount =
+        quantity - oldQuantity;
+
+    int nextNumber =
+        1;
+
+    for (
+        const BookCopy& bookCopy
+        : existingBook->copies
+        ) {
+
+        if (
+            bookCopy.bookId.rfind(
+                book.bookCode,
+                0
+            ) == 0
+            ) {
+
+            string suffix =
+                bookCopy.bookId.substr(
+                    book.bookCode.size()
+                );
+
             if (!suffix.empty()) {
+
                 try {
-                    int number = stoi(suffix);
+
+                    int number =
+                        stoi(suffix);
+
                     if (number >= nextNumber) {
-                        nextNumber = number + 1;
+                        nextNumber =
+                            number + 1;
                     }
                 }
                 catch (...) {
@@ -86,33 +172,87 @@ bool BookService::updateBook(const Book& book, int quantity) {
             }
         }
     }
-    for (int i = 0; i < addCount; i++) {
+
+    for (
+        int i = 0;
+        i < addCount;
+        i++
+        ) {
+
         ostringstream stream;
-        stream << book.bookCode << setw(3) << setfill('0') << nextNumber++;
+
+        stream
+            << book.bookCode
+            << setw(3)
+            << setfill('0')
+            << nextNumber++;
+
         BookCopy bookCopy;
-        bookCopy.bookId = stream.str();
-        bookCopy.status = "available";
-        updatedBook.copies.push_back(bookCopy);
+
+        bookCopy.bookId =
+            stream.str();
+
+        bookCopy.status =
+            "available";
+
+        updatedBook.copies.push_back(
+            bookCopy
+        );
     }
-    return repository.update(updatedBook);
+
+    return repository.update(
+        updatedBook
+    );
 }
-bool BookService::addBookCopy(const string& bookCode) {
+
+
+bool BookService::addBookCopy(
+    const string& bookCode
+) {
+
     if (bookCode.empty()) {
         return false;
     }
-    Book* existingBook = repository.findByCode(bookCode);
+
+    Book* existingBook =
+        repository.findByCode(
+            bookCode
+        );
+
     if (existingBook == nullptr) {
         return false;
     }
-    int nextNumber = 1;
-    for (const BookCopy& bookCopy : existingBook->copies) {
-        if (bookCopy.bookId.rfind(bookCode, 0) == 0) {
-            string suffix = bookCopy.bookId.substr(bookCode.size());
+
+    int nextNumber =
+        1;
+
+    for (
+        const BookCopy& bookCopy
+        : existingBook->copies
+        ) {
+
+        if (
+            bookCopy.bookId.rfind(
+                bookCode,
+                0
+            ) == 0
+            ) {
+
+            string suffix =
+                bookCopy.bookId.substr(
+                    bookCode.size()
+                );
+
             if (!suffix.empty()) {
+
                 try {
-                    int number = stoi(suffix);
+
+                    int number =
+                        stoi(suffix);
+
                     if (number >= nextNumber) {
-                        nextNumber = number + 1;
+                        nextNumber =
+                            number + 1;
                     }
                 }
                 catch (...) {
@@ -120,39 +260,202 @@ bool BookService::addBookCopy(const string& bookCode) {
             }
         }
     }
+
     ostringstream stream;
-    stream << bookCode << setw(3) << setfill('0') << nextNumber;
+
+    stream
+        << bookCode
+        << setw(3)
+        << setfill('0')
+        << nextNumber;
+
     BookCopy bookCopy;
-    bookCopy.bookId = stream.str();
-    bookCopy.status = "available";
-    existingBook->copies.push_back(bookCopy);
-    return repository.update(*existingBook);
+
+    bookCopy.bookId =
+        stream.str();
+
+    bookCopy.status =
+        "available";
+
+    existingBook->copies.push_back(
+        bookCopy
+    );
+
+    return repository.update(
+        *existingBook
+    );
 }
-bool BookService::deleteBook(const string& bookCode) {
+
+
+bool BookService::deleteBook(
+    const string& bookCode
+) {
+
     if (bookCode.empty()) {
         return false;
     }
-    return repository.removeByCode(bookCode);
+
+    return repository.removeByCode(
+        bookCode
+    );
 }
-bool BookService::deleteBookCopy(const string& bookCode, const string& bookId) {
+
+
+bool BookService::deleteBookCopy(
+    const string& bookCode,
+    const string& bookId
+) {
+
     if (bookCode.empty()) {
         return false;
     }
+
     if (bookId.empty()) {
         return false;
     }
-    Book* existingBook = repository.findByCode(bookCode);
+
+    Book* existingBook =
+        repository.findByCode(
+            bookCode
+        );
+
     if (existingBook == nullptr) {
         return false;
     }
-    for (auto it = existingBook->copies.begin(); it != existingBook->copies.end(); ++it) {
+
+    for (
+        auto it = existingBook->copies.begin();
+        it != existingBook->copies.end();
+        ++it
+        ) {
+
         if (it->bookId == bookId) {
+
             if (it->status != "available") {
                 return false;
             }
-            existingBook->copies.erase(it);
-            return repository.update(*existingBook);
+
+            existingBook->copies.erase(
+                it
+            );
+
+            return repository.update(
+                *existingBook
+            );
         }
     }
+
     return false;
+}
+
+
+// =====================================
+// LOC SACH CO THE MUON
+// DSA CORE
+// =====================================
+
+vector<Book> BookService::getAvailableBooks() const {
+
+    vector<Book> result;
+
+    const vector<Book>& books =
+        repository.getAll();
+
+
+    for (
+        const Book& book
+        : books
+        ) {
+
+        Book filteredBook =
+            book;
+
+        filteredBook.copies.clear();
+
+
+        for (
+            const BookCopy& bookCopy
+            : book.copies
+            ) {
+
+            if (
+                bookCopy.status ==
+                "available"
+                ) {
+
+                filteredBook.copies.push_back(
+                    bookCopy
+                );
+            }
+        }
+
+
+        if (
+            !filteredBook.copies.empty()
+            ) {
+
+            result.push_back(
+                filteredBook
+            );
+        }
+    }
+
+
+    return result;
+}
+
+
+// =====================================
+// LOC SACH DANG DUOC MUON
+// DSA CORE
+// =====================================
+
+vector<Book> BookService::getBorrowedBooks() const {
+
+    vector<Book> result;
+
+    const vector<Book>& books =
+        repository.getAll();
+
+
+    for (
+        const Book& book
+        : books
+        ) {
+
+        Book filteredBook =
+            book;
+
+        filteredBook.copies.clear();
+
+
+        for (
+            const BookCopy& bookCopy
+            : book.copies
+            ) {
+
+            if (
+                bookCopy.status ==
+                "borrowed"
+                ) {
+
+                filteredBook.copies.push_back(
+                    bookCopy
+                );
+            }
+        }
+
+
+        if (
+            !filteredBook.copies.empty()
+            ) {
+
+            result.push_back(
+                filteredBook
+            );
+        }
+    }
+
+
+    return result;
 }

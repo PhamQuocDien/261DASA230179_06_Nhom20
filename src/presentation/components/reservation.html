@@ -19,61 +19,149 @@
 
 
     <!-- ===================================== -->
-    <!-- THÔNG TIN ĐĂNG KÝ -->
+    <!-- 2 CỘT -->
     <!-- ===================================== -->
 
-    <div class="reservation-form">
+    <div class="reservation-layout">
 
-        <div class="form-group">
 
-            <label for="reservationMemberId">
-                Member_ID
-            </label>
+        <!-- ================================= -->
+        <!-- BÊN TRÁI: ĐĂNG KÝ CHỜ -->
+        <!-- ================================= -->
 
-            <input type="text"
-                   id="reservationMemberId"
-                   placeholder="Nhập Member_ID...">
+        <div class="reservation-register-panel">
+
+            <div class="reservation-panel-header">
+
+                <h3>
+                    Đăng ký chờ
+                </h3>
+
+                <p>
+                    Nhập Member_ID và Book_ID để đăng ký.
+                </p>
+
+            </div>
+
+
+            <div class="reservation-form">
+
+                <div class="form-group">
+
+                    <label for="reservationMemberId">
+                        Member_ID
+                    </label>
+
+                    <input type="text"
+                           id="reservationMemberId"
+                           placeholder="Nhập Member_ID...">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="reservationBookId">
+                        Book_ID
+                    </label>
+
+                    <input type="text"
+                           id="reservationBookId"
+                           placeholder="Nhập Book_ID...">
+
+                </div>
+
+
+                <button type="button"
+                        id="btnReservation">
+                    Đăng ký chờ mượn
+                </button>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- KẾT QUẢ ĐĂNG KÝ -->
+            <!-- ================================= -->
+
+            <div class="reservation-result">
+
+                <h3>
+                    Kết quả đăng ký
+                </h3>
+
+
+                <div id="reservationResult">
+
+                    <p>
+                        Chưa thực hiện đăng ký.
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="form-group">
+        <!-- ================================= -->
+        <!-- BÊN PHẢI: TRA CỨU DANH SÁCH CHỜ -->
+        <!-- ================================= -->
 
-            <label for="reservationBookId">
-                Book_ID
-            </label>
+        <div class="reservation-queue-panel">
 
-            <input type="text"
-                   id="reservationBookId"
-                   placeholder="Nhập Book_ID...">
+            <div class="reservation-panel-header">
 
-        </div>
+                <h3>
+                    Danh sách đăng ký chờ
+                </h3>
 
+                <p>
+                    Nhập Book_ID để xem những thành viên đang chờ.
+                </p>
 
-        <button type="button"
-                id="btnReservation">
-            Đăng ký chờ mượn
-        </button>
-
-    </div>
+            </div>
 
 
-    <!-- ===================================== -->
-    <!-- KẾT QUẢ -->
-    <!-- ===================================== -->
+            <!-- ================================= -->
+            <!-- Ô TRA CỨU -->
+            <!-- ================================= -->
 
-    <div class="reservation-result">
+            <div class="reservation-lookup">
 
-        <h3>
-            Kết quả
-        </h3>
+                <div class="form-group">
+
+                    <label for="reservationLookupBookId">
+                        Book_ID
+                    </label>
+
+                    <input type="text"
+                           id="reservationLookupBookId"
+                           placeholder="Nhập Book_ID cần tra cứu...">
+
+                </div>
 
 
-        <div id="reservationResult">
+                <button type="button"
+                        id="btnReservationLookup">
+                    Tra cứu
+                </button>
 
-            <p>
-                Chưa thực hiện đăng ký.
-            </p>
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- DANH SÁCH ĐANG CHỜ -->
+            <!-- ================================= -->
+
+            <div id="reservationQueueResult"
+                 class="reservation-queue-result">
+
+                <p>
+                    Nhập Book_ID để tra cứu danh sách đăng ký chờ.
+                </p>
+
+            </div>
 
         </div>
 

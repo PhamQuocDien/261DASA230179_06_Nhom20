@@ -1,14 +1,4 @@
-#ifndef MERGESORT_H
-#define MERGESORT_H
-#include <algorithm>
-#include <vector>
-#include "../models/Book.h"
-void sortBooksByYear(std::vector<Book>& books) {
-    std::sort(books.begin(), books.end(), [](const Book& a, const Book& b) {
-        return a.year < b.year;
-        });
-}
-#endif
+
 #include "LoanSlipService.h"
 #include <algorithm>
 using namespace std;

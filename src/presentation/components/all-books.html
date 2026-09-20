@@ -1,4 +1,5 @@
-﻿<!-- ========================================= -->
+﻿
+<!-- ========================================= -->
 <!-- ALL BOOKS -->
 <!-- TẤT CẢ SÁCH TRONG THƯ VIỆN -->
 <!-- ========================================= -->
@@ -34,11 +35,43 @@
             <thead>
 
                 <tr>
-                    <th>Mã sách</th>
-                    <th>Tên sách</th>
-                    <th>Tác giả</th>
-                    <th>Thể loại</th>
-                    <th>Năm</th>
+
+                    <th id="bookIdHeader"
+                        style="display: none;">
+                        Mã cuốn sách
+                    </th>
+
+
+                    <th>
+                        Mã sách
+                    </th>
+
+
+                    <th>
+                        Tên sách
+                    </th>
+
+
+                    <th>
+                        Tác giả
+                    </th>
+
+
+                    <th>
+                        Thể loại
+                    </th>
+
+
+                    <th>
+                        Năm
+                    </th>
+
+
+                    <th id="bookQuantityHeader"
+                        style="display: none;">
+                        Số lượng
+                    </th>
+
                 </tr>
 
             </thead>
@@ -46,12 +79,105 @@
 
             <tbody id="bookTableBody">
 
-                <!-- book.js sẽ render Book ở đây -->
+                <!-- navigation.js sẽ render Book ở đây -->
 
             </tbody>
 
         </table>
 
+
+        <!-- ================================= -->
+        <!-- PHÂN TRANG -->
+        <!-- ================================= -->
+
+        <div id="bookPagination"
+             class="book-pagination"
+             aria-label="Phân trang danh sách sách">
+        </div>
+
     </section>
 
 </section>
+
+
+<!-- ========================================= -->
+<!-- STYLE PHÂN TRANG -->
+<!-- ========================================= -->
+
+<style>
+
+    .book-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 24px;
+        padding: 10px 0;
+    }
+
+
+    .book-pagination-button {
+        min-width: 40px;
+        height: 40px;
+        padding: 0 12px;
+        border: 1px solid #33415c;
+        border-radius: 8px;
+        background: #172033;
+        color: #dce6f7;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+
+        .book-pagination-button:hover {
+            background: #24314a;
+            border-color: #4b628a;
+            transform: translateY(-1px);
+        }
+
+
+        .book-pagination-button.active {
+            background: #315bdc;
+            border-color: #315bdc;
+            color: white;
+            cursor: default;
+        }
+
+
+        .book-pagination-button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+
+    .book-pagination-ellipsis {
+        min-width: 24px;
+        text-align: center;
+        color: #9aa8c0;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+    .book-id-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        max-width: 320px;
+    }
+
+
+    .book-id-item {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: rgba(49, 91, 220, 0.12);
+        border: 1px solid rgba(49, 91, 220, 0.25);
+        font-size: 13px;
+        white-space: nowrap;
+    }
+</style>

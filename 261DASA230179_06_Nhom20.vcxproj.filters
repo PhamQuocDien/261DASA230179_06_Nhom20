@@ -48,6 +48,12 @@
     <ClCompile Include="src\dsa_core\services\LoanSlipService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\dsa_core\services\LoanService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dsa_core\services\MemberService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\dsa_core\algorithms\sort\MergeSort.h">
@@ -102,6 +108,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\dsa_core\services\LoanSlipService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dsa_core\services\LoanService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\dsa_core\services\MemberService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
