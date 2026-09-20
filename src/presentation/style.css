@@ -1,4 +1,4 @@
-﻿/* =========================================
+/* =========================================
    GLOBAL
    ========================================= */
 
@@ -156,7 +156,8 @@ select {
 .reservation-section,
 .return-book-section,
 .loan-slip-section,
-.fine-section {
+.fine-section,
+.member-register-section {
     background: white;
     padding: 25px;
     margin-bottom: 25px;
@@ -224,7 +225,8 @@ select {
     .search-book-form input,
     .loan-slip-search input,
     .fine-search input,
-    .reservation-form input {
+    .reservation-form input,
+    .member-register-form input {
         width: 100%;
         padding: 10px;
         border: 1px solid #ccc;
@@ -257,7 +259,8 @@ select {
     .search-book-form label,
     .loan-slip-search label,
     .fine-search label,
-    .reservation-form label {
+    .reservation-form label,
+    .member-register-form label {
         font-weight: bold;
     }
 
@@ -280,7 +283,8 @@ select {
     .reservation-form button,
     .return-book-form button,
     .loan-slip-search button,
-    .fine-search button {
+    .fine-search button,
+    .member-register-form button {
         padding: 10px 18px;
         border: none;
         border-radius: 5px;
@@ -296,7 +300,8 @@ select {
         .reservation-form button:hover,
         .return-book-form button:hover,
         .loan-slip-search button:hover,
-        .fine-search button:hover {
+        .fine-search button:hover,
+        .member-register-form button:hover {
             background: #1d4ed8;
         }
 
@@ -726,3 +731,53 @@ tbody tr:hover {
         color: #991b1b;
         border: 1px solid #fca5a5;
     }
+
+/* =========================================
+   MEMBER REGISTER
+   ========================================= */
+.member-register-section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.member-register-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+}
+
+.member-register-form button {
+    align-self: flex-start;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+.member-register-message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.member-register-message.success {
+    color: green;
+}
+
+.member-register-message.error {
+    color: #dc2626;
+}
+
+.member-register-result {
+    margin-top: 20px;
+    padding: 18px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.member-register-result h3 {
+    margin-top: 0;
+}
