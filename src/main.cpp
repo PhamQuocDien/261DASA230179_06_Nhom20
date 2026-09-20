@@ -15,11 +15,14 @@
 #include "dsa_core/services/LoanSlipService.h"
 #include "persistence/JsonDatabase.h"
 #include "persistence/JsonMapper.h"
+
 using namespace std;
 using nlohmann::json;
+
 json bookToJson(const Book& book) {
     return JsonMapper::bookToJson(book);
 }
+
 json loanSlipToJson(const LoanSlip& slip) {
     json result;
     result["loanId"] = slip.loanId;
@@ -32,14 +35,14 @@ json loanSlipToJson(const LoanSlip& slip) {
     result["dueDate"] = slip.dueDate;
     if (slip.returnDate.empty()) {
         result["returnDate"] = nullptr;
-    }
-    else {
+    } else {
         result["returnDate"] = slip.returnDate;
     }
     result["renewalCount"] = slip.renewalCount;
     result["status"] = slip.status;
     return result;
 }
+
 bool saveBooksToDatabase(JsonDatabase& database, json& data, const BookRepository& bookRepository) {
     data["books"] = json::array();
     const vector<Book>& books = bookRepository.getAll();
@@ -48,21 +51,7 @@ bool saveBooksToDatabase(JsonDatabase& database, json& data, const BookRepositor
     }
     return database.save(data);
 }
-bool saveLoanAndFineDataToDatabase(JsonDatabase& database, json& data, const BookRepository& bookRepository, const LoanRepository& loanRepository, const FineRepository& fineRepository) {
-    data["books"] = json::array();
-    for (const Book& book : bookRepository.getAll()) {
-        data["books"].push_back(JsonMapper::bookToJson(book));
-    }
-    data["loans"] = json::array();
-    for (const Loan& loan : loanRepository.getAll()) {
-        data["loans"].push_back(JsonMapper::loanToJson(loan));
-    }
-    data["fines"] = json::array();
-    for (const Fine& fine : fineRepository.getAll()) {
-        data["fines"].push_back(JsonMapper::fineToJson(fine));
-    }
-    return database.save(data);
-}
+
 void printLoanSlip(const LoanSlip& slip) {
     cout << endl;
     cout << "========================================" << endl;
@@ -79,8 +68,7 @@ void printLoanSlip(const LoanSlip& slip) {
     cout << "Ngay tra:       ";
     if (slip.returnDate.empty()) {
         cout << "Chua tra";
-    }
-    else {
+    } else {
         cout << slip.returnDate;
     }
     cout << endl;
@@ -88,6 +76,7 @@ void printLoanSlip(const LoanSlip& slip) {
     cout << "Trang thai:     " << slip.status << endl;
     cout << "========================================" << endl;
 }
+
 void printLoanSlips(const vector<LoanSlip>& slips) {
     if (slips.empty()) {
         cout << endl;
@@ -100,191 +89,168 @@ void printLoanSlips(const vector<LoanSlip>& slips) {
         printLoanSlip(slip);
     }
 }
-int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberRepository, BookService& bookService, BookRepository& bookRepository, LoanRepository& loanRepository, LoanService& loanService, FineRepository& fineRepository, JsonDatabase& database, json& data) {
+
+int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberRepository, 
+               BookService& bookService, BookRepository& bookRepository, 
+               LoanService& loanService, FineRepository& fineRepository,
+               JsonDatabase& database, json& data) {
     json request;
     if (!(cin >> request)) {
-        cout << json{ {"success", false}, {"error", "Khong doc duoc JSON Request."} }.dump();
+        cout << json{{"success", false}, {"error", "Khong doc duoc JSON Request."}}.dump();
         return 1;
     }
     if (!request.is_object()) {
-        cout << json{ {"success", false}, {"error", "JSON Request phai la Object."} }.dump();
+        cout << json{{"success", false}, {"error", "JSON Request phai la Object."}}.dump();
         return 1;
     }
+
     string action = request.value("action", "");
+
     if (action == "getBooks") {
         const vector<Book>& books = bookService.getAllBooks();
         json bookData = json::array();
         for (const Book& book : books) {
             bookData.push_back(JsonMapper::bookToJson(book));
         }
-        json response = { {"success", true}, {"data", bookData} };
+        json response = {{"success", true}, {"data", bookData}};
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
     if (action == "getBook") {
         string bookCode = request.value("bookCode", "");
         if (bookCode.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu bookCode."}}.dump();
             return 1;
         }
         Book* book = bookService.getBookByCode(bookCode);
         if (book == nullptr) {
-            cout << json{ {"success", false}, {"error", "Book khong ton tai."} }.dump();
+            cout << json{{"success", false}, {"error", "Book khong ton tai."}}.dump();
             return 0;
         }
-        json response = { {"success", true}, {"data", JsonMapper::bookToJson(*book)} };
+        json response = {{"success", true}, {"data", JsonMapper::bookToJson(*book)}};
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
     if (action == "createBook") {
         if (!request.contains("book") || !request["book"].is_object()) {
-            cout << json{ {"success", false}, {"error", "Thieu book hoac book khong hop le."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu book hoac book khong hop le."}}.dump();
             return 1;
         }
         if (!request.contains("quantity") || !request["quantity"].is_number_integer()) {
-            cout << json{ {"success", false}, {"error", "Thieu quantity hoac quantity khong hop le."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu quantity hoac quantity khong hop le."}}.dump();
             return 1;
         }
         int quantity = request["quantity"].get<int>();
         if (quantity <= 0) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly phai lon hon 0."} }.dump();
+            cout << json{{"success", false}, {"error", "So luong cuon vat ly phai lon hon 0."}}.dump();
             return 0;
         }
         if (quantity > 999) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly khong duoc vuot qua 999."} }.dump();
+            cout << json{{"success", false}, {"error", "So luong cuon vat ly khong duoc vuot qua 999."}}.dump();
             return 0;
         }
         try {
             Book book = JsonMapper::bookFromJson(request["book"]);
             bool created = bookService.addBook(book, quantity);
             if (!created) {
-                cout << json{ {"success", false}, {"error", "Khong the them Book. Book co the bi trung hoac du lieu khong hop le."} }.dump();
+                cout << json{{"success", false}, {"error", "Khong the them Book. Book co the bi trung hoac du lieu khong hop le."}}.dump();
                 return 0;
             }
             bool saved = saveBooksToDatabase(database, data, bookRepository);
             if (!saved) {
-                cout << json{ {"success", false}, {"error", "Book da duoc them vao bo nho nhung khong the luu library.json."} }.dump();
+                cout << json{{"success", false}, {"error", "Book da duoc them vao bo nho nhung khong the luu library.json."}}.dump();
                 return 1;
             }
             Book* createdBook = bookService.getBookByCode(book.bookCode);
             if (createdBook == nullptr) {
-                cout << json{ {"success", false}, {"error", "Book da duoc tao nhung khong the doc lai du lieu sau khi tao."} }.dump();
+                cout << json{{"success", false}, {"error", "Book da duoc tao nhung khong the doc lai du lieu sau khi tao."}}.dump();
                 return 1;
             }
-            json response = { {"success", true}, {"data", JsonMapper::bookToJson(*createdBook)} };
+            json response = {{"success", true}, {"data", JsonMapper::bookToJson(*createdBook)}};
             cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
             return 0;
-        }
-        catch (const exception& e) {
-            cout << json{ {"success", false}, {"error", string("Du lieu Book khong hop le: ") + e.what()} }.dump();
+        } catch (const exception& e) {
+            cout << json{{"success", false}, {"error", string("Du lieu Book khong hop le: ") + e.what()}}.dump();
             return 1;
         }
     }
+
     if (action == "updateBook") {
         if (!request.contains("book") || !request["book"].is_object()) {
-            cout << json{ {"success", false}, {"error", "Thieu book hoac book khong hop le."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu book hoac book khong hop le."}}.dump();
             return 1;
         }
         if (!request.contains("quantity") || !request["quantity"].is_number_integer()) {
-            cout << json{ {"success", false}, {"error", "Thieu quantity hoac quantity khong hop le."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu quantity hoac quantity khong hop le."}}.dump();
             return 1;
         }
         int quantity = request["quantity"].get<int>();
         if (quantity <= 0) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly phai lon hon 0."} }.dump();
+            cout << json{{"success", false}, {"error", "So luong cuon vat ly phai lon hon 0."}}.dump();
             return 0;
         }
         if (quantity > 999) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly khong duoc vuot qua 999."} }.dump();
+            cout << json{{"success", false}, {"error", "So luong cuon vat ly khong duoc vuot qua 999."}}.dump();
             return 0;
         }
         try {
             Book book = JsonMapper::bookFromJson(request["book"]);
             bool updated = bookService.updateBook(book, quantity);
             if (!updated) {
-                cout << json{ {"success", false}, {"error", "Khong the cap nhat Book. Book khong ton tai, so luong moi nho hon so luong cu hoac du lieu khong hop le."} }.dump();
+                cout << json{{"success", false}, {"error", "Khong the cap nhat Book. Book khong ton tai, so luong moi nho hon so luong cu hoac du lieu khong hop le."}}.dump();
                 return 0;
             }
             bool saved = saveBooksToDatabase(database, data, bookRepository);
             if (!saved) {
-                cout << json{ {"success", false}, {"error", "Book da duoc cap nhat trong bo nho nhung khong the luu library.json."} }.dump();
+                cout << json{{"success", false}, {"error", "Book da duoc cap nhat trong bo nho nhung khong the luu library.json."}}.dump();
                 return 1;
             }
             Book* updatedBook = bookService.getBookByCode(book.bookCode);
             if (updatedBook == nullptr) {
-                cout << json{ {"success", false}, {"error", "Book da duoc cap nhat nhung khong the doc lai du lieu."} }.dump();
+                cout << json{{"success", false}, {"error", "Book da duoc cap nhat nhung khong the doc lai du lieu."}}.dump();
                 return 1;
             }
-            json response = { {"success", true}, {"data", JsonMapper::bookToJson(*updatedBook)} };
+            json response = {{"success", true}, {"data", JsonMapper::bookToJson(*updatedBook)}};
             cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
             return 0;
-        }
-        catch (const exception& e) {
-            cout << json{ {"success", false}, {"error", string("Du lieu Book khong hop le: ") + e.what()} }.dump();
+        } catch (const exception& e) {
+            cout << json{{"success", false}, {"error", string("Du lieu Book khong hop le: ") + e.what()}}.dump();
             return 1;
         }
     }
-    if (action == "addBookCopy") {
-        string bookCode = request.value("bookCode", "");
-        if (bookCode.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
-            return 1;
-        }
-        bool added = bookService.addBookCopy(bookCode);
-        if (!added) {
-            cout << json{ {"success", false}, {"error", "Khong the them BookCopy. Book khong ton tai hoac khong the them."} }.dump();
-            return 0;
-        }
-        bool saved = saveBooksToDatabase(database, data, bookRepository);
-        if (!saved) {
-            cout << json{ {"success", false}, {"error", "BookCopy da duoc them vao bo nho nhung khong the luu library.json."} }.dump();
-            return 1;
-        }
-        Book* updatedBook = bookService.getBookByCode(bookCode);
-        if (updatedBook == nullptr) {
-            cout << json{ {"success", false}, {"error", "Book da duoc cap nhat nhung khong the doc lai du lieu."} }.dump();
-            return 1;
-        }
-        json response = { {"success", true}, {"data", JsonMapper::bookToJson(*updatedBook)} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
-        return 0;
-    }
+
     if (action == "deleteBook") {
         string bookCode = request.value("bookCode", "");
-        string bookId = request.value("bookId", "");
         if (bookCode.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu bookCode."}}.dump();
             return 1;
         }
-        bool deleted = false;
-        if (bookId.empty()) {
-            deleted = bookService.deleteBook(bookCode);
-        }
-        else {
-            deleted = bookService.deleteBookCopy(bookCode, bookId);
-        }
+        bool deleted = bookService.deleteBook(bookCode);
         if (!deleted) {
-            cout << json{ {"success", false}, {"error", "Book khong ton tai, Book_ID khong ton tai hoac khong the xoa."} }.dump();
+            cout << json{{"success", false}, {"error", "Book khong ton tai hoac khong the xoa."}}.dump();
             return 0;
         }
         bool saved = saveBooksToDatabase(database, data, bookRepository);
         if (!saved) {
-            cout << json{ {"success", false}, {"error", "Du lieu da duoc xoa trong bo nho nhung khong the luu library.json."} }.dump();
+            cout << json{{"success", false}, {"error", "Book da bi xoa trong bo nho nhung khong the luu library.json."}}.dump();
             return 1;
         }
-        json response = { {"success", true}, {"data", {{"bookCode", bookCode}, {"bookId", bookId}, {"message", bookId.empty() ? "Book da duoc xoa." : "BookCopy da duoc xoa."}}} };
+        json response = {{"success", true}, {"data", {{"bookCode", bookCode}, {"message", "Book da duoc xoa."}}}};
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
     if (action == "getLoanSlipsByMember") {
         string memberId = request.value("memberId", "");
         if (memberId.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu memberId."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu memberId."}}.dump();
             return 1;
         }
         const Member* member = memberRepository.findById(memberId);
         if (member == nullptr) {
-            cout << json{ {"success", false}, {"error", "Member_ID khong ton tai."} }.dump();
+            cout << json{{"success", false}, {"error", "Member_ID khong ton tai."}}.dump();
             return 0;
         }
         vector<LoanSlip> slips = loanSlipService.getLoanSlipsByMember(memberId);
@@ -292,70 +258,88 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
         for (const LoanSlip& slip : slips) {
             loanData.push_back(loanSlipToJson(slip));
         }
-        json response = { {"success", true}, {"data", loanData} };
+        json response = {{"success", true}, {"data", loanData}};
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
     if (action == "getLoanSlipByLoanId") {
         string loanId = request.value("loanId", "");
         if (loanId.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu loanId."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu loanId."}}.dump();
             return 1;
         }
         LoanSlip slip;
         bool found = loanSlipService.getLoanSlipByLoanId(loanId, slip);
         if (!found) {
-            cout << json{ {"success", false}, {"error", "Loan_ID khong ton tai hoac khong tao duoc phieu."} }.dump();
+            cout << json{{"success", false}, {"error", "Loan_ID khong ton tai hoac khong tao duoc phieu."}}.dump();
             return 0;
         }
-        json response = { {"success", true}, {"data", loanSlipToJson(slip)} };
+        json response = {{"success", true}, {"data", loanSlipToJson(slip)}};
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
     if (action == "returnBook") {
         string loanId = request.value("loanId", "");
         string returnDateStr = request.value("returnDate", "");
         string quality = request.value("quality", "Tot");
+
         if (loanId.empty() || returnDateStr.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu thong tin loanId hoac returnDate."} }.dump();
+            cout << json{{"success", false}, {"error", "Thieu thong tin loanId hoac returnDate."}}.dump();
             return 1;
         }
-        Date returnDate = Date::parse(returnDateStr);
-        if (returnDate.year <= 0 || returnDate.month <= 0 || returnDate.day <= 0) {
-            cout << json{ {"success", false}, {"error", "returnDate khong hop le. Dinh dang dung: YYYY-MM-DD."} }.dump();
-            return 0;
-        }
-        ReturnReceipt receipt = loanService.returnBook(loanId, returnDate, quality);
-        if (receipt.isSuccess) {
-            bool saved = saveLoanAndFineDataToDatabase(database, data, bookRepository, loanRepository, fineRepository);
-            if (!saved) {
-                cout << json{ {"success", false}, {"error", "Da cap nhat trong bo nho nhung khong the luu library.json."} }.dump();
-                return 1;
-            }
-        }
-        json response = { {"success", receipt.isSuccess}, {"message", receipt.message}, {"data", {{"loanId", receipt.loanId}, {"lateDays", receipt.lateDays}, {"lateFee", receipt.lateFee}, {"damageFee", receipt.damageFee}, {"totalFee", receipt.totalFee}}} };
+
+        ReturnReceipt receipt = loanService.returnBook(loanId, Date::parse(returnDateStr), quality);
+
+        json response = {
+            {"success", receipt.isSuccess},
+            {"message", receipt.message},
+            {"data", {
+                {"loanId", receipt.loanId},
+                {"lateDays", receipt.lateDays},
+                {"lateFee", receipt.lateFee},
+                {"damageFee", receipt.damageFee},
+                {"totalFee", receipt.totalFee}
+            }}
+        };
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
     if (action == "getFine") {
         string loanId = request.value("loanId", "");
         if (loanId.empty()) {
-            cout << json{ {"success", false}, {"error", "Vui long nhap Loan_ID."} }.dump();
+            cout << json{{"success", false}, {"error", "Vui long nhap Loan_ID."}}.dump();
             return 1;
         }
+
         Fine* fine = fineRepository.findByLoanId(loanId);
         if (fine == nullptr) {
-            json response = { {"success", false}, {"message", "Khong tim thay thong tin tien phat cho phieu muon nay."} };
+            json response = {{"success", false}, {"message", "Khong tim thay thong tin tien phat cho phieu muon nay."}};
             cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
             return 0;
         }
-        json response = { {"success", true}, {"data", {{"fineId", fine->fineId}, {"loanId", fine->loanId}, {"memberId", fine->memberId}, {"amount", fine->amount}, {"reason", fine->reason}, {"status", fine->status}}} };
+
+        json response = {
+            {"success", true},
+            {"data", {
+                {"fineId", fine->fineId},
+                {"loanId", fine->loanId},
+                {"memberId", fine->memberId},
+                {"amount", fine->amount},
+                {"reason", fine->reason},
+                {"status", fine->status}
+            }}
+        };
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
-    cout << json{ {"success", false}, {"error", "Action khong duoc ho tro."} }.dump();
+
+    cout << json{{"success", false}, {"error", "Action khong duoc ho tro."}}.dump();
     return 1;
 }
+
 int runConsoleMode(LoanSlipService& loanSlipService, BookService& bookService) {
     cout << "========================================" << endl;
     cout << "       TRA CUU PHIEU MUON SACH          " << endl;
@@ -380,35 +364,40 @@ int runConsoleMode(LoanSlipService& loanSlipService, BookService& bookService) {
     }
     return 0;
 }
+
 int main(int argc, char* argv[]) {
     bool apiMode = argc > 1 && string(argv[1]) == "--api";
     JsonDatabase database("data/library.json");
     json data = database.load();
     if (data.empty()) {
         if (apiMode) {
-            cout << json{ {"success", false}, {"error", "Khong load duoc library.json."} }.dump();
+            cout << json{{"success", false}, {"error", "Khong load duoc library.json."}}.dump();
             return 1;
         }
         cout << "Khong load duoc library.json." << endl;
         return 1;
     }
+
     vector<Book> books = JsonMapper::booksFromJson(data);
     vector<Member> members = JsonMapper::membersFromJson(data);
     vector<Loan> loans = JsonMapper::loansFromJson(data);
-    vector<Fine> fines = JsonMapper::finesFromJson(data);
+
     BookRepository bookRepository;
     MemberRepository memberRepository;
     LoanRepository loanRepository;
-    FineRepository fineRepository;
+    FineRepository fineRepository; 
+
     bookRepository.getAll() = books;
     memberRepository.getAll() = members;
     loanRepository.getAll() = loans;
-    fineRepository.getAll() = fines;
+
     BookService bookService(bookRepository);
     LoanSlipService loanSlipService(loanRepository, memberRepository, bookRepository);
     LoanService loanService(loanRepository, bookRepository, fineRepository);
+
     if (apiMode) {
-        return runApiMode(loanSlipService, memberRepository, bookService, bookRepository, loanRepository, loanService, fineRepository, database, data);
+        return runApiMode(loanSlipService, memberRepository, bookService, bookRepository, 
+                          loanService, fineRepository, database, data);
     }
     return runConsoleMode(loanSlipService, bookService);
 }
