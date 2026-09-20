@@ -193,6 +193,18 @@ export async function loadComponents() {
 
 
     // =================================
+    // MEMBER REGISTER
+    // ĐĂNG KÝ THÀNH VIÊN
+    // =================================
+
+    const memberRegisterLoaded =
+        await loadComponent(
+            "memberRegister",
+            "./components/member-register.html"
+        );
+
+
+    // =================================
     // BORROW BOOK
     // =================================
 
@@ -273,6 +285,7 @@ export async function loadComponents() {
         bookManagementLoaded &&
         searchBookLoaded &&
         searchBookByYearLoaded &&
+        memberRegisterLoaded &&
         borrowBookLoaded &&
         reservationLoaded &&
         returnBookLoaded &&
