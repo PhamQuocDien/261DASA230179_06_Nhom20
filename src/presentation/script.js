@@ -17,6 +17,10 @@ import {
 } from "./js/loanSlip.js";
 
 import {
+    initMemberRegister
+} from "./js/memberRegister.js";
+
+import {
     initReturnBook
 } from "./js/returnBook.js";
 
@@ -72,6 +76,13 @@ document.addEventListener(
         // =============================
 
         initLoanSlip();
+
+
+        // =============================
+        // KHOI DONG DANG KY THANH VIEN
+        // =============================
+
+        initMemberRegister();
 
 
         // =============================
