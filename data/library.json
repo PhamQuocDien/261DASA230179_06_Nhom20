@@ -1,254 +1,261 @@
-
 {
-  "books": [
-    {
-      "author": "Nguyen Van Toan",
-      "bookCode": "LSVN",
-      "category": "Lịch sử",
-      "copies": [
+    "books": [
         {
-          "bookId": "LSVN001",
-          "status": "available"
+            "author": "Nguyen Van Toan",
+            "bookCode": "LSVN",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "LSVN001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSVN010",
+                    "status": "available"
+                }
+            ],
+            "title": "Lich su Viet Nam",
+            "year": 2024
         },
         {
-          "bookId": "LSVN002",
-          "status": "available"
+            "author": "Le Van Chi",
+            "bookCode": "TCC",
+            "category": "Toán học",
+            "copies": [
+                {
+                    "bookId": "TCC001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TCC010",
+                    "status": "available"
+                }
+            ],
+            "title": "Toan cao cap",
+            "year": 2022
         },
         {
-          "bookId": "LSVN003",
-          "status": "available"
+            "author": "Pham Van Dong",
+            "bookCode": "KTLT",
+            "category": "Lập trình",
+            "copies": [
+                {
+                    "bookId": "KTLT001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "KTLT010",
+                    "status": "available"
+                }
+            ],
+            "title": "Ky thuat lap trinh",
+            "year": 2025
         },
         {
-          "bookId": "LSVN004",
-          "status": "available"
+            "author": "Nguyen Van Nam",
+            "bookCode": "NMLT",
+            "category": "Lập trình",
+            "copies": [
+                {
+                    "bookId": "NMLT001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "NMLT010",
+                    "status": "available"
+                }
+            ],
+            "title": "Nhap mon lap trinh",
+            "year": 2000
         },
         {
-          "bookId": "LSVN005",
-          "status": "available"
-        },
-        {
-          "bookId": "LSVN006",
-          "status": "available"
-        },
-        {
-          "bookId": "LSVN007",
-          "status": "available"
-        },
-        {
-          "bookId": "LSVN008",
-          "status": "available"
-        },
-        {
-          "bookId": "LSVN009",
-          "status": "available"
-        },
-        {
-          "bookId": "LSVN010",
-          "status": "available"
+            "author": "Nguyen Quoc Viet",
+            "bookCode": "LSD",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "LSD001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "LSD010",
+                    "status": "available"
+                }
+            ],
+            "title": "Lich su Dang",
+            "year": 1999
         }
-      ],
-      "title": "Lich su Viet Nam",
-      "year": 2024
-    },
-    {
-      "author": "Le Van Chi",
-      "bookCode": "TCC",
-      "category": "Toán học",
-      "copies": [
+    ],
+    "fines": [],
+    "loans": [],
+    "members": [
         {
-          "bookId": "TCC001",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC002",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC003",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC004",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC005",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC006",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC007",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC008",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC009",
-          "status": "available"
-        },
-        {
-          "bookId": "TCC010",
-          "status": "available"
+            "email": "quangminh@gmail.com",
+            "memberId": "M001",
+            "name": "Trương Quang Minh",
+            "phone": "0336352833",
+            "status": "ACTIVE"
         }
-      ],
-      "title": "Toan cao cap",
-      "year": 2022
-    },
-    {
-      "author": "Pham Van Dong",
-      "bookCode": "KTLT",
-      "category": "Lập trình",
-      "copies": [
-        {
-          "bookId": "KTLT001",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT002",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT003",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT004",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT005",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT006",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT007",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT008",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT009",
-          "status": "available"
-        },
-        {
-          "bookId": "KTLT010",
-          "status": "available"
-        }
-      ],
-      "title": "Ky thuat lap trinh",
-      "year": 2025
-    },
-    {
-      "author": "Nguyen Van Nam",
-      "bookCode": "NMLT",
-      "category": "Lập trình",
-      "copies": [
-        {
-          "bookId": "NMLT001",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT002",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT003",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT004",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT005",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT006",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT007",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT008",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT009",
-          "status": "available"
-        },
-        {
-          "bookId": "NMLT010",
-          "status": "available"
-        }
-      ],
-      "title": "Nhap mon lap trinh",
-      "year": 2000
-    },
-    {
-      "author": "Nguyen Quoc Viet",
-      "bookCode": "LSD",
-      "category": "Lịch sử",
-      "copies": [
-        {
-          "bookId": "LSD001",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD002",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD003",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD004",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD005",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD006",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD007",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD008",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD009",
-          "status": "available"
-        },
-        {
-          "bookId": "LSD010",
-          "status": "available"
-        }
-      ],
-      "title": "Lich su Dang",
-      "year": 1999
-    }
-  ],
-  "fines": [],
-  "loans": [],
-  "members": [],
-  "reservations": []
+    ],
+    "reservations": []
 }
