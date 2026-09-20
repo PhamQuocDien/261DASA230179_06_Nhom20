@@ -9,6 +9,7 @@
 #include "../repositories/LoanRepository.h"
 #include "../repositories/BookRepository.h"
 #include "../repositories/FineRepository.h"
+#include "../repositories/MemberRepository.h"
 
 using namespace std;
 
@@ -22,17 +23,28 @@ struct ReturnReceipt {
     double totalFee;
 };
 
+struct BorrowResult {
+    bool isSuccess;
+    string message;
+    Loan loan;
+};
+
 class LoanService {
 private:
     LoanRepository& loanRepo;
     BookRepository& bookRepo;
     FineRepository& fineRepo;
 
+    string generateLoanId();
+    string calculateDueDate(const string& borrowDateStr, int daysToAdd);
+
 public:
     LoanService(LoanRepository& lr, BookRepository& br, FineRepository& fr)
         : loanRepo(lr), bookRepo(br), fineRepo(fr) {}
 
     ReturnReceipt returnBook(const string& loanId, const Date& returnDate, const string& quality);
+    
+    BorrowResult borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr, MemberRepository& memberRepo);
 };
 
 #endif
