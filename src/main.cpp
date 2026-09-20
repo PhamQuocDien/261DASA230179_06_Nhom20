@@ -187,67 +187,81 @@ int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberReposit
         return 0;
     }
     if (action == "registerMember") {
-        string name = request.value("name", "");
-        string email = request.value("email", "");
-        string phone = request.value("phone", "");
-        auto trim = [](string value) {
-            const string whitespace = " \t\r\n";
-            size_t start = value.find_first_not_of(whitespace);
-            if (start == string::npos) { return string(); }
-            size_t end = value.find_last_not_of(whitespace);
-            return value.substr(start, end - start + 1);
-            };
-        name = trim(name);
-        email = trim(email);
-        phone = trim(phone);
-        if (name.empty() || email.empty() || phone.empty()) {
-            cout << json{ {"success", false}, {"error", "Vui long nhap day du name, email va phone."} }.dump();
-            return 0;
+    string name = request.value("name", "");
+    string email = request.value("email", "");
+    string phone = request.value("phone", "");
+
+    auto trim = [](string value) {
+        const string whitespace = " \t\r\n";
+        size_t start = value.find_first_not_of(whitespace);
+        if (start == string::npos) {
+            return string();
         }
-        if (name.size() > 100 || email.size() > 150 || phone.size() > 30) {
-            cout << json{ {"success", false}, {"error", "Du lieu vuot qua do dai cho phep."} }.dump();
-            return 0;
-        }
-        size_t atPos = email.find('@');
-        size_t dotPos = email.find('.', atPos == string::npos ? 0 : atPos);
-        if (atPos == string::npos || atPos == 0 || dotPos == string::npos || dotPos <= atPos + 1 || dotPos + 1 >= email.size()) {
-            cout << json{ {"success", false}, {"error", "Email khong hop le."} }.dump();
-            return 0;
-        }
-        for (char ch : phone) {
-            if (!std::isdigit(static_cast<unsigned char>(ch)) && ch != '+' && ch != '-' && ch != ' ' && ch != '(' && ch != ')') {
-                cout << json{ {"success", false}, {"error", "So dien thoai khong hop le."} }.dump();
-                return 0;
-            }
-        }
-        for (const Member& existing : memberRepository.getAll()) {
-            if (existing.email == email) {
-                cout << json{ {"success", false}, {"error", "Email da duoc dang ky."} }.dump();
-                return 0;
-            }
-            if (existing.phone == phone) {
-                cout << json{ {"success", false}, {"error", "So dien thoai da duoc dang ky."} }.dump();
-                return 0;
-            }
-        }
-        Member member;
-        member.name = name;
-        member.email = email;
-        member.phone = phone;
-        member.status = "ACTIVE";
-        bool added = memberService.addMember(member);
-        if (!added) {
-            cout << json{ {"success", false}, {"error", "Khong the tao thanh vien moi."} }.dump();
-            return 0;
-        }
-        if (!saveMembersToDatabase(database, data, memberRepository)) {
-            memberRepository.removeById(member.memberId);
-            cout << json{ {"success", false}, {"error", "Da tao thanh vien trong bo nho nhung khong the luu library.json."} }.dump();
-            return 1;
-        }
-        cout << json{ {"success", true}, {"data", JsonMapper::memberToJson(member)} }.dump(-1, ' ', false, json::error_handler_t::replace);
+        size_t end = value.find_last_not_of(whitespace);
+        return value.substr(start, end - start + 1);
+    };
+
+    name = trim(name);
+    email = trim(email);
+    phone = trim(phone);
+
+    if (name.empty() || email.empty() || phone.empty()) {
+        cout << json{{"success", false}, {"error", "Vui long nhap day du name, email va phone."}}.dump();
         return 0;
     }
+
+    if (name.size() > 100 || email.size() > 150 || phone.size() > 30) {
+        cout << json{{"success", false}, {"error", "Du lieu vuot qua do dai cho phep."}}.dump();
+        return 0;
+    }
+
+    size_t atPos = email.find('@');
+    size_t dotPos = email.find('.', atPos == string::npos ? 0 : atPos);
+    if (atPos == string::npos || atPos == 0 || dotPos == string::npos || dotPos <= atPos + 1 || dotPos + 1 >= email.size()) {
+        cout << json{{"success", false}, {"error", "Email khong hop le."}}.dump();
+        return 0;
+    }
+
+    for (char ch : phone) {
+        if (!std::isdigit(static_cast<unsigned char>(ch)) && ch != '+' && ch != '-' && ch != ' ' && ch != '(' && ch != ')') {
+            cout << json{{"success", false}, {"error", "So dien thoai khong hop le."}}.dump();
+            return 0;
+        }
+    }
+
+    for (const Member& existing : memberRepository.getAll()) {
+        if (existing.email == email) {
+            cout << json{{"success", false}, {"error", "Email da duoc dang ky."}}.dump();
+            return 0;
+        }
+        if (existing.phone == phone) {
+            cout << json{{"success", false}, {"error", "So dien thoai da duoc dang ky."}}.dump();
+            return 0;
+        }
+    }
+
+    Member member;
+    member.memberId = generateNextMemberId(memberRepository);
+    member.name = name;
+    member.email = email;
+    member.phone = phone;
+    member.status = "ACTIVE";
+
+    if (!memberRepository.add(member)) {
+        cout << json{{"success", false}, {"error", "Khong the tao thanh vien moi."}}.dump();
+        return 0;
+    }
+
+    if (!saveMembersToDatabase(database, data, memberRepository)) {
+        memberRepository.removeById(member.memberId);
+        cout << json{{"success", false}, {"error", "Da tao thanh vien trong bo nho nhung khong the luu library.json."}}.dump();
+        return 1;
+    }
+
+    cout << json{{"success", true}, {"data", JsonMapper::memberToJson(member)}}.dump(-1, ' ', false, json::error_handler_t::replace);
+    return 0;
+}
+
     if (action == "createBook") {
         if (!request.contains("book") || !request["book"].is_object()) {
             cout << json{ {"success", false}, {"error", "Thieu book hoac book khong hop le."} }.dump();
