@@ -244,6 +244,55 @@
             ],
             "title": "Lich su Dang",
             "year": 1999
+        },
+        {
+            "author": "Trương Quang Minh",
+            "bookCode": "TTIH",
+            "category": "Toán",
+            "copies": [
+                {
+                    "bookId": "TTIH001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "TTIH010",
+                    "status": "available"
+                }
+            ],
+            "title": "Toán Lớp 1",
+            "year": 2007
         }
     ],
     "fines": [],
