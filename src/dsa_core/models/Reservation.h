@@ -1,14 +1,12 @@
-#ifndef RESERVATION_H
-#define RESERVATION_H
+#pragma once
 #include <string>
 using namespace std;
-struct Reservation
-{
-    string reservationId;
-    string memberId;
-    string bookCode;
-    string reservationDate;
-    string status;
-};
+struct Reservation {
+	string reservationId;
+	string memberId;
+	string bookId;
+	string reservationDate;
+	string status;
 
-#endif
+};
+string getCurrentTime();
