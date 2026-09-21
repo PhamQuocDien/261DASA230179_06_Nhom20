@@ -255,6 +255,13 @@
             "name": "Trương Quang Minh",
             "phone": "0336352833",
             "status": "ACTIVE"
+        },
+        {
+            "email": "hung@gmail.com",
+            "memberId": "M002",
+            "name": "Pham Khanh Hung",
+            "phone": "0100000090",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
