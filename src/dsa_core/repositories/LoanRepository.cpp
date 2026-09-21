@@ -22,6 +22,25 @@ const Loan* LoanRepository::findById(const std::string& loanId) const {
     }
     return nullptr;
 }
+
+Loan* LoanRepository::findByMemberAndBook(const std::string& memberId, const std::string& bookId) {
+    for (Loan& loan : loans) {
+        if (loan.memberId == memberId && loan.bookId == bookId) {
+            return &loan;
+        }
+    }
+    return nullptr;
+}
+
+const Loan* LoanRepository::findByMemberAndBook(const std::string& memberId, const std::string& bookId) const {
+    for (const Loan& loan : loans) {
+        if (loan.memberId == memberId && loan.bookId == bookId) {
+            return &loan;
+        }
+    }
+    return nullptr;
+}
+
 bool LoanRepository::add(const Loan& loan) {
     if (findById(loan.loanId) != nullptr) {
         return false;
