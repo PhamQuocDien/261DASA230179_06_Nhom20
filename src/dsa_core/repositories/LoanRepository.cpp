@@ -47,3 +47,20 @@ bool LoanRepository::removeById(const std::string& loanId) {
     }
     return false;
 }
+const Loan* LoanRepository::findByMemberAndBook(
+    const std::string& memberId,
+    const std::string& bookId
+) const
+{
+    for (const Loan& loan : loans)
+    {
+        if (loan.memberId == memberId &&
+            loan.bookId == bookId &&
+            loan.status == "BORROWING")
+        {
+            return &loan;
+        }
+    }
+
+    return nullptr;
+}
