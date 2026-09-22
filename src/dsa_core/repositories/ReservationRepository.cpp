@@ -46,3 +46,19 @@ vector<Reservation>& ReservationRepository::getAll()
 {
     return reservations;
 }
+Reservation* ReservationRepository::findByMemberAndBook(
+    const string& memberId,
+    const string& bookCode
+)
+{
+    for (auto& reservation : reservations)
+    {
+        if (reservation.memberId == memberId &&
+            reservation.bookCode == bookCode)
+        {
+            return &reservation;
+        }
+    }
+
+    return nullptr;
+}
