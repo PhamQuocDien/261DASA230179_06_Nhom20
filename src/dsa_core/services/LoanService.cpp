@@ -122,6 +122,7 @@ ReturnReceipt LoanService::returnBook(const string& loanId, const Date& returnDa
 }
 
 
+
 string LoanService::generateLoanId() {
     int count = loanRepo.getAll().size() + 1;
     string id = "L";
@@ -197,9 +198,10 @@ BorrowResult LoanService::borrowBook(const string& memberId, const string& bookC
         return result;
     }
 
+    // 4. Lấy 1 bản copy đang rảnh
     string availableBookId = "";
     for (auto& copy : book->copies) {
-        if (copy.status == "AVAILABLE" || copy.status == "available") { 
+        if (copy.status == "available") { // Xoá bỏ cái "AVAILABLE" đi
             availableBookId = copy.bookId;
             break;
         }
@@ -210,37 +212,42 @@ BorrowResult LoanService::borrowBook(const string& memberId, const string& bookC
         return result;
     }
 
-    // 4. Kiểm tra giới hạn mượn
+    // 5. TỰ KIỂM TRA GIỚI HẠN VÀ TRÙNG LẶP TRỰC TIẾP (Thay thế cho hàm findByMemberAndBook đã xoá)
     int activeLoans = 0;
     bool alreadyBorrowingThisBook = false;
     
-    for (const auto& copy : book->copies) {
-        const Loan* existing = loanRepo.findByMemberAndBook(memberId, copy.bookId);
-        if (existing != nullptr && (existing->status == "BORROWING" || existing->status == "borrowing")) {
-            alreadyBorrowingThisBook = true;
-            break;
+    const auto& allLoans = loanRepo.getAll();
+
+    for (auto it = allLoans.rbegin(); it != allLoans.rend(); ++it) {
+        if (it->memberId == memberId && it->status == "borrowing") {
+            activeLoans++; 
+            
+            for (const auto& copy : book->copies) {
+                if (it->bookId == copy.bookId) {
+                    alreadyBorrowingThisBook = true;
+                    break; 
+                }
+            }
+
+            // TỐI ƯU CỰC ĐẠI: Ngắt vòng lặp khi chạm ngưỡng
+            if (alreadyBorrowingThisBook || activeLoans >= 10) {
+                break;
+            }
         }
     }
 
+    // Xử lý báo lỗi nếu vi phạm
     if (alreadyBorrowingThisBook) {
         result.message = "Dang muon: Doc gia dang giu mot cuon cua dau sach nay roi.";
         return result;
     }
 
-    //Đếm số sách đang mượn
-    for (const Loan& loan : loanRepo.getAll()) {
-        if (loan.memberId == memberId && (loan.status == "BORROWING" || loan.status == "borrowing")) {
-            activeLoans++;
-        }
-    }
-
-    // Huỷ yêu cầu mượn nếu đã đạt giới hạn mượn
     if (activeLoans >= 10) {
-        result.message = "Dang muon: Da dat gioi han muon 3 cuon sach.";
+        result.message = "Dang muon: Da dat gioi han muon 10 cuon sach, khong the muon them.";
         return result;
     }
 
-    // 5. Tạo phiếu Loan mới
+    // 6. Tạo phiếu Loan mới
     Loan newLoan;
     newLoan.loanId = generateLoanId();
     newLoan.memberId = memberId;
@@ -249,12 +256,12 @@ BorrowResult LoanService::borrowBook(const string& memberId, const string& bookC
     newLoan.dueDate = calculateDueDate(borrowDateStr, 14);
     newLoan.returnDate = "";
     newLoan.renewalCount = 0;
-    newLoan.status = "BORROWING";
+    newLoan.status = "borrowing";
 
-    // 6. Cập nhật trạng thái sách vừa mượn thành BORROWED
+    // 7. Cập nhật trạng thái sách vừa mượn
     for (auto& copy : book->copies) {
         if (copy.bookId == availableBookId) {
-            copy.status = "BORROWED";
+            copy.status = "borrowed"; 
             break;
         }
     }
