@@ -13,45 +13,70 @@ namespace JsonMapper
     {
         json j;
 
-        j["bookCode"] = book.BookCode;
-        j["bookId"] = book.Book_ID;
-        j["title"] = book.Title;
-        j["author"] = book.Author;
-        j["category"] = book.Category;
-        j["year"] = book.Year;
-        j["quantity"] = book.Quantity;
+        j["bookCode"] = book.bookCode;
+        j["title"] = book.title;
+        j["author"] = book.author;
+        j["category"] = book.category;
+        j["year"] = book.year;
+        j["quantity"] = book.quantity;
         j["interestCount"] = book.interestCount;
+
+        j["copies"] = json::array();
+
+        for (const BookCopy& copy : book.copies)
+        {
+            json copyJson;
+
+            copyJson["bookId"] = copy.bookId;
+            copyJson["status"] = copy.status;
+
+            j["copies"].push_back(copyJson);
+        }
 
         return j;
     }
+
 
     Book bookFromJson(const json& j)
     {
         Book book;
 
         if (j.contains("bookCode"))
-            book.BookCode = j["bookCode"];
-
-        if (j.contains("bookId"))
-            book.Book_ID = j["bookId"];
+            book.bookCode = j["bookCode"];
 
         if (j.contains("title"))
-            book.Title = j["title"];
+            book.title = j["title"];
 
         if (j.contains("author"))
-            book.Author = j["author"];
+            book.author = j["author"];
 
         if (j.contains("category"))
-            book.Category = j["category"];
+            book.category = j["category"];
 
         if (j.contains("year"))
-            book.Year = j["year"];
+            book.year = j["year"];
 
         if (j.contains("quantity"))
-            book.Quantity = j["quantity"];
+            book.quantity = j["quantity"];
 
         if (j.contains("interestCount"))
             book.interestCount = j["interestCount"];
+
+        if (j.contains("copies") && j["copies"].is_array())
+        {
+            for (const auto& copyJson : j["copies"])
+            {
+                BookCopy copy;
+
+                if (copyJson.contains("bookId"))
+                    copy.bookId = copyJson["bookId"];
+
+                if (copyJson.contains("status"))
+                    copy.status = copyJson["status"];
+
+                book.copies.push_back(copy);
+            }
+        }
 
         return book;
     }
@@ -73,6 +98,7 @@ namespace JsonMapper
 
         return j;
     }
+
 
     Member memberFromJson(const json& j)
     {
@@ -125,6 +151,7 @@ namespace JsonMapper
 
         return j;
     }
+
 
     Loan loanFromJson(const json& j)
     {
@@ -181,6 +208,7 @@ namespace JsonMapper
         return j;
     }
 
+
     Reservation reservationFromJson(const json& j)
     {
         Reservation reservation;
@@ -222,6 +250,7 @@ namespace JsonMapper
         return j;
     }
 
+
     Fine fineFromJson(const json& j)
     {
         Fine fine;
@@ -256,7 +285,8 @@ namespace JsonMapper
     {
         vector<Book> books;
 
-        if (!data.contains("books") || !data["books"].is_array())
+        if (!data.contains("books") ||
+            !data["books"].is_array())
         {
             return books;
         }
@@ -278,7 +308,8 @@ namespace JsonMapper
     {
         vector<Member> members;
 
-        if (!data.contains("members") || !data["members"].is_array())
+        if (!data.contains("members") ||
+            !data["members"].is_array())
         {
             return members;
         }
@@ -300,7 +331,8 @@ namespace JsonMapper
     {
         vector<Loan> loans;
 
-        if (!data.contains("loans") || !data["loans"].is_array())
+        if (!data.contains("loans") ||
+            !data["loans"].is_array())
         {
             return loans;
         }
@@ -330,7 +362,9 @@ namespace JsonMapper
 
         for (const auto& item : data["reservations"])
         {
-            reservations.push_back(reservationFromJson(item));
+            reservations.push_back(
+                reservationFromJson(item)
+            );
         }
 
         return reservations;
@@ -380,24 +414,26 @@ namespace JsonMapper
         data["reservations"] = json::array();
         data["fines"] = json::array();
 
-
         for (const Book& book : books)
         {
-            data["books"].push_back(bookToJson(book));
+            data["books"].push_back(
+                bookToJson(book)
+            );
         }
-
 
         for (const Member& member : members)
         {
-            data["members"].push_back(memberToJson(member));
+            data["members"].push_back(
+                memberToJson(member)
+            );
         }
-
 
         for (const Loan& loan : loans)
         {
-            data["loans"].push_back(loanToJson(loan));
+            data["loans"].push_back(
+                loanToJson(loan)
+            );
         }
-
 
         for (const Reservation& reservation : reservations)
         {
@@ -406,10 +442,11 @@ namespace JsonMapper
             );
         }
 
-
         for (const Fine& fine : fines)
         {
-            data["fines"].push_back(fineToJson(fine));
+            data["fines"].push_back(
+                fineToJson(fine)
+            );
         }
 
         return data;
