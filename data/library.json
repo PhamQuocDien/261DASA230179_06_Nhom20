@@ -23,7 +23,7 @@
                 },
                 {
                     "bookId": "LSVN005",
-                    "status": "BORROWING"
+                    "status": "DAMAGED"
                 },
                 {
                     "bookId": "LSVN006",
@@ -303,6 +303,14 @@
             "memberId": "M002",
             "reason": "Hu hai: Hu hong nhe",
             "status": "UNPAID"
+        },
+        {
+            "amount": 100000.0,
+            "fineId": "F_L005",
+            "loanId": "L005",
+            "memberId": "M002",
+            "reason": "Hu hai: Hu hong nang",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -353,8 +361,8 @@
             "loanId": "L005",
             "memberId": "M002",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
+            "returnDate": "2026-09-22",
+            "status": "RETURNED"
         }
     ],
     "members": [
