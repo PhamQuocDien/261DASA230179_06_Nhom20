@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef RESERVATIONSERVICE_H
+#define RESERVATIONSERVICE_H
 #include <string>
 #include <queue>
 #include <unordered_map>
@@ -32,3 +32,4 @@ public:
     bool cancel(const string& reservationId);
     Reservation* next(const string& bookId);
 };
+#endif
