@@ -46,3 +46,20 @@ vector<Reservation>& ReservationRepository::getAll()
 {
     return reservations;
 }
+Reservation* ReservationRepository::findByMemberAndBook(
+    const string& memberId,
+    const string& bookCode
+)
+{
+    for (auto& reservation : reservations)
+    {
+        if (reservation.memberId == memberId &&
+            reservation.bookCode == bookCode &&
+            reservation.status == "WAITING")
+        {
+            return &reservation;
+        }
+    }
+
+    return nullptr;
+}
