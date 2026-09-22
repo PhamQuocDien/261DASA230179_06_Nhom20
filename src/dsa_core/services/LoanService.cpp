@@ -235,7 +235,7 @@ BorrowResult LoanService::borrowBook(const string& memberId, const string& bookC
     }
 
     // Huỷ yêu cầu mượn nếu đã đạt giới hạn mượn
-    if (activeLoans >= 3) {
+    if (activeLoans >= 10) {
         result.message = "Dang muon: Da dat gioi han muon 3 cuon sach.";
         return result;
     }
