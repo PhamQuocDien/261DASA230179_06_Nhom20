@@ -18,8 +18,6 @@ namespace JsonMapper
         j["author"] = book.author;
         j["category"] = book.category;
         j["year"] = book.year;
-        j["quantity"] = book.quantity;
-        j["interestCount"] = book.interestCount;
 
         j["copies"] = json::array();
 
@@ -56,13 +54,8 @@ namespace JsonMapper
         if (j.contains("year"))
             book.year = j["year"];
 
-        if (j.contains("quantity"))
-            book.quantity = j["quantity"];
-
-        if (j.contains("interestCount"))
-            book.interestCount = j["interestCount"];
-
-        if (j.contains("copies") && j["copies"].is_array())
+        if (j.contains("copies") &&
+            j["copies"].is_array())
         {
             for (const auto& copyJson : j["copies"])
             {
@@ -172,7 +165,8 @@ namespace JsonMapper
         if (j.contains("dueDate"))
             loan.dueDate = j["dueDate"];
 
-        if (!j.contains("returnDate") || j["returnDate"].is_null())
+        if (!j.contains("returnDate") ||
+            j["returnDate"].is_null())
         {
             loan.returnDate = "";
         }
