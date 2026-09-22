@@ -2,28 +2,49 @@
 #include <string>
 #include <vector>
 #include <cctype>
+
 #include "dsa_core/models/Book.h"
 #include "dsa_core/models/Member.h"
 #include "dsa_core/models/Date.h"
 #include "dsa_core/models/Loan.h"
 #include "dsa_core/models/Fine.h"
+#include "dsa_core/models/Reservation.h"
+
 #include "dsa_core/repositories/BookRepository.h"
 #include "dsa_core/repositories/MemberRepository.h"
 #include "dsa_core/repositories/LoanRepository.h"
 #include "dsa_core/repositories/FineRepository.h"
+#include "dsa_core/repositories/ReservationRepository.h"
+
 #include "dsa_core/services/BookService.h"
 #include "dsa_core/services/MemberService.h"
 #include "dsa_core/services/LoanService.h"
 #include "dsa_core/services/LoanSlipService.h"
+#include "dsa_core/services/ReservationService.h"
+
 #include "persistence/JsonDatabase.h"
 #include "persistence/JsonMapper.h"
+
 using namespace std;
 using nlohmann::json;
+
+
+// =====================================================
+// BOOK -> JSON
+// =====================================================
+
 json static bookToJson(const Book& book) {
     return JsonMapper::bookToJson(book);
 }
+
+
+// =====================================================
+// LOAN SLIP -> JSON
+// =====================================================
+
 json static loanSlipToJson(const LoanSlip& slip) {
     json result;
+
     result["loanId"] = slip.loanId;
     result["memberId"] = slip.memberId;
     result["memberName"] = slip.memberName;
@@ -32,72 +53,183 @@ json static loanSlipToJson(const LoanSlip& slip) {
     result["bookTitle"] = slip.bookTitle;
     result["borrowDate"] = slip.borrowDate;
     result["dueDate"] = slip.dueDate;
+
     if (slip.returnDate.empty()) {
         result["returnDate"] = nullptr;
     }
     else {
         result["returnDate"] = slip.returnDate;
     }
+
     result["renewalCount"] = slip.renewalCount;
     result["status"] = slip.status;
+
     return result;
 }
-bool static saveBooksToDatabase(JsonDatabase& database, json& data, const BookRepository& bookRepository) {
+
+
+// =====================================================
+// SAVE BOOKS
+// =====================================================
+
+bool static saveBooksToDatabase(
+    JsonDatabase& database,
+    json& data,
+    const BookRepository& bookRepository
+) {
     data["books"] = json::array();
+
     const vector<Book>& books = bookRepository.getAll();
+
     for (const Book& book : books) {
-        data["books"].push_back(JsonMapper::bookToJson(book));
+        data["books"].push_back(
+            JsonMapper::bookToJson(book)
+        );
     }
+
     return database.save(data);
 }
-string static generateNextMemberId(const MemberRepository& memberRepository) {
+
+
+// =====================================================
+// GENERATE NEXT MEMBER ID
+// =====================================================
+
+string static generateNextMemberId(
+    const MemberRepository& memberRepository
+) {
     unsigned long long maxId = 0;
+
     for (const Member& member : memberRepository.getAll()) {
         const string& id = member.memberId;
-        if (id.size() < 2 || (id[0] != 'M' && id[0] != 'm')) continue;
+
+        if (id.size() < 2 ||
+            (id[0] != 'M' && id[0] != 'm')) {
+            continue;
+        }
+
         unsigned long long value = 0;
         bool numeric = true;
+
         for (size_t i = 1; i < id.size(); ++i) {
             if (!isdigit(static_cast<unsigned char>(id[i]))) {
                 numeric = false;
                 break;
             }
-            value = value * 10 + static_cast<unsigned long long>(id[i] - '0');
+
+            value =
+                value * 10 +
+                static_cast<unsigned long long>(id[i] - '0');
         }
-        if (numeric && value > maxId) maxId = value;
+
+        if (numeric && value > maxId) {
+            maxId = value;
+        }
     }
+
     string number = to_string(maxId + 1);
-    while (number.size() < 3) number = "0" + number;
+
+    while (number.size() < 3) {
+        number = "0" + number;
+    }
+
     return "M" + number;
 }
 
-bool static saveMembersToDatabase(JsonDatabase& database, json& data, const MemberRepository& memberRepository) {
+
+// =====================================================
+// SAVE MEMBERS
+// =====================================================
+
+bool static saveMembersToDatabase(
+    JsonDatabase& database,
+    json& data,
+    const MemberRepository& memberRepository
+) {
     data["members"] = json::array();
+
     for (const Member& member : memberRepository.getAll()) {
-        data["members"].push_back(JsonMapper::memberToJson(member));
+        data["members"].push_back(
+            JsonMapper::memberToJson(member)
+        );
     }
+
     return database.save(data);
 }
-bool static saveLoanAndFineDataToDatabase(JsonDatabase& database, json& data, const BookRepository& bookRepository, const LoanRepository& loanRepository, const FineRepository& fineRepository) {
+
+
+// =====================================================
+// SAVE LOAN + FINE + BOOK
+// =====================================================
+
+bool static saveLoanAndFineDataToDatabase(
+    JsonDatabase& database,
+    json& data,
+    const BookRepository& bookRepository,
+    const LoanRepository& loanRepository,
+    const FineRepository& fineRepository
+) {
     data["books"] = json::array();
+
     for (const Book& book : bookRepository.getAll()) {
-        data["books"].push_back(JsonMapper::bookToJson(book));
+        data["books"].push_back(
+            JsonMapper::bookToJson(book)
+        );
     }
+
     data["loans"] = json::array();
+
     for (const Loan& loan : loanRepository.getAll()) {
-        data["loans"].push_back(JsonMapper::loanToJson(loan));
+        data["loans"].push_back(
+            JsonMapper::loanToJson(loan)
+        );
     }
+
     data["fines"] = json::array();
+
     for (const Fine& fine : fineRepository.getAll()) {
-        data["fines"].push_back(JsonMapper::fineToJson(fine));
+        data["fines"].push_back(
+            JsonMapper::fineToJson(fine)
+        );
     }
+
     return database.save(data);
 }
+
+
+// =====================================================
+// SAVE RESERVATIONS
+// =====================================================
+
+bool static saveReservationsToDatabase(
+    JsonDatabase& database,
+    json& data,
+    ReservationRepository& reservationRepository
+) {
+    data["reservations"] = json::array();
+
+    for (const Reservation& reservation :
+         reservationRepository.getAll()) {
+
+        data["reservations"].push_back(
+            JsonMapper::reservationToJson(reservation)
+        );
+    }
+
+    return database.save(data);
+}
+
+
+// =====================================================
+// PRINT ONE LOAN SLIP
+// =====================================================
+
 void static printLoanSlip(const LoanSlip& slip) {
     cout << endl;
     cout << "========================================" << endl;
     cout << "            PHIEU MUON SACH             " << endl;
     cout << "========================================" << endl;
+
     cout << "Ma phieu:       " << slip.loanId << endl;
     cout << "Ma thanh vien:  " << slip.memberId << endl;
     cout << "Thanh vien:     " << slip.memberName << endl;
@@ -106,456 +238,1807 @@ void static printLoanSlip(const LoanSlip& slip) {
     cout << "Ten sach:       " << slip.bookTitle << endl;
     cout << "Ngay muon:      " << slip.borrowDate << endl;
     cout << "Han tra:        " << slip.dueDate << endl;
+
     cout << "Ngay tra:       ";
+
     if (slip.returnDate.empty()) {
         cout << "Chua tra";
     }
     else {
         cout << slip.returnDate;
     }
+
     cout << endl;
-    cout << "So lan gia han: " << slip.renewalCount << endl;
-    cout << "Trang thai:     " << slip.status << endl;
+
+    cout << "So lan gia han: "
+         << slip.renewalCount << endl;
+
+    cout << "Trang thai:     "
+         << slip.status << endl;
+
     cout << "========================================" << endl;
 }
-void static printLoanSlips(const vector<LoanSlip>& slips) {
+
+
+// =====================================================
+// PRINT MANY LOAN SLIPS
+// =====================================================
+
+void static printLoanSlips(
+    const vector<LoanSlip>& slips
+) {
     if (slips.empty()) {
         cout << endl;
         cout << "Khong co phieu muon nao." << endl;
         return;
     }
+
     cout << endl;
-    cout << "Tim thay " << slips.size() << " phieu muon." << endl;
+    cout << "Tim thay "
+         << slips.size()
+         << " phieu muon."
+         << endl;
+
     for (const LoanSlip& slip : slips) {
         printLoanSlip(slip);
     }
 }
-int runApiMode(LoanSlipService& loanSlipService, MemberRepository& memberRepository, MemberService& memberService, BookService& bookService, BookRepository& bookRepository, LoanRepository& loanRepository, LoanService& loanService, FineRepository& fineRepository, JsonDatabase& database, json& data) {
+
+
+// =====================================================
+// API MODE
+// =====================================================
+
+int runApiMode(
+    LoanSlipService& loanSlipService,
+    MemberRepository& memberRepository,
+    MemberService& memberService,
+    BookService& bookService,
+    BookRepository& bookRepository,
+    LoanRepository& loanRepository,
+    LoanService& loanService,
+    FineRepository& fineRepository,
+    ReservationService& reservationService,
+    ReservationRepository& reservationRepository,
+    JsonDatabase& database,
+    json& data
+) {
     json request;
+
     if (!(cin >> request)) {
-        cout << json{ {"success", false}, {"error", "Khong doc duoc JSON Request."} }.dump();
+        cout << json{
+            {"success", false},
+            {"error", "Khong doc duoc JSON Request."}
+        }.dump();
+
         return 1;
     }
+
     if (!request.is_object()) {
-        cout << json{ {"success", false}, {"error", "JSON Request phai la Object."} }.dump();
+        cout << json{
+            {"success", false},
+            {"error", "JSON Request phai la Object."}
+        }.dump();
+
         return 1;
     }
+
     string action = request.value("action", "");
-    bool adminAuthorized = request.value("adminAuthorized", false);
-    if (action == "createBook" || action == "updateBook" || action == "addBookCopy" || action == "deleteBook") {
+
+    bool adminAuthorized =
+        request.value("adminAuthorized", false);
+
+
+    // =================================================
+    // ADMIN ACTION
+    // =================================================
+
+    if (action == "createBook" ||
+        action == "updateBook" ||
+        action == "addBookCopy" ||
+        action == "deleteBook") {
+
         if (!adminAuthorized) {
-            cout << json{ {"success", false}, {"error", "Khong co quyen quan ly."} }.dump();
+            cout << json{
+                {"success", false},
+                {"error", "Khong co quyen quan ly."}
+            }.dump();
+
             return 0;
         }
     }
+
+
+    // =================================================
+    // GET BOOKS
+    // =================================================
+
     if (action == "getBooks") {
-        const vector<Book>& books = bookService.getAllBooks();
+
+        const vector<Book>& books =
+            bookService.getAllBooks();
+
         json bookData = json::array();
+
         for (const Book& book : books) {
-            bookData.push_back(JsonMapper::bookToJson(book));
+            bookData.push_back(
+                JsonMapper::bookToJson(book)
+            );
         }
-        json response = { {"success", true}, {"data", bookData} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+        json response = {
+            {"success", true},
+            {"data", bookData}
+        };
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // GET AVAILABLE BOOKS
+    // =================================================
+
     if (action == "getAvailableBooks") {
-        const vector<Book> books = bookService.getAvailableBooks();
+
+        const vector<Book> books =
+            bookService.getAvailableBooks();
+
         json bookData = json::array();
+
         for (const Book& book : books) {
-            json bookJson = JsonMapper::bookToJson(book);
-            json bookIds = json::array();
-            for (const BookCopy& bookCopy : book.copies) {
+
+            json bookJson =
+                JsonMapper::bookToJson(book);
+
+            json bookIds =
+                json::array();
+
+            for (const BookCopy& bookCopy :
+                 book.copies) {
+
                 bookIds.push_back(bookCopy.bookId);
             }
+
             bookJson["bookIds"] = bookIds;
-            bookJson["availableQuantity"] = static_cast<int>(book.copies.size());
+
+            bookJson["availableQuantity"] =
+                static_cast<int>(book.copies.size());
+
             bookData.push_back(bookJson);
         }
-        json response = { {"success", true}, {"data", bookData} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+        json response = {
+            {"success", true},
+            {"data", bookData}
+        };
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // GET BORROWED BOOKS
+    // =================================================
+
     if (action == "getBorrowedBooks") {
-        const vector<Book> books = bookService.getBorrowedBooks();
+
+        const vector<Book> books =
+            bookService.getBorrowedBooks();
+
         json bookData = json::array();
+
         for (const Book& book : books) {
-            json bookJson = JsonMapper::bookToJson(book);
-            json bookIds = json::array();
-            for (const BookCopy& bookCopy : book.copies) {
+
+            json bookJson =
+                JsonMapper::bookToJson(book);
+
+            json bookIds =
+                json::array();
+
+            for (const BookCopy& bookCopy :
+                 book.copies) {
+
                 bookIds.push_back(bookCopy.bookId);
             }
+
             bookJson["bookIds"] = bookIds;
-            bookJson["borrowedQuantity"] = static_cast<int>(book.copies.size());
+
+            bookJson["borrowedQuantity"] =
+                static_cast<int>(book.copies.size());
+
             bookData.push_back(bookJson);
         }
-        json response = { {"success", true}, {"data", bookData} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+        json response = {
+            {"success", true},
+            {"data", bookData}
+        };
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // GET ONE BOOK
+    // =================================================
+
     if (action == "getBook") {
-        string bookCode = request.value("bookCode", "");
+
+        string bookCode =
+            request.value("bookCode", "");
+
         if (bookCode.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error", "Thieu bookCode."}
+            }.dump();
+
             return 1;
         }
-        Book* book = bookService.getBookByCode(bookCode);
+
+        Book* book =
+            bookService.getBookByCode(bookCode);
+
         if (book == nullptr) {
-            cout << json{ {"success", false}, {"error", "Book khong ton tai."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error", "Book khong ton tai."}
+            }.dump();
+
             return 0;
         }
-        json response = { {"success", true}, {"data", JsonMapper::bookToJson(*book)} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+        json response = {
+            {"success", true},
+            {"data", JsonMapper::bookToJson(*book)}
+        };
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // REGISTER MEMBER
+    // =================================================
+
     if (action == "registerMember") {
-    string name = request.value("name", "");
-    string email = request.value("email", "");
-    string phone = request.value("phone", "");
 
-    auto trim = [](string value) {
-        const string whitespace = " \t\r\n";
-        size_t start = value.find_first_not_of(whitespace);
-        if (start == string::npos) {
-            return string();
-        }
-        size_t end = value.find_last_not_of(whitespace);
-        return value.substr(start, end - start + 1);
-    };
+        string name =
+            request.value("name", "");
 
-    name = trim(name);
-    email = trim(email);
-    phone = trim(phone);
+        string email =
+            request.value("email", "");
 
-    if (name.empty() || email.empty() || phone.empty()) {
-        cout << json{{"success", false}, {"error", "Vui long nhap day du name, email va phone."}}.dump();
-        return 0;
-    }
+        string phone =
+            request.value("phone", "");
 
-    if (name.size() > 100 || email.size() > 150 || phone.size() > 30) {
-        cout << json{{"success", false}, {"error", "Du lieu vuot qua do dai cho phep."}}.dump();
-        return 0;
-    }
 
-    size_t atPos = email.find('@');
-    size_t dotPos = email.find('.', atPos == string::npos ? 0 : atPos);
-    if (atPos == string::npos || atPos == 0 || dotPos == string::npos || dotPos <= atPos + 1 || dotPos + 1 >= email.size()) {
-        cout << json{{"success", false}, {"error", "Email khong hop le."}}.dump();
-        return 0;
-    }
+        auto trim = [](string value) {
 
-    for (char ch : phone) {
-        if (!std::isdigit(static_cast<unsigned char>(ch)) && ch != '+' && ch != '-' && ch != ' ' && ch != '(' && ch != ')') {
-            cout << json{{"success", false}, {"error", "So dien thoai khong hop le."}}.dump();
+            const string whitespace =
+                " \t\r\n";
+
+            size_t start =
+                value.find_first_not_of(
+                    whitespace
+                );
+
+            if (start == string::npos) {
+                return string();
+            }
+
+            size_t end =
+                value.find_last_not_of(
+                    whitespace
+                );
+
+            return value.substr(
+                start,
+                end - start + 1
+            );
+        };
+
+
+        name = trim(name);
+        email = trim(email);
+        phone = trim(phone);
+
+
+        if (name.empty() ||
+            email.empty() ||
+            phone.empty()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Vui long nhap day du name, email va phone."}
+            }.dump();
+
             return 0;
         }
-    }
 
-    for (const Member& existing : memberRepository.getAll()) {
-        if (existing.email == email) {
-            cout << json{{"success", false}, {"error", "Email da duoc dang ky."}}.dump();
+
+        if (name.size() > 100 ||
+            email.size() > 150 ||
+            phone.size() > 30) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Du lieu vuot qua do dai cho phep."}
+            }.dump();
+
             return 0;
         }
-        if (existing.phone == phone) {
-            cout << json{{"success", false}, {"error", "So dien thoai da duoc dang ky."}}.dump();
+
+
+        size_t atPos =
+            email.find('@');
+
+        size_t dotPos =
+            email.find(
+                '.',
+                atPos == string::npos
+                    ? 0
+                    : atPos
+            );
+
+
+        if (atPos == string::npos ||
+            atPos == 0 ||
+            dotPos == string::npos ||
+            dotPos <= atPos + 1 ||
+            dotPos + 1 >= email.size()) {
+
+            cout << json{
+                {"success", false},
+                {"error", "Email khong hop le."}
+            }.dump();
+
             return 0;
         }
-    }
 
-    Member member;
-    member.name = name;
-    member.email = email;
-    member.phone = phone;
-    member.status = "ACTIVE";
 
-    if (!memberService.addMember(member)) {
-        cout << json{{"success", false}, {"error", "Khong the tao thanh vien moi."}}.dump();
+        for (char ch : phone) {
+
+            if (!std::isdigit(
+                    static_cast<unsigned char>(ch)
+                ) &&
+                ch != '+' &&
+                ch != '-' &&
+                ch != ' ' &&
+                ch != '(' &&
+                ch != ')') {
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "So dien thoai khong hop le."}
+                }.dump();
+
+                return 0;
+            }
+        }
+
+
+        for (const Member& existing :
+             memberRepository.getAll()) {
+
+            if (existing.email == email) {
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Email da duoc dang ky."}
+                }.dump();
+
+                return 0;
+            }
+
+            if (existing.phone == phone) {
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "So dien thoai da duoc dang ky."}
+                }.dump();
+
+                return 0;
+            }
+        }
+
+
+        Member member;
+
+        member.name = name;
+        member.email = email;
+        member.phone = phone;
+        member.status = "ACTIVE";
+
+
+        if (!memberService.addMember(member)) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong the tao thanh vien moi."}
+            }.dump();
+
+            return 0;
+        }
+
+
+        if (!saveMembersToDatabase(
+                database,
+                data,
+                memberRepository
+            )) {
+
+            memberRepository.removeById(
+                member.memberId
+            );
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da tao thanh vien trong bo nho "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        cout << json{
+            {"success", true},
+            {"data",
+             JsonMapper::memberToJson(member)}
+        }.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
 
-    if (!saveMembersToDatabase(database, data, memberRepository)) {
-        memberRepository.removeById(member.memberId);
-        cout << json{{"success", false}, {"error", "Da tao thanh vien trong bo nho nhung khong the luu library.json."}}.dump();
-        return 1;
-    }
 
-    cout << json{{"success", true}, {"data", JsonMapper::memberToJson(member)}}.dump(-1, ' ', false, json::error_handler_t::replace);
-    return 0;
-}
+    // =================================================
+    // CREATE BOOK
+    // =================================================
 
     if (action == "createBook") {
-        if (!request.contains("book") || !request["book"].is_object()) {
-            cout << json{ {"success", false}, {"error", "Thieu book hoac book khong hop le."} }.dump();
+
+        if (!request.contains("book") ||
+            !request["book"].is_object()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu book hoac book khong hop le."}
+            }.dump();
+
             return 1;
         }
-        if (!request.contains("quantity") || !request["quantity"].is_number_integer()) {
-            cout << json{ {"success", false}, {"error", "Thieu quantity hoac quantity khong hop le."} }.dump();
+
+
+        if (!request.contains("quantity") ||
+            !request["quantity"].is_number_integer()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu quantity hoac quantity khong hop le."}
+            }.dump();
+
             return 1;
         }
-        int quantity = request["quantity"].get<int>();
+
+
+        int quantity =
+            request["quantity"].get<int>();
+
         if (quantity <= 0) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly phai lon hon 0."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "So luong cuon vat ly phai lon hon 0."}
+            }.dump();
+
             return 0;
         }
+
+
         if (quantity > 999) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly khong duoc vuot qua 999."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "So luong cuon vat ly khong duoc vuot qua 999."}
+            }.dump();
+
             return 0;
         }
+
+
         try {
-            Book book = JsonMapper::bookFromJson(request["book"]);
-            bool created = bookService.addBook(book, quantity);
+
+            Book book =
+                JsonMapper::bookFromJson(
+                    request["book"]
+                );
+
+            bool created =
+                bookService.addBook(
+                    book,
+                    quantity
+                );
+
             if (!created) {
-                cout << json{ {"success", false}, {"error", "Khong the them Book. Book co the bi trung hoac du lieu khong hop le."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Khong the them Book. "
+                     "Book co the bi trung "
+                     "hoac du lieu khong hop le."}
+                }.dump();
+
                 return 0;
             }
-            bool saved = saveBooksToDatabase(database, data, bookRepository);
+
+
+            bool saved =
+                saveBooksToDatabase(
+                    database,
+                    data,
+                    bookRepository
+                );
+
             if (!saved) {
-                cout << json{ {"success", false}, {"error", "Book da duoc them vao bo nho nhung khong the luu library.json."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Book da duoc them vao bo nho "
+                     "nhung khong the luu library.json."}
+                }.dump();
+
                 return 1;
             }
-            Book* createdBook = bookService.getBookByCode(book.bookCode);
+
+
+            Book* createdBook =
+                bookService.getBookByCode(
+                    book.bookCode
+                );
+
             if (createdBook == nullptr) {
-                cout << json{ {"success", false}, {"error", "Book da duoc tao nhung khong the doc lai du lieu sau khi tao."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Book da duoc tao nhung "
+                     "khong the doc lai du lieu sau khi tao."}
+                }.dump();
+
                 return 1;
             }
-            json response = { {"success", true}, {"data", JsonMapper::bookToJson(*createdBook)} };
-            cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+            json response = {
+                {"success", true},
+                {"data",
+                 JsonMapper::bookToJson(*createdBook)}
+            };
+
+
+            cout << response.dump(
+                -1,
+                ' ',
+                false,
+                json::error_handler_t::replace
+            );
+
             return 0;
         }
         catch (const exception& e) {
-            cout << json{ {"success", false}, {"error", string("Du lieu Book khong hop le: ") + e.what()} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 string("Du lieu Book khong hop le: ")
+                 + e.what()}
+            }.dump();
+
             return 1;
         }
     }
+
+
+    // =================================================
+    // UPDATE BOOK
+    // =================================================
+
     if (action == "updateBook") {
-        if (!request.contains("book") || !request["book"].is_object()) {
-            cout << json{ {"success", false}, {"error", "Thieu book hoac book khong hop le."} }.dump();
+
+        if (!request.contains("book") ||
+            !request["book"].is_object()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu book hoac book khong hop le."}
+            }.dump();
+
             return 1;
         }
-        if (!request.contains("quantity") || !request["quantity"].is_number_integer()) {
-            cout << json{ {"success", false}, {"error", "Thieu quantity hoac quantity khong hop le."} }.dump();
+
+
+        if (!request.contains("quantity") ||
+            !request["quantity"].is_number_integer()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu quantity hoac quantity khong hop le."}
+            }.dump();
+
             return 1;
         }
-        int quantity = request["quantity"].get<int>();
+
+
+        int quantity =
+            request["quantity"].get<int>();
+
         if (quantity <= 0) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly phai lon hon 0."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "So luong cuon vat ly phai lon hon 0."}
+            }.dump();
+
             return 0;
         }
+
+
         if (quantity > 999) {
-            cout << json{ {"success", false}, {"error", "So luong cuon vat ly khong duoc vuot qua 999."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "So luong cuon vat ly khong duoc vuot qua 999."}
+            }.dump();
+
             return 0;
         }
+
+
         try {
-            Book book = JsonMapper::bookFromJson(request["book"]);
-            bool updated = bookService.updateBook(book, quantity);
+
+            Book book =
+                JsonMapper::bookFromJson(
+                    request["book"]
+                );
+
+            bool updated =
+                bookService.updateBook(
+                    book,
+                    quantity
+                );
+
             if (!updated) {
-                cout << json{ {"success", false}, {"error", "Khong the cap nhat Book. Book khong ton tai, so luong moi nho hon so luong cu hoac du lieu khong hop le."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Khong the cap nhat Book. "
+                     "Book khong ton tai, "
+                     "so luong moi nho hon so luong cu "
+                     "hoac du lieu khong hop le."}
+                }.dump();
+
                 return 0;
             }
-            bool saved = saveBooksToDatabase(database, data, bookRepository);
+
+
+            bool saved =
+                saveBooksToDatabase(
+                    database,
+                    data,
+                    bookRepository
+                );
+
             if (!saved) {
-                cout << json{ {"success", false}, {"error", "Book da duoc cap nhat trong bo nho nhung khong the luu library.json."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Book da duoc cap nhat trong bo nho "
+                     "nhung khong the luu library.json."}
+                }.dump();
+
                 return 1;
             }
-            Book* updatedBook = bookService.getBookByCode(book.bookCode);
+
+
+            Book* updatedBook =
+                bookService.getBookByCode(
+                    book.bookCode
+                );
+
             if (updatedBook == nullptr) {
-                cout << json{ {"success", false}, {"error", "Book da duoc cap nhat nhung khong the doc lai du lieu."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Book da duoc cap nhat "
+                     "nhung khong the doc lai du lieu."}
+                }.dump();
+
                 return 1;
             }
-            json response = { {"success", true}, {"data", JsonMapper::bookToJson(*updatedBook)} };
-            cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+            json response = {
+                {"success", true},
+                {"data",
+                 JsonMapper::bookToJson(*updatedBook)}
+            };
+
+
+            cout << response.dump(
+                -1,
+                ' ',
+                false,
+                json::error_handler_t::replace
+            );
+
             return 0;
         }
         catch (const exception& e) {
-            cout << json{ {"success", false}, {"error", string("Du lieu Book khong hop le: ") + e.what()} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 string("Du lieu Book khong hop le: ")
+                 + e.what()}
+            }.dump();
+
             return 1;
         }
     }
+
+
+    // =================================================
+    // ADD BOOK COPY
+    // =================================================
+
     if (action == "addBookCopy") {
-        string bookCode = request.value("bookCode", "");
+
+        string bookCode =
+            request.value("bookCode", "");
+
         if (bookCode.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error", "Thieu bookCode."}
+            }.dump();
+
             return 1;
         }
-        bool added = bookService.addBookCopy(bookCode);
+
+
+        bool added =
+            bookService.addBookCopy(bookCode);
+
         if (!added) {
-            cout << json{ {"success", false}, {"error", "Khong the them BookCopy. Book khong ton tai hoac khong the them."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong the them BookCopy. "
+                 "Book khong ton tai "
+                 "hoac khong the them."}
+            }.dump();
+
             return 0;
         }
-        bool saved = saveBooksToDatabase(database, data, bookRepository);
+
+
+        bool saved =
+            saveBooksToDatabase(
+                database,
+                data,
+                bookRepository
+            );
+
         if (!saved) {
-            cout << json{ {"success", false}, {"error", "BookCopy da duoc them vao bo nho nhung khong the luu library.json."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "BookCopy da duoc them vao bo nho "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
             return 1;
         }
-        Book* updatedBook = bookService.getBookByCode(bookCode);
+
+
+        Book* updatedBook =
+            bookService.getBookByCode(
+                bookCode
+            );
+
         if (updatedBook == nullptr) {
-            cout << json{ {"success", false}, {"error", "Book da duoc cap nhat nhung khong the doc lai du lieu."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Book da duoc cap nhat "
+                 "nhung khong the doc lai du lieu."}
+            }.dump();
+
             return 1;
         }
-        json response = { {"success", true}, {"data", JsonMapper::bookToJson(*updatedBook)} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+        json response = {
+            {"success", true},
+            {"data",
+             JsonMapper::bookToJson(*updatedBook)}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // DELETE BOOK
+    // =================================================
+
     if (action == "deleteBook") {
-        string bookCode = request.value("bookCode", "");
-        string bookId = request.value("bookId", "");
+
+        string bookCode =
+            request.value("bookCode", "");
+
+        string bookId =
+            request.value("bookId", "");
+
+
         if (bookCode.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu bookCode."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error", "Thieu bookCode."}
+            }.dump();
+
             return 1;
         }
+
+
         bool deleted = false;
+
+
         if (bookId.empty()) {
-            deleted = bookService.deleteBook(bookCode);
+            deleted =
+                bookService.deleteBook(
+                    bookCode
+                );
         }
         else {
-            deleted = bookService.deleteBookCopy(bookCode, bookId);
+            deleted =
+                bookService.deleteBookCopy(
+                    bookCode,
+                    bookId
+                );
         }
+
+
         if (!deleted) {
-            cout << json{ {"success", false}, {"error", "Book khong ton tai, Book_ID khong ton tai hoac khong the xoa."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Book khong ton tai, "
+                 "Book_ID khong ton tai "
+                 "hoac khong the xoa."}
+            }.dump();
+
             return 0;
         }
-        bool saved = saveBooksToDatabase(database, data, bookRepository);
+
+
+        bool saved =
+            saveBooksToDatabase(
+                database,
+                data,
+                bookRepository
+            );
+
         if (!saved) {
-            cout << json{ {"success", false}, {"error", "Du lieu da duoc xoa trong bo nho nhung khong the luu library.json."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Du lieu da duoc xoa trong bo nho "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
             return 1;
         }
-        json response = { {"success", true}, {"data", {{"bookCode", bookCode}, {"bookId", bookId}, {"message", bookId.empty() ? "Book da duoc xoa." : "BookCopy da duoc xoa."}}} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+        json response = {
+            {"success", true},
+            {"data", {
+                {"bookCode", bookCode},
+                {"bookId", bookId},
+                {"message",
+                 bookId.empty()
+                    ? "Book da duoc xoa."
+                    : "BookCopy da duoc xoa."}
+            }}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // GET LOAN SLIPS BY MEMBER
+    // =================================================
+
     if (action == "getLoanSlipsByMember") {
-        string memberId = request.value("memberId", "");
+
+        string memberId =
+            request.value("memberId", "");
+
         if (memberId.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu memberId."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error", "Thieu memberId."}
+            }.dump();
+
             return 1;
         }
-        const Member* member = memberRepository.findById(memberId);
+
+
+        const Member* member =
+            memberRepository.findById(
+                memberId
+            );
+
         if (member == nullptr) {
-            cout << json{ {"success", false}, {"error", "Member_ID khong ton tai."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Member_ID khong ton tai."}
+            }.dump();
+
             return 0;
         }
-        vector<LoanSlip> slips = loanSlipService.getLoanSlipsByMember(memberId);
-        json loanData = json::array();
+
+
+        vector<LoanSlip> slips =
+            loanSlipService.getLoanSlipsByMember(
+                memberId
+            );
+
+        json loanData =
+            json::array();
+
+
         for (const LoanSlip& slip : slips) {
-            loanData.push_back(loanSlipToJson(slip));
+
+            loanData.push_back(
+                loanSlipToJson(slip)
+            );
         }
-        json response = { {"success", true}, {"data", loanData} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+        json response = {
+            {"success", true},
+            {"data", loanData}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // GET LOAN SLIP BY LOAN ID
+    // =================================================
+
     if (action == "getLoanSlipByLoanId") {
-        string loanId = request.value("loanId", "");
+
+        string loanId =
+            request.value("loanId", "");
+
         if (loanId.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu loanId."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error", "Thieu loanId."}
+            }.dump();
+
             return 1;
         }
+
+
         LoanSlip slip;
-        bool found = loanSlipService.getLoanSlipByLoanId(loanId, slip);
+
+        bool found =
+            loanSlipService.getLoanSlipByLoanId(
+                loanId,
+                slip
+            );
+
+
         if (!found) {
-            cout << json{ {"success", false}, {"error", "Loan_ID khong ton tai hoac khong tao duoc phieu."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Loan_ID khong ton tai "
+                 "hoac khong tao duoc phieu."}
+            }.dump();
+
             return 0;
         }
-        json response = { {"success", true}, {"data", loanSlipToJson(slip)} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+        json response = {
+            {"success", true},
+            {"data",
+             loanSlipToJson(slip)}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // RETURN BOOK
+    // =================================================
+
     if (action == "returnBook") {
-        string loanId = request.value("loanId", "");
-        string returnDateStr = request.value("returnDate", "");
-        string quality = request.value("quality", "Tot");
-        if (loanId.empty() || returnDateStr.empty()) {
-            cout << json{ {"success", false}, {"error", "Thieu thong tin loanId hoac returnDate."} }.dump();
+
+        string loanId =
+            request.value("loanId", "");
+
+        string returnDateStr =
+            request.value("returnDate", "");
+
+        string quality =
+            request.value("quality", "Tot");
+
+
+        if (loanId.empty() ||
+            returnDateStr.empty()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu thong tin loanId "
+                 "hoac returnDate."}
+            }.dump();
+
             return 1;
         }
-        Date returnDate = Date::parse(returnDateStr);
-        if (returnDate.year <= 0 || returnDate.month <= 0 || returnDate.day <= 0) {
-            cout << json{ {"success", false}, {"error", "returnDate khong hop le. Dinh dang dung: YYYY-MM-DD."} }.dump();
+
+
+        Date returnDate =
+            Date::parse(returnDateStr);
+
+
+        if (returnDate.year <= 0 ||
+            returnDate.month <= 0 ||
+            returnDate.day <= 0) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "returnDate khong hop le. "
+                 "Dinh dang dung: YYYY-MM-DD."}
+            }.dump();
+
             return 0;
         }
-        ReturnReceipt receipt = loanService.returnBook(loanId, returnDate, quality);
+
+
+        ReturnReceipt receipt =
+            loanService.returnBook(
+                loanId,
+                returnDate,
+                quality
+            );
+
+
         if (receipt.isSuccess) {
-            bool saved = saveLoanAndFineDataToDatabase(database, data, bookRepository, loanRepository, fineRepository);
+
+            bool saved =
+                saveLoanAndFineDataToDatabase(
+                    database,
+                    data,
+                    bookRepository,
+                    loanRepository,
+                    fineRepository
+                );
+
+
             if (!saved) {
-                cout << json{ {"success", false}, {"error", "Da cap nhat trong bo nho nhung khong the luu library.json."} }.dump();
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Da cap nhat trong bo nho "
+                     "nhung khong the luu library.json."}
+                }.dump();
+
                 return 1;
             }
         }
-        json response = { {"success", receipt.isSuccess}, {"message", receipt.message}, {"data", {{"loanId", receipt.loanId}, {"lateDays", receipt.lateDays}, {"lateFee", receipt.lateFee}, {"damageFee", receipt.damageFee}, {"totalFee", receipt.totalFee}}} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+        json response = {
+            {"success", receipt.isSuccess},
+            {"message", receipt.message},
+            {"data", {
+                {"loanId", receipt.loanId},
+                {"lateDays", receipt.lateDays},
+                {"lateFee", receipt.lateFee},
+                {"damageFee", receipt.damageFee},
+                {"totalFee", receipt.totalFee}
+            }}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
+
+
+    // =================================================
+    // GET FINE
+    // =================================================
+
     if (action == "getFine") {
-        string loanId = request.value("loanId", "");
+
+        string loanId =
+            request.value("loanId", "");
+
         if (loanId.empty()) {
-            cout << json{ {"success", false}, {"error", "Vui long nhap Loan_ID."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Vui long nhap Loan_ID."}
+            }.dump();
+
             return 1;
         }
-        Fine* fine = fineRepository.findByLoanId(loanId);
+
+
+        Fine* fine =
+            fineRepository.findByLoanId(
+                loanId
+            );
+
+
         if (fine == nullptr) {
-            json response = { {"success", false}, {"message", "Khong tim thay thong tin tien phat cho phieu muon nay."} };
-            cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+            json response = {
+                {"success", false},
+                {"message",
+                 "Khong tim thay thong tin tien phat "
+                 "cho phieu muon nay."}
+            };
+
+
+            cout << response.dump(
+                -1,
+                ' ',
+                false,
+                json::error_handler_t::replace
+            );
+
             return 0;
         }
-        json response = { {"success", true}, {"data", {{"fineId", fine->fineId}, {"loanId", fine->loanId}, {"memberId", fine->memberId}, {"amount", fine->amount}, {"reason", fine->reason}, {"status", fine->status}}} };
-        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+
+
+        json response = {
+            {"success", true},
+            {"data", {
+                {"fineId", fine->fineId},
+                {"loanId", fine->loanId},
+                {"memberId", fine->memberId},
+                {"amount", fine->amount},
+                {"reason", fine->reason},
+                {"status", fine->status}
+            }}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
         return 0;
     }
-    cout << json{ {"success", false}, {"error", "Action khong duoc ho tro."} }.dump();
+
+
+    // =================================================
+    // ENQUEUE RESERVATION
+    // =================================================
+
+    if (action == "enqueueReservation") {
+
+        string memberId =
+            request.value("memberId", "");
+
+        string bookCode =
+            request.value("bookCode", "");
+
+
+        if (memberId.empty() ||
+            bookCode.empty()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu memberId hoac bookCode."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        bool created =
+            reservationService.enqueue(
+                memberId,
+                bookCode
+            );
+
+
+        if (!created) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong the tao yeu cau dat cho."}
+            }.dump();
+
+            return 0;
+        }
+
+
+        Reservation* reservation =
+            reservationRepository.findByMemberAndBook(
+                memberId,
+                bookCode
+            );
+
+
+        if (reservation == nullptr) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da tao Reservation "
+                 "nhung khong doc lai duoc du lieu."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        bool saved =
+            saveReservationsToDatabase(
+                database,
+                data,
+                reservationRepository
+            );
+
+
+        if (!saved) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da tao Reservation trong bo nho "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        json response = {
+            {"success", true},
+            {"data",
+             JsonMapper::reservationToJson(
+                 *reservation
+             )}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
+        return 0;
+    }
+
+
+    // =================================================
+    // CANCEL RESERVATION
+    // =================================================
+
+    if (action == "cancelReservation") {
+
+        string reservationId =
+            request.value("reservationId", "");
+
+
+        if (reservationId.empty()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu reservationId."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        bool cancelled =
+            reservationService.cancel(
+                reservationId
+            );
+
+
+        if (!cancelled) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong the huy yeu cau dat cho."}
+            }.dump();
+
+            return 0;
+        }
+
+
+        bool saved =
+            saveReservationsToDatabase(
+                database,
+                data,
+                reservationRepository
+            );
+
+
+        if (!saved) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da huy Reservation trong bo nho "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        Reservation* reservation =
+            reservationRepository.findById(
+                reservationId
+            );
+
+
+        json response = {
+            {"success", true},
+            {"data",
+             reservation == nullptr
+                ? json{}
+                : JsonMapper::reservationToJson(
+                    *reservation
+                )}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
+        return 0;
+    }
+
+
+    // =================================================
+    // NEXT RESERVATION
+    // =================================================
+
+    if (action == "nextReservation") {
+
+        string bookCode =
+            request.value("bookCode", "");
+
+
+        if (bookCode.empty()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Thieu bookCode."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        Reservation* reservation =
+            reservationService.next(
+                bookCode
+            );
+
+
+        if (reservation == nullptr) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong co yeu cau WAITING nao."}
+            }.dump();
+
+            return 0;
+        }
+
+
+        bool saved =
+            saveReservationsToDatabase(
+                database,
+                data,
+                reservationRepository
+            );
+
+
+        if (!saved) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da cap nhat trang thai Reservation "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        json response = {
+            {"success", true},
+            {"data",
+             JsonMapper::reservationToJson(
+                 *reservation
+             )}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
+        return 0;
+    }
+
+
+    // =================================================
+    // UNSUPPORTED ACTION
+    // =================================================
+
+    cout << json{
+        {"success", false},
+        {"error", "Action khong duoc ho tro."}
+    }.dump();
+
     return 1;
 }
-int static runConsoleMode(LoanSlipService& loanSlipService, BookService& bookService) {
+
+
+// =====================================================
+// CONSOLE MODE
+// =====================================================
+
+int static runConsoleMode(
+    LoanSlipService& loanSlipService,
+    BookService& bookService
+) {
     cout << "========================================" << endl;
     cout << "       TRA CUU PHIEU MUON SACH          " << endl;
     cout << "========================================" << endl;
+
     while (true) {
+
         cout << endl;
         cout << "----------------------------------------" << endl;
         cout << "Nhap Member_ID (hoac Q de thoat): ";
+
         string memberId;
+
         if (!(cin >> memberId)) {
             break;
         }
-        if (memberId == "Q" || memberId == "q") {
+
+        if (memberId == "Q" ||
+            memberId == "q") {
+
             cout << endl;
             cout << "Ket thuc chuong trinh." << endl;
+
             break;
         }
-        vector<LoanSlip> slips = loanSlipService.getLoanSlipsByMember(memberId);
+
+        vector<LoanSlip> slips =
+            loanSlipService.getLoanSlipsByMember(
+                memberId
+            );
+
         cout << endl;
-        cout << "Member_ID: " << memberId << endl;
+        cout << "Member_ID: "
+             << memberId
+             << endl;
+
         printLoanSlips(slips);
     }
+
     return 0;
 }
+
+
+// =====================================================
+// MAIN
+// =====================================================
+
 int main(int argc, char* argv[]) {
-    bool apiMode = argc > 1 && string(argv[1]) == "--api";
-    JsonDatabase database("data/library.json");
-    json data = database.load();
+
+    bool apiMode =
+        argc > 1 &&
+        string(argv[1]) == "--api";
+
+
+    JsonDatabase database(
+        "data/library.json"
+    );
+
+
+    json data =
+        database.load();
+
+
     if (data.empty()) {
+
         if (apiMode) {
-            cout << json{ {"success", false}, {"error", "Khong load duoc library.json."} }.dump();
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong load duoc library.json."}
+            }.dump();
+
             return 1;
         }
-        cout << "Khong load duoc library.json." << endl;
+
+
+        cout << "Khong load duoc library.json."
+             << endl;
+
         return 1;
     }
-    vector<Book> books = JsonMapper::booksFromJson(data);
-    vector<Member> members = JsonMapper::membersFromJson(data);
-    vector<Loan> loans = JsonMapper::loansFromJson(data);
-    vector<Fine> fines = JsonMapper::finesFromJson(data);
+
+
+    // =================================================
+    // LOAD DATA FROM JSON
+    // =================================================
+
+    vector<Book> books =
+        JsonMapper::booksFromJson(data);
+
+    vector<Member> members =
+        JsonMapper::membersFromJson(data);
+
+    vector<Loan> loans =
+        JsonMapper::loansFromJson(data);
+
+    vector<Reservation> reservations =
+        JsonMapper::reservationsFromJson(data);
+
+    vector<Fine> fines =
+        JsonMapper::finesFromJson(data);
+
+
+    // =================================================
+    // CREATE REPOSITORIES
+    // =================================================
+
     BookRepository bookRepository;
     MemberRepository memberRepository;
     LoanRepository loanRepository;
+    ReservationRepository reservationRepository;
     FineRepository fineRepository;
-    bookRepository.getAll() = books;
-    memberRepository.getAll() = members;
-    loanRepository.getAll() = loans;
-    fineRepository.getAll() = fines;
-    BookService bookService(bookRepository);
-    MemberService memberService(memberRepository);
-    LoanSlipService loanSlipService(loanRepository, memberRepository, bookRepository);
-    LoanService loanService(loanRepository, bookRepository, fineRepository);
+
+
+    // =================================================
+    // LOAD DATA INTO MEMORY
+    // =================================================
+
+    bookRepository.getAll() =
+        books;
+
+    memberRepository.getAll() =
+        members;
+
+    loanRepository.getAll() =
+        loans;
+
+    reservationRepository.getAll() =
+        reservations;
+
+    fineRepository.getAll() =
+        fines;
+
+
+    // =================================================
+    // CREATE SERVICES
+    // =================================================
+
+    BookService bookService(
+        bookRepository
+    );
+
+    MemberService memberService(
+        memberRepository
+    );
+
+    LoanSlipService loanSlipService(
+        loanRepository,
+        memberRepository,
+        bookRepository
+    );
+
+    LoanService loanService(
+        loanRepository,
+        bookRepository,
+        fineRepository
+    );
+
+    ReservationService reservationService(
+        memberRepository,
+        bookRepository,
+        loanRepository,
+        reservationRepository
+    );
+
+
+    // =================================================
+    // API MODE
+    // =================================================
+
     if (apiMode) {
-        return runApiMode(loanSlipService, memberRepository, memberService, bookService, bookRepository, loanRepository, loanService, fineRepository, database, data);
+
+        return runApiMode(
+            loanSlipService,
+            memberRepository,
+            memberService,
+            bookService,
+            bookRepository,
+            loanRepository,
+            loanService,
+            fineRepository,
+            reservationService,
+            reservationRepository,
+            database,
+            data
+        );
     }
-    return runConsoleMode(loanSlipService, bookService);
+
+
+    // =================================================
+    // CONSOLE MODE
+    // =================================================
+
+    return runConsoleMode(
+        loanSlipService,
+        bookService
+    );
 }
