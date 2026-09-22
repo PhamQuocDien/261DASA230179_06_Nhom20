@@ -1,17 +1,21 @@
-#pragma once
+#ifndef RESERVATIONSERVICE_H
+#define RESERVATIONSERVICE_H
 
 #include <string>
 #include <queue>
 #include <unordered_map>
+
+#include "../repositories/MemberRepository.h"
+#include "../repositories/BookRepository.h"
+#include "../repositories/LoanRepository.h"
+#include "../repositories/ReservationRepository.h"
+
+#include "../models/Reservation.h"
+
 using namespace std;
 
-#include "MemberRepository.h"
-#include "BookRepository.h"
-#include "LoanRepository.h"
-#include "ReservationRepository.h"
-#include "Reservation.h"
-
-class ReservationService {
+class ReservationService
+{
 private:
     MemberRepository& memberRepository;
     BookRepository& bookRepository;
@@ -21,6 +25,7 @@ private:
     int nextReservationId = 1;
 
     unordered_map<string, queue<string>> waitQueues;
+
 public:
     ReservationService(
         MemberRepository& memberRepository,
@@ -28,7 +33,19 @@ public:
         LoanRepository& loanRepository,
         ReservationRepository& reservationRepository
     );
-    bool enqueue(const string& memberId, const string& bookId);
-    bool cancel(const string& reservationId);
-    Reservation* next(const string& bookId);
+
+    bool enqueue(
+        const string& memberId,
+        const string& bookCode
+    );
+
+    bool cancel(
+        const string& reservationId
+    );
+
+    Reservation* next(
+        const string& bookCode
+    );
 };
+
+#endif
