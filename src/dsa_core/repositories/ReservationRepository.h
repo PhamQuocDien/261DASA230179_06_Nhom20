@@ -11,7 +11,7 @@ class ReservationRepository {
 		Reservation* findById(const string& reservationId);
 		bool update(const Reservation& reservation);
 		bool remove(const string& reservationId);
-		vector<Reservation> getAll();
+		vector<Reservation>& getAll();
 
 		Reservation* findByMemberAndBook(const string& memberId, const string& bookId);
 		
