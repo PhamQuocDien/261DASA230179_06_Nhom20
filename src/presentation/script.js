@@ -64,11 +64,7 @@ document.addEventListener(
 
         if (!componentsLoaded) {
 
-            console.error(
-                "Khong the khoi dong do component loi."
-            );
-
-            return;
+            console.warn( "Mot so component HTML bi loi, nhung van tiep tuc khoi dong JavaScript." );
         }
 
 
