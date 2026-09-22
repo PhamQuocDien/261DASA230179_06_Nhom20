@@ -2,12 +2,16 @@
 // MAIN SCRIPT
 // BUOI 50
 // FILE DIEU PHOI CHINH
-// + MC2: TIM KIEM SACH THEO KHOANG NAM
+// + MC2 - TIM KIEM SACH THEO KHOANG NAM
 // =====================================
 
 import {
     loadComponents
 } from "./js/componentLoader.js";
+
+import {
+    sendApiRequest
+} from "./js/api.js";
 
 import {
     initBook
@@ -51,9 +55,9 @@ document.addEventListener(
         );
 
 
-        // =============================
+        // =================================
         // LOAD HTML COMPONENTS
-        // =============================
+        // =================================
 
         const componentsLoaded =
             await loadComponents();
@@ -69,65 +73,66 @@ document.addEventListener(
         }
 
 
-        // =============================
+        // =================================
         // KHOI DONG BOOK
-        // =============================
+        // =================================
 
         initBook();
 
 
-        // =============================
+        // =================================
         // KHOI DONG LOAN SLIP
-        // =============================
+        // =================================
 
         initLoanSlip();
 
 
-        // =============================
+        // =================================
         // KHOI DONG DANG KY THANH VIEN
-        // =============================
+        // =================================
 
         initMemberRegister();
 
 
-        // =============================
+        // =================================
         // KHOI DONG TRA SACH
-        // =============================
+        // =================================
 
         initReturnBook();
 
 
-        // =============================
+        // =================================
         // KHOI DONG TRA CUU TIEN PHAT
-        // =============================
+        // =================================
 
         initFine();
 
 
-        // =============================
+        // =================================
         // KHOI DONG DANG KY CHO MUON
-        // =============================
+        // =================================
 
         initReservation();
 
 
-        // =============================
+        // =================================
         // KHOI DONG NAVIGATION
-        // =============================
+        // =================================
 
         initNavigation();
 
 
-        // =====================================================
-        // MC2 - TIM KIEM SACH THEO KHOANG NAM
-        // =====================================================
+        // =================================
+        // MC2
+        // TIM KIEM SACH THEO KHOANG NAM
+        // =================================
 
         initSearchBookByYear();
 
 
-        // =============================
-        // KHOI DONG HOAN TAT
-        // =============================
+        // =================================
+        // HOAN TAT
+        // =================================
 
         console.log(
             "=== THU VIEN DA KHOI DONG ==="
@@ -151,8 +156,10 @@ function initSearchBookByYear() {
     const yearSortOrder =
         document.getElementById("yearSortOrder");
 
-    const btnSearchBookByYear =
-        document.getElementById("btnSearchBookByYear");
+    const button =
+        document.getElementById(
+            "btnSearchBookByYear"
+        );
 
     const resultContainer =
         document.getElementById(
@@ -160,15 +167,17 @@ function initSearchBookByYear() {
         );
 
 
-    // -------------------------------------
-    // KIEM TRA HTML
-    // -------------------------------------
+    // =================================
+    // KIEM TRA COMPONENT MC2
+    // =================================
 
-    if (!fromYear ||
+    if (
+        !fromYear ||
         !toYear ||
         !yearSortOrder ||
-        !btnSearchBookByYear ||
-        !resultContainer) {
+        !button ||
+        !resultContainer
+    ) {
 
         console.warn(
             "Khong tim thay giao dien MC2."
@@ -178,37 +187,52 @@ function initSearchBookByYear() {
     }
 
 
-    // -------------------------------------
-    // GAN SU KIEN CHO NUT TIM KIEM
-    // -------------------------------------
+    console.log(
+        "=== MC2 DA KHOI DONG ==="
+    );
 
-    btnSearchBookByYear.addEventListener(
+
+    // =================================
+    // SU KIEN NUT TIM KIEM
+    // =================================
+
+    button.addEventListener(
         "click",
-        async function () {
+        async () => {
+
+            // =============================
+            // LAY DU LIEU NHAP
+            // =============================
 
             const yearStart =
-                parseInt(fromYear.value);
+                parseInt(
+                    fromYear.value,
+                    10
+                );
 
             const yearEnd =
-                parseInt(toYear.value);
+                parseInt(
+                    toYear.value,
+                    10
+                );
 
             const sortOrder =
                 yearSortOrder.value;
 
 
-            // =================================
-            // KIEM TRA DU LIEU
-            // =================================
+            // =============================
+            // KIEM TRA NAM
+            // =============================
 
             if (
-                isNaN(yearStart) ||
-                isNaN(yearEnd)
+                Number.isNaN(yearStart) ||
+                Number.isNaN(yearEnd)
             ) {
 
                 resultContainer.innerHTML = `
                     <p>
-                        Vui long nhap day du
-                        nam bat dau va nam ket thuc.
+                        Vui long nhap day du nam bat dau
+                        va nam ket thuc.
                     </p>
                 `;
 
@@ -229,9 +253,9 @@ function initSearchBookByYear() {
             }
 
 
-            // =================================
+            // =============================
             // HIEN THI DANG TIM
-            // =================================
+            // =============================
 
             resultContainer.innerHTML = `
                 <p>
@@ -243,67 +267,48 @@ function initSearchBookByYear() {
             try {
 
                 // =====================================
-                // GUI REQUEST DEN C++ BACKEND
+                // GUI REQUEST DEN API.PHP
                 // =====================================
 
                 const response =
-                    await fetch(
-                        "/api",
-                        {
-                            method: "POST",
+                    await sendApiRequest({
 
-                            headers: {
-                                "Content-Type":
-                                    "application/json"
-                            },
+                        action:
+                            "getBooksByYearRange",
 
-                            body: JSON.stringify({
+                        yearStart:
+                            yearStart,
 
-                                action:
-                                    "getBooksByYearRange",
+                        yearEnd:
+                            yearEnd
+                    });
 
-                                yearStart:
-                                    yearStart,
 
-                                yearEnd:
-                                    yearEnd
-                            })
-                        }
-                    );
+                console.log(
+                    "MC2 response:",
+                    response
+                );
 
 
                 // =====================================
-                // KIEM TRA HTTP
+                // API LOI
                 // =====================================
 
-                if (!response.ok) {
-
-                    throw new Error(
-                        "Khong ket noi duoc backend."
-                    );
-                }
-
-
-                // =====================================
-                // DOC JSON
-                // =====================================
-
-                const result =
-                    await response.json();
-
-
-                // =====================================
-                // BACKEND BAO LOI
-                // =====================================
-
-                if (!result.success) {
+                if (
+                    !response ||
+                    !response.success
+                ) {
 
                     resultContainer.innerHTML = `
                         <p>
-                            ${escapeHtml(
-                                result.error ||
-                                "Khong the tim kiem sach."
-                            )}
+                            ${
+                                response &&
+                                response.error
+                                    ? escapeHtml(
+                                        response.error
+                                    )
+                                    : "Khong the tim kiem sach."
+                            }
                         </p>
                     `;
 
@@ -312,17 +317,17 @@ function initSearchBookByYear() {
 
 
                 // =====================================
-                // LAY DANH SACH SACH
+                // LAY DANH SACH
                 // =====================================
 
                 let books =
-                    Array.isArray(result.data)
-                        ? result.data
+                    Array.isArray(response.data)
+                        ? response.data
                         : [];
 
 
                 // =====================================
-                // SAP XEP KET QUA
+                // SAP XEP
                 // =====================================
 
                 books.sort(
@@ -335,7 +340,10 @@ function initSearchBookByYear() {
                             Number(b.year) || 0;
 
 
-                        if (yearA !== yearB) {
+                        // Neu khac nam
+                        if (
+                            yearA !== yearB
+                        ) {
 
                             return sortOrder === "asc"
                                 ? yearA - yearB
@@ -343,8 +351,8 @@ function initSearchBookByYear() {
                         }
 
 
-                        // Neu trung nam
-                        // sap xep theo BookCode
+                        // Neu cung nam
+                        // thi sap xep BookCode
 
                         const codeA =
                             String(
@@ -356,7 +364,6 @@ function initSearchBookByYear() {
                                 b.bookCode || ""
                             );
 
-
                         return codeA.localeCompare(
                             codeB
                         );
@@ -365,7 +372,7 @@ function initSearchBookByYear() {
 
 
                 // =====================================
-                // KHONG CO SACH
+                // KHONG CO KET QUA
                 // =====================================
 
                 if (books.length === 0) {
@@ -384,7 +391,7 @@ function initSearchBookByYear() {
 
 
                 // =====================================
-                // TAO BANG KET QUA
+                // TAO BANG
                 // =====================================
 
                 let html = `
@@ -400,9 +407,9 @@ function initSearchBookByYear() {
 
                     <table
                         style="
-                            width:100%;
-                            border-collapse:collapse;
-                            margin-top:15px;
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-top: 15px;
                         "
                     >
 
@@ -411,45 +418,45 @@ function initSearchBookByYear() {
                             <tr>
 
                                 <th style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     STT
                                 </th>
 
                                 <th style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     Book Code
                                 </th>
 
                                 <th style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     Ten sach
                                 </th>
 
                                 <th style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     Tac gia
                                 </th>
 
                                 <th style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     The loai
                                 </th>
 
                                 <th style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
-                                    Nam
+                                    Nam xuat ban
                                 </th>
 
                             </tr>
@@ -461,7 +468,7 @@ function initSearchBookByYear() {
 
 
                 // =====================================
-                // DUYET SACH
+                // HIEN THI TUNG SACH
                 // =====================================
 
                 books.forEach(
@@ -472,16 +479,16 @@ function initSearchBookByYear() {
                             <tr>
 
                                 <td style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
-                                    text-align:center;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
+                                    text-align: center;
                                 ">
                                     ${index + 1}
                                 </td>
 
                                 <td style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     ${escapeHtml(
                                         book.bookCode || ""
@@ -489,8 +496,8 @@ function initSearchBookByYear() {
                                 </td>
 
                                 <td style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     ${escapeHtml(
                                         book.title || ""
@@ -498,8 +505,8 @@ function initSearchBookByYear() {
                                 </td>
 
                                 <td style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     ${escapeHtml(
                                         book.author || ""
@@ -507,8 +514,8 @@ function initSearchBookByYear() {
                                 </td>
 
                                 <td style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
                                 ">
                                     ${escapeHtml(
                                         book.category || ""
@@ -516,9 +523,9 @@ function initSearchBookByYear() {
                                 </td>
 
                                 <td style="
-                                    border:1px solid #ccc;
-                                    padding:10px;
-                                    text-align:center;
+                                    border: 1px solid #ccc;
+                                    padding: 10px;
+                                    text-align: center;
                                 ">
                                     ${book.year ?? ""}
                                 </td>
@@ -540,7 +547,7 @@ function initSearchBookByYear() {
 
 
                 // =====================================
-                // HIEN THI
+                // HIEN THI LEN GIAO DIEN
                 // =====================================
 
                 resultContainer.innerHTML =
@@ -556,22 +563,18 @@ function initSearchBookByYear() {
 
 
                 resultContainer.innerHTML = `
-
                     <p>
-                        Khong the ket noi den
-                        he thong backend.
+                        Khong the ket noi den he thong.
                     </p>
-
                 `;
             }
-
         }
     );
 }
 
 
 // =====================================================
-// HAM BAO VE HIEN THI HTML
+// HAM BAO VE HTML
 // =====================================================
 
 function escapeHtml(value) {
