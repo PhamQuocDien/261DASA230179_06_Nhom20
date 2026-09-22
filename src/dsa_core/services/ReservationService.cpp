@@ -126,19 +126,21 @@ bool ReservationService::enqueue(
 
 
     // 3. Chỉ cho đăng ký chờ khi
-    //    KHÔNG còn bản sách AVAILABLE
+    //    KHÔNG còn bản sách available
 
     bool hasAvailableCopy = false;
 
     for (const BookCopy& copy : book->copies)
     {
-        if (copy.status == "AVAILABLE")
+        if (copy.status == "available")
         {
             hasAvailableCopy = true;
             break;
         }
     }
 
+    // Vẫn còn sách để mượn
+    // -> không cần đăng ký chờ
     if (hasAvailableCopy)
         return false;
 
@@ -153,7 +155,7 @@ bool ReservationService::enqueue(
         {
             if (loan.memberId == memberId &&
                 loan.bookId == copy.bookId &&
-                loan.status == "BORROWING")
+                loan.status == "borrowing")
             {
                 return false;
             }
@@ -183,11 +185,20 @@ bool ReservationService::enqueue(
 
     Reservation reservation;
 
-    reservation.reservationId = reservationId;
-    reservation.memberId = memberId;
-    reservation.bookCode = bookCode;
-    reservation.reservationDate = getCurrentTime();
-    reservation.status = "WAITING";
+    reservation.reservationId =
+        reservationId;
+
+    reservation.memberId =
+        memberId;
+
+    reservation.bookCode =
+        bookCode;
+
+    reservation.reservationDate =
+        getCurrentTime();
+
+    reservation.status =
+        "WAITING";
 
 
     // 7. Lưu Repository
@@ -233,7 +244,8 @@ bool ReservationService::cancel(
     // Không cần xóa khỏi queue.
     // next() sẽ bỏ qua CANCELLED.
 
-    reservation->status = "CANCELLED";
+    reservation->status =
+        "CANCELLED";
 
     return true;
 }
@@ -272,7 +284,7 @@ Reservation* ReservationService::next(
 
 
         // Không tồn tại hoặc không còn WAITING
-        // → bỏ khỏi Queue
+        // -> bỏ khỏi Queue
 
         if (reservation == nullptr ||
             reservation->status != "WAITING")
@@ -286,7 +298,8 @@ Reservation* ReservationService::next(
 
         it->second.pop();
 
-        reservation->status = "SERVED";
+        reservation->status =
+            "SERVED";
 
         return reservation;
     }
