@@ -1441,77 +1441,227 @@ int runApiMode(
     // RETURN BOOK
     // =================================================
 
-    if (action == "returnBook") {
+    // =================================================
+// RETURN BOOK
+// =================================================
 
-        string loanId =
-            request.value("loanId", "");
+if (action == "returnBook") {
 
-        string returnDateStr =
-            request.value("returnDate", "");
+    string loanId =
+        request.value(
+            "loanId",
+            ""
+        );
 
-        string quality =
-            request.value("quality", "Tot");
+    string returnDateStr =
+        request.value(
+            "returnDate",
+            ""
+        );
+
+    string quality =
+        request.value(
+            "quality",
+            "Tot"
+        );
 
 
-        if (loanId.empty() ||
-            returnDateStr.empty()) {
+    // ---------------------------------------------
+    // KIEM TRA INPUT
+    // ---------------------------------------------
+
+    if (
+        loanId.empty() ||
+        returnDateStr.empty()
+    ) {
+
+        cout << json{
+            {"success", false},
+            {"error",
+             "Thieu thong tin loanId "
+             "hoac returnDate."}
+        }.dump();
+
+        return 1;
+    }
+
+
+    // ---------------------------------------------
+    // TIM LOAN DE LAY BOOK_ID
+    // ---------------------------------------------
+
+    string returnedBookId;
+
+    for (
+        const Loan& loan :
+        loanRepository.getAll()
+    ) {
+
+        if (loan.loanId == loanId) {
+
+            returnedBookId =
+                loan.bookId;
+
+            break;
+        }
+    }
+
+
+    if (returnedBookId.empty()) {
+
+        cout << json{
+            {"success", false},
+            {"error",
+             "Khong tim thay Loan_ID."}
+        }.dump();
+
+        return 0;
+    }
+
+
+    // ---------------------------------------------
+    // PARSE RETURN DATE
+    // ---------------------------------------------
+
+    Date returnDate =
+        Date::parse(
+            returnDateStr
+        );
+
+
+    if (
+        returnDate.year <= 0 ||
+        returnDate.month <= 0 ||
+        returnDate.day <= 0
+    ) {
+
+        cout << json{
+            {"success", false},
+            {"error",
+             "returnDate khong hop le. "
+             "Dinh dang dung: YYYY-MM-DD."}
+        }.dump();
+
+        return 0;
+    }
+
+
+    // ---------------------------------------------
+    // THUC HIEN TRA SACH
+    // ---------------------------------------------
+
+    ReturnReceipt receipt =
+        loanService.returnBook(
+            loanId,
+            returnDate,
+            quality
+        );
+
+
+    // ---------------------------------------------
+    // NEU TRA SACH THANH CONG
+    // ---------------------------------------------
+
+    if (receipt.isSuccess) {
+
+        // -----------------------------------------
+        // TIM BOOKCODE CUA DAU SACH
+        // -----------------------------------------
+
+        string returnedBookCode;
+
+        for (
+            const Book& book :
+            bookRepository.getAll()
+        ) {
+
+            for (
+                const BookCopy& copy :
+                book.copies
+            ) {
+
+                if (
+                    copy.bookId ==
+                    returnedBookId
+                ) {
+
+                    returnedBookCode =
+                        book.bookCode;
+
+                    break;
+                }
+            }
+
+            if (!returnedBookCode.empty()) {
+                break;
+            }
+        }
+
+
+        // -----------------------------------------
+        // LUU BOOK + LOAN + FINE
+        // -----------------------------------------
+
+        bool saved =
+            saveLoanAndFineDataToDatabase(
+                database,
+                data,
+                bookRepository,
+                loanRepository,
+                fineRepository
+            );
+
+
+        if (!saved) {
 
             cout << json{
                 {"success", false},
                 {"error",
-                 "Thieu thong tin loanId "
-                 "hoac returnDate."}
+                 "Da cap nhat trong bo nho "
+                 "nhung khong the luu library.json."}
             }.dump();
 
             return 1;
         }
 
 
-        Date returnDate =
-            Date::parse(returnDateStr);
+        // -----------------------------------------
+        // XU LY NGUOI DANG CHO
+        // -----------------------------------------
+
+        Reservation* nextReservation =
+            nullptr;
 
 
-        if (returnDate.year <= 0 ||
-            returnDate.month <= 0 ||
-            returnDate.day <= 0) {
+        if (!returnedBookCode.empty()) {
 
-            cout << json{
-                {"success", false},
-                {"error",
-                 "returnDate khong hop le. "
-                 "Dinh dang dung: YYYY-MM-DD."}
-            }.dump();
-
-            return 0;
+            nextReservation =
+                reservationService.next(
+                    returnedBookCode
+                );
         }
 
 
-        ReturnReceipt receipt =
-            loanService.returnBook(
-                loanId,
-                returnDate,
-                quality
-            );
+        // -----------------------------------------
+        // LUU RESERVATION
+        // -----------------------------------------
 
+        if (nextReservation != nullptr) {
 
-        if (receipt.isSuccess) {
-
-            bool saved =
-                saveLoanAndFineDataToDatabase(
+            bool reservationSaved =
+                saveReservationsToDatabase(
                     database,
                     data,
-                    bookRepository,
-                    loanRepository,
-                    fineRepository
+                    reservationRepository
                 );
 
 
-            if (!saved) {
+            if (!reservationSaved) {
 
                 cout << json{
                     {"success", false},
                     {"error",
-                     "Da cap nhat trong bo nho "
+                     "Da xu ly Reservation "
                      "nhung khong the luu library.json."}
                 }.dump();
 
@@ -1520,16 +1670,48 @@ int runApiMode(
         }
 
 
+        // -----------------------------------------
+        // TAO RESPONSE
+        // -----------------------------------------
+
+        json responseData = {
+            {"loanId", receipt.loanId},
+            {"lateDays", receipt.lateDays},
+            {"lateFee", receipt.lateFee},
+            {"damageFee", receipt.damageFee},
+            {"totalFee", receipt.totalFee}
+        };
+
+
+        // -----------------------------------------
+        // NEU CO NGUOI DANG CHO
+        // -----------------------------------------
+
+        if (nextReservation != nullptr) {
+
+            responseData["reservationServed"] =
+                true;
+
+            responseData["reservation"] =
+                JsonMapper::reservationToJson(
+                    *nextReservation
+                );
+        }
+        else {
+
+            responseData["reservationServed"] =
+                false;
+        }
+
+
+        // -----------------------------------------
+        // RESPONSE
+        // -----------------------------------------
+
         json response = {
-            {"success", receipt.isSuccess},
+            {"success", true},
             {"message", receipt.message},
-            {"data", {
-                {"loanId", receipt.loanId},
-                {"lateDays", receipt.lateDays},
-                {"lateFee", receipt.lateFee},
-                {"damageFee", receipt.damageFee},
-                {"totalFee", receipt.totalFee}
-            }}
+            {"data", responseData}
         };
 
 
@@ -1543,6 +1725,34 @@ int runApiMode(
         return 0;
     }
 
+
+    // ---------------------------------------------
+    // TRA SACH THAT BAI
+    // ---------------------------------------------
+
+    json response = {
+        {"success", false},
+        {"message", receipt.message},
+        {"data", {
+            {"loanId", receipt.loanId},
+            {"lateDays", receipt.lateDays},
+            {"lateFee", receipt.lateFee},
+            {"damageFee", receipt.damageFee},
+            {"totalFee", receipt.totalFee},
+            {"reservationServed", false}
+        }}
+    };
+
+
+    cout << response.dump(
+        -1,
+        ' ',
+        false,
+        json::error_handler_t::replace
+    );
+
+    return 0;
+}
 
     // =================================================
     // GET FINE
