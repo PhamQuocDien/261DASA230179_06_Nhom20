@@ -7,23 +7,23 @@
             "copies": [
                 {
                     "bookId": "LSVN001",
-                    "status": "available"
+                    "status": "BORROWING"
                 },
                 {
                     "bookId": "LSVN002",
-                    "status": "available"
+                    "status": "BORROWING"
                 },
                 {
                     "bookId": "LSVN003",
-                    "status": "available"
+                    "status": "BORROWING"
                 },
                 {
                     "bookId": "LSVN004",
-                    "status": "available"
+                    "status": "BORROWING"
                 },
                 {
                     "bookId": "LSVN005",
-                    "status": "available"
+                    "status": "BORROWING"
                 },
                 {
                     "bookId": "LSVN006",
@@ -296,7 +296,53 @@
         }
     ],
     "fines": [],
-    "loans": [],
+    "loans": [
+        {
+            "loanId": "L001",
+            "memberId": "M002",
+            "bookId": "LSVN001",
+            "borrowDate": "2026-09-20",
+            "dueDate": "2026-09-27",
+            "returnDate": "",
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L002",
+            "memberId": "M002",
+            "bookId": "LSVN002",
+            "borrowDate": "2026-09-20",
+            "dueDate": "2026-09-27",
+            "returnDate": "",
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L003",
+            "memberId": "M002",
+            "bookId": "LSVN003",
+            "borrowDate": "2026-09-20",
+            "dueDate": "2026-09-27",
+            "returnDate": "",
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L004",
+            "memberId": "M002",
+            "bookId": "LSVN004",
+            "borrowDate": "2026-09-20",
+            "dueDate": "2026-09-27",
+            "returnDate": "",
+            "status": "BORROWING"
+        },
+        {
+            "loanId": "L005",
+            "memberId": "M002",
+            "bookId": "LSVN005",
+            "borrowDate": "2026-09-20",
+            "dueDate": "2026-09-27",
+            "returnDate": "",
+            "status": "BORROWING"
+        }
+    ],
     "members": [
         {
             "email": "quangminh@gmail.com",
