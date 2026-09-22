@@ -1,4 +1,3 @@
-
 // =====================================
 // MAIN SCRIPT
 // BUOI 50
@@ -28,6 +27,10 @@ import {
 import {
     initFine
 } from "./js/fine.js";
+
+import {
+    initReservation
+} from "./js/reservation.js";
 
 import {
     initNavigation
@@ -98,6 +101,13 @@ document.addEventListener(
         // =============================
 
         initFine();
+
+
+        // =============================
+        // KHOI DONG DANG KY CHO MUON
+        // =============================
+
+        initReservation();
 
 
         // =============================
