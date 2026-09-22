@@ -106,8 +106,11 @@ function showReservationResult(
 
     container.innerHTML = `
         <div>
+
             <p>
-                <strong>Dang ky thanh cong.</strong>
+                <strong>
+                    Dang ky thanh cong.
+                </strong>
             </p>
 
             <p>
@@ -144,6 +147,7 @@ function showReservationResult(
                     reservation.status
                 )}
             </p>
+
         </div>
     `;
 }
@@ -193,15 +197,37 @@ function showReservationQueue(
         <table class="reservation-table">
 
             <thead>
+
                 <tr>
+
                     <th>STT</th>
-                    <th>Reservation_ID</th>
-                    <th>Member_ID</th>
-                    <th>BookCode</th>
-                    <th>Ngay dang ky</th>
-                    <th>Trang thai</th>
-                    <th>Thao tac</th>
+
+                    <th>
+                        Reservation_ID
+                    </th>
+
+                    <th>
+                        Member_ID
+                    </th>
+
+                    <th>
+                        BookCode
+                    </th>
+
+                    <th>
+                        Ngay dang ky
+                    </th>
+
+                    <th>
+                        Trang thai
+                    </th>
+
+                    <th>
+                        Thao tac
+                    </th>
+
                 </tr>
+
             </thead>
 
             <tbody>
@@ -249,17 +275,30 @@ function showReservationQueue(
                     </td>
 
                     <td>
-                        <button
-                            type="button"
-                            class="btn-cancel-reservation"
-                            data-reservation-id="${escapeHtml(
-                                reservation.reservationId
-                            )}"
-                            data-book-code="${escapeHtml(
-                                reservation.bookCode
-                            )}">
-                            Hủy đăng ký
-                        </button>
+
+                        ${
+                            reservation.status ===
+                            "WAITING"
+                                ? `
+                                    <button
+                                        type="button"
+                                        class="btn-cancel-reservation"
+                                        data-reservation-id="${escapeHtml(
+                                            reservation.reservationId
+                                        )}"
+                                        data-book-code="${escapeHtml(
+                                            reservation.bookCode
+                                        )}">
+                                        Hủy đăng ký
+                                    </button>
+                                `
+                                : `
+                                    <span>
+                                        Không thể hủy
+                                    </span>
+                                `
+                        }
+
                     </td>
 
                 </tr>
@@ -270,6 +309,7 @@ function showReservationQueue(
 
     html += `
             </tbody>
+
         </table>
     `;
 
@@ -290,15 +330,18 @@ export function initReservation() {
             "reservationMemberId"
         );
 
+
     const reservationBookId =
         document.getElementById(
             "reservationBookId"
         );
 
+
     const btnReservation =
         document.getElementById(
             "btnReservation"
         );
+
 
     const reservationResult =
         document.getElementById(
@@ -311,16 +354,28 @@ export function initReservation() {
             "reservationLookupBookId"
         );
 
+
     const btnReservationLookup =
         document.getElementById(
             "btnReservationLookup"
         );
+
+
+    const btnNextReservation =
+        document.getElementById(
+            "btnNextReservation"
+        );
+
 
     const reservationQueueResult =
         document.getElementById(
             "reservationQueueResult"
         );
 
+
+    // =================================
+    // KIEM TRA ELEMENT
+    // =================================
 
     if (
         !reservationMemberId ||
@@ -329,6 +384,7 @@ export function initReservation() {
         !reservationResult ||
         !reservationLookupBookId ||
         !btnReservationLookup ||
+        !btnNextReservation ||
         !reservationQueueResult
     ) {
 
@@ -351,9 +407,14 @@ export function initReservation() {
             const memberId =
                 reservationMemberId.value.trim();
 
+
             const bookCode =
                 reservationBookId.value.trim();
 
+
+            // -----------------------------
+            // KIEM TRA MEMBER_ID
+            // -----------------------------
 
             if (!memberId) {
 
@@ -366,6 +427,10 @@ export function initReservation() {
                 return;
             }
 
+
+            // -----------------------------
+            // KIEM TRA BOOKCODE
+            // -----------------------------
 
             if (!bookCode) {
 
@@ -386,6 +451,10 @@ export function initReservation() {
             `;
 
 
+            // -----------------------------
+            // GOI API
+            // -----------------------------
+
             const result =
                 await callReservationApi(
                     {
@@ -401,11 +470,19 @@ export function initReservation() {
                 );
 
 
+            // -----------------------------
+            // HIEN THI KET QUA
+            // -----------------------------
+
             showReservationResult(
                 reservationResult,
                 result
             );
 
+
+            // -----------------------------
+            // NEU THANH CONG
+            // -----------------------------
 
             if (result.success) {
 
@@ -415,9 +492,15 @@ export function initReservation() {
                 reservationBookId.value =
                     "";
 
-                // Tu dong cap nhat danh sach cho
+
+                // Tu dong dien BookCode
+                // vao o tra cuu
+
                 reservationLookupBookId.value =
                     bookCode;
+
+
+                // Cap nhat danh sach cho
 
                 await loadReservationQueue(
                     bookCode,
@@ -482,12 +565,15 @@ export function initReservation() {
             const reservationId =
                 cancelButton.dataset.reservationId;
 
+
             const bookCode =
                 cancelButton.dataset.bookCode;
 
 
-            if (!reservationId ||
-                !bookCode) {
+            if (
+                !reservationId ||
+                !bookCode
+            ) {
 
                 return;
             }
@@ -507,9 +593,14 @@ export function initReservation() {
             cancelButton.disabled =
                 true;
 
+
             cancelButton.textContent =
                 "Dang huy...";
 
+
+            // -----------------------------
+            // GOI API HUY
+            // -----------------------------
 
             const result =
                 await callReservationApi(
@@ -523,6 +614,10 @@ export function initReservation() {
                 );
 
 
+            // -----------------------------
+            // HUY THAT BAI
+            // -----------------------------
+
             if (!result.success) {
 
                 alert(
@@ -530,27 +625,193 @@ export function initReservation() {
                     "Khong the huy dang ky."
                 );
 
+
                 cancelButton.disabled =
                     false;
 
+
                 cancelButton.textContent =
                     "Hủy đăng ký";
+
 
                 return;
             }
 
 
-            // Huy thanh cong
+            // -----------------------------
+            // HUY THANH CONG
+            // -----------------------------
+
             alert(
                 "Da huy dang ky thanh cong."
             );
 
 
-            // Load lai danh sach cho
+            // -----------------------------
+            // LOAD LAI DANH SACH
+            // -----------------------------
+
             await loadReservationQueue(
                 bookCode,
                 reservationQueueResult
             );
+        }
+    );
+
+
+    // =================================
+    // XU LY LUOT CHO TIEP THEO
+    // =================================
+
+    btnNextReservation.addEventListener(
+        "click",
+        async () => {
+
+            const bookCode =
+                reservationLookupBookId.value.trim();
+
+
+            // -----------------------------
+            // KIEM TRA BOOKCODE
+            // -----------------------------
+
+            if (!bookCode) {
+
+                reservationQueueResult.innerHTML = `
+                    <p>
+                        Vui long nhap BookCode.
+                    </p>
+                `;
+
+                return;
+            }
+
+
+            // -----------------------------
+            // VO HIEU HOA NUT
+            // -----------------------------
+
+            btnNextReservation.disabled =
+                true;
+
+
+            btnNextReservation.textContent =
+                "Dang xu ly...";
+
+
+            // -----------------------------
+            // GOI API
+            // -----------------------------
+
+            const result =
+                await callReservationApi(
+                    {
+                        action:
+                            "nextReservation",
+
+                        bookCode:
+                            bookCode
+                    }
+                );
+
+
+            // -----------------------------
+            // XU LY THAT BAI
+            // -----------------------------
+
+            if (!result.success) {
+
+                reservationResult.innerHTML = `
+                    <p>
+                        ${escapeHtml(
+                            result.error ||
+                            "Khong co nguoi cho tiep theo."
+                        )}
+                    </p>
+                `;
+
+
+                btnNextReservation.disabled =
+                    false;
+
+
+                btnNextReservation.textContent =
+                    "Xử lý lượt chờ tiếp theo";
+
+
+                return;
+            }
+
+
+            // -----------------------------
+            // XU LY THANH CONG
+            // -----------------------------
+
+            const reservation =
+                result.data;
+
+
+            reservationResult.innerHTML = `
+                <div>
+
+                    <p>
+                        <strong>
+                            Da xu ly luot cho tiep theo.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Reservation_ID:
+                        ${escapeHtml(
+                            reservation.reservationId
+                        )}
+                    </p>
+
+                    <p>
+                        Member_ID:
+                        ${escapeHtml(
+                            reservation.memberId
+                        )}
+                    </p>
+
+                    <p>
+                        BookCode:
+                        ${escapeHtml(
+                            reservation.bookCode
+                        )}
+                    </p>
+
+                    <p>
+                        Trang thai:
+                        ${escapeHtml(
+                            reservation.status
+                        )}
+                    </p>
+
+                </div>
+            `;
+
+
+            // -----------------------------
+            // LOAD LAI HANG CHO
+            // -----------------------------
+
+            await loadReservationQueue(
+                bookCode,
+                reservationQueueResult
+            );
+
+
+            // -----------------------------
+            // KHOI PHUC NUT
+            // -----------------------------
+
+            btnNextReservation.disabled =
+                false;
+
+
+            btnNextReservation.textContent =
+                "Xử lý lượt chờ tiếp theo";
         }
     );
 }
