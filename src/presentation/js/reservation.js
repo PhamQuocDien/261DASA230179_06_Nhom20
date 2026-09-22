@@ -200,6 +200,7 @@ function showReservationQueue(
                     <th>BookCode</th>
                     <th>Ngay dang ky</th>
                     <th>Trang thai</th>
+                    <th>Thao tac</th>
                 </tr>
             </thead>
 
@@ -245,6 +246,20 @@ function showReservationQueue(
                         ${escapeHtml(
                             reservation.status
                         )}
+                    </td>
+
+                    <td>
+                        <button
+                            type="button"
+                            class="btn-cancel-reservation"
+                            data-reservation-id="${escapeHtml(
+                                reservation.reservationId
+                            )}"
+                            data-book-code="${escapeHtml(
+                                reservation.bookCode
+                            )}">
+                            Hủy đăng ký
+                        </button>
                     </td>
 
                 </tr>
@@ -400,7 +415,7 @@ export function initReservation() {
                 reservationBookId.value =
                     "";
 
-                // Tự động cập nhật danh sách chờ
+                // Tu dong cap nhat danh sach cho
                 reservationLookupBookId.value =
                     bookCode;
 
@@ -437,6 +452,101 @@ export function initReservation() {
             }
 
 
+            await loadReservationQueue(
+                bookCode,
+                reservationQueueResult
+            );
+        }
+    );
+
+
+    // =================================
+    // HUY DANG KY
+    // =================================
+
+    reservationQueueResult.addEventListener(
+        "click",
+        async (event) => {
+
+            const cancelButton =
+                event.target.closest(
+                    ".btn-cancel-reservation"
+                );
+
+
+            if (!cancelButton) {
+                return;
+            }
+
+
+            const reservationId =
+                cancelButton.dataset.reservationId;
+
+            const bookCode =
+                cancelButton.dataset.bookCode;
+
+
+            if (!reservationId ||
+                !bookCode) {
+
+                return;
+            }
+
+
+            const confirmed =
+                confirm(
+                    "Ban co chac chan muon huy dang ky nay?"
+                );
+
+
+            if (!confirmed) {
+                return;
+            }
+
+
+            cancelButton.disabled =
+                true;
+
+            cancelButton.textContent =
+                "Dang huy...";
+
+
+            const result =
+                await callReservationApi(
+                    {
+                        action:
+                            "cancelReservation",
+
+                        reservationId:
+                            reservationId
+                    }
+                );
+
+
+            if (!result.success) {
+
+                alert(
+                    result.error ||
+                    "Khong the huy dang ky."
+                );
+
+                cancelButton.disabled =
+                    false;
+
+                cancelButton.textContent =
+                    "Hủy đăng ký";
+
+                return;
+            }
+
+
+            // Huy thanh cong
+            alert(
+                "Da huy dang ky thanh cong."
+            );
+
+
+            // Load lai danh sach cho
             await loadReservationQueue(
                 bookCode,
                 reservationQueueResult
