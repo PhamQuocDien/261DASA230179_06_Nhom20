@@ -42,7 +42,7 @@ bool ReservationRepository::remove(const string& reservationId)
     }
     return false;
 }
-vector<Reservation> ReservationRepository::getAll()
+vector<Reservation>& ReservationRepository::getAll()
 {
     return reservations;
 }
