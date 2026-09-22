@@ -251,7 +251,7 @@ BorrowResult LoanService::borrowBook(const string& memberId, const string& bookC
     newLoan.renewalCount = 0;
     newLoan.status = "BORROWING";
 
-    // 6. Cập nhật trạng thái sách vừa mượn thành : BORROWED
+    // 6. Cập nhật trạng thái sách vừa mượn thành BORROWED
     for (auto& copy : book->copies) {
         if (copy.bookId == availableBookId) {
             copy.status = "BORROWED";
