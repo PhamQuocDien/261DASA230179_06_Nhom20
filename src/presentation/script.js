@@ -2,7 +2,6 @@
 // MAIN SCRIPT
 // BUOI 50
 // FILE DIEU PHOI CHINH
-// + MC2 - TIM KIEM SACH THEO KHOANG NAM
 // =====================================
 
 import {
