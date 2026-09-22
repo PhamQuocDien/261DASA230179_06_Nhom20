@@ -1546,7 +1546,69 @@ int runApiMode(
         return 0;
     }
 
+    // =================================================
+// GET RESERVATIONS BY BOOK CODE
+// =================================================
 
+if (action == "getReservationsByBookCode") {
+
+    string bookCode =
+        request.value("bookCode", "");
+
+    if (bookCode.empty()) {
+
+        cout << json{
+            {"success", false},
+            {"error", "Thieu bookCode."}
+        }.dump();
+
+        return 1;
+    }
+
+    Book* book =
+        bookService.getBookByCode(bookCode);
+
+    if (book == nullptr) {
+
+        cout << json{
+            {"success", false},
+            {"error", "Book khong ton tai."}
+        }.dump();
+
+        return 0;
+    }
+
+    json reservationData =
+        json::array();
+
+    for (const Reservation& reservation :
+         reservationRepository.getAll()) {
+
+        if (reservation.bookCode == bookCode &&
+            reservation.status == "WAITING") {
+
+            reservationData.push_back(
+                JsonMapper::reservationToJson(
+                    reservation
+                )
+            );
+        }
+    }
+
+    json response = {
+        {"success", true},
+        {"data", reservationData}
+    };
+
+    cout << response.dump(
+        -1,
+        ' ',
+        false,
+        json::error_handler_t::replace
+    );
+
+    return 0;
+}
     // =================================================
     // ENQUEUE RESERVATION
     // =================================================
