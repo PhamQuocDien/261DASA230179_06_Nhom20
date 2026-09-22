@@ -26,8 +26,17 @@ bool ReservationService::enqueue(const string& memberId,const string& bookId)
     if (book == nullptr)
         return false;
 
-    // 3. Chỉ cho đăng ký chờ khi sách đã hết
-    if (book->Quantity > 0) 
+    // 3. Chỉ cho đăng ký chờ khi tất cả bản sách của đầu sách đều đã hết
+    bool hasAvailableCopy = false;
+
+    for (const BookCopy& copy : book->copies) {
+        if (copy.status == "available") {
+            hasAvailableCopy = true;
+            break;
+        }
+    }
+
+    if (hasAvailableCopy)
         return false;
     
     // 4. Kiểm tra Member có đang mượn sách này không
