@@ -1,71 +1,82 @@
+
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <string>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 class Book {
 public:
-    string BookCode;
-    string Book_ID;
+    // Mã đầu sách
+    string bookCode;
 
-    string Title;
-    string Author;
-    string Category;
+    // ID duy nhất của bản sách
+    string bookId;
 
-    int Year;
-    int Quantity;
+    // Thông tin sách
+    string title;
+    string author;
+    string category;
 
-    string Status;
+    // Năm xuất bản
+    int year;
 
-    // Số lượt quan tâm
+    // Số lượng bản sách
+    int quantity;
+
+    // Số lượt được quan tâm
     int interestCount;
 
-    Book() {
-        Year = 0;
-        Quantity = 0;
-        interestCount = 0;
+    // Constructor mặc định
+    Book()
+        : bookCode(""),
+          bookId(""),
+          title(""),
+          author(""),
+          category(""),
+          year(0),
+          quantity(0),
+          interestCount(0)
+    {
     }
 
+    // Constructor đầy đủ
     Book(
-    string code,
-    string id,
-    string title,
-    string author,
-    string category,
-    int year,
-    int quantity,
-    string status
-) {
-    BookCode = code;
-    Book_ID = id;
+        string code,
+        string id,
+        string bookTitle,
+        string bookAuthor,
+        string bookCategory,
+        int bookYear,
+        int bookQuantity
+    )
+        : bookCode(code),
+          bookId(id),
+          title(bookTitle),
+          author(bookAuthor),
+          category(bookCategory),
+          year(bookYear),
+          quantity(bookQuantity),
+          interestCount(0)
+    {
+    }
 
-    Title = title;
-    Author = author;
-    Category = category;
-
-    Year = year;
-    Quantity = quantity;
-
-    Status = status;
-
-    interestCount = 0;
-}
-
-
-
+    // Hiển thị thông tin
     void display() const {
-        cout << "Ma sach    : " << BookCode << endl;
-        cout << "Book_ID        : " << Book_ID << endl;
-        cout << "Ten sach       : " << Title << endl;
-        cout << "Tac gia        : " << Author << endl;
-        cout << "The loai      : " << Category << endl;
-        cout << "Nam           : " << Year << endl;
-        cout << "Luot quan tam : " << interestCount << endl;
+        cout << "Book Code     : " << bookCode << endl;
+        cout << "Book ID       : " << bookId << endl;
+        cout << "Title         : " << title << endl;
+        cout << "Author        : " << author << endl;
+        cout << "Category      : " << category << endl;
+        cout << "Year          : " << year << endl;
+        cout << "Quantity      : " << quantity << endl;
+        cout << "Interest      : " << interestCount << endl;
     }
 };
 
 #endif
+
+
 
