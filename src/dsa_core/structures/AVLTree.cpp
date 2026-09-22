@@ -1,4 +1,4 @@
-#include "AVLTree.h"
+#include "dsa_core/structures/AVLTree.h"
 
 #include <algorithm>
 #include <iostream>
