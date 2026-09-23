@@ -394,6 +394,13 @@
             "name": "Nguyen Huu Luan",
             "phone": "0100000092",
             "status": "ACTIVE"
+        },
+        {
+            "email": "phanthithanhtruc2058@gmail.com",
+            "memberId": "M004",
+            "name": "Phan Thị Thanh Trúc",
+            "phone": "0374509268",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
