@@ -387,6 +387,13 @@
             "name": "Pham Khanh Hung",
             "phone": "0100000090",
             "status": "ACTIVE"
+        },
+        {
+            "email": "luan@gmail.com",
+            "memberId": "M003",
+            "name": "Nguyen Huu Luan",
+            "phone": "0100000092",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
