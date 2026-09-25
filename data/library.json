@@ -342,6 +342,55 @@
             ],
             "title": "Mắt biếc",
             "year": 1990
+        },
+        {
+            "author": "Trương Quang Minh",
+            "bookCode": "HDC",
+            "category": "Hóa Học",
+            "copies": [
+                {
+                    "bookId": "HDC001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HDC010",
+                    "status": "available"
+                }
+            ],
+            "title": "Hóa Đại CƯơng",
+            "year": 2011
         }
     ],
     "fines": [
