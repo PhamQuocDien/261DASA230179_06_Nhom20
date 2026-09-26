@@ -145,17 +145,27 @@ document.addEventListener(
 
 function initSearchBook() {
 
-    const searchType =
-        document.getElementById("searchBookType");
+    const searchTypeButtons =
+        document.querySelectorAll(
+            ".search-type-btn"
+        );
 
     const input =
-        document.getElementById("searchBookKeyword");
+        document.getElementById(
+            "searchBookKeyword"
+        );
 
     const button =
-        document.getElementById("btnSearchBook");
+        document.getElementById(
+            "btnSearchBook"
+        );
 
     const resultContainer =
-        document.getElementById("searchBookResult");
+        document.getElementById(
+            "searchBookResult"
+        );
+
+    let searchType = "bookCode";
 
 
     // =================================
@@ -163,7 +173,7 @@ function initSearchBook() {
     // =================================
 
     if (
-        !searchType ||
+        searchTypeButtons.length === 0 ||
         !input ||
         !button ||
         !resultContainer
@@ -178,42 +188,76 @@ function initSearchBook() {
 
 
     // =================================
-    // DOI PLACEHOLDER KHI CHON CACH TIM
+    // CHON BOOK CODE / TEN SACH
     // =================================
 
-    searchType.addEventListener(
-        "change",
-        () => {
+    searchTypeButtons.forEach(
+        (btn) => {
 
-            if (
-                searchType.value === "bookCode"
-            ) {
+            btn.addEventListener(
+                "click",
+                () => {
 
-                input.placeholder =
-                    "Nhập Book Code...";
+                    searchType =
+                        btn.dataset.type;
 
-            }
-            else if (
-                searchType.value === "title"
-            ) {
 
-                input.placeholder =
-                    "Nhập tên sách...";
-            }
+                    // Xóa active của tất cả nút
 
-            input.value = "";
+                    searchTypeButtons.forEach(
+                        (item) => {
 
-            resultContainer.innerHTML = `
-                <p>
-                    Chưa có kết quả tìm kiếm.
-                </p>
-            `;
+                            item.classList.remove(
+                                "active"
+                            );
+                        }
+                    );
+
+
+                    // Active nút đang chọn
+
+                    btn.classList.add(
+                        "active"
+                    );
+
+
+                    // Đổi placeholder
+
+                    if (
+                        searchType === "bookCode"
+                    ) {
+
+                        input.placeholder =
+                            "Nhập Book Code...";
+
+                    }
+                    else {
+
+                        input.placeholder =
+                            "Nhập tên sách...";
+                    }
+
+
+                    // Xóa ô nhập
+
+                    input.value = "";
+
+
+                    // Xóa kết quả cũ
+
+                    resultContainer.innerHTML = `
+                        <p>
+                            Chưa có kết quả tìm kiếm.
+                        </p>
+                    `;
+                }
+            );
         }
     );
 
 
     // =================================
-    // NUT TIM KIEM
+    // NÚT TÌM KIẾM
     // =================================
 
     button.addEventListener(
@@ -222,6 +266,11 @@ function initSearchBook() {
 
             const keyword =
                 input.value.trim();
+
+
+            // =============================
+            // KIỂM TRA RỖNG
+            // =============================
 
             if (keyword === "") {
 
@@ -234,6 +283,10 @@ function initSearchBook() {
                 return;
             }
 
+
+            // =============================
+            // ĐANG TÌM
+            // =============================
 
             resultContainer.innerHTML = `
                 <p>
@@ -248,11 +301,11 @@ function initSearchBook() {
 
 
                 // =================================
-                // TIM THEO BOOK CODE
+                // TÌM THEO BOOK CODE
                 // =================================
 
                 if (
-                    searchType.value === "bookCode"
+                    searchType === "bookCode"
                 ) {
 
                     response =
@@ -260,7 +313,8 @@ function initSearchBook() {
 
                             action: "getBook",
 
-                            bookCode: keyword
+                            bookCode:
+                                keyword
                         });
 
 
@@ -295,39 +349,55 @@ function initSearchBook() {
                         <div>
 
                             <p>
-                                <strong>Book Code:</strong>
+                                <strong>
+                                    Book Code:
+                                </strong>
+
                                 ${escapeHtml(
                                     book.bookCode || ""
                                 )}
                             </p>
 
                             <p>
-                                <strong>Tên sách:</strong>
+                                <strong>
+                                    Tên sách:
+                                </strong>
+
                                 ${escapeHtml(
                                     book.title || ""
                                 )}
                             </p>
 
                             <p>
-                                <strong>Tác giả:</strong>
+                                <strong>
+                                    Tác giả:
+                                </strong>
+
                                 ${escapeHtml(
                                     book.author || ""
                                 )}
                             </p>
 
                             <p>
-                                <strong>Thể loại:</strong>
+                                <strong>
+                                    Thể loại:
+                                </strong>
+
                                 ${escapeHtml(
                                     book.category || ""
                                 )}
                             </p>
 
                             <p>
-                                <strong>Năm xuất bản:</strong>
+                                <strong>
+                                    Năm xuất bản:
+                                </strong>
+
                                 ${book.year ?? ""}
                             </p>
 
                         </div>
+
                     `;
 
                     return;
@@ -335,7 +405,7 @@ function initSearchBook() {
 
 
                 // =================================
-                // TIM THEO TEN SACH
+                // TÌM THEO TÊN SÁCH
                 // =================================
 
                 response =
@@ -362,7 +432,7 @@ function initSearchBook() {
                                     ? escapeHtml(
                                         response.error
                                     )
-                                    : "Không tìm thấy sách."
+                                    : "Không thể tìm kiếm sách."
                             }
                         </p>
                     `;
@@ -372,13 +442,15 @@ function initSearchBook() {
 
 
                 const books =
-                    Array.isArray(response.data)
+                    Array.isArray(
+                        response.data
+                    )
                         ? response.data
                         : [];
 
 
                 // =================================
-                // KHONG CO KET QUA
+                // KHÔNG CÓ KẾT QUẢ
                 // =================================
 
                 if (books.length === 0) {
@@ -394,14 +466,16 @@ function initSearchBook() {
 
 
                 // =================================
-                // TAO BANG KET QUA
+                // HIỂN THỊ BẢNG
                 // =================================
 
                 let html = `
 
                     <p>
                         Tìm thấy
-                        <strong>${books.length}</strong>
+                        <strong>
+                            ${books.length}
+                        </strong>
                         sách.
                     </p>
 
@@ -502,7 +576,7 @@ function initSearchBook() {
             catch (error) {
 
                 console.error(
-                    "MC1 ERROR:",
+                    "SEARCH ERROR:",
                     error
                 );
 
