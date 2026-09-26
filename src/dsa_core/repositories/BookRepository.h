@@ -12,8 +12,6 @@ public:
     const std::vector<Book>& getAll() const;
     Book* findByCode(const std::string& bookCode);
     const Book* findByCode(const std::string& bookCode) const;
-    Book* findByCode(const std::string& bookCode);
-    const Book* findByCode(const std::string& bookCode) const;
     std::vector<Book*> findByTitle(const std::string& keyword);
     bool add(const Book& book);
     bool update(const Book& book);
