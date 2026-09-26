@@ -1,84 +1,159 @@
 #include "LoanService.h"
+using namespace std;
 
-ReturnReceipt LoanService::returnBook(const string& loanId, const Date& returnDate, const string& quality) {
+// =====================================================
+// XỬ LÝ TRẢ SÁCH
+// =====================================================
+
+ReturnReceipt LoanService::returnBook(
+    const string& loanId,
+    const Date& returnDate,
+    const string& quality
+) {
     ReturnReceipt receipt{};
     receipt.loanId = loanId;
 
+    // Tìm phiếu mượn theo mã
     Loan* loan = loanRepo.findById(loanId);
+
+    // Không tìm thấy phiếu mượn
     if (!loan) {
         receipt.message = "Loi: Khong tim thay ma phieu muon.";
         return receipt;
     }
+
+    // Kiểm tra phiếu đã được trả trước đó chưa
     if (loan->status == "RETURNED") {
         receipt.message = "Loi: Phieu muon da duoc tra truoc do.";
         return receipt;
     }
-    if (returnDate.year <= 0 || returnDate.month <= 0 || returnDate.day <= 0) {
+
+    // Kiểm tra ngày trả hợp lệ
+    if (returnDate.year <= 0 ||
+        returnDate.month <= 0 ||
+        returnDate.day <= 0) {
         receipt.message = "Loi: Ngay tra khong hop le.";
         return receipt;
     }
 
+    // =================================================
+    // TÌM ĐẦU SÁCH CHỨA BẢN COPY ĐƯỢC MƯỢN
+    // =================================================
+
     Book* book = nullptr;
     for (Book& candidate : bookRepo.getAll()) {
         for (const BookCopy& copy : candidate.copies) {
+            // Tìm bản sách có bookId trùng với phiếu mượn
             if (copy.bookId == loan->bookId) {
                 book = &candidate;
                 break;
             }
         }
-        if (book != nullptr) break;
+        if (book != nullptr)
+            break;
     }
+
+    // Không tìm thấy dữ liệu sách liên kết
     if (!book) {
-        receipt.message = "Loi: Du lieu sach lien ket khong ton tai.";
+        receipt.message =
+            "Loi: Du lieu sach lien ket khong ton tai.";
         return receipt;
     }
 
+
+    // =================================================
+    // TÍNH SỐ NGÀY TRỄ
+    // =================================================
+
+    // Lấy ngày hết hạn từ phiếu mượn
     const Date dueDate = Date::parse(loan->dueDate);
-    if (dueDate.year <= 0 || dueDate.month <= 0 || dueDate.day <= 0) {
-        receipt.message = "Loi: Han tra cua phieu muon khong hop le.";
+
+    // Kiểm tra hạn trả có hợp lệ không
+    if (dueDate.year <= 0 ||
+        dueDate.month <= 0 ||
+        dueDate.day <= 0) {
+        receipt.message =
+            "Loi: Han tra cua phieu muon khong hop le.";
         return receipt;
     }
+
+    // Trả trước hoặc đúng hạn
     if (returnDate < dueDate) {
- 
         receipt.lateDays = 0;
-    } else if (returnDate > dueDate) {
-        receipt.lateDays = returnDate.toDays() - dueDate.toDays();
+    }
+    // Trả trễ hạn
+    else if (returnDate > dueDate) {
+        receipt.lateDays =
+            returnDate.toDays() - dueDate.toDays();
     }
 
 
-    receipt.lateFee = receipt.lateDays * 10000.0;
+    // Phạt 10.000 VNĐ cho mỗi ngày trễ
+    receipt.lateFee =
+        receipt.lateDays * 10000.0;
 
+    // =================================================
+    // TÍNH PHÍ HƯ HỎNG
+    // =================================================
+
+    // Sách tốt
     if (quality == "Tot") {
         receipt.damageFee = 0.0;
-    } else if (quality == "Hu hong nhe") {
+    }
+
+    // Hư hỏng nhẹ
+    else if (quality == "Hu hong nhe") {
         receipt.damageFee = 20000.0;
-    } else if (quality == "Hu hong nang") {
+    }
+
+    // Hư hỏng nặng
+    else if (quality == "Hu hong nang") {
         receipt.damageFee = 100000.0;
-    } else {
-        receipt.message = "Loi: Tinh trang sach khong hop le.";
+    }
+
+    // Tình trạng không hợp lệ
+    else {
+        receipt.message =
+            "Loi: Tinh trang sach khong hop le.";
         return receipt;
     }
 
-    receipt.totalFee = receipt.lateFee + receipt.damageFee;
+    // Tổng tiền phạt = phạt trễ + phí hư hỏng
+    receipt.totalFee =
+        receipt.lateFee + receipt.damageFee;
 
+    // =================================================
+    // CẬP NHẬT PHIẾU MƯỢN
+    // =================================================
 
+    // Lưu ngày trả thực tế
     loan->returnDate = returnDate.toString();
+
+    // Đổi trạng thái phiếu thành đã trả
     loan->status = "RETURNED";
 
+    // =================================================
+    // CẬP NHẬT TRẠNG THÁI SÁCH
+    // =================================================
 
+    // Nếu không hư hỏng nặng
     if (quality != "Hu hong nang") {
         bool restored = false;
         for (BookCopy& copy : book->copies) {
             if (copy.bookId == loan->bookId) {
+                // Nếu sách đang được mượn
                 if (copy.status == "BORROWED") {
+                    // Trả sách về trạng thái có thể mượn
                     copy.status = "AVAILABLE";
                     restored = true;
                 }
                 break;
             }
         }
-        if (!restored) {
 
+        // Trường hợp trạng thái trước đó không đúng
+        // vẫn đưa bản sách về AVAILABLE
+        if (!restored) {
             for (BookCopy& copy : book->copies) {
                 if (copy.bookId == loan->bookId) {
                     copy.status = "AVAILABLE";
@@ -86,78 +161,134 @@ ReturnReceipt LoanService::returnBook(const string& loanId, const Date& returnDa
                 }
             }
         }
-    } else {
+    }
+    // Nếu sách hư hỏng nặng
+    else {
         for (BookCopy& copy : book->copies) {
             if (copy.bookId == loan->bookId) {
+                // Đánh dấu sách bị hư
                 copy.status = "DAMAGED";
                 break;
             }
         }
     }
 
+
+    // =================================================
+    // TẠO / CẬP NHẬT TIỀN PHẠT
+    // =================================================
+
+    // Chỉ tạo tiền phạt nếu tổng phí > 0
     if (receipt.totalFee > 0.0) {
         Fine fine;
+
+        // Tạo mã tiền phạt từ mã phiếu mượn
         fine.fineId = "F_" + loanId;
         fine.loanId = loanId;
         fine.memberId = loan->memberId;
+
+        // Lưu số tiền phạt
         fine.amount = receipt.totalFee;
-        fine.reason = (receipt.lateDays > 0
-            ? "Tre " + to_string(receipt.lateDays) + " ngay. "
-            : "") +
-            (receipt.damageFee > 0
-                ? "Hu hai: " + quality
-                : "");
+
+        // Tạo lý do tiền phạt
+        fine.reason = "";
+
+        // Nếu trả trễ thì thêm lý do trễ
+        if (receipt.lateDays > 0) {
+            fine.reason =
+                "Tre " +
+                to_string(receipt.lateDays) +
+                " ngay. ";
+        }
+        // Nếu sách bị hư thì thêm lý do hư hỏng
+        if (receipt.damageFee > 0) {
+            fine.reason +=
+                "Hu hai: " + quality;
+        }
+
+        // Ban đầu tiền phạt chưa thanh toán
         fine.status = "UNPAID";
 
-        Fine* existing = fineRepo.findByLoanId(loanId);
+        // Kiểm tra đã có tiền phạt cho phiếu này chưa
+        Fine* existing =
+            fineRepo.findByLoanId(loanId);
         if (existing != nullptr) {
+
+            // Nếu đã có thì cập nhật
             *existing = fine;
-        } else {
+        }
+        else {
+            // Nếu chưa có thì thêm mới
             fineRepo.add(fine);
         }
     }
+
+    // =================================================
+    // TRẢ KẾT QUẢ
+    // =================================================
+
     receipt.isSuccess = true;
-    receipt.message = "Xu ly tra sach thanh cong.";
+    receipt.message =
+        "Xu ly tra sach thanh cong.";
     return receipt;
 }
 
-
-
 string LoanService::generateLoanId() {
-    int count = loanRepo.getAll().size() + 1;
+    int count =
+        loanRepo.getAll().size() + 1;
     string id = "L";
-    if (count < 10) id += "00";
-    else if (count < 100) id += "0";
+
+    if (count < 10)
+        id += "00";
+    else if (count < 100)
+        id += "0";
+
     id += to_string(count);
-    
-    while(loanRepo.findById(id) != nullptr) {
+
+    while (loanRepo.findById(id) != nullptr) {
         count++;
-        id = "L" + string(count < 10 ? "00" : (count < 100 ? "0" : "")) + to_string(count);
+        id =
+            "L" +
+            string(
+                count < 10
+                ? "00"
+                : (count < 100 ? "0" : "")
+            ) +
+            to_string(count);
     }
     return id;
 }
 
-
-// tính ngày trả sách đúng với ngày/tháng/năm chuẩn
-string LoanService::calculateDueDate(const string& borrowDateStr, int daysToAdd) {
+string LoanService::calculateDueDate(
+    const string& borrowDateStr,
+    int daysToAdd
+) {
     Date d = Date::parse(borrowDateStr);
     d.day += daysToAdd;
 
     while (true) {
-        // tìm số ngày trong tháng này
-        int daysInMonth = 31; 
-        if (d.month == 4 || d.month == 6 || d.month == 9 || d.month == 11) {
+        int daysInMonth = 31;
+
+        if (d.month == 4 ||
+            d.month == 6 ||
+            d.month == 9 ||
+            d.month == 11) {
             daysInMonth = 30;
-        } else if (d.month == 2) {
-            bool isLeapYear = (d.year % 4 == 0 && d.year % 100 != 0) || (d.year % 400 == 0);
-            daysInMonth = isLeapYear ? 29 : 28;
         }
-        
+
+        else if (d.month == 2) {
+            bool isLeapYear =
+                (d.year % 4 == 0 &&
+                    d.year % 100 != 0) ||
+                (d.year % 400 == 0);
+            daysInMonth =
+                isLeapYear ? 29 : 28;
+        }
+
         if (d.day <= daysInMonth) {
             break;
         }
-        
-        // cập nhật ngày/tháng/năm nếu hạn trả trượt sang tháng sau
+
         d.day -= daysInMonth;
         d.month++;
 
@@ -166,112 +297,140 @@ string LoanService::calculateDueDate(const string& borrowDateStr, int daysToAdd)
             d.year++;
         }
     }
-    
     return d.toString();
 }
 
-BorrowResult LoanService::borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr, MemberRepository& memberRepo) {
+BorrowResult LoanService::borrowBook(
+    const string& memberId,
+    const string& bookCode,
+    const string& borrowDateStr,
+    MemberRepository& memberRepo
+) {
     BorrowResult result;
     result.isSuccess = false;
 
-    // 1. Kiểm tra dữ liệu bị để trống
-    if (memberId.empty() || bookCode.empty() || borrowDateStr.empty()) {
-        result.message = "Du lieu sai: Vui long nhap du thong tin.";
+    if (memberId.empty() ||
+        bookCode.empty() ||
+        borrowDateStr.empty()) {
+        result.message =
+            "Du lieu sai: Vui long nhap du thong tin.";
         return result;
     }
 
-    // 2. Kiểm tra mã độc giả
-    const Member* member = memberRepo.findById(memberId);
+    const Member* member =
+        memberRepo.findById(memberId);
+
     if (member == nullptr) {
-        result.message = "Member sai: Khong tim thay the doc gia " + memberId;
+        result.message =
+            "Member sai: Khong tim thay the doc gia "
+            + memberId;
         return result;
     }
+
     if (member->status != "ACTIVE") {
-        result.message = "Doc gia dang bi khoa the, khong the muon.";
+        result.message =
+            "Doc gia dang bi khoa the, khong the muon.";
         return result;
     }
 
-    // 3. Kiểm tra sách 
-    Book* book = bookRepo.findByCode(bookCode);
+    Book* book =
+        bookRepo.findByCode(bookCode);
     if (book == nullptr) {
-        result.message = "Du lieu sai: Dau sach " + bookCode + " khong ton tai.";
+        result.message =
+            "Du lieu sai: Dau sach "
+            + bookCode
+            + " khong ton tai.";
         return result;
     }
 
-    // 4. Lấy 1 bản copy đang rảnh
     string availableBookId = "";
     for (auto& copy : book->copies) {
-        if (copy.status == "available") { // Xoá bỏ cái "AVAILABLE" đi
-            availableBookId = copy.bookId;
+        if (copy.status == "available") {
+            availableBookId =
+                copy.bookId;
             break;
         }
     }
 
     if (availableBookId.empty()) {
-        result.message = "Het sach: Toan bo sach " + bookCode + " da duoc muon.";
+
+        result.message =
+            "Het sach: Toan bo sach "
+            + bookCode
+            + " da duoc muon.";
+
         return result;
     }
 
-    // 5. TỰ KIỂM TRA GIỚI HẠN VÀ TRÙNG LẶP TRỰC TIẾP (Thay thế cho hàm findByMemberAndBook đã xoá)
     int activeLoans = 0;
     bool alreadyBorrowingThisBook = false;
-    
-    const auto& allLoans = loanRepo.getAll();
-
-    for (auto it = allLoans.rbegin(); it != allLoans.rend(); ++it) {
-        if (it->memberId == memberId && it->status == "borrowing") {
-            activeLoans++; 
-            
+    const auto& allLoans =
+        loanRepo.getAll();
+    for (auto it = allLoans.rbegin();
+        it != allLoans.rend();
+        ++it) {
+        if (it->memberId == memberId &&
+            it->status == "borrowing") {
+            activeLoans++;
             for (const auto& copy : book->copies) {
                 if (it->bookId == copy.bookId) {
                     alreadyBorrowingThisBook = true;
-                    break; 
+                    break;
                 }
             }
-
-            // TỐI ƯU CỰC ĐẠI: Ngắt vòng lặp khi chạm ngưỡng
-            if (alreadyBorrowingThisBook || activeLoans >= 10) {
+            if (alreadyBorrowingThisBook ||
+                activeLoans >= 10) {
                 break;
             }
         }
     }
 
-    // Xử lý báo lỗi nếu vi phạm
     if (alreadyBorrowingThisBook) {
-        result.message = "Dang muon: Doc gia dang giu mot cuon cua dau sach nay roi.";
+        result.message =
+            "Dang muon: Doc gia dang giu mot cuon "
+            "cua dau sach nay roi.";
         return result;
     }
 
     if (activeLoans >= 10) {
-        result.message = "Dang muon: Da dat gioi han muon 10 cuon sach, khong the muon them.";
+        result.message =
+            "Dang muon: Da dat gioi han muon "
+            "10 cuon sach, khong the muon them.";
         return result;
     }
 
-    // 6. Tạo phiếu Loan mới
     Loan newLoan;
-    newLoan.loanId = generateLoanId();
-    newLoan.memberId = memberId;
-    newLoan.bookId = availableBookId;
-    newLoan.borrowDate = borrowDateStr;
-    newLoan.dueDate = calculateDueDate(borrowDateStr, 14);
+    newLoan.loanId =
+        generateLoanId();
+    newLoan.memberId =
+        memberId;
+    newLoan.bookId =
+        availableBookId;
+    newLoan.borrowDate =
+        borrowDateStr;
+    newLoan.dueDate =
+        calculateDueDate(
+            borrowDateStr,
+            14
+        );
     newLoan.returnDate = "";
     newLoan.renewalCount = 0;
     newLoan.status = "borrowing";
 
-    // 7. Cập nhật trạng thái sách vừa mượn
     for (auto& copy : book->copies) {
-        if (copy.bookId == availableBookId) {
-            copy.status = "borrowed"; 
+        if (copy.bookId ==
+            availableBookId) {
+            copy.status = "borrowed";
             break;
         }
     }
-    
     bookRepo.update(*book);
     loanRepo.add(newLoan);
-
     result.isSuccess = true;
-    result.message = "Muon sach thanh cong! Bien lai: " + newLoan.loanId;
-    result.loan = newLoan;
-
+    result.message =
+        "Muon sach thanh cong! Bien lai: "
+        + newLoan.loanId;
+    result.loan =
+        newLoan;
     return result;
 }
