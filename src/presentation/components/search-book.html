@@ -1,8 +1,3 @@
-﻿<!-- ========================================= -->
-<!-- SEARCH BOOK -->
-<!-- MC1 - TRA CỨU SÁCH -->
-<!-- ========================================= -->
-
 <section class="search-book-section">
 
     <div class="section-header">
@@ -12,15 +7,10 @@
         </h2>
 
         <p>
-            Tra cứu thông tin sách theo Book_ID hoặc Tên sách
+            Tra cứu sách theo Book Code hoặc Tên sách
         </p>
 
     </div>
-
-
-    <!-- ===================================== -->
-    <!-- CHỌN CÁCH TÌM -->
-    <!-- ===================================== -->
 
     <div class="search-book-form">
 
@@ -30,8 +20,8 @@
 
         <select id="searchBookType">
 
-            <option value="bookId">
-                Book_ID
+            <option value="bookCode">
+                Book Code
             </option>
 
             <option value="title">
@@ -41,10 +31,6 @@
         </select>
 
 
-        <!-- ================================= -->
-        <!-- Ô NHẬP -->
-        <!-- ================================= -->
-
         <label for="searchBookKeyword">
             Từ khóa
         </label>
@@ -52,7 +38,7 @@
         <input
             type="text"
             id="searchBookKeyword"
-            placeholder="Nhập Book_ID..."
+            placeholder="Nhập Book Code..."
         >
 
 
@@ -66,16 +52,11 @@
     </div>
 
 
-    <!-- ===================================== -->
-    <!-- KẾT QUẢ -->
-    <!-- ===================================== -->
-
     <div class="search-book-result">
 
         <h3>
             Kết quả tìm kiếm
         </h3>
-
 
         <div id="searchBookResult">
 
