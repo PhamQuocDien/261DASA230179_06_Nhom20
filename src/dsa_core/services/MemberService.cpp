@@ -1,191 +1,160 @@
-
 #include "MemberService.h"
 
+using namespace std;
 
+// Nhận MemberRepository để xử lý dữ liệu thành viên
 MemberService::MemberService(
     MemberRepository& repository
 )
     : repository(repository) {
 }
 
-
 // =====================================
-// THEM THANH VIEN
+// THÊM THÀNH VIÊN
 // =====================================
 
 bool MemberService::addMember(
     Member& member
 ) {
-
+    // Kiểm tra thông tin bắt buộc
     if (member.name.empty()) {
         return false;
     }
-
     if (member.email.empty()) {
         return false;
     }
-
     if (member.phone.empty()) {
         return false;
     }
 
-
     // =================================
-    // TU SINH MEMBER_ID
-    // Dang: M001, M002, M003, ...
+    // TỰ SINH MEMBER_ID
+    // Dạng: M001, M002, M003, ...
     // =================================
 
+    // Lấy số thứ tự tiếp theo
     int nextNumber =
         static_cast<int>(
             repository.getAll().size()
             ) + 1;
+    string newMemberId;
 
-    std::string newMemberId;
 
-
+    // Tìm ID chưa được sử dụng
     while (true) {
+        newMemberId = "M";
 
-        newMemberId =
-            "M";
-
+        // Thêm số 0 để tạo dạng M001, M002...
         if (nextNumber < 10) {
-
-            newMemberId +=
-                "00";
-
+            newMemberId += "00";
         }
         else if (nextNumber < 100) {
-
-            newMemberId +=
-                "0";
+            newMemberId += "0";
         }
 
-
+        // Ghép số thứ tự vào ID
         newMemberId +=
-            std::to_string(
-                nextNumber
-            );
+            to_string(nextNumber);
 
-
+        // Kiểm tra ID đã tồn tại chưa
         if (
             repository.findById(
                 newMemberId
             ) == nullptr
             ) {
-
             break;
         }
 
-
+        // Nếu bị trùng thì tăng số lên
         nextNumber++;
     }
 
 
-    member.memberId =
-        newMemberId;
+    // Gán ID tự sinh cho thành viên
+    member.memberId = newMemberId;
 
-
+    // Nếu chưa có trạng thái thì mặc định ACTIVE
     if (member.status.empty()) {
-
-        member.status =
-            "ACTIVE";
+        member.status = "ACTIVE";
     }
 
-
-    return repository.add(
-        member
-    );
+    // Gọi Repository để thêm thành viên
+    return repository.add(member);
 }
 
-
 // =====================================
-// LAY TAT CA THANH VIEN
+// LẤY TẤT CẢ THÀNH VIÊN
 // =====================================
 
-const std::vector<Member>&
+const vector<Member>&
 MemberService::getAllMembers() const {
 
+    // Trả về danh sách thành viên
     return repository.getAll();
 }
 
-
 // =====================================
-// TIM THANH VIEN THEO ID
+// TÌM THÀNH VIÊN THEO ID
 // =====================================
 
 Member* MemberService::getMemberById(
-    const std::string& memberId
+    const string& memberId
 ) {
 
+    // Không cho phép tìm với ID rỗng
     if (memberId.empty()) {
-
         return nullptr;
     }
-
-
-    return repository.findById(
-        memberId
-    );
+    // Gọi Repository để tìm thành viên
+    return repository.findById(memberId);
 }
 
 
 // =====================================
-// CAP NHAT THANH VIEN
+// CẬP NHẬT THÀNH VIÊN
 // =====================================
 
 bool MemberService::updateMember(
     const Member& member
 ) {
 
+    // Kiểm tra các thông tin bắt buộc
     if (member.memberId.empty()) {
         return false;
     }
-
     if (member.name.empty()) {
         return false;
     }
-
     if (member.email.empty()) {
         return false;
     }
-
     if (member.phone.empty()) {
         return false;
     }
 
+    // Tạo bản sao để cập nhật
+    Member updatedMember = member;
 
-    Member updatedMember =
-        member;
-
-
+    // Nếu chưa có status thì mặc định ACTIVE
     if (updatedMember.status.empty()) {
-
-        updatedMember.status =
-            "ACTIVE";
+        updatedMember.status = "ACTIVE";
     }
 
-
-    return repository.update(
-        updatedMember
-    );
+    // Gửi dữ liệu sang Repository để cập nhật
+    return repository.update(updatedMember);
 }
 
-
 // =====================================
-// XOA THANH VIEN
+// XÓA THÀNH VIÊN
 // =====================================
 
 bool MemberService::deleteMember(
-    const std::string& memberId
+    const string& memberId
 ) {
-
+    // Không cho phép xóa với ID rỗng
     if (memberId.empty()) {
-
         return false;
     }
 
-
-    return repository.removeById(
-        memberId
-    );
+    return repository.removeById(memberId);
 }
