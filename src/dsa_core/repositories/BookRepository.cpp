@@ -47,3 +47,18 @@ bool BookRepository::removeByCode(const string& bookCode) {
     }
     return false;
 }
+vector<Book*> BookRepository::findByTitle(const string& keyword) {
+    vector<Book*> result;
+
+    if (keyword.empty()) {
+        return result;
+    }
+
+    for (Book& book : books) {
+        if (book.title.find(keyword) != string::npos) {
+            result.push_back(&book);
+        }
+    }
+
+    return result;
+}
