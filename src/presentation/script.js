@@ -178,7 +178,6 @@ function initSearchBook() {
         !button ||
         !resultContainer
     ) {
-
         console.warn(
             "Khong tim thay giao dien tim kiem sach."
         );
@@ -202,8 +201,6 @@ function initSearchBook() {
                         btn.dataset.type;
 
 
-                    // Xóa active của tất cả nút
-
                     searchTypeButtons.forEach(
                         (item) => {
 
@@ -214,14 +211,10 @@ function initSearchBook() {
                     );
 
 
-                    // Active nút đang chọn
-
                     btn.classList.add(
                         "active"
                     );
 
-
-                    // Đổi placeholder
 
                     if (
                         searchType === "bookCode"
@@ -238,12 +231,8 @@ function initSearchBook() {
                     }
 
 
-                    // Xóa ô nhập
-
                     input.value = "";
 
-
-                    // Xóa kết quả cũ
 
                     resultContainer.innerHTML = `
                         <p>
@@ -257,7 +246,7 @@ function initSearchBook() {
 
 
     // =================================
-    // NÚT TÌM KIẾM
+    // NUT TIM KIEM
     // =================================
 
     button.addEventListener(
@@ -267,10 +256,6 @@ function initSearchBook() {
             const keyword =
                 input.value.trim();
 
-
-            // =============================
-            // KIỂM TRA RỖNG
-            // =============================
 
             if (keyword === "") {
 
@@ -283,10 +268,6 @@ function initSearchBook() {
                 return;
             }
 
-
-            // =============================
-            // ĐANG TÌM
-            // =============================
 
             resultContainer.innerHTML = `
                 <p>
@@ -301,7 +282,7 @@ function initSearchBook() {
 
 
                 // =================================
-                // TÌM THEO BOOK CODE
+                // TIM THEO BOOK CODE
                 // =================================
 
                 if (
@@ -344,9 +325,115 @@ function initSearchBook() {
                         response.data;
 
 
+                    // =================================
+                    // HIEN THI THONG TIN DAU SACH
+                    // + CAC BAN SACH VAT LY
+                    // =================================
+
+                    let copiesHtml = "";
+
+
+                    if (
+                        Array.isArray(book.copies) &&
+                        book.copies.length > 0
+                    ) {
+
+                        copiesHtml = `
+
+                            <div style="margin-top: 20px;">
+
+                                <h4 style="
+                                    margin-bottom: 12px;
+                                ">
+                                    Các bản sách vật lý
+                                </h4>
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+
+                                            <th>
+                                                STT
+                                            </th>
+
+                                            <th>
+                                                Book_ID
+                                            </th>
+
+                                            <th>
+                                                Trạng thái
+                                            </th>
+
+                                        </tr>
+
+                                    </thead>
+
+                                    <tbody>
+                        `;
+
+
+                        book.copies.forEach(
+                            (copy, index) => {
+
+                                copiesHtml += `
+
+                                    <tr>
+
+                                        <td>
+                                            ${index + 1}
+                                        </td>
+
+                                        <td>
+                                            ${escapeHtml(
+                                                copy.bookId || ""
+                                            )}
+                                        </td>
+
+                                        <td>
+                                            ${escapeHtml(
+                                                copy.status || ""
+                                            )}
+                                        </td>
+
+                                    </tr>
+
+                                `;
+                            }
+                        );
+
+
+                        copiesHtml += `
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        `;
+
+                    }
+                    else {
+
+                        copiesHtml = `
+                            <p style="
+                                margin-top: 20px;
+                                color: #94a3b8;
+                            ">
+                                Không có bản sách vật lý.
+                            </p>
+                        `;
+                    }
+
+
                     resultContainer.innerHTML = `
 
                         <div>
+
+                            <h4>
+                                Thông tin sách
+                            </h4>
 
                             <p>
                                 <strong>
@@ -396,6 +483,8 @@ function initSearchBook() {
                                 ${book.year ?? ""}
                             </p>
 
+                            ${copiesHtml}
+
                         </div>
 
                     `;
@@ -405,7 +494,7 @@ function initSearchBook() {
 
 
                 // =================================
-                // TÌM THEO TÊN SÁCH
+                // TIM THEO TEN SACH
                 // =================================
 
                 response =
@@ -449,10 +538,6 @@ function initSearchBook() {
                         : [];
 
 
-                // =================================
-                // KHÔNG CÓ KẾT QUẢ
-                // =================================
-
                 if (books.length === 0) {
 
                     resultContainer.innerHTML = `
@@ -466,7 +551,7 @@ function initSearchBook() {
 
 
                 // =================================
-                // HIỂN THỊ BẢNG
+                // HIEN THI TUNG DAU SACH
                 // =================================
 
                 let html = `
@@ -478,42 +563,6 @@ function initSearchBook() {
                         </strong>
                         sách.
                     </p>
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>
-                                    STT
-                                </th>
-
-                                <th>
-                                    Book Code
-                                </th>
-
-                                <th>
-                                    Tên sách
-                                </th>
-
-                                <th>
-                                    Tác giả
-                                </th>
-
-                                <th>
-                                    Thể loại
-                                </th>
-
-                                <th>
-                                    Năm xuất bản
-                                </th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
                 `;
 
 
@@ -522,51 +571,179 @@ function initSearchBook() {
 
                         html += `
 
-                            <tr>
+                            <div style="
+                                margin-top: 20px;
+                                padding: 20px;
+                                border: 1px solid #334155;
+                                border-radius: 12px;
+                                background: rgba(5, 9, 18, 0.7);
+                            ">
 
-                                <td>
-                                    ${index + 1}
-                                </td>
+                                <h4 style="
+                                    margin-top: 0;
+                                    margin-bottom: 15px;
+                                ">
+                                    Sách ${index + 1}
+                                </h4>
 
-                                <td>
+                                <p>
+                                    <strong>
+                                        Book Code:
+                                    </strong>
+
                                     ${escapeHtml(
                                         book.bookCode || ""
                                     )}
-                                </td>
+                                </p>
 
-                                <td>
+                                <p>
+                                    <strong>
+                                        Tên sách:
+                                    </strong>
+
                                     ${escapeHtml(
                                         book.title || ""
                                     )}
-                                </td>
+                                </p>
 
-                                <td>
+                                <p>
+                                    <strong>
+                                        Tác giả:
+                                    </strong>
+
                                     ${escapeHtml(
                                         book.author || ""
                                     )}
-                                </td>
+                                </p>
 
-                                <td>
+                                <p>
+                                    <strong>
+                                        Thể loại:
+                                    </strong>
+
                                     ${escapeHtml(
                                         book.category || ""
                                     )}
-                                </td>
+                                </p>
 
-                                <td>
+                                <p>
+                                    <strong>
+                                        Năm xuất bản:
+                                    </strong>
+
                                     ${book.year ?? ""}
-                                </td>
+                                </p>
+                        `;
 
-                            </tr>
+
+                        // =================================
+                        // CAC BAN SACH VAT LY
+                        // =================================
+
+                        if (
+                            Array.isArray(book.copies) &&
+                            book.copies.length > 0
+                        ) {
+
+                            html += `
+
+                                <div style="
+                                    margin-top: 18px;
+                                ">
+
+                                    <h5 style="
+                                        margin-bottom: 10px;
+                                    ">
+                                        Các bản sách vật lý
+                                    </h5>
+
+                                    <table>
+
+                                        <thead>
+
+                                            <tr>
+
+                                                <th>
+                                                    STT
+                                                </th>
+
+                                                <th>
+                                                    Book_ID
+                                                </th>
+
+                                                <th>
+                                                    Trạng thái
+                                                </th>
+
+                                            </tr>
+
+                                        </thead>
+
+                                        <tbody>
+                            `;
+
+
+                            book.copies.forEach(
+                                (copy, copyIndex) => {
+
+                                    html += `
+
+                                        <tr>
+
+                                            <td>
+                                                ${copyIndex + 1}
+                                            </td>
+
+                                            <td>
+                                                ${escapeHtml(
+                                                    copy.bookId || ""
+                                                )}
+                                            </td>
+
+                                            <td>
+                                                ${escapeHtml(
+                                                    copy.status || ""
+                                                )}
+                                            </td>
+
+                                        </tr>
+
+                                    `;
+                                }
+                            );
+
+
+                            html += `
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                            `;
+
+                        }
+                        else {
+
+                            html += `
+
+                                <p style="
+                                    color: #94a3b8;
+                                ">
+                                    Không có bản sách vật lý.
+                                </p>
+
+                            `;
+                        }
+
+
+                        html += `
+
+                            </div>
 
                         `;
                     }
                 );
-
-
-                html += `
-                        </tbody>
-                    </table>
-                `;
 
 
                 resultContainer.innerHTML =
