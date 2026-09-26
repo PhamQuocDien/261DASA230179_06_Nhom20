@@ -1,71 +1,37 @@
-<section class="search-book-section">
+<div class="search-book-form">
 
-    <div class="section-header">
+    <label for="searchBookType">
+        Tìm kiếm theo
+    </label>
 
-        <h2>
-            Tìm kiếm sách
-        </h2>
+    <select id="searchBookType">
 
-        <p>
-            Tra cứu sách theo Book Code hoặc Tên sách
-        </p>
+        <option value="bookCode">
+            Book Code
+        </option>
 
-    </div>
+        <option value="title">
+            Tên sách
+        </option>
 
-    <div class="search-book-form">
-
-        <label for="searchBookType">
-            Tìm theo
-        </label>
-
-        <select id="searchBookType">
-
-            <option value="bookCode">
-                Book Code
-            </option>
-
-            <option value="title">
-                Tên sách
-            </option>
-
-        </select>
+    </select>
 
 
-        <label for="searchBookKeyword">
-            Từ khóa
-        </label>
+    <label for="searchBookKeyword">
+        Từ khóa
+    </label>
 
-        <input
-            type="text"
-            id="searchBookKeyword"
-            placeholder="Nhập Book Code..."
-        >
+    <input
+        type="text"
+        id="searchBookKeyword"
+        placeholder="Nhập Book Code..."
+    >
 
+    <button
+        type="button"
+        id="btnSearchBook"
+    >
+        Tìm kiếm
+    </button>
 
-        <button
-            type="button"
-            id="btnSearchBook"
-        >
-            Tìm kiếm
-        </button>
-
-    </div>
-
-
-    <div class="search-book-result">
-
-        <h3>
-            Kết quả tìm kiếm
-        </h3>
-
-        <div id="searchBookResult">
-
-            <p>
-                Chưa có kết quả tìm kiếm.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+</div>
