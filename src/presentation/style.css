@@ -1331,8 +1331,9 @@ tbody tr {
 
 .search-input-row {
     display: flex;
-    gap: 12px;
+    gap: 20px;
     width: 100%;
+    align-items: center;
 }
 
 .search-input-row input {
