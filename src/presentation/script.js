@@ -140,7 +140,7 @@ document.addEventListener(
 );
 
 // =====================================================
-// MC1 - TIM KIEM SACH THEO BOOK_ID HOAC TEN SACH
+// MC1 - TIM KIEM THEO BOOK CODE HOAC TEN SACH
 // =====================================================
 
 function initSearchBook() {
@@ -158,30 +158,44 @@ function initSearchBook() {
         document.getElementById("searchBookResult");
 
 
+    // =================================
+    // KIEM TRA GIAO DIEN
+    // =================================
+
     if (
         !searchType ||
         !input ||
         !button ||
         !resultContainer
     ) {
+
         console.warn(
             "Khong tim thay giao dien tim kiem sach."
         );
+
         return;
     }
 
 
-    // Đổi placeholder
+    // =================================
+    // DOI PLACEHOLDER KHI CHON CACH TIM
+    // =================================
+
     searchType.addEventListener(
         "change",
         () => {
 
-            if (searchType.value === "bookCode") {
+            if (
+                searchType.value === "bookCode"
+            ) {
 
                 input.placeholder =
                     "Nhập Book Code...";
 
-            } else {
+            }
+            else if (
+                searchType.value === "title"
+            ) {
 
                 input.placeholder =
                     "Nhập tên sách...";
@@ -198,17 +212,16 @@ function initSearchBook() {
     );
 
 
-    // Nút tìm kiếm
+    // =================================
+    // NUT TIM KIEM
+    // =================================
+
     button.addEventListener(
         "click",
         async () => {
 
             const keyword =
                 input.value.trim();
-
-            const type =
-                searchType.value;
-
 
             if (keyword === "") {
 
@@ -235,10 +248,12 @@ function initSearchBook() {
 
 
                 // =================================
-                // TÌM THEO BOOK CODE
+                // TIM THEO BOOK CODE
                 // =================================
 
-                if (type === "bookCode") {
+                if (
+                    searchType.value === "bookCode"
+                ) {
 
                     response =
                         await sendApiRequest({
@@ -257,11 +272,12 @@ function initSearchBook() {
                         resultContainer.innerHTML = `
                             <p>
                                 ${
-                                    response?.error
-                                    ? escapeHtml(
-                                        response.error
-                                    )
-                                    : "Không tìm thấy sách."
+                                    response &&
+                                    response.error
+                                        ? escapeHtml(
+                                            response.error
+                                        )
+                                        : "Không tìm thấy sách."
                                 }
                             </p>
                         `;
@@ -276,43 +292,42 @@ function initSearchBook() {
 
                     resultContainer.innerHTML = `
 
-                        <p>
-                            <strong>Tìm thấy sách:</strong>
-                        </p>
+                        <div>
 
-                        <p>
-                            Book Code:
-                            ${escapeHtml(
-                                book.bookCode || ""
-                            )}
-                        </p>
+                            <p>
+                                <strong>Book Code:</strong>
+                                ${escapeHtml(
+                                    book.bookCode || ""
+                                )}
+                            </p>
 
-                        <p>
-                            Tên sách:
-                            ${escapeHtml(
-                                book.title || ""
-                            )}
-                        </p>
+                            <p>
+                                <strong>Tên sách:</strong>
+                                ${escapeHtml(
+                                    book.title || ""
+                                )}
+                            </p>
 
-                        <p>
-                            Tác giả:
-                            ${escapeHtml(
-                                book.author || ""
-                            )}
-                        </p>
+                            <p>
+                                <strong>Tác giả:</strong>
+                                ${escapeHtml(
+                                    book.author || ""
+                                )}
+                            </p>
 
-                        <p>
-                            Thể loại:
-                            ${escapeHtml(
-                                book.category || ""
-                            )}
-                        </p>
+                            <p>
+                                <strong>Thể loại:</strong>
+                                ${escapeHtml(
+                                    book.category || ""
+                                )}
+                            </p>
 
-                        <p>
-                            Năm xuất bản:
-                            ${book.year ?? ""}
-                        </p>
+                            <p>
+                                <strong>Năm xuất bản:</strong>
+                                ${book.year ?? ""}
+                            </p>
 
+                        </div>
                     `;
 
                     return;
@@ -320,7 +335,7 @@ function initSearchBook() {
 
 
                 // =================================
-                // TÌM THEO TITLE
+                // TIM THEO TEN SACH
                 // =================================
 
                 response =
@@ -342,11 +357,12 @@ function initSearchBook() {
                     resultContainer.innerHTML = `
                         <p>
                             ${
-                                response?.error
-                                ? escapeHtml(
-                                    response.error
-                                )
-                                : "Không tìm thấy sách."
+                                response &&
+                                response.error
+                                    ? escapeHtml(
+                                        response.error
+                                    )
+                                    : "Không tìm thấy sách."
                             }
                         </p>
                     `;
@@ -361,6 +377,10 @@ function initSearchBook() {
                         : [];
 
 
+                // =================================
+                // KHONG CO KET QUA
+                // =================================
+
                 if (books.length === 0) {
 
                     resultContainer.innerHTML = `
@@ -373,48 +393,50 @@ function initSearchBook() {
                 }
 
 
+                // =================================
+                // TAO BANG KET QUA
+                // =================================
+
                 let html = `
+
                     <p>
                         Tìm thấy
                         <strong>${books.length}</strong>
                         sách.
                     </p>
 
-                    <table
-                        style="
-                            width: 100%;
-                            border-collapse: collapse;
-                            margin-top: 15px;
-                        "
-                    >
+                    <table>
+
                         <thead>
+
                             <tr>
 
-                                <th style="border:1px solid #ccc;padding:10px">
+                                <th>
                                     STT
                                 </th>
 
-                                <th style="border:1px solid #ccc;padding:10px">
+                                <th>
                                     Book Code
                                 </th>
 
-                                <th style="border:1px solid #ccc;padding:10px">
+                                <th>
                                     Tên sách
                                 </th>
 
-                                <th style="border:1px solid #ccc;padding:10px">
+                                <th>
                                     Tác giả
                                 </th>
 
-                                <th style="border:1px solid #ccc;padding:10px">
+                                <th>
                                     Thể loại
                                 </th>
 
-                                <th style="border:1px solid #ccc;padding:10px">
-                                    Năm
+                                <th>
+                                    Năm xuất bản
                                 </th>
 
                             </tr>
+
                         </thead>
 
                         <tbody>
@@ -428,35 +450,35 @@ function initSearchBook() {
 
                             <tr>
 
-                                <td style="border:1px solid #ccc;padding:10px">
+                                <td>
                                     ${index + 1}
                                 </td>
 
-                                <td style="border:1px solid #ccc;padding:10px">
+                                <td>
                                     ${escapeHtml(
                                         book.bookCode || ""
                                     )}
                                 </td>
 
-                                <td style="border:1px solid #ccc;padding:10px">
+                                <td>
                                     ${escapeHtml(
                                         book.title || ""
                                     )}
                                 </td>
 
-                                <td style="border:1px solid #ccc;padding:10px">
+                                <td>
                                     ${escapeHtml(
                                         book.author || ""
                                     )}
                                 </td>
 
-                                <td style="border:1px solid #ccc;padding:10px">
+                                <td>
                                     ${escapeHtml(
                                         book.category || ""
                                     )}
                                 </td>
 
-                                <td style="border:1px solid #ccc;padding:10px">
+                                <td>
                                     ${book.year ?? ""}
                                 </td>
 
@@ -472,13 +494,15 @@ function initSearchBook() {
                     </table>
                 `;
 
-                resultContainer.innerHTML = html;
+
+                resultContainer.innerHTML =
+                    html;
 
             }
             catch (error) {
 
                 console.error(
-                    "SEARCH ERROR:",
+                    "MC1 ERROR:",
                     error
                 );
 
