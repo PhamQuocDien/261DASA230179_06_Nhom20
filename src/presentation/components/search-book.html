@@ -1,54 +1,98 @@
-<div class="search-book-form">
+<section class="search-book-section">
 
-    <label for="searchBookType">
-        Tìm theo
-    </label>
+    <div class="section-header">
 
-    <select id="searchBookType">
-
-        <option value="bookCode">
-            Book Code
-        </option>
-
-        <option value="title">
-            Tên sách
-        </option>
-
-    </select>
-
-
-    <label for="searchBookKeyword">
-        Từ khóa
-    </label>
-
-    <input
-        type="text"
-        id="searchBookKeyword"
-        placeholder="Nhập Book Code..."
-    >
-
-
-    <button
-        type="button"
-        id="btnSearchBook"
-    >
-        Tìm kiếm
-    </button>
-
-</div>
-
-<div class="search-book-result">
-
-    <h3>
-        Kết quả tìm kiếm
-    </h3>
-
-    <div id="searchBookResult">
+        <h2>
+            Tìm kiếm sách
+        </h2>
 
         <p>
-            Chưa có kết quả tìm kiếm.
+            Tra cứu sách theo Book Code hoặc Tên sách
         </p>
 
     </div>
 
-</div>
+
+    <div class="search-book-form">
+
+        <!-- CHỌN CÁCH TÌM -->
+
+        <div class="search-type-group">
+
+            <label class="search-type-label">
+                Tìm kiếm theo
+            </label>
+
+            <div class="search-type-buttons">
+
+                <button
+                    type="button"
+                    class="search-type-btn active"
+                    data-type="bookCode"
+                >
+                    Book Code
+                </button>
+
+                <button
+                    type="button"
+                    class="search-type-btn"
+                    data-type="title"
+                >
+                    Tên sách
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TỪ KHÓA -->
+
+        <div class="search-input-group">
+
+            <label for="searchBookKeyword">
+                Từ khóa
+            </label>
+
+            <div class="search-input-row">
+
+                <input
+                    type="text"
+                    id="searchBookKeyword"
+                    placeholder="Nhập Book Code..."
+                >
+
+                <button
+                    type="button"
+                    id="btnSearchBook"
+                    class="search-main-btn"
+                >
+                    Tìm kiếm
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- KẾT QUẢ -->
+
+    <div class="search-book-result">
+
+        <h3>
+            Kết quả tìm kiếm
+        </h3>
+
+        <div id="searchBookResult">
+
+            <p>
+                Chưa có kết quả tìm kiếm.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
