@@ -1250,3 +1250,143 @@ tbody tr {
         padding: 20px;
     }
 }
+/* ===================================== */
+/* SEARCH TYPE - BOOK CODE / TÊN SÁCH */
+/* ===================================== */
+
+.search-type-group {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.search-type-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #dbeafe;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* Khung chứa 2 lựa chọn */
+
+.search-type-buttons {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    padding: 6px;
+
+    background: rgba(3, 7, 18, 0.85);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+
+    box-sizing: border-box;
+}
+
+
+/* 2 nút lựa chọn */
+
+.search-book-form .search-type-btn {
+    flex: 1;
+    width: 50%;
+
+    padding: 13px 20px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+
+    background: transparent;
+    color: #94a3b8;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: none;
+    transform: none;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover */
+
+.search-book-form .search-type-btn:hover {
+    background: rgba(59, 130, 246, 0.12);
+    color: #f1f5f9;
+
+    border-color: rgba(96, 165, 250, 0.2);
+
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Nút đang chọn */
+
+.search-book-form .search-type-btn.active {
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: #ffffff;
+
+    border-color: rgba(96, 165, 250, 0.4);
+
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+
+    transform: none;
+}
+
+
+/* ===================================== */
+/* Ô NHẬP + NÚT TÌM KIẾM */
+/* ===================================== */
+
+.search-input-group {
+    width: 100%;
+}
+
+.search-input-row {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.search-input-row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-input-row .search-main-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+
+/* ===================================== */
+/* MOBILE */
+/* ===================================== */
+
+@media (max-width: 600px) {
+
+    .search-type-buttons {
+        flex-direction: column;
+    }
+
+    .search-book-form .search-type-btn {
+        width: 100%;
+    }
+
+    .search-input-row {
+        flex-direction: column;
+    }
+
+    .search-input-row .search-main-btn {
+        width: 100%;
+    }
+}
