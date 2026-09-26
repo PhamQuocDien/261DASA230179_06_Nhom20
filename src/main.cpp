@@ -595,7 +595,55 @@ int runApiMode(
 
         return 0;
     }
+// =================================================
+// SEARCH BOOK BY TITLE
+// =================================================
 
+if (action == "searchBookByTitle") {
+
+    string keyword =
+        request.value("keyword", "");
+
+    if (keyword.empty()) {
+
+        cout << json{
+            {"success", false},
+            {"error", "Thieu keyword."}
+        }.dump();
+
+        return 1;
+    }
+
+    vector<Book*> booksFound =
+        bookRepository.findByTitle(keyword);
+
+    json bookData =
+        json::array();
+
+    for (const Book* book : booksFound) {
+
+        if (book != nullptr) {
+            bookData.push_back(
+                JsonMapper::bookToJson(*book)
+            );
+        }
+    }
+
+    json response = {
+        {"success", true},
+        {"data", bookData},
+        {"keyword", keyword}
+    };
+
+    cout << response.dump(
+        -1,
+        ' ',
+        false,
+        json::error_handler_t::replace
+    );
+
+    return 0;
+}
 
     // =================================================
     // REGISTER MEMBER
