@@ -1484,7 +1484,74 @@ if (action == "searchBookByTitle") {
         return 0;
     }
 
+if (action == "borrowBook") {
+        string memberId = request.value("memberId", "");
+        string bookCode = request.value("bookCode", "");
+        string borrowDate = request.value("borrowDate", "");
 
+        if (memberId.empty() || bookCode.empty()) {
+            cout << json{
+                {"success", false},
+                {"error", "Thieu memberId hoac bookCode."}
+            }.dump();
+            return 1;
+        }
+
+        // Neu client khong gui ngay muon thi lay ngay hien tai
+        if (borrowDate.empty()) {
+            time_t now = time(nullptr);
+            tm localTime{};
+#ifdef _WIN32
+            localtime_s(&localTime, &now);
+#else
+            localtime_r(&now, &localTime);
+#endif
+            char buffer[20];
+            strftime(buffer, sizeof(buffer), "%Y-%m-%d", &localTime);
+            borrowDate = string(buffer);
+        }
+
+        BorrowResult result = loanService.borrowBook(
+            memberId,
+            bookCode,
+            borrowDate,
+            memberRepository
+        );
+
+        if (!result.isSuccess) {
+            cout << json{
+                {"success", false},
+                {"error", result.message}
+            }.dump();
+            return 0;
+        }
+
+        // Luu lai thay doi cua Book va Loan xuong library.json
+        bool saved = saveLoanAndFineDataToDatabase(
+            database,
+            data,
+            bookRepository,
+            loanRepository,
+            fineRepository
+        );
+
+        if (!saved) {
+            cout << json{
+                {"success", false},
+                {"error", "Muon thanh cong nhung khong the luu library.json."}
+            }.dump();
+            return 1;
+        }
+
+        json response = {
+            {"success", true},
+            {"message", result.message},
+            {"data", JsonMapper::loanToJson(result.loan)}
+        };
+
+        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+        return 0;
+    }
     // =================================================
     // RETURN BOOK
     // =================================================
