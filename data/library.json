@@ -204,7 +204,7 @@
             "author": "Nguyen Quoc Viet",
             "bookCode": "LSD",
             "category": "Lịch sử",
-            "price" : 200000;
+            "price" : 200000,
             "copies": [
                 {
                     "bookId": "LSD001",
