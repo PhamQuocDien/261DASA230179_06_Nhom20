@@ -499,6 +499,13 @@
             "name": "Phan Thị Thanh Trúc",
             "phone": "0374509268",
             "status": "ACTIVE"
+        },
+        {
+            "email": "djfs@gmail.com",
+            "memberId": "M005",
+            "name": "dsa234",
+            "phone": "0987654321",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
