@@ -18,7 +18,7 @@ namespace JsonMapper
         j["author"] = book.author;
         j["category"] = book.category;
         j["year"] = book.year;
-
+        j["price"]=book.price;
         j["copies"] = json::array();
 
         for (const BookCopy& copy : book.copies)
@@ -53,7 +53,7 @@ namespace JsonMapper
 
         if (j.contains("year"))
             book.year = j["year"];
-
+        if (j.contains("price")) book.price=j["price"];
         if (j.contains("copies") &&
             j["copies"].is_array())
         {
