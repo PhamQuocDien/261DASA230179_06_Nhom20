@@ -33,7 +33,7 @@ public:
             buckets[i] = nullptr;
         }
     }
-    ~HashTable() {
+    HashTable() {
         for (int i = 0; i < capacity; ++i) {
             Node* current = buckets[i];
             while (current != nullptr) {
