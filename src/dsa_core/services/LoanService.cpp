@@ -417,7 +417,7 @@ BorrowResult LoanService::borrowBook(
     newLoan.dueDate =
         calculateDueDate(
             borrowDateStr,
-            14
+            29
         );
     newLoan.returnDate = "";
     newLoan.renewalCount = 0;
