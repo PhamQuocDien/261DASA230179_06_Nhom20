@@ -3,7 +3,7 @@
         {
             "author": "Nguyen Van Toan",
             "bookCode": "LSVN",
-            "category": "Lịch sử",
+            "category": "Lich su",
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -53,7 +53,7 @@
         {
             "author": "Le Van Chi",
             "bookCode": "TCC",
-            "category": "Toán học",
+            "category": "Toan hoc",
             "copies": [
                 {
                     "bookId": "TCC001",
@@ -103,7 +103,7 @@
         {
             "author": "Pham Van Dong",
             "bookCode": "KTLT",
-            "category": "Lập trình",
+            "category": "Lap trinh",
             "copies": [
                 {
                     "bookId": "KTLT001",
@@ -153,7 +153,7 @@
         {
             "author": "Nguyen Van Nam",
             "bookCode": "NMLT",
-            "category": "Lập trình",
+            "category": "Lap trinh",
             "copies": [
                 {
                     "bookId": "NMLT001",
@@ -203,7 +203,7 @@
         {
             "author": "Nguyen Quoc Viet",
             "bookCode": "LSD",
-            "category": "Lịch sử",
+            "category": "Lich su",
             "copies": [
                 {
                     "bookId": "LSD001",
@@ -251,7 +251,7 @@
             "year": 1999
         },
         {
-            "author": "Trương Quang Minh",
+            "author": "Truong Quang Minh",
             "bookCode": "TTIH",
             "category": "Toán",
             "copies": [
@@ -297,13 +297,13 @@
                 }
             ],
             "price": 500000.0,
-            "title": "Toán Lớp 1",
+            "title": "Toan lop 1",
             "year": 2007
         },
         {
-            "author": "Nguyễn Nhật Ánh",
+            "author": "Nguyen Nhat Anh,
             "bookCode": "NNA",
-            "category": "Truyện",
+            "category": "Truyen",
             "copies": [
                 {
                     "bookId": "NNA001",
@@ -347,13 +347,13 @@
                 }
             ],
             "price": 138000.0,
-            "title": "Mắt biếc",
+            "title": "Mat biec",
             "year": 1990
         },
         {
-            "author": "Trương Quang Minh",
+            "author": "Truong Quang Minh",
             "bookCode": "HDC",
-            "category": "Hóa Học",
+            "category": "Hoa hoc",
             "copies": [
                 {
                     "bookId": "HDC001",
