@@ -29,6 +29,10 @@ import {
 } from "./js/returnBook.js";
 
 import {
+    initBorrowBook
+} from "./js/borrowBook.js";
+
+import {
     initFine
 } from "./js/fine.js";
 
@@ -94,6 +98,13 @@ document.addEventListener(
         // =================================
 
         initReturnBook();
+
+
+        // =================================
+        // KHOI DONG MUON SACH
+        // =================================
+        
+        initBorrowBook();
 
 
         // =================================
