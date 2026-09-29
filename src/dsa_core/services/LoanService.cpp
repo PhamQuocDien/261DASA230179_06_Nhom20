@@ -233,73 +233,6 @@ ReturnReceipt LoanService::returnBook(
     return receipt;
 }
 
-string LoanService::generateLoanId() {
-    int count =
-        loanRepo.getAll().size() + 1;
-    string id = "L";
-
-    if (count < 10)
-        id += "00";
-    else if (count < 100)
-        id += "0";
-
-    id += to_string(count);
-
-    while (loanRepo.findById(id) != nullptr) {
-        count++;
-        id =
-            "L" +
-            string(
-                count < 10
-                ? "00"
-                : (count < 100 ? "0" : "")
-            ) +
-            to_string(count);
-    }
-    return id;
-}
-
-string LoanService::calculateDueDate(
-    const string& borrowDateStr,
-    int daysToAdd
-) {
-    Date d = Date::parse(borrowDateStr);
-    d.day += daysToAdd;
-
-    while (true) {
-        int daysInMonth = 31;
-
-        if (d.month == 4 ||
-            d.month == 6 ||
-            d.month == 9 ||
-            d.month == 11) {
-            daysInMonth = 30;
-        }
-
-        else if (d.month == 2) {
-            bool isLeapYear =
-                (d.year % 4 == 0 &&
-                    d.year % 100 != 0) ||
-                (d.year % 400 == 0);
-            daysInMonth =
-                isLeapYear ? 29 : 28;
-        }
-
-        if (d.day <= daysInMonth) {
-            break;
-        }
-
-        d.day -= daysInMonth;
-        d.month++;
-
-        if (d.month > 12) {
-            d.month = 1;
-            d.year++;
-        }
-    }
-    return d.toString();
-}
-
 BorrowResult LoanService::borrowBook(
     const string& memberId,
     const string& bookCode,
@@ -345,7 +278,8 @@ BorrowResult LoanService::borrowBook(
 
     string availableBookId = "";
     for (auto& copy : book->copies) {
-        if (copy.status == "available") {
+        // Phòng thủ: Chấp nhận cả chữ thường và IN HOA từ file JSON cũ
+        if (copy.status == "available" || copy.status == "AVAILABLE") {
             availableBookId =
                 copy.bookId;
             break;
@@ -369,8 +303,9 @@ BorrowResult LoanService::borrowBook(
     for (auto it = allLoans.rbegin();
         it != allLoans.rend();
         ++it) {
+        // Phòng thủ: Chấp nhận cả "borrowing" và "BORROWING"
         if (it->memberId == memberId &&
-            it->status == "borrowing") {
+            (it->status == "borrowing" || it->status == "BORROWING")) {
             activeLoans++;
             for (const auto& copy : book->copies) {
                 if (it->bookId == copy.bookId) {
@@ -415,11 +350,14 @@ BorrowResult LoanService::borrowBook(
         );
     newLoan.returnDate = "";
     newLoan.renewalCount = 0;
+    
+    // Ghi mới xuống file thì vẫn ép chuẩn chữ thường
     newLoan.status = "borrowing";
 
     for (auto& copy : book->copies) {
         if (copy.bookId ==
             availableBookId) {
+            // Ghi mới xuống file thì vẫn ép chuẩn chữ thường
             copy.status = "borrowed";
             break;
         }
