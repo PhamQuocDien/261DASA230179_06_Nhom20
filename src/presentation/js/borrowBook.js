@@ -1,4 +1,3 @@
-```js
 import { sendApiRequest } from "./api.js";
 
 function escapeHtml(value) {
@@ -151,4 +150,3 @@ export function initBorrowBook() {
         }
     });
 }
-```
