@@ -4,6 +4,7 @@
             "author": "Nguyen Van Toan",
             "bookCode": "LSVN",
             "category": "Lịch sử",
+            "price": 2200000,
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -53,6 +54,7 @@
             "author": "Le Van Chi",
             "bookCode": "TCC",
             "category": "Toán học",
+            "price" : 370000,
             "copies": [
                 {
                     "bookId": "TCC001",
@@ -102,6 +104,7 @@
             "author": "Pham Van Dong",
             "bookCode": "KTLT",
             "category": "Lập trình",
+            "price" : 150000,
             "copies": [
                 {
                     "bookId": "KTLT001",
@@ -151,6 +154,7 @@
             "author": "Nguyen Van Nam",
             "bookCode": "NMLT",
             "category": "Lập trình",
+            "price" : 160000,
             "copies": [
                 {
                     "bookId": "NMLT001",
@@ -200,6 +204,7 @@
             "author": "Nguyen Quoc Viet",
             "bookCode": "LSD",
             "category": "Lịch sử",
+            "price" : 200000;
             "copies": [
                 {
                     "bookId": "LSD001",
@@ -249,6 +254,7 @@
             "author": "Trương Quang Minh",
             "bookCode": "TTIH",
             "category": "Toán",
+            "price" : 500000,
             "copies": [
                 {
                     "bookId": "TTIH001",
@@ -298,6 +304,7 @@
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "NNA",
             "category": "Truyện",
+            "price" : 138000,
             "copies": [
                 {
                     "bookId": "NNA001",
@@ -347,6 +354,7 @@
             "author": "Trương Quang Minh",
             "bookCode": "HDC",
             "category": "Hóa Học",
+            "price": 600000,
             "copies": [
                 {
                     "bookId": "HDC001",
