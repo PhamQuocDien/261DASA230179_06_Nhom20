@@ -4,12 +4,20 @@
 #include <vector>
 #include <functional>
 #include <utility>
-#include "Node.h"
 
 template <typename Key, typename Value>
 class HashTable {
 private:
-    std::vector<Node<Key, Value>*> buckets;
+    struct HashNode {
+        Key key;
+        Value value;
+        HashNode* next;
+
+        HashNode(const Key& k, const Value& v)
+            : key(k), value(v), next(nullptr) {}
+    };
+
+    std::vector<HashNode*> buckets;
     size_t capacity;
     size_t count;
     const double MAX_LOAD_FACTOR = 0.7;
@@ -20,15 +28,16 @@ private:
 
     void rehash() {
         size_t oldCapacity = capacity;
-        std::vector<Node<Key, Value>*> oldBuckets = std::move(buckets);
+        std::vector<HashNode*> oldBuckets = std::move(buckets);
+
         capacity *= 2;
         buckets.assign(capacity, nullptr);
         count = 0;
 
         for (size_t i = 0; i < oldCapacity; ++i) {
-            Node<Key, Value>* curr = oldBuckets[i];
+            HashNode* curr = oldBuckets[i];
             while (curr) {
-                Node<Key, Value>* next = curr->next;
+                HashNode* next = curr->next;
                 insert(curr->key, curr->value);
                 delete curr;
                 curr = next;
@@ -46,7 +55,7 @@ public:
         : capacity(other.capacity), count(other.count) {
         buckets.assign(capacity, nullptr);
         for (size_t i = 0; i < other.capacity; ++i) {
-            Node<Key, Value>* curr = other.buckets[i];
+            HashNode* curr = other.buckets[i];
             while (curr) {
                 insert(curr->key, curr->value);
                 curr = curr->next;
@@ -64,11 +73,11 @@ public:
         return *this;
     }
 
-    HashTable() {
+    ~HashTable() {
         for (size_t i = 0; i < capacity; ++i) {
-            Node<Key, Value>* curr = buckets[i];
+            HashNode* curr = buckets[i];
             while (curr) {
-                Node<Key, Value>* next = curr->next;
+                HashNode* next = curr->next;
                 delete curr;
                 curr = next;
             }
@@ -81,7 +90,8 @@ public:
         }
 
         size_t index = hashFunction(key);
-        Node<Key, Value>* curr = buckets[index];
+        HashNode* curr = buckets[index];
+
         while (curr) {
             if (curr->key == key) {
                 curr->value = value;
@@ -89,7 +99,8 @@ public:
             }
             curr = curr->next;
         }
-        Node<Key, Value>* newNode = new Node<Key, Value>(key, value);
+
+        HashNode* newNode = new HashNode(key, value);
         newNode->next = buckets[index];
         buckets[index] = newNode;
         ++count;
@@ -97,7 +108,7 @@ public:
 
     Value* find(const Key& key) {
         size_t index = hashFunction(key);
-        Node<Key, Value>* curr = buckets[index];
+        HashNode* curr = buckets[index];
         while (curr) {
             if (curr->key == key) return &(curr->value);
             curr = curr->next;
@@ -107,7 +118,7 @@ public:
 
     const Value* find(const Key& key) const {
         size_t index = hashFunction(key);
-        Node<Key, Value>* curr = buckets[index];
+        HashNode* curr = buckets[index];
         while (curr) {
             if (curr->key == key) return &(curr->value);
             curr = curr->next;
@@ -117,8 +128,9 @@ public:
 
     bool remove(const Key& key) {
         size_t index = hashFunction(key);
-        Node<Key, Value>* curr = buckets[index];
-        Node<Key, Value>* prev = nullptr;
+        HashNode* curr = buckets[index];
+        HashNode* prev = nullptr;
+
         while (curr) {
             if (curr->key == key) {
                 if (prev) prev->next = curr->next;
@@ -133,12 +145,14 @@ public:
         return false;
     }
 
-    bool contains(const Key& key) const { return find(key) != nullptr; }
+    bool contains(const Key& key) const {
+        return find(key) != nullptr;
+    }
+
     size_t size() const { return count; }
     bool empty() const { return count == 0; }
 };
 
 #endif 
-
 
 
