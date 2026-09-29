@@ -4,7 +4,6 @@
             "author": "Nguyen Van Toan",
             "bookCode": "LSVN",
             "category": "Lịch sử",
-            "price": 2200000,
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -47,6 +46,7 @@
                     "status": "available"
                 }
             ],
+            "price": 2200000.0,
             "title": "Lich su Viet Nam",
             "year": 2024
         },
@@ -54,11 +54,10 @@
             "author": "Le Van Chi",
             "bookCode": "TCC",
             "category": "Toán học",
-            "price" : 370000,
             "copies": [
                 {
                     "bookId": "TCC001",
-                    "status": "available"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "TCC002",
@@ -97,6 +96,7 @@
                     "status": "available"
                 }
             ],
+            "price": 370000.0,
             "title": "Toan cao cap",
             "year": 2022
         },
@@ -104,7 +104,6 @@
             "author": "Pham Van Dong",
             "bookCode": "KTLT",
             "category": "Lập trình",
-            "price" : 150000,
             "copies": [
                 {
                     "bookId": "KTLT001",
@@ -147,6 +146,7 @@
                     "status": "available"
                 }
             ],
+            "price": 150000.0,
             "title": "Ky thuat lap trinh",
             "year": 2025
         },
@@ -154,7 +154,6 @@
             "author": "Nguyen Van Nam",
             "bookCode": "NMLT",
             "category": "Lập trình",
-            "price" : 160000,
             "copies": [
                 {
                     "bookId": "NMLT001",
@@ -197,6 +196,7 @@
                     "status": "available"
                 }
             ],
+            "price": 160000.0,
             "title": "Nhap mon lap trinh",
             "year": 2000
         },
@@ -204,7 +204,6 @@
             "author": "Nguyen Quoc Viet",
             "bookCode": "LSD",
             "category": "Lịch sử",
-            "price" : 200000,
             "copies": [
                 {
                     "bookId": "LSD001",
@@ -247,6 +246,7 @@
                     "status": "available"
                 }
             ],
+            "price": 200000.0,
             "title": "Lich su Dang",
             "year": 1999
         },
@@ -254,7 +254,6 @@
             "author": "Trương Quang Minh",
             "bookCode": "TTIH",
             "category": "Toán",
-            "price" : 500000,
             "copies": [
                 {
                     "bookId": "TTIH001",
@@ -297,6 +296,7 @@
                     "status": "available"
                 }
             ],
+            "price": 500000.0,
             "title": "Toán Lớp 1",
             "year": 2007
         },
@@ -304,7 +304,6 @@
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "NNA",
             "category": "Truyện",
-            "price" : 138000,
             "copies": [
                 {
                     "bookId": "NNA001",
@@ -347,6 +346,7 @@
                     "status": "available"
                 }
             ],
+            "price": 138000.0,
             "title": "Mắt biếc",
             "year": 1990
         },
@@ -354,7 +354,6 @@
             "author": "Trương Quang Minh",
             "bookCode": "HDC",
             "category": "Hóa Học",
-            "price": 600000,
             "copies": [
                 {
                     "bookId": "HDC001",
@@ -397,6 +396,7 @@
                     "status": "available"
                 }
             ],
+            "price": 600000.0,
             "title": "Hóa Đại CƯơng",
             "year": 2011
         }
@@ -477,6 +477,16 @@
             "renewalCount": 0,
             "returnDate": "2026-09-22",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "TCC001",
+            "borrowDate": "2026-09-29",
+            "dueDate": "2026-10-13",
+            "loanId": "L006",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
