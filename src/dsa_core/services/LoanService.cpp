@@ -232,7 +232,9 @@ ReturnReceipt LoanService::returnBook(
         "Xu ly tra sach thanh cong.";
     return receipt;
 }
-
+// ======================================================
+// MƯỢN SÁCH 
+// ======================================================
 BorrowResult LoanService::borrowBook(
     const string& memberId,
     const string& bookCode,
