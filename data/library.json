@@ -157,7 +157,7 @@
             "copies": [
                 {
                     "bookId": "NMLT001",
-                    "status": "available"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "NMLT002",
@@ -483,6 +483,16 @@
             "borrowDate": "2026-09-29",
             "dueDate": "2026-10-13",
             "loanId": "L006",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "NMLT001",
+            "borrowDate": "2026-09-29",
+            "dueDate": "2026-10-28",
+            "loanId": "L007",
             "memberId": "M001",
             "renewalCount": 0,
             "returnDate": null,
