@@ -99,6 +99,9 @@ bool BookService::updateBook(
     if (book.year < 0) {
         return false;
     }
+     if (book.price < 0) {
+        return false;
+    }
 
     if (quantity <= 0) {
         return false;
