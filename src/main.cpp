@@ -2513,7 +2513,12 @@ int main(int argc, char* argv[]) {
         loanRepository,
         reservationRepository
     );
-
+    
+    RenewService renewService(
+        loanRepository,
+        bookRepository,
+        reservationRepository
+    );
 
     // =================================================
     // API MODE
