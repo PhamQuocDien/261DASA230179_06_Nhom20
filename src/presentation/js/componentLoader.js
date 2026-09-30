@@ -226,7 +226,16 @@ export async function loadComponents() {
             "./components/reservation.html"
         );
 
+    // =================================
+    // RENEW BOOK 
+    // =================================
 
+    const renewBookLoaded =
+        await loadComponent(
+            "renewBook",
+            "./components/renew-book.html"
+        );
+    
     // =================================
     // RETURN BOOK
     // =================================
