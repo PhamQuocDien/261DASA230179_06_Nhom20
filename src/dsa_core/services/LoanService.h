@@ -36,12 +36,11 @@ private:
     FineRepository& fineRepo;
 
     string generateLoanId();
-    string calculateDueDate(const string& borrowDateStr, int daysToAdd);
 
 public:
     LoanService(LoanRepository& lr, BookRepository& br, FineRepository& fr)
         : loanRepo(lr), bookRepo(br), fineRepo(fr) {}
-
+    static string calculateDueDate(const string& borrowDateStr, int daysToAdd);
     ReturnReceipt returnBook(const string& loanId, const Date& returnDate, const string& quality);
     
     BorrowResult borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr, MemberRepository& memberRepo);
