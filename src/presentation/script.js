@@ -41,6 +41,10 @@ import {
 } from "./js/reservation.js";
 
 import {
+    initRenewBook
+} from "./js/renewBook.js";
+
+import {
     initNavigation
 } from "./js/navigation.js";
 
@@ -113,14 +117,18 @@ document.addEventListener(
 
         initFine();
 
-
         // =================================
         // KHOI DONG DANG KY CHO MUON
         // =================================
 
         initReservation();
 
+        // =================================
+        // KHOI DONG GIA HAN MUON SACH
+        // =================================
 
+        initRenewBook();
+        
         // =================================
         // KHOI DONG NAVIGATION
         // =================================
