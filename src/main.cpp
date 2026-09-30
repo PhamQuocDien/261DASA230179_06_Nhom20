@@ -21,6 +21,7 @@
 #include "dsa_core/services/LoanService.h"
 #include "dsa_core/services/LoanSlipService.h"
 #include "dsa_core/services/ReservationService.h"
+#include "dsa_core/services/RenewService.h"
 
 #include "persistence/JsonDatabase.h"
 #include "persistence/JsonMapper.h"
@@ -1483,8 +1484,55 @@ if (action == "searchBookByTitle") {
 
         return 0;
     }
+    
+    if (action == "renewBook") {
+        string loanId = request.value("loanId", "");
 
-if (action == "borrowBook") {
+        if (loanId.empty()) {
+            cout << json{
+                {"success", false},
+                {"error", "Thieu loanId."}
+            }.dump();
+            return 1;
+        }
+
+        RenewResult result = renewService.renewBook(loanId);
+
+        if (!result.isSuccess) {
+            cout << json{
+                {"success", false},
+                {"error", result.message}
+            }.dump();
+            return 0;
+        }
+
+        bool saved = saveLoanAndFineDataToDatabase(
+            database,
+            data,
+            bookRepository,
+            loanRepository,
+            fineRepository
+        );
+
+        if (!saved) {
+            cout << json{
+                {"success", false},
+                {"error", "Gia han thanh cong nhung khong the luu library.json."}
+            }.dump();
+            return 1;
+        }
+
+        json response = {
+            {"success", true},
+            {"message", result.message},
+            {"data", JsonMapper::loanToJson(result.loan)}
+        };
+
+        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+        return 0;
+    }
+    
+    if (action == "borrowBook") {
         string memberId = request.value("memberId", "");
         string bookCode = request.value("bookCode", "");
         string borrowDate = request.value("borrowDate", "");
@@ -2483,6 +2531,7 @@ int main(int argc, char* argv[]) {
             fineRepository,
             reservationService,
             reservationRepository,
+            RenewService& renewService,
             database,
             data
         );
