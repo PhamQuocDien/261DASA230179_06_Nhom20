@@ -84,7 +84,7 @@ function showMemberRegistration(memberId) {
     }
     console.log("Da chuyen sang trang Dang ky thanh vien.", memberId || "");
 }
-const sectionIds = ["homeTabs", "allBooks", "trendingBooks", "bookManagement", "searchBook", "searchBookByYear", "borrowBook", "reservation", "returnBook", "loanSlip", "fine", "memberRegister"];
+const sectionIds = ["homeTabs", "allBooks", "trendingBooks", "bookManagement", "searchBook", "searchBookByYear", "borrowBook", "reservation", "renewBook", "returnBook", "loanSlip", "fine", "memberRegister"];
 let homeBooks = [];
 let currentHomePage = 1;
 const homeBooksPerPage = 10;
