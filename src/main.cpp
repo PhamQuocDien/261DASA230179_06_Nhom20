@@ -302,6 +302,7 @@ int runApiMode(
     FineRepository& fineRepository,
     ReservationService& reservationService,
     ReservationRepository& reservationRepository,
+    RenewService& renewService,
     JsonDatabase& database,
     json& data
 ) {
