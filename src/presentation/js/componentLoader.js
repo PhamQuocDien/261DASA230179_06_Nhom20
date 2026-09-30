@@ -299,6 +299,7 @@ export async function loadComponents() {
         reservationLoaded &&
         returnBookLoaded &&
         loanSlipLoaded &&
+        renewBookLoaded &&
         fineLoaded &&
         footerLoaded
     ) {
