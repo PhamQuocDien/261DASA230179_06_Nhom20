@@ -485,6 +485,16 @@ export function initNavigation() {
             setActiveMenu("menuReservation");
         });
     }
+
+    const menuRenewBook = document.querySelector("#menuRenewBook");
+    if (menuRenewBook) {
+        menuRenewBook.addEventListener("click", () => {
+            hideAllSections();
+            showSection("renewBook");
+            setActiveMenu("menuRenewBook");
+        });
+    }
+
     const menuReturnBook = document.querySelector("#menuReturnBook");
     if (menuReturnBook) {
         menuReturnBook.addEventListener("click", () => {
