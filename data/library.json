@@ -652,6 +652,13 @@
             "name": "Nguyễn Tấn Sang",
             "phone": "0987044501",
             "status": "ACTIVE"
+        },
+        {
+            "email": "pttt@gmail.com",
+            "memberId": "M010",
+            "name": "Phan Thị Thanh Trúc",
+            "phone": "0133345674",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
