@@ -123,7 +123,13 @@ export async function sendApiRequest(
         catch (jsonError) {
 
             console.error(
-                "API khong tra ve JSON."
+                "API khong tra ve JSON.",
+                jsonError
+            );
+
+            console.error(
+                "Response status:",
+                response.status
             );
 
             console.error(
@@ -132,7 +138,9 @@ export async function sendApiRequest(
             );
 
             throw new Error(
-                "API khong tra ve JSON."
+                responseText.trim()
+                    ? "API khong tra ve JSON: " + responseText.trim().slice(0, 300)
+                    : "API khong tra ve JSON (response rong)."
             );
         }
 
