@@ -16,13 +16,12 @@ string InterestManager::toLower(const string& s) {
     return res;
 }
 
-
 int InterestManager::countBorrowed(const Book& book) {
     int cnt = 0;
     for (const BookCopy& copy : book.copies) {
-        if (toLower(copy.status) == "borrowed") {
-            cnt++;
-        }
+        string s = copy.status;
+        for (char& c : s) c = tolower((unsigned char)c);
+        if (s == "borrowed") cnt++; 
     }
     return cnt;
 }
