@@ -775,42 +775,24 @@ function callCppApi(array $request): array
         ];
     }
 
-    // C++ API phai tra ve mot JSON object. Trong truong hop
-    // executable vo tinh ghi them whitespace/log vao stdout,
-    // cat phan JSON object ra truoc khi tra ve frontend.
-    $rawStdout = trim($stdout);
-    $decoded = json_decode($rawStdout, true);
-
-    if (!is_array($decoded)) {
-        $firstBrace = strpos($rawStdout, '{');
-        $lastBrace = strrpos($rawStdout, '}');
-
-        if (
-            $firstBrace !== false &&
-            $lastBrace !== false &&
-            $lastBrace > $firstBrace
-        ) {
-            $candidate = substr(
-                $rawStdout,
-                $firstBrace,
-                $lastBrace - $firstBrace + 1
-            );
-
-            $decoded = json_decode($candidate, true);
-
-            if (is_array($decoded)) {
-                $rawStdout = $candidate;
-            }
-        }
-    }
+    $decoded =
+        json_decode(
+            $stdout,
+            true
+        );
 
     if (!is_array($decoded)) {
 
         $error =
             'JSON Response tu C++ khong hop le.';
 
-        if (trim($stderr) !== '') {
-            $error .= ' ' . trim($stderr);
+        if (
+            trim($stderr) !== ''
+        ) {
+
+            $error .=
+                ' '
+                . trim($stderr);
         }
 
         return [
@@ -822,7 +804,7 @@ function callCppApi(array $request): array
 
     return [
         'processOk' => true,
-        'json' => $rawStdout,
+        'json' => $stdout,
         'error' => ''
     ];
 }
