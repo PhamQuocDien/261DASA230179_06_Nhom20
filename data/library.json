@@ -645,6 +645,13 @@
             "name": "Trương Hoàng Phúc",
             "phone": "0987084501",
             "status": "ACTIVE"
+        },
+        {
+            "email": "lacvantivi13517@gmail.com",
+            "memberId": "M009",
+            "name": "Nguyễn Tấn Sang",
+            "phone": "0987044501",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
