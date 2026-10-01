@@ -19,9 +19,10 @@ export function initReturnBook() {
     const input = document.querySelector("#returnLoanId");
     const dateInput = document.querySelector("#returnDate");
     const qualityInput = document.querySelector("#returnQuality");
+    const confirmationInput = document.querySelector("#returnConfirmation");
     const resultBox = document.querySelector("#returnBookResult");
 
-    if (!button || !input || !dateInput || !qualityInput || !resultBox) {
+    if (!button || !input || !dateInput || !qualityInput || !confirmationInput || !resultBox) {
         console.warn("ReturnBook: khong tim thay giao dien tra sach.");
         return;
     }
@@ -34,6 +35,7 @@ export function initReturnBook() {
         const loanId = input.value.trim();
         const returnDate = dateInput.value;
         const quality = qualityInput.value;
+        const confirmationCode = confirmationInput.value.trim();
 
         if (!loanId) {
             resultBox.innerHTML = `<p style="color:red;">Vui long nhap Loan_ID.</p>`;
@@ -45,6 +47,18 @@ export function initReturnBook() {
             return;
         }
 
+        if (!confirmationCode) {
+            resultBox.innerHTML = `<p style="color:red;">Thiếu mã xác nhận.</p>`;
+            confirmationInput.focus();
+            return;
+        }
+
+        if (confirmationCode !== "261DASA230179_06") {
+            resultBox.innerHTML = `<p style="color:red;">Sai mã xác nhận.</p>`;
+            confirmationInput.focus();
+            return;
+        }
+
         button.disabled = true;
         resultBox.innerHTML = `<p>Dang xu ly...</p>`;
 
@@ -53,7 +67,8 @@ export function initReturnBook() {
                 action: "returnBook",
                 loanId,
                 returnDate,
-                quality
+                quality,
+                confirmationCode
             });
 
             if (!response.success) {
@@ -74,6 +89,7 @@ export function initReturnBook() {
                 </div>
             `;
             input.value = "";
+            confirmationInput.value = "";
         } catch (error) {
             console.error(error);
             resultBox.innerHTML = `<p style="color:red;">Khong the ket noi API.</p>`;
