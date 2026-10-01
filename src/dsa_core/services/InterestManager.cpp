@@ -1,72 +1,76 @@
 #include "InterestManager.h"
 #include <algorithm>
+#include <cctype>
 
-int InterestManager::findByCode(const std::string& bookCode) const {
-    for (size_t i = 0; i < records.size(); ++i) {
-        if (records[i].bookCode == bookCode) {
-            return static_cast<int>(i);
+using namespace std;
+
+InterestManager::InterestManager(BookRepository& repo)
+    : bookRepository(repo) {}
+
+
+string InterestManager::toLower(const string& s) {
+    string res;
+    for (unsigned char c : s) {
+        res += static_cast<char>(tolower(c));
+    }
+    return res;
+}
+
+
+int InterestManager::countBorrowed(const Book& book) {
+    int cnt = 0;
+    for (const BookCopy& copy : book.copies) {
+        if (toLower(copy.status) == "borrowed") {
+            cnt++;
         }
     }
-    return -1;
+    return cnt;
 }
 
-void InterestManager::loadFromBookData(const std::string& bookCode, int totalQuantity, int availableCount) {
-    int idx = findByCode(bookCode);
-    if (idx >= 0) {
-        records[idx].quantity = totalQuantity;
-        records[idx].available = availableCount;
-        return;
+
+int InterestManager::calculateScore(const Book& book) const {
+    int total = static_cast<int>(book.copies.size());
+    if (total <= 0) return 0;
+
+    int borrowed = countBorrowed(book);
+    int score = borrowed; 
+
+    
+    if (borrowed * 2 > total) {
+        score += 1;
     }
-    records.emplace_back(bookCode, totalQuantity, availableCount);
+
+    return score;
 }
 
-void InterestManager::recordPurchase(const std::string& bookCode) {
-    int idx = findByCode(bookCode);
-    if (idx < 0) return;
 
-    BookInterest& rec = records[idx];
-    if (rec.available <= 0) return; 
+vector<TrendingBook> InterestManager::getTrendingBooks() const {
+    vector<TrendingBook> result;
+    const vector<Book>& books = bookRepository.getAll();
 
-    rec.purchasedOrBorrowed += 1;
-    rec.available -= 1;
-    rec.interestScore += 1;
+    for (const Book& book : books) {
+        int total = static_cast<int>(book.copies.size());
+        int borrowed = countBorrowed(book);
+        int score = calculateScore(book);
 
-    if (!rec.bonusApplied && rec.isOverHalfPurchased()) {
-        rec.interestScore += 1;
-        rec.bonusApplied = true;
+        if (score <= 0) continue; 
+
+        TrendingBook tb;
+        tb.bookCode = book.bookCode;
+        tb.title = book.title;
+        tb.author = book.author;
+        tb.totalCopies = total;
+        tb.borrowedCopies = borrowed;
+        tb.interestScore = score;
+        tb.bonusApplied = (borrowed * 2 > total);
+        result.push_back(tb);
     }
-}
 
-
-void InterestManager::recordReturn(const std::string& bookCode) {
-    int idx = findByCode(bookCode);
-    if (idx < 0) return;
-
-    BookInterest& rec = records[idx];
-    if (rec.purchasedOrBorrowed > 0) {
-        rec.purchasedOrBorrowed -= 1;
-        rec.available += 1;
-    }
-}
-
-int InterestManager::getInterestScore(const std::string& bookCode) const {
-    int idx = findByCode(bookCode);
-    return (idx < 0) ? 0 : records[idx].interestScore;
-}
-
-std::vector<BookInterest> InterestManager::getRankedByInterest() const {
-    std::vector<BookInterest> result = records;
-    std::sort(result.begin(), result.end(),
-        [](const BookInterest& a, const BookInterest& b) {
+   
+    sort(result.begin(), result.end(),
+        [](const TrendingBook& a, const TrendingBook& b) {
             return a.interestScore > b.interestScore;
         });
-    return result;
-}
 
-void InterestManager::syncFromJson(const std::string& bookCode, int newQuantity, int newAvailable) {
-    int idx = findByCode(bookCode);
-    if (idx >= 0) {
-        records[idx].quantity = newQuantity;
-        records[idx].available = newAvailable;
-    }
+    return result;
 }
