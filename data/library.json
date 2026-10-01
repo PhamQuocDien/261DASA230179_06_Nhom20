@@ -402,30 +402,7 @@
         }
     ],
     "fines": [
-        {
-            "amount": 20000.0,
-            "fineId": "F_L004",
-            "loanId": "L004",
-            "memberId": "M002",
-            "reason": "Hu hai: Hu hong nhe",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 100000.0,
-            "fineId": "F_L005",
-            "loanId": "L005",
-            "memberId": "M002",
-            "reason": "Hu hai: Hu hong nang",
-            "status": "UNPAID"
-        },
-        {
-            "amount": 100000.0,
-            "fineId": "F_L003",
-            "loanId": "L003",
-            "memberId": "M002",
-            "reason": "Hu hai: Hu hong nang",
-            "status": "UNPAID"
-        }
+        
     ],
     "loans": [
         {
@@ -436,7 +413,7 @@
             "memberId": "M002",
             "renewalCount": 0,
             "returnDate": "2026-09-22",
-            "status": "RETURNED"
+            "status": "borrowing"
         },
         {
             "bookId": "LSVN002",
@@ -446,7 +423,7 @@
             "memberId": "M002",
             "renewalCount": 0,
             "returnDate": "2026-09-22",
-            "status": "RETURNED"
+            "status": "borrowing"
         },
         {
             "bookId": "LSVN003",
@@ -456,7 +433,7 @@
             "memberId": "M002",
             "renewalCount": 0,
             "returnDate": "2026-09-22",
-            "status": "RETURNED"
+            "status": "borrowing"
         },
         {
             "bookId": "LSVN004",
@@ -476,7 +453,7 @@
             "memberId": "M002",
             "renewalCount": 0,
             "returnDate": "2026-09-22",
-            "status": "RETURNED"
+            "status": "borrowing"
         },
         {
             "bookId": "TCC001",
