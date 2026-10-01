@@ -598,6 +598,13 @@
             "name": "Phan Thị Thanh Trúc",
             "phone": "0327859835",
             "status": "ACTIVE"
+        },
+        {
+            "email": "lacvantivi1357@gmail.com",
+            "memberId": "M008",
+            "name": "Trương Hoàng Phúc",
+            "phone": "0987084501",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
