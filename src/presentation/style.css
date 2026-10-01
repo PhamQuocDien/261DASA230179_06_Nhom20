@@ -377,7 +377,7 @@ button {
     margin-top: 24px;
 }
 
-    .buttons button, .search-book-form button, .search-year-form button, .borrow-book-form button, .reservation-form button, .return-book-form button, .loan-slip-search button, .fine-search button, .member-register-form button {
+    .buttons button, .search-book-form button, .search-year-form button, .borrow-book-form button, .reservation-form button, .return-book-form button, .loan-slip-search button, .fine-search button, .member-register-form button, .renew-book-form button  {
         padding: 12px 22px;
         border: 1px solid rgba(96, 165, 250, 0.3);
         border-radius: var(--radius-sm);
