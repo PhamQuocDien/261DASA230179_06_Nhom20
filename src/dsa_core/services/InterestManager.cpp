@@ -40,9 +40,22 @@ std::vector<TrendingBook> InterestManager::getTrendingBooks() const {
 
     for (const Book& book : books) {
         int total = static_cast<int>(book.copies.size());
+
+        // Sach khong co ban nao thi khong the tinh ty le ban da muon.
+        if (total <= 0) continue;
+
         int borrowed = countBorrowed(book);
+
+        // =====================================================
+        // NGHIEP VU "SACH DANG DUOC QUAN TAM" - NGUON DUY NHAT
+        // Chi nhung sach co so ban dang duoc muon > 50% tong so ban
+        // moi duoc coi la sach dang duoc quan tam.
+        // Dung 50% (borrowed * 2 == total) KHONG duoc tinh.
+        // Duoi hoang bang 50% cung khong duoc tinh.
+        // =====================================================
+        if (borrowed * 2 <= total) continue;
+
         int score = calculateScore(book);
-        if (score <= 0) continue;
 
         TrendingBook tb;
         tb.bookCode = book.bookCode;

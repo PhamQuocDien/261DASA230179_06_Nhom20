@@ -281,13 +281,15 @@ function githubApiRequest(
 
     $statusCode = 0;
 
+    $responseHeaders =
+        http_get_last_response_headers();
+
     if (
-        isset($http_response_header) &&
-        is_array($http_response_header)
+        is_array($responseHeaders)
     ) {
 
         foreach (
-            $http_response_header
+            $responseHeaders
             as $headerLine
         ) {
 
