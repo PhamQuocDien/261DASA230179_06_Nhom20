@@ -591,6 +591,13 @@
             "name": "Phạm Quốc Điền",
             "phone": "0336324622",
             "status": "ACTIVE"
+        },
+        {
+            "email": "phanthithanhtruc2968@gmail.com",
+            "memberId": "M007",
+            "name": "Phan Thị Thanh Trúc",
+            "phone": "0327859835",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
