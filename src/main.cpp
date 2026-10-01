@@ -25,7 +25,7 @@
 #include "dsa_core/services/ReservationService.h"
 #include "dsa_core/services/RenewService.h"
 #include "dsa_core/services/InterestManager.h"
-
+#include "dsa_core/services/AdminService.h"
 #include "persistence/JsonDatabase.h"
 #include "persistence/JsonMapper.h"
 #include "dsa_core/structures/AVLTree.h"
@@ -224,72 +224,6 @@ bool static saveReservationsToDatabase(
     return database.save(data);
 }
 
-
-// =====================================================
-// PRINT ONE LOAN SLIP
-// =====================================================
-
-void static printLoanSlip(const LoanSlip& slip) {
-    cout << endl;
-    cout << "========================================" << endl;
-    cout << "            PHIEU MUON SACH             " << endl;
-    cout << "========================================" << endl;
-
-    cout << "Ma phieu:       " << slip.loanId << endl;
-    cout << "Ma thanh vien:  " << slip.memberId << endl;
-    cout << "Thanh vien:     " << slip.memberName << endl;
-    cout << "Ma ban sach:    " << slip.bookId << endl;
-    cout << "Ma dau sach:    " << slip.bookCode << endl;
-    cout << "Ten sach:       " << slip.bookTitle << endl;
-    cout << "Ngay muon:      " << slip.borrowDate << endl;
-    cout << "Han tra:        " << slip.dueDate << endl;
-
-    cout << "Ngay tra:       ";
-
-    if (slip.returnDate.empty()) {
-        cout << "Chua tra";
-    }
-    else {
-        cout << slip.returnDate;
-    }
-
-    cout << endl;
-
-    cout << "So lan gia han: "
-         << slip.renewalCount << endl;
-
-    cout << "Trang thai:     "
-         << slip.status << endl;
-
-    cout << "========================================" << endl;
-}
-
-
-// =====================================================
-// PRINT MANY LOAN SLIPS
-// =====================================================
-
-void static printLoanSlips(
-    const vector<LoanSlip>& slips
-) {
-    if (slips.empty()) {
-        cout << endl;
-        cout << "Khong co phieu muon nao." << endl;
-        return;
-    }
-
-    cout << endl;
-    cout << "Tim thay "
-         << slips.size()
-         << " phieu muon."
-         << endl;
-
-    for (const LoanSlip& slip : slips) {
-        printLoanSlip(slip);
-    }
-}
-
-
 // =====================================================
 // API MODE
 // =====================================================
@@ -306,6 +240,7 @@ int runApiMode(
     ReservationService& reservationService,
     ReservationRepository& reservationRepository,
     RenewService& renewService,
+    AdminService& adminService,
     JsonDatabase& database,
     json& data
 ) {
@@ -331,14 +266,55 @@ int runApiMode(
 
     string action = request.value("action", "");
 
+
+    // =================================================
+    // LOGIN ADMIN
+    // =================================================
+
+    if (action == "loginAdmin") {
+
+        string idAdmin =
+            request.value("idAdmin", "");
+
+        string password =
+            request.value("password", "");
+
+        bool authenticated =
+            adminService.authenticate(
+                idAdmin,
+                password
+            );
+
+        if (!authenticated) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                "ID quan ly hoac mat khau khong dung."}
+            }.dump();
+
+            return 0;
+        }
+
+        cout << json{
+            {"success", true},
+            {"data",
+            {
+                {"authenticated", true}
+            }}
+        }.dump();
+
+        return 0;
+    }
+
+
     bool adminAuthorized =
         request.value("adminAuthorized", false);
 
 
-    // =================================================
-    // ADMIN ACTION
-    // =================================================
-
+// =================================================
+// ADMIN ACTION
+// =================================================
     if (action == "createBook" ||
         action == "updateBook" ||
         action == "addBookCopy" ||
@@ -2368,55 +2344,6 @@ if (action == "getReservationsByBookCode") {
 }
 
 
-// =====================================================
-// CONSOLE MODE
-// =====================================================
-
-int static runConsoleMode(
-    LoanSlipService& loanSlipService,
-    BookService& bookService
-) {
-    cout << "========================================" << endl;
-    cout << "       TRA CUU PHIEU MUON SACH          " << endl;
-    cout << "========================================" << endl;
-
-    while (true) {
-
-        cout << endl;
-        cout << "----------------------------------------" << endl;
-        cout << "Nhap Member_ID (hoac Q de thoat): ";
-
-        string memberId;
-
-        if (!(cin >> memberId)) {
-            break;
-        }
-
-        if (memberId == "Q" ||
-            memberId == "q") {
-
-            cout << endl;
-            cout << "Ket thuc chuong trinh." << endl;
-
-            break;
-        }
-
-        vector<LoanSlip> slips =
-            loanSlipService.getLoanSlipsByMember(
-                memberId
-            );
-
-        cout << endl;
-        cout << "Member_ID: "
-             << memberId
-             << endl;
-
-        printLoanSlips(slips);
-    }
-
-    return 0;
-}
-
 
 // =====================================================
 // MAIN
@@ -2546,7 +2473,7 @@ int main(int argc, char* argv[]) {
         bookRepository,
         reservationRepository
     );
-
+    AdminService adminService;
     // =================================================
     // API MODE
     // =================================================
@@ -2565,18 +2492,13 @@ int main(int argc, char* argv[]) {
             reservationService,
             reservationRepository,
             renewService,
+            adminService,
             database,
             data
         );
     }
-
-
-    // =================================================
-    // CONSOLE MODE
-    // =================================================
-
-    return runConsoleMode(
-        loanSlipService,
-        bookService
-    );
+    else{
+        cout<<"Chương trình không hỗ trợ chế độ console. Vui lòng sử dụng chế độ API."<<endl;
+        return 1;
+    } 
 }

@@ -31,31 +31,6 @@ if (!is_array($request)) {
 
 $action = $request['action'] ?? '';
 
-if ($action === 'loginAdmin') {
-
-    $idAdmin = $request['idAdmin'] ?? '';
-    $password = $request['password'] ?? '';
-
-    if (
-        $idAdmin !== 'QuanLyAdmin' ||
-        $password !== 'QuanLyThuVien'
-    ) {
-        sendResponse(
-            false,
-            null,
-            'ID quan ly hoac mat khau khong dung.'
-        );
-    }
-
-    session_regenerate_id(true);
-
-    $_SESSION['adminAuthenticated'] = true;
-
-    sendResponse(
-        true,
-        ['authenticated' => true]
-    );
-}
 
 if ($action === 'registerMember') {
 
@@ -150,8 +125,47 @@ if (!$cppResponse['processOk']) {
         $cppResponse['error']
     );
 }
+// =====================================================
+// XU LY LOGIN ADMIN SAU KHI C++ TRA KET QUA
+// =====================================================
 
+if ($action === 'loginAdmin') {
 
+    $loginResponse =
+        json_decode(
+            $cppResponse['json'],
+            true
+        );
+
+    if (!is_array($loginResponse)) {
+
+        sendResponse(
+            false,
+            null,
+            'JSON Response loginAdmin tu C++ khong hop le.'
+        );
+
+    }
+
+    if (
+        empty($loginResponse['success']) ||
+        empty($loginResponse['data']['authenticated'])
+    ) {
+
+        sendRawJson(
+            $cppResponse['json']
+        );
+
+    }
+
+    session_regenerate_id(true);
+
+    $_SESSION['adminAuthenticated'] = true;
+
+    sendRawJson(
+        $cppResponse['json']
+    );
+}
 // =====================================
 // DONG BO library.json TU RENDER LEN GITHUB
 // CHI CAP NHAT KHI C++ THAY DOI FILE
