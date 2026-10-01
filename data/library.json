@@ -277,7 +277,7 @@
                 },
                 {
                     "bookId": "TTIH006",
-                    "status": "available"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "TTIH007",
@@ -594,6 +594,16 @@
             "dueDate": "2026-10-30",
             "loanId": "L017",
             "memberId": "M010",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "TTIH006",
+            "borrowDate": "2026-10-01",
+            "dueDate": "2026-10-30",
+            "loanId": "L018",
+            "memberId": "M009",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
