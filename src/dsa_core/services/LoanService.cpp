@@ -93,25 +93,22 @@ ReturnReceipt LoanService::returnBook(
         receipt.lateDays * 10000.0;
 
     // =================================================
-    // TÍNH PHÍ HƯ HỎNG
+    // TÍNH PHÍ THEO TÌNH TRẠNG SÁCH
     // =================================================
+    // Tốt / Khá       : không có phí hư hỏng
+    // Trung bình      : 50% giá sách
+    // Kém             : 100% giá sách
+    // Giá sách lấy từ Book::price trong library.json
 
-    // Sách tốt
-    if (quality == "Tot") {
+    if (quality == "Tot" || quality == "Kha") {
         receipt.damageFee = 0.0;
     }
-
-    // Hư hỏng nhẹ
-    else if (quality == "Hu hong nhe") {
-        receipt.damageFee = 20000.0;
+    else if (quality == "Trung binh") {
+        receipt.damageFee = book->price * 0.5;
     }
-
-    // Hư hỏng nặng
-    else if (quality == "Hu hong nang") {
-        receipt.damageFee = 100000.0;
+    else if (quality == "Kem") {
+        receipt.damageFee = book->price;
     }
-
-    // Tình trạng không hợp lệ
     else {
         receipt.message =
             "Loi: Tinh trang sach khong hop le.";
@@ -136,8 +133,8 @@ ReturnReceipt LoanService::returnBook(
     // CẬP NHẬT TRẠNG THÁI SÁCH
     // =================================================
 
-    // Nếu không hư hỏng nặng
-    if (quality != "Hu hong nang") {
+    // Chỉ tình trạng "Kém" mới đánh dấu bản sách là DAMAGED.
+    if (quality != "Kem") {
         bool restored = false;
         for (BookCopy& copy : book->copies) {
             if (copy.bookId == loan->bookId) {
@@ -200,10 +197,10 @@ ReturnReceipt LoanService::returnBook(
                 to_string(receipt.lateDays) +
                 " ngay. ";
         }
-        // Nếu sách bị hư thì thêm lý do hư hỏng
+        // Nếu có phí theo tình trạng sách thì ghi rõ tình trạng.
         if (receipt.damageFee > 0) {
             fine.reason +=
-                "Hu hai: " + quality;
+                "Tinh trang: " + quality;
         }
 
         // Ban đầu tiền phạt chưa thanh toán
