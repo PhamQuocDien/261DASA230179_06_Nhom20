@@ -3,37 +3,29 @@
 
 #include <string>
 #include <vector>
-#include "../models/Book.h"          
+#include "../models/Book.h"
 #include "../repositories/BookRepository.h"
-
 
 struct TrendingBook {
     std::string bookCode;
     std::string title;
     std::string author;
-    int totalCopies;      
-    int borrowedCopies;   
-    int interestScore;     
-    bool bonusApplied;     
+    int totalCopies;
+    int borrowedCopies;
+    int interestScore;
+    bool bonusApplied;
 };
 
 class InterestManager {
 private:
-    BookRepository& bookRepository;
-
-   
+    BookRepository& repo;
     static std::string toLower(const std::string& s);
-
-    
     static int countBorrowed(const Book& book);
 
 public:
-    explicit InterestManager(BookRepository& repo);
+    explicit InterestManager(BookRepository& bookRepository);
 
-    
     int calculateScore(const Book& book) const;
-
-   
     std::vector<TrendingBook> getTrendingBooks() const;
 };
 
