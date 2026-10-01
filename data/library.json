@@ -564,6 +564,13 @@
             "name": "dsa234",
             "phone": "0987654321",
             "status": "ACTIVE"
+        },
+        {
+            "email": "dienp3030@gmail.com",
+            "memberId": "M006",
+            "name": "Phạm Quốc Điền",
+            "phone": "0336324622",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
