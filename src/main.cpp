@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <cctype>
+#include <ctime>
 
 #include "dsa_core/models/Book.h"
 #include "dsa_core/models/Member.h"
@@ -9,6 +10,7 @@
 #include "dsa_core/models/Loan.h"
 #include "dsa_core/models/Fine.h"
 #include "dsa_core/models/Reservation.h"
+#include "dsa_core/models/BookInterest.h"
 
 #include "dsa_core/repositories/BookRepository.h"
 #include "dsa_core/repositories/MemberRepository.h"
@@ -22,6 +24,7 @@
 #include "dsa_core/services/LoanSlipService.h"
 #include "dsa_core/services/ReservationService.h"
 #include "dsa_core/services/RenewService.h"
+#include "dsa_core/services/InterestManager.h"
 
 #include "persistence/JsonDatabase.h"
 #include "persistence/JsonMapper.h"
@@ -2329,7 +2332,31 @@ if (action == "getReservationsByBookCode") {
 
 
     // =================================================
-    // UNSUPPORTED ACTION
+    // GET TRENDING BOOKS (Sách được quan tâm)
+    // =================================================
+    if (action == "getTrendingBooks") {
+        InterestManager interestManager(bookRepository);
+        vector<TrendingBook> trending = interestManager.getTrendingBooks();
+
+        json trendingData = json::array();
+        for (const TrendingBook& tb : trending) {
+            json item;
+            item["bookCode"] = tb.bookCode;
+            item["title"] = tb.title;
+            item["author"] = tb.author;
+            item["totalCopies"] = tb.totalCopies;
+            item["borrowedCopies"] = tb.borrowedCopies;
+            item["interestScore"] = tb.interestScore;
+            item["bonusApplied"] = tb.bonusApplied;
+            trendingData.push_back(item);
+        }
+        json response = {{"success", true}, {"data", trendingData}};
+        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+        return 0;
+    }
+
+    // =================================================
+    // UNSUPPORTED ACTION   ← giữ nguyên cái này ở dưới
     // =================================================
 
     cout << json{
