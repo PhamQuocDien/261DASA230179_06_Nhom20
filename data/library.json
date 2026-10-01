@@ -11,7 +11,7 @@
                 },
                 {
                     "bookId": "LSVN002",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LSVN003",
@@ -554,6 +554,16 @@
             "dueDate": "2026-10-30",
             "loanId": "L013",
             "memberId": "M008",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "LSVN002",
+            "borrowDate": "2026-10-01",
+            "dueDate": "2026-10-30",
+            "loanId": "L014",
+            "memberId": "M007",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
