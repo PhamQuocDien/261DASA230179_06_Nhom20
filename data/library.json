@@ -7,7 +7,7 @@
             "copies": [
                 {
                     "bookId": "LSVN001",
-                    "status": "borrowed"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "LSVN002",
@@ -402,7 +402,14 @@
         }
     ],
     "fines": [
-        
+        {
+            "amount": 50000.0,
+            "fineId": "F_L001",
+            "loanId": "L001",
+            "memberId": "M002",
+            "reason": "Tre 5 ngay. ",
+            "status": "UNPAID"
+        }
     ],
     "loans": [
         {
@@ -412,8 +419,8 @@
             "loanId": "L001",
             "memberId": "M002",
             "renewalCount": 0,
-            "returnDate": "2026-09-22",
-            "status": "borrowing"
+            "returnDate": "2026-10-02",
+            "status": "RETURNED"
         },
         {
             "bookId": "LSVN002",
