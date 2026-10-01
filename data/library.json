@@ -307,7 +307,7 @@
             "copies": [
                 {
                     "bookId": "NNA001",
-                    "status": "available"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "NNA002",
@@ -513,6 +513,16 @@
             "borrowDate": "2026-10-01",
             "dueDate": "2026-10-30",
             "loanId": "L009",
+            "memberId": "M001",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "NNA001",
+            "borrowDate": "2026-10-01",
+            "dueDate": "2026-10-30",
+            "loanId": "L010",
             "memberId": "M001",
             "renewalCount": 0,
             "returnDate": null,
