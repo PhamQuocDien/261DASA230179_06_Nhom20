@@ -14682,7 +14682,7 @@
             "memberId": "M205",
             "reservationDate": "2026-09-20",
             "reservationId": "R004",
-            "status": "WAITING"
+            "status": "CANCELLED"
         },
         {
             "bookCode": "TCC",
