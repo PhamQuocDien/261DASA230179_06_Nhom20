@@ -1615,7 +1615,7 @@ if (action == "searchBookByTitle") {
             memberId,
             bookCode,
             borrowDate,
-            memberRepository
+            password
         );
 
         if (!result.isSuccess) {
@@ -1851,7 +1851,7 @@ if (action == "returnBook") {
         if (!returnedBookCode.empty()) {
 
             nextReservation =
-                reservationService.next(
+                reservationService.getNextEligible(
                     returnedBookCode
                 );
         }
@@ -2346,7 +2346,7 @@ if (action == "getReservationsByBookCode") {
 
 
         Reservation* reservation =
-            reservationService.next(
+            reservationService.getNextEligible(
                 bookCode
             );
 
@@ -2552,17 +2552,18 @@ int main(int argc, char* argv[]) {
         bookRepository
     );
 
-    LoanService loanService(
-        loanRepository,
-        bookRepository,
-        fineRepository
-    );
-
     ReservationService reservationService(
         memberRepository,
         bookRepository,
         loanRepository,
         reservationRepository
+    );
+    LoanService loanService(
+        loanRepository,
+        bookRepository,
+        fineRepository,
+        memberRepository,
+        reservationService
     );
     
     RenewService renewService(
