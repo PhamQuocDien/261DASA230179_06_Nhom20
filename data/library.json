@@ -11,7 +11,7 @@
                 },
                 {
                     "bookId": "LSVN002",
-                    "status": "BORROWED"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LSVN003",
@@ -5659,8 +5659,8 @@
             "loanId": "L0001",
             "memberId": "M001",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
+            "returnDate": "2026-10-29",
+            "status": "RETURNED"
         },
         {
             "bookId": "LSVN003",
@@ -10651,6 +10651,16 @@
             "renewalCount": 0,
             "returnDate": "2026-08-17",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "LSVN002",
+            "borrowDate": "2026-10-29",
+            "dueDate": "2026-11-27",
+            "loanId": "L501",
+            "memberId": "M208",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
@@ -14703,7 +14713,7 @@
             "memberId": "M208",
             "reservationDate": "2026-09-23",
             "reservationId": "R007",
-            "status": "WAITING"
+            "status": "SERVED"
         },
         {
             "bookCode": "TCC",
