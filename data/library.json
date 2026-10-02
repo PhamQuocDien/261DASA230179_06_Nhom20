@@ -119,7 +119,7 @@
                 },
                 {
                     "bookId": "KTLT004",
-                    "status": "BORROWED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "KTLT005",
@@ -5839,8 +5839,8 @@
             "loanId": "L0019",
             "memberId": "M019",
             "renewalCount": 1,
-            "returnDate": null,
-            "status": "BORROWING"
+            "returnDate": "2026-10-09",
+            "status": "RETURNED"
         },
         {
             "bookId": "KTLT005",
