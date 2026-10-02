@@ -46,7 +46,7 @@ public:
     }
     static string calculateDueDate(const string& borrowDateStr, int daysToAdd);
     ReturnReceipt returnBook(const string& loanId, const Date& returnDate, const string& quality);
-    BorrowResult borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr);
+    BorrowResult borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr,const string& password);
 };
 
 #endif
