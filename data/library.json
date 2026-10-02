@@ -1,9 +1,9 @@
 {
     "books": [
         {
-            "author": "Nguyen Van Toan",
+            "author": "Trần Trọng Kim",
             "bookCode": "LSVN",
-            "category": "Lich su",
+            "category": "Lịch sử",
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -47,13 +47,13 @@
                 }
             ],
             "price": 2200000.0,
-            "title": "Lich su Viet Nam",
-            "year": 2024
+            "title": "Việt Nam sử lược",
+            "year": 1920
         },
         {
-            "author": "Le Van Chi",
+            "author": "Nguyễn Đình Trí, Tạ Văn Đĩnh, Nguyễn Hồ Quỳnh",
             "bookCode": "TCC",
-            "category": "Toan hoc",
+            "category": "Toán học",
             "copies": [
                 {
                     "bookId": "TCC001",
@@ -97,13 +97,13 @@
                 }
             ],
             "price": 370000.0,
-            "title": "Toan cao cap",
-            "year": 2022
+            "title": "Bài tập toán cao cấp T1",
+            "year": 2006
         },
         {
-            "author": "Pham Van Dong",
+            "author": "Phạm Văn Ất",
             "bookCode": "KTLT",
-            "category": "Lap trinh",
+            "category": "Lập trình",
             "copies": [
                 {
                     "bookId": "KTLT001",
@@ -147,13 +147,13 @@
                 }
             ],
             "price": 150000.0,
-            "title": "Ky thuat lap trinh",
-            "year": 2025
+            "title": "Kỹ thuật lập trình C",
+            "year": 1999
         },
         {
-            "author": "Nguyen Van Nam",
+            "author": "Trần Đan Thư, Nguyễn Thanh Phương, Đinh Bá Tiến, Trần Minh Triết",
             "bookCode": "NMLT",
-            "category": "Lap trinh",
+            "category": "Lập trình",
             "copies": [
                 {
                     "bookId": "NMLT001",
@@ -197,13 +197,13 @@
                 }
             ],
             "price": 160000.0,
-            "title": "Nhap mon lap trinh",
-            "year": 2000
+            "title": "Nhập môn lập trình",
+            "year": 2021
         },
         {
-            "author": "Nguyen Quoc Viet",
+            "author": "Bộ Giáo dục và Đào tạo",
             "bookCode": "LSD",
-            "category": "Lich su",
+            "category": "Lịch sử",
             "copies": [
                 {
                     "bookId": "LSD001",
@@ -247,13 +247,13 @@
                 }
             ],
             "price": 200000.0,
-            "title": "Lich su Dang",
-            "year": 1999
+            "title": "Giáo trình Lịch sử Đảng Cộng sản Việt Nam",
+            "year": 2021
         },
         {
-            "author": "Truong Quang Minh",
+            "author": "Đỗ Đình Hoan",
             "bookCode": "TTIH",
-            "category": "Toán",
+            "category": "Toán học",
             "copies": [
                 {
                     "bookId": "TTIH001",
@@ -297,13 +297,13 @@
                 }
             ],
             "price": 500000.0,
-            "title": "Toan lop 1",
-            "year": 2007
+            "title": "Toán 1",
+            "year": 2016
         },
         {
-            "author": "Nguyen Nhat Anh",
+            "author": "Nguyễn Nhật Ánh",
             "bookCode": "NNA",
-            "category": "Truyen",
+            "category": "Văn học Việt Nam",
             "copies": [
                 {
                     "bookId": "NNA001",
@@ -347,13 +347,13 @@
                 }
             ],
             "price": 138000.0,
-            "title": "Mat biec",
+            "title": "Mắt biếc",
             "year": 1990
         },
         {
-            "author": "Truong Quang Minh",
+            "author": "Nguyễn Đức Chung",
             "bookCode": "HDC",
-            "category": "Hoa hoc",
+            "category": "Hóa học",
             "copies": [
                 {
                     "bookId": "HDC001",
@@ -397,8 +397,5008 @@
                 }
             ],
             "price": 600000.0,
-            "title": "Hóa Đại CƯơng",
+            "title": "Hóa học đại cương",
+            "year": 2009
+        },
+        {
+            "author": "George Orwell",
+            "bookCode": "B001",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B001_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B001_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "1984",
+            "year": 1949
+        },
+        {
+            "author": "Harper Lee",
+            "bookCode": "B002",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B002_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B002_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "To Kill a Mockingbird",
+            "year": 1960
+        },
+        {
+            "author": "F. Scott Fitzgerald",
+            "bookCode": "B003",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B003_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B003_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Great Gatsby",
+            "year": 1925
+        },
+        {
+            "author": "Jane Austen",
+            "bookCode": "B004",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B004_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B004_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Pride and Prejudice",
+            "year": 1813
+        },
+        {
+            "author": "J. D. Salinger",
+            "bookCode": "B005",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B005_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B005_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Catcher in the Rye",
+            "year": 1951
+        },
+        {
+            "author": "George Orwell",
+            "bookCode": "B006",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B006_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B006_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Animal Farm",
+            "year": 1945
+        },
+        {
+            "author": "Aldous Huxley",
+            "bookCode": "B007",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B007_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B007_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Brave New World",
+            "year": 1932
+        },
+        {
+            "author": "J. R. R. Tolkien",
+            "bookCode": "B008",
+            "category": "Văn học giả tưởng",
+            "copies": [
+                {
+                    "bookId": "B008_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B008_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Hobbit",
+            "year": 1937
+        },
+        {
+            "author": "J. R. R. Tolkien",
+            "bookCode": "B009",
+            "category": "Văn học giả tưởng",
+            "copies": [
+                {
+                    "bookId": "B009_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B009_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Lord of the Rings",
+            "year": 1954
+        },
+        {
+            "author": "Ray Bradbury",
+            "bookCode": "B010",
+            "category": "Văn học nước ngoài",
+            "copies": [
+                {
+                    "bookId": "B010_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B010_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Fahrenheit 451",
+            "year": 1953
+        },
+        {
+            "author": "Vũ Trọng Phụng",
+            "bookCode": "B011",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B011_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B011_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Số đỏ",
+            "year": 1936
+        },
+        {
+            "author": "Nguyễn Du",
+            "bookCode": "B012",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B012_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B012_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Truyện Kiều",
+            "year": 1820
+        },
+        {
+            "author": "Tô Hoài",
+            "bookCode": "B013",
+            "category": "Văn học thiếu nhi",
+            "copies": [
+                {
+                    "bookId": "B013_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B013_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Dế Mèn phiêu lưu ký",
+            "year": 1941
+        },
+        {
+            "author": "Nam Cao",
+            "bookCode": "B014",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B014_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B014_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Chí Phèo",
+            "year": 1941
+        },
+        {
+            "author": "Ngô Tất Tố",
+            "bookCode": "B015",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B015_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B015_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Tắt đèn",
+            "year": 1939
+        },
+        {
+            "author": "Nam Cao",
+            "bookCode": "B016",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B016_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B016_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Lão Hạc",
+            "year": 1943
+        },
+        {
+            "author": "Đoàn Giỏi",
+            "bookCode": "B017",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B017_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B017_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Đất rừng phương Nam",
+            "year": 1957
+        },
+        {
+            "author": "Kim Lân",
+            "bookCode": "B018",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B018_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B018_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Vợ nhặt",
+            "year": 1962
+        },
+        {
+            "author": "Nguyên Hồng",
+            "bookCode": "B019",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B019_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B019_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Bỉ vỏ",
+            "year": 1938
+        },
+        {
+            "author": "Nguyễn Quang Sáng",
+            "bookCode": "B020",
+            "category": "Văn học Việt Nam",
+            "copies": [
+                {
+                    "bookId": "B020_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B020_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Chiếc lược ngà",
+            "year": 1966
+        },
+        {
+            "author": "Miguel de Cervantes",
+            "bookCode": "B021",
+            "category": "Văn học kinh điển",
+            "copies": [
+                {
+                    "bookId": "B021_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B021_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Don Quixote",
+            "year": 1605
+        },
+        {
+            "author": "Herman Melville",
+            "bookCode": "B022",
+            "category": "Văn học kinh điển",
+            "copies": [
+                {
+                    "bookId": "B022_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B022_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Moby-Dick",
+            "year": 1851
+        },
+        {
+            "author": "Leo Tolstoy",
+            "bookCode": "B023",
+            "category": "Văn học kinh điển",
+            "copies": [
+                {
+                    "bookId": "B023_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B023_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "War and Peace",
+            "year": 1869
+        },
+        {
+            "author": "Fyodor Dostoevsky",
+            "bookCode": "B024",
+            "category": "Văn học kinh điển",
+            "copies": [
+                {
+                    "bookId": "B024_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B024_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Crime and Punishment",
+            "year": 1866
+        },
+        {
+            "author": "Dante Alighieri",
+            "bookCode": "B025",
+            "category": "Văn học kinh điển",
+            "copies": [
+                {
+                    "bookId": "B025_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B025_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Divine Comedy",
+            "year": 1320
+        },
+        {
+            "author": "Robert C. Martin",
+            "bookCode": "B026",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B026_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B026_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Clean Code",
+            "year": 2008
+        },
+        {
+            "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+            "bookCode": "B027",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B027_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B027_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Design Patterns",
+            "year": 1994
+        },
+        {
+            "author": "Andrew Hunt, David Thomas",
+            "bookCode": "B028",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B028_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B028_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Pragmatic Programmer",
+            "year": 1999
+        },
+        {
+            "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest",
+            "bookCode": "B029",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B029_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B029_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Introduction to Algorithms",
+            "year": 1990
+        },
+        {
+            "author": "Martin Fowler",
+            "bookCode": "B030",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B030_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B030_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Refactoring",
+            "year": 1999
+        },
+        {
+            "author": "Steve McConnell",
+            "bookCode": "B031",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B031_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B031_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Code Complete",
+            "year": 1993
+        },
+        {
+            "author": "Brian W. Kernighan, Dennis M. Ritchie",
+            "bookCode": "B032",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B032_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B032_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The C Programming Language",
+            "year": 1978
+        },
+        {
+            "author": "Joshua Bloch",
+            "bookCode": "B033",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B033_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B033_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Effective Java",
+            "year": 2001
+        },
+        {
+            "author": "Gayle Laakmann McDowell",
+            "bookCode": "B034",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B034_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B034_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Cracking the Coding Interview",
+            "year": 2008
+        },
+        {
+            "author": "Eric Freeman, Elisabeth Robson, Bert Bates, Kathy Sierra",
+            "bookCode": "B035",
+            "category": "Công nghệ thông tin",
+            "copies": [
+                {
+                    "bookId": "B035_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B035_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Head First Design Patterns",
+            "year": 2004
+        },
+        {
+            "author": "Yuval Noah Harari",
+            "bookCode": "B036",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "B036_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B036_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Sapiens: A Brief History of Humankind",
             "year": 2011
+        },
+        {
+            "author": "Jared Diamond",
+            "bookCode": "B037",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "B037_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B037_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Guns, Germs, and Steel",
+            "year": 1997
+        },
+        {
+            "author": "Stephen Hawking",
+            "bookCode": "B038",
+            "category": "Khoa học",
+            "copies": [
+                {
+                    "bookId": "B038_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B038_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "A Brief History of Time",
+            "year": 1988
+        },
+        {
+            "author": "Carl Sagan",
+            "bookCode": "B039",
+            "category": "Khoa học",
+            "copies": [
+                {
+                    "bookId": "B039_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B039_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Cosmos",
+            "year": 1980
+        },
+        {
+            "author": "Richard Dawkins",
+            "bookCode": "B040",
+            "category": "Sinh học",
+            "copies": [
+                {
+                    "bookId": "B040_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B040_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Selfish Gene",
+            "year": 1976
+        },
+        {
+            "author": "Charles Darwin",
+            "bookCode": "B041",
+            "category": "Sinh học",
+            "copies": [
+                {
+                    "bookId": "B041_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B041_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "On the Origin of Species",
+            "year": 1859
+        },
+        {
+            "author": "James D. Watson",
+            "bookCode": "B042",
+            "category": "Sinh học",
+            "copies": [
+                {
+                    "bookId": "B042_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B042_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Double Helix",
+            "year": 1968
+        },
+        {
+            "author": "Rachel Carson",
+            "bookCode": "B043",
+            "category": "Môi trường",
+            "copies": [
+                {
+                    "bookId": "B043_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B043_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Silent Spring",
+            "year": 1962
+        },
+        {
+            "author": "Isaac Newton",
+            "bookCode": "B044",
+            "category": "Vật lý / Toán học",
+            "copies": [
+                {
+                    "bookId": "B044_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B044_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Philosophiæ Naturalis Principia Mathematica",
+            "year": 1687
+        },
+        {
+            "author": "Albert Einstein",
+            "bookCode": "B045",
+            "category": "Vật lý",
+            "copies": [
+                {
+                    "bookId": "B045_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B045_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Relativity: The Special and the General Theory",
+            "year": 1916
+        },
+        {
+            "author": "Thomas S. Kuhn",
+            "bookCode": "B046",
+            "category": "Triết học khoa học",
+            "copies": [
+                {
+                    "bookId": "B046_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B046_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Structure of Scientific Revolutions",
+            "year": 1962
+        },
+        {
+            "author": "Robert Kanigel",
+            "bookCode": "B047",
+            "category": "Tiểu sử / Toán học",
+            "copies": [
+                {
+                    "bookId": "B047_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B047_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Man Who Knew Infinity",
+            "year": 1991
+        },
+        {
+            "author": "Howard Zinn",
+            "bookCode": "B048",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "B048_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B048_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "A People's History of the United States",
+            "year": 1980
+        },
+        {
+            "author": "Anne Frank",
+            "bookCode": "B049",
+            "category": "Tự truyện",
+            "copies": [
+                {
+                    "bookId": "B049_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B049_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Diary of a Young Girl",
+            "year": 1947
+        },
+        {
+            "author": "David McCullough",
+            "bookCode": "B050",
+            "category": "Lịch sử",
+            "copies": [
+                {
+                    "bookId": "B050_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B050_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "1776",
+            "year": 2005
+        },
+        {
+            "author": "Adam Smith",
+            "bookCode": "B051",
+            "category": "Kinh tế học",
+            "copies": [
+                {
+                    "bookId": "B051_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B051_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Wealth of Nations",
+            "year": 1776
+        },
+        {
+            "author": "Thomas Piketty",
+            "bookCode": "B052",
+            "category": "Kinh tế học",
+            "copies": [
+                {
+                    "bookId": "B052_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B052_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Capital in the Twenty-First Century",
+            "year": 2013
+        },
+        {
+            "author": "Steven D. Levitt, Stephen J. Dubner",
+            "bookCode": "B053",
+            "category": "Kinh tế học",
+            "copies": [
+                {
+                    "bookId": "B053_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B053_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Freakonomics",
+            "year": 2005
+        },
+        {
+            "author": "Benjamin Graham",
+            "bookCode": "B054",
+            "category": "Tài chính",
+            "copies": [
+                {
+                    "bookId": "B054_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B054_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Intelligent Investor",
+            "year": 1949
+        },
+        {
+            "author": "Robert T. Kiyosaki",
+            "bookCode": "B055",
+            "category": "Tài chính",
+            "copies": [
+                {
+                    "bookId": "B055_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B055_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Rich Dad Poor Dad",
+            "year": 1997
+        },
+        {
+            "author": "Jim Collins",
+            "bookCode": "B056",
+            "category": "Quản trị",
+            "copies": [
+                {
+                    "bookId": "B056_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B056_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Good to Great",
+            "year": 2001
+        },
+        {
+            "author": "Peter Thiel, Blake Masters",
+            "bookCode": "B057",
+            "category": "Kinh doanh",
+            "copies": [
+                {
+                    "bookId": "B057_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B057_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Zero to One",
+            "year": 2014
+        },
+        {
+            "author": "Eric Ries",
+            "bookCode": "B058",
+            "category": "Khởi nghiệp",
+            "copies": [
+                {
+                    "bookId": "B058_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B058_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Lean Startup",
+            "year": 2011
+        },
+        {
+            "author": "Simon Sinek",
+            "bookCode": "B059",
+            "category": "Kinh doanh",
+            "copies": [
+                {
+                    "bookId": "B059_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B059_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Start with Why",
+            "year": 2009
+        },
+        {
+            "author": "Clayton M. Christensen",
+            "bookCode": "B060",
+            "category": "Kinh doanh",
+            "copies": [
+                {
+                    "bookId": "B060_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B060_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Innovator's Dilemma",
+            "year": 1997
+        },
+        {
+            "author": "W. Chan Kim, Renée Mauborgne",
+            "bookCode": "B061",
+            "category": "Quản trị",
+            "copies": [
+                {
+                    "bookId": "B061_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B061_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Blue Ocean Strategy",
+            "year": 2005
+        },
+        {
+            "author": "Phil Knight",
+            "bookCode": "B062",
+            "category": "Tự truyện / Kinh doanh",
+            "copies": [
+                {
+                    "bookId": "B062_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B062_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Shoe Dog",
+            "year": 2016
+        },
+        {
+            "author": "Geoffrey A. Moore",
+            "bookCode": "B063",
+            "category": "Marketing",
+            "copies": [
+                {
+                    "bookId": "B063_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B063_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Crossing the Chasm",
+            "year": 1991
+        },
+        {
+            "author": "Andrew S. Grove",
+            "bookCode": "B064",
+            "category": "Quản trị",
+            "copies": [
+                {
+                    "bookId": "B064_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B064_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "High Output Management",
+            "year": 1983
+        },
+        {
+            "author": "John Doerr",
+            "bookCode": "B065",
+            "category": "Quản trị",
+            "copies": [
+                {
+                    "bookId": "B065_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B065_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Measure What Matters",
+            "year": 2018
+        },
+        {
+            "author": "Ben Horowitz",
+            "bookCode": "B066",
+            "category": "Khởi nghiệp",
+            "copies": [
+                {
+                    "bookId": "B066_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B066_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Hard Thing About Hard Things",
+            "year": 2014
+        },
+        {
+            "author": "Jim Collins, Jerry I. Porras",
+            "bookCode": "B067",
+            "category": "Quản trị",
+            "copies": [
+                {
+                    "bookId": "B067_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B067_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Built to Last",
+            "year": 1994
+        },
+        {
+            "author": "Donella H. Meadows",
+            "bookCode": "B068",
+            "category": "Quản trị / Hệ thống",
+            "copies": [
+                {
+                    "bookId": "B068_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B068_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Thinking in Systems",
+            "year": 2008
+        },
+        {
+            "author": "Michael E. Gerber",
+            "bookCode": "B069",
+            "category": "Khởi nghiệp",
+            "copies": [
+                {
+                    "bookId": "B069_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B069_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The E-Myth Revisited",
+            "year": 1995
+        },
+        {
+            "author": "Gabriel Weinberg, Justin Mares",
+            "bookCode": "B070",
+            "category": "Marketing",
+            "copies": [
+                {
+                    "bookId": "B070_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B070_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Traction",
+            "year": 2014
+        },
+        {
+            "author": "Ray Dalio",
+            "bookCode": "B071",
+            "category": "Quản trị",
+            "copies": [
+                {
+                    "bookId": "B071_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B071_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Principles",
+            "year": 2017
+        },
+        {
+            "author": "Nir Eyal",
+            "bookCode": "B072",
+            "category": "Marketing",
+            "copies": [
+                {
+                    "bookId": "B072_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B072_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Hooked",
+            "year": 2014
+        },
+        {
+            "author": "Jonah Berger",
+            "bookCode": "B073",
+            "category": "Marketing",
+            "copies": [
+                {
+                    "bookId": "B073_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B073_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Contagious",
+            "year": 2013
+        },
+        {
+            "author": "Chip Heath, Dan Heath",
+            "bookCode": "B074",
+            "category": "Marketing",
+            "copies": [
+                {
+                    "bookId": "B074_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B074_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Made to Stick",
+            "year": 2007
+        },
+        {
+            "author": "Al Ries, Jack Trout",
+            "bookCode": "B075",
+            "category": "Marketing",
+            "copies": [
+                {
+                    "bookId": "B075_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B075_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Positioning: The Battle for Your Mind",
+            "year": 1981
+        },
+        {
+            "author": "Daniel Kahneman",
+            "bookCode": "B076",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B076_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B076_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Thinking, Fast and Slow",
+            "year": 2011
+        },
+        {
+            "author": "Malcolm Gladwell",
+            "bookCode": "B077",
+            "category": "Tâm lý học / Xã hội",
+            "copies": [
+                {
+                    "bookId": "B077_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B077_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Outliers",
+            "year": 2008
+        },
+        {
+            "author": "Charles Duhigg",
+            "bookCode": "B078",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B078_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B078_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Power of Habit",
+            "year": 2012
+        },
+        {
+            "author": "James Clear",
+            "bookCode": "B079",
+            "category": "Kỹ năng sống",
+            "copies": [
+                {
+                    "bookId": "B079_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B079_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Atomic Habits",
+            "year": 2018
+        },
+        {
+            "author": "Susan Cain",
+            "bookCode": "B080",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B080_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B080_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Quiet",
+            "year": 2012
+        },
+        {
+            "author": "Robert B. Cialdini",
+            "bookCode": "B081",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B081_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B081_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Influence: The Psychology of Persuasion",
+            "year": 1984
+        },
+        {
+            "author": "Viktor E. Frankl",
+            "bookCode": "B082",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B082_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B082_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Man's Search for Meaning",
+            "year": 1946
+        },
+        {
+            "author": "Daniel Goleman",
+            "bookCode": "B083",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B083_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B083_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Emotional Intelligence",
+            "year": 1995
+        },
+        {
+            "author": "Carol S. Dweck",
+            "bookCode": "B084",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B084_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B084_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Mindset",
+            "year": 2006
+        },
+        {
+            "author": "Mihaly Csikszentmihalyi",
+            "bookCode": "B085",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B085_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B085_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Flow",
+            "year": 1990
+        },
+        {
+            "author": "Stephen R. Covey",
+            "bookCode": "B086",
+            "category": "Kỹ năng sống",
+            "copies": [
+                {
+                    "bookId": "B086_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B086_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The 7 Habits of Highly Effective People",
+            "year": 1989
+        },
+        {
+            "author": "Dale Carnegie",
+            "bookCode": "B087",
+            "category": "Kỹ năng sống",
+            "copies": [
+                {
+                    "bookId": "B087_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B087_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "How to Win Friends and Influence People",
+            "year": 1936
+        },
+        {
+            "author": "Daniel H. Pink",
+            "bookCode": "B088",
+            "category": "Tâm lý học / Quản trị",
+            "copies": [
+                {
+                    "bookId": "B088_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B088_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Drive",
+            "year": 2009
+        },
+        {
+            "author": "Malcolm Gladwell",
+            "bookCode": "B089",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B089_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B089_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Blink",
+            "year": 2005
+        },
+        {
+            "author": "Carl von Clausewitz",
+            "bookCode": "B090",
+            "category": "Triết học / Quân sự",
+            "copies": [
+                {
+                    "bookId": "B090_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B090_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "On War",
+            "year": 1832
+        },
+        {
+            "author": "Thomas Hobbes",
+            "bookCode": "B091",
+            "category": "Triết học",
+            "copies": [
+                {
+                    "bookId": "B091_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B091_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Leviathan",
+            "year": 1651
+        },
+        {
+            "author": "Niccolò Machiavelli",
+            "bookCode": "B092",
+            "category": "Triết học / Chính trị học",
+            "copies": [
+                {
+                    "bookId": "B092_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B092_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Prince",
+            "year": 1532
+        },
+        {
+            "author": "Jean-Jacques Rousseau",
+            "bookCode": "B093",
+            "category": "Triết học / Chính trị học",
+            "copies": [
+                {
+                    "bookId": "B093_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B093_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Social Contract",
+            "year": 1762
+        },
+        {
+            "author": "Immanuel Kant",
+            "bookCode": "B094",
+            "category": "Triết học",
+            "copies": [
+                {
+                    "bookId": "B094_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B094_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Critique of Pure Reason",
+            "year": 1781
+        },
+        {
+            "author": "Friedrich Nietzsche",
+            "bookCode": "B095",
+            "category": "Triết học",
+            "copies": [
+                {
+                    "bookId": "B095_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B095_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Beyond Good and Evil",
+            "year": 1886
+        },
+        {
+            "author": "Karl Marx, Friedrich Engels",
+            "bookCode": "B096",
+            "category": "Kinh tế học / Lý luận",
+            "copies": [
+                {
+                    "bookId": "B096_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B096_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "The Communist Manifesto",
+            "year": 1848
+        },
+        {
+            "author": "Richard H. Thaler, Cass R. Sunstein",
+            "bookCode": "B097",
+            "category": "Kinh tế học hành vi",
+            "copies": [
+                {
+                    "bookId": "B097_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B097_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Nudge",
+            "year": 2008
+        },
+        {
+            "author": "Dan Ariely",
+            "bookCode": "B098",
+            "category": "Kinh tế học hành vi",
+            "copies": [
+                {
+                    "bookId": "B098_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B098_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Predictably Irrational",
+            "year": 2008
+        },
+        {
+            "author": "Angela Duckworth",
+            "bookCode": "B099",
+            "category": "Tâm lý học",
+            "copies": [
+                {
+                    "bookId": "B099_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B099_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Grit",
+            "year": 2016
+        },
+        {
+            "author": "Brené Brown",
+            "bookCode": "B100",
+            "category": "Tâm lý học / Kỹ năng sống",
+            "copies": [
+                {
+                    "bookId": "B100_01",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_02",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_03",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_04",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_05",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_06",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_07",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_08",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_09",
+                    "status": "available"
+                },
+                {
+                    "bookId": "B100_10",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "Daring Greatly",
+            "year": 2012
         }
     ],
     "fines": [
