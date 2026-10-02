@@ -318,7 +318,18 @@ string LoanService::calculateDueDate(
     }
     return d.toString();
 }
-
+BorrowResult LoanService::borrowBook(
+    const string& memberId,
+    const string& bookCode,
+    const string& borrowDateStr
+) {
+    return borrowBook(
+        memberId,
+        bookCode,
+        borrowDateStr,
+        ""
+    );
+}
 BorrowResult LoanService::borrowBook(
     const string& memberId,
     const string& bookCode,
