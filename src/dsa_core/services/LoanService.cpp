@@ -178,8 +178,8 @@ ReturnReceipt LoanService::returnBook(
              BorrowResult borrowResult = borrowBook(nextReservation->memberId, book->bookCode, returnDate.toString());
              if (borrowResult.isSuccess) {
                  reservationService.serve(nextReservation->reservationId);
-                  receipt.message = "Tra sach thanh cong. "
-                      "Da tu dong cap sach cho thanh vien "
+                  receipt.message = "Trả sách thành công. "
+                      "Đã tự dộng cấp sách cho thành viên "
                        + nextReservation->memberId
                        + ". Loan_ID: "
                        + borrowResult.loan.loanId;
@@ -209,14 +209,14 @@ ReturnReceipt LoanService::returnBook(
         // Nếu trả trễ thì thêm lý do trễ
         if (receipt.lateDays > 0) {
             fine.reason =
-                "Tre " +
+                "Trễ " +
                 to_string(receipt.lateDays) +
-                " ngay. ";
+                " Ngày. ";
         }
         // Nếu có phí theo tình trạng sách thì ghi rõ tình trạng.
         if (receipt.damageFee > 0) {
             fine.reason +=
-                "Tinh trang: " + quality;
+                "Tình trạng: " + quality;
         }
 
         // Ban đầu tiền phạt chưa thanh toán
@@ -241,7 +241,7 @@ ReturnReceipt LoanService::returnBook(
     // =================================================
     receipt.isSuccess=true;
     if(receipt.message.empty()){
-        receipt.message="Xu ly tra sach thanh cong.";
+        receipt.message="Xử lí trả sách thành công.";
     }
     return receipt; 
 
