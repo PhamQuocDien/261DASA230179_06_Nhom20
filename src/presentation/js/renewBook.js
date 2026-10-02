@@ -17,10 +17,11 @@ function escapeHtml(value) {
 export function initRenewBook() {
     const button = document.querySelector("#btnRenewBook");
     const input = document.querySelector("#renewLoanId");
+    const passwordInput = document.querySelector("#renewPassword");
     const resultBox = document.querySelector("#renewBookResult");
 
     // Kiểm tra giao diện
-    if (!button || !input || !resultBox) {
+    if (!button || !input || !passwordInput || !resultBox) {
         console.warn("RenewBook: Không tìm thấy giao diện gia hạn.");
         return;
     }
@@ -33,13 +34,14 @@ export function initRenewBook() {
 
     const handleRenew = async () => {
         const loanId = input.value.trim();
+        const password = passwordInput.value;
 
         // Kiểm tra input
-        if (!loanId) {
+        if (!loanId || !password) {
             resultBox.innerHTML = `
-                <p style="color: red;">
-                    Vui lòng nhập Loan_ID.
-                </p>
+                <div class="alert alert-error">
+                    Vui lòng nhập Loan_ID và mật khẩu thành viên.
+                </div>
             `;
             input.focus();
             return;
@@ -47,24 +49,30 @@ export function initRenewBook() {
 
         // Khóa nút trong lúc xử lý
         button.disabled = true;
-        resultBox.innerHTML = `<p>Đang xử lý...</p>`;
+        resultBox.innerHTML = `
+            <div class="loading-state">
+                <span class="loading-spinner"></span>
+                <p>Đang xử lý...</p>
+            </div>
+        `;
 
         try {
             const response = await sendApiRequest({
                 action: "renewBook",
-                loanId: loanId
+                loanId: loanId,
+                password: password
             });
 
             // API trả về lỗi
             if (!response.success) {
                 resultBox.innerHTML = `
-                    <p style="color: red;">
+                    <div class="alert alert-error">
                         ${escapeHtml(
                             response.error ||
                             response.message ||
                             "Không thể gia hạn."
                         )}
-                    </p>
+                    </div>
                 `;
                 return;
             }
@@ -73,46 +81,36 @@ export function initRenewBook() {
             const data = response.data || {};
 
             resultBox.innerHTML = `
-                <div style="
-                    padding: 15px;
-                    border: 1px solid #4ade80;
-                    border-radius: 8px;
-                    background: rgba(34, 197, 94, 0.1);
-                ">
-                    <p style="
-                        color: #4ade80;
-                        margin-top: 0;
-                    ">
-                        <b>${escapeHtml(response.message)}</b>
-                    </p>
+                <div class="alert alert-success">
+                    <p class="alert-title">${escapeHtml(response.message)}</p>
 
-                    <p style="margin-bottom: 5px;">
-                        <b>Loan_ID:</b>
+                    <p class="alert-line">
+                        <strong>Loan_ID:</strong>
                         ${escapeHtml(data.loanId)}
                     </p>
 
-                    <p style="margin-bottom: 5px;">
-                        <b>Member_ID:</b>
+                    <p class="alert-line">
+                        <strong>Member_ID:</strong>
                         ${escapeHtml(data.memberId)}
                     </p>
 
-                    <p style="margin-bottom: 5px;">
-                        <b>Book_ID:</b>
+                    <p class="alert-line">
+                        <strong>Book_ID:</strong>
                         ${escapeHtml(data.bookId)}
                     </p>
 
-                    <p style="margin-bottom: 5px;">
-                        <b>Ngày mượn:</b>
+                    <p class="alert-line">
+                        <strong>Ngày mượn:</strong>
                         ${escapeHtml(data.borrowDate)}
                     </p>
 
-                    <p style="margin-bottom: 5px;">
-                        <b>Hạn trả mới:</b>
+                    <p class="alert-line">
+                        <strong>Hạn trả mới:</strong>
                         ${escapeHtml(data.dueDate)}
                     </p>
 
-                    <p style="margin-bottom: 0;">
-                        <b>Số lần gia hạn:</b>
+                    <p class="alert-line">
+                        <strong>Số lần gia hạn:</strong>
                         ${escapeHtml(data.renewalCount)}
                     </p>
                 </div>
@@ -120,12 +118,13 @@ export function initRenewBook() {
 
             // Xóa ô input sau khi thành công
             input.value = "";
+            passwordInput.value = "";
         } catch (error) {
             console.error("RenewBook error:", error);
             resultBox.innerHTML = `
-                <p style="color: red;">
+                <div class="alert alert-error">
                     Không thể kết nối đến hệ thống.
-                </p>
+                </div>
             `;
         } finally {
             button.disabled = false;
@@ -137,6 +136,13 @@ export function initRenewBook() {
 
     // Nhấn Enter trong ô input
     input.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            handleRenew();
+        }
+    });
+
+    // Nhấn Enter trong ô mật khẩu
+    passwordInput.addEventListener("keydown", event => {
         if (event.key === "Enter") {
             handleRenew();
         }

@@ -599,6 +599,7 @@
             "memberId": "M001",
             "name": "Trương Quang Minh",
             "phone": "0336352833",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -606,6 +607,7 @@
             "memberId": "M002",
             "name": "Pham Khanh Hung",
             "phone": "0100000090",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -613,6 +615,7 @@
             "memberId": "M003",
             "name": "Nguyen Huu Luan",
             "phone": "0100000092",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -620,6 +623,7 @@
             "memberId": "M004",
             "name": "Phan Thị Thanh Trúc",
             "phone": "0374509268",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -627,6 +631,7 @@
             "memberId": "M005",
             "name": "dsa234",
             "phone": "0987654321",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -634,6 +639,7 @@
             "memberId": "M006",
             "name": "Phạm Quốc Điền",
             "phone": "0336324622",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -641,6 +647,7 @@
             "memberId": "M007",
             "name": "Phan Thị Thanh Trúc",
             "phone": "0327859835",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -648,6 +655,7 @@
             "memberId": "M008",
             "name": "Trương Hoàng Phúc",
             "phone": "0987084501",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -655,6 +663,7 @@
             "memberId": "M009",
             "name": "Nguyễn Tấn Sang",
             "phone": "0987044501",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -662,6 +671,7 @@
             "memberId": "M010",
             "name": "Phan Thị Thanh Trúc",
             "phone": "0133345674",
+            "password": "123456",
             "status": "ACTIVE"
         },
         {
@@ -669,6 +679,7 @@
             "memberId": "M011",
             "name": "Phạm Nguyễn Gia Bảo",
             "phone": "0392310487",
+            "password": "123456",
             "status": "ACTIVE"
         }
     ],

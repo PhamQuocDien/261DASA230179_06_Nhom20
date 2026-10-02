@@ -34,6 +34,8 @@ async function callReservationApi(request) {
                             "application/json"
                     },
 
+                    credentials: "include",
+
                     body: JSON.stringify(request)
                 }
             );
@@ -337,6 +339,12 @@ export function initReservation() {
         );
 
 
+    const reservationPassword =
+        document.getElementById(
+            "reservationPassword"
+        );
+
+
     const btnReservation =
         document.getElementById(
             "btnReservation"
@@ -380,6 +388,7 @@ export function initReservation() {
     if (
         !reservationMemberId ||
         !reservationBookId ||
+        !reservationPassword ||
         !btnReservation ||
         !reservationResult ||
         !reservationLookupBookId ||
@@ -410,6 +419,10 @@ export function initReservation() {
 
             const bookCode =
                 reservationBookId.value.trim();
+
+
+            const password =
+                reservationPassword.value;
 
 
             // -----------------------------
@@ -444,6 +457,24 @@ export function initReservation() {
             }
 
 
+            // -----------------------------
+            // KIEM TRA MAT KHAU
+            // -----------------------------
+
+            if (!password) {
+
+                reservationResult.innerHTML = `
+                    <p>
+                        Vui long nhap mat khau thanh vien.
+                    </p>
+                `;
+
+                reservationPassword.focus();
+
+                return;
+            }
+
+
             reservationResult.innerHTML = `
                 <p>
                     Dang xu ly...
@@ -465,7 +496,10 @@ export function initReservation() {
                             memberId,
 
                         bookCode:
-                            bookCode
+                            bookCode,
+
+                        password:
+                            password
                     }
                 );
 
@@ -490,6 +524,9 @@ export function initReservation() {
                     "";
 
                 reservationBookId.value =
+                    "";
+
+                reservationPassword.value =
                     "";
 
 

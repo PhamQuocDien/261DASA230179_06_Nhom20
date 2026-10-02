@@ -44,6 +44,29 @@ const API_URL =
 
 
 // =====================================
+// AN MAT KHAU KHI LOG
+// =====================================
+
+function toSafeLogData(requestData) {
+
+    if (
+        !requestData ||
+        typeof requestData !== "object"
+    ) {
+        return requestData;
+    }
+
+    const safeData = { ...requestData };
+
+    if (safeData.password !== undefined) {
+        safeData.password = "********";
+    }
+
+    return safeData;
+}
+
+
+// =====================================
 // GUI REQUEST DEN API
 // =====================================
 
@@ -52,13 +75,14 @@ export async function sendApiRequest(
 ) {
     try {
 
+        // Khong ghi mat khau ra console.
         console.log(
             "=== API REQUEST ==="
         );
 
         console.log(
             "Request:",
-            requestData
+            toSafeLogData(requestData)
         );
 
         console.log(
@@ -77,6 +101,10 @@ export async function sendApiRequest(
                         "Content-Type":
                             "application/json"
                     },
+
+                    // Gui kem session de backend
+                    // nhan dung trang thai dang nhap.
+                    credentials: "include",
 
                     body:
                         JSON.stringify(

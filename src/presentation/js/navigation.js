@@ -1,6 +1,10 @@
 import { sendApiRequest } from "./api.js";
+// Chi luu trong booc cho UI trong phien hien tai.
+// Backend moi la noi quyet dinh quyen quan ly (session PHP),
+// nen khong luong adminAuthenticated vao sessionStorage.
+let adminAuthenticated = false;
 function isAdminAuthenticated() {
-    return sessionStorage.getItem("adminAuthenticated") === "true";
+    return adminAuthenticated;
 }
 function showAdminLogin() {
     const modal = document.querySelector("#adminLoginModal");
@@ -68,7 +72,7 @@ async function loginAdmin() {
         adminPassword.focus();
         return false;
     }
-    sessionStorage.setItem("adminAuthenticated", "true");
+    adminAuthenticated = true;
     console.log("Dang nhap quan ly thanh cong.");
     hideAdminLogin();
     showBookManagement();
@@ -342,127 +346,94 @@ function renderTrendingBooks(trendingBooks) {
 
     if (!Array.isArray(trendingBooks) || trendingBooks.length === 0) {
         trendingBooksList.innerHTML = `
-            <p class="empty-message">Chưa có dữ liệu sách đang được quan tâm.</p>
+            <div class="empty-state">
+                <p class="empty-state-title">Chưa có sách đang được quan tâm.</p>
+                <p class="empty-state-desc">Hệ thống chưa ghi nhận đầu sách nào có tỷ lệ bản đang mượn vượt quá một nửa.</p>
+            </div>
         `;
         return;
     }
 
-    trendingBooksList.innerHTML = trendingBooks.map((book, index) => {
-        const totalCopies = Number(book.totalCopies) || 0;
-        const borrowedCopies = Number(book.borrowedCopies) || 0;
-        const interestScore = Number(book.interestScore) || 0;
+    trendingBooksList.innerHTML = `
+        <div class="trending-books-grid">
+            ${trendingBooks.map((book, index) => {
+                const totalCopies = Number(book.totalCopies) || 0;
+                const borrowedCopies = Number(book.borrowedCopies) || 0;
 
-        return `
-            <div style="
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 12px;
-                padding: 14px 16px;
-                margin-bottom: 10px;
-                border-radius: 10px;
-                background: rgba(23, 32, 51, 0.6);
-                border: 1px solid rgba(75, 98, 138, 0.4);
-            ">
-                <div>
-                    <h4 style="
-                        margin: 0;
-                        color: #dce6f7;
-                        font-size: 16px;
-                        font-weight: 700;
-                    ">${escapeHomeBookValue(book.title)}</h4>
+                return `
+            <article class="trending-book-card">
+                <span class="trending-book-rank">#${index + 1}</span>
+                <span class="trending-book-badge">Đang được quan tâm</span>
 
-                    <p style="
-                        margin: 5px 0 0;
-                        color: #9aa8c0;
-                        font-size: 13px;
-                    ">${escapeHomeBookValue(book.author)}</p>
-
-                    <p style="
-                        margin: 3px 0 0;
-                        color: #64748b;
-                        font-size: 12px;
-                    ">Mã sách: ${escapeHomeBookValue(book.bookCode)}</p>
+                <div class="trending-book-body">
+                    <h4 class="trending-book-title">${escapeHomeBookValue(book.title)}</h4>
+                    <p class="trending-book-author">${escapeHomeBookValue(book.author)}</p>
+                    <p class="trending-book-code">Mã sách: ${escapeHomeBookValue(book.bookCode)}</p>
                 </div>
 
-                <div style="
-                    display: flex;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    gap: 16px;
-                    color: #9aa8c0;
-                    font-size: 13px;
-                ">
-                    <span>Tổng số lượng: <strong style="color: #dce6f7;">${totalCopies}</strong></span>
-                    <span>Đang được mượn: <strong style="color: #dce6f7;">${borrowedCopies}</strong></span>
-                    <span>Độ quan tâm: <strong style="color: #60a5fa;">${interestScore}%</strong></span>
-                    <span style="
-                        display: inline-block;
-                        padding: 4px 8px;
-                        border-radius: 8px;
-                        background: rgba(59, 130, 246, 0.15);
-                        color: #bfdbfe;
-                        border: 1px solid rgba(96, 165, 250, 0.3);
-                        font-weight: 700;
-                    ">#${index + 1}</span>
+                <div class="trending-book-stats">
+                    <div class="trending-book-stat">
+                        <span class="trending-book-stat-label">Đang được mượn</span>
+                        <strong class="trending-book-stat-value">${borrowedCopies}</strong>
+                    </div>
+                    <div class="trending-book-stat">
+                        <span class="trending-book-stat-label">Tổng số bản</span>
+                        <strong class="trending-book-stat-value">${totalCopies}</strong>
+                    </div>
                 </div>
-            </div>
+            </article>
         `;
-    }).join("");
+            }).join("")}
+        </div>
+    `;
 }
 
 async function loadTrendingBooks() {
-    try {
-        console.log("=== LOADING TRENDING BOOKS ===");
+    const container = document.querySelector("#trendingBooksList");
 
-        const result = await sendApiRequest({ action: "getBooks" });
+    if (container) {
+        container.innerHTML = `
+            <div class="loading-state">
+                <span class="loading-spinner"></span>
+                <p>Đang tải danh sách sách đang được quan tâm...</p>
+            </div>
+        `;
+    }
+
+    try {
+        // Backend C++ quyet dinh nghiep vu "dang duoc quan tam".
+        // Frontend chi nhan ket qua va render.
+        const result = await sendApiRequest({ action: "getTrendingBooks" });
 
         if (!result || !result.success) {
-            console.error("Không thể tải danh sách sách:", result?.error);
-            const container = document.querySelector("#trendingBooksList");
+            console.error("Khong the tai sach dang duoc quan tam:", result?.error);
             if (container) {
-                container.innerHTML = `<p class="empty-message">Lỗi: ${result?.error || "Không rõ"}</p>`;
+                container.innerHTML = `
+                    <div class="error-state">
+                        <p class="error-state-title">Không thể tải dữ liệu sách đang được quan tâm.</p>
+                        <p class="error-state-desc">${escapeHomeBookValue(result?.error || "Không thể kết nối máy chủ.")}</p>
+                    </div>
+                `;
             }
             return;
         }
 
         if (!Array.isArray(result.data)) {
-            console.error("Dữ liệu sách trả về không hợp lệ.");
+            console.error("Du lieu sach dang duoc quan tam tra ve khong hop le.");
             renderTrendingBooks([]);
             return;
         }
 
-        const trendingBooks = result.data
-            .map(book => {
-                const copies = Array.isArray(book.copies) ? book.copies : [];
-                const totalCopies = copies.length;
-                const borrowedCopies = copies.filter(copy =>
-                    String(copy.status || "").toLowerCase() === "borrowed"
-                ).length;
-
-                const interestScore = totalCopies > 0
-                    ? Math.round((borrowedCopies / totalCopies) * 100)
-                    : 0;
-
-                return {
-                    ...book,
-                    totalCopies,
-                    borrowedCopies,
-                    interestScore
-                };
-            })
-            .filter(book => book.interestScore >= 50)
-            .sort((a, b) => b.interestScore - a.interestScore)
-            .slice(0, 12);
-
-        console.log("Trending books after filter:", trendingBooks);
-        renderTrendingBooks(trendingBooks);
+        renderTrendingBooks(result.data);
     } catch (error) {
-        console.error("Lỗi khi loadTrendingBooks:", error);
-        const container = document.querySelector("#trendingBooksList");
+        console.error("Loi khi loadTrendingBooks:", error);
         if (container) {
-            container.innerHTML = `<p class="empty-message">Lỗi khi tải dữ liệu sách đang được quan tâm.</p>`;
+            container.innerHTML = `
+                <div class="error-state">
+                    <p class="error-state-title">Không thể kết nối máy chủ.</p>
+                    <p class="error-state-desc">Vui lòng thử lại sau.</p>
+                </div>
+            `;
         }
     }
 }

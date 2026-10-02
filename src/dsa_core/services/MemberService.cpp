@@ -26,6 +26,11 @@ bool MemberService::addMember(
     if (member.phone.empty()) {
         return false;
     }
+    // Mat khau la bat buoc de xac thuc cac nghiep vu
+    // muon sach / dang ky cho / gia han.
+    if (member.password.empty()) {
+        return false;
+    }
 
     // =================================
     // TỰ SINH MEMBER_ID
@@ -107,6 +112,75 @@ Member* MemberService::getMemberById(
     }
     // Gọi Repository để tìm thành viên
     return repository.findById(memberId);
+}
+
+
+// =====================================
+// XÁC THỰC MEMBER_ID + MẬT KHẨU
+// =====================================
+
+MemberService::AuthResult MemberService::authenticate(
+    const string& memberId,
+    const string& password
+) const {
+
+    AuthResult result;
+    result.isSuccess = false;
+
+    if (memberId.empty()) {
+
+        result.message =
+            "Thieu Member_ID.";
+
+        return result;
+    }
+
+
+    if (password.empty()) {
+
+        result.message =
+            "Vui long nhap mat khau thanh vien.";
+
+        return result;
+    }
+
+
+    const Member* member =
+        repository.findById(memberId);
+
+    if (member == nullptr) {
+
+        result.message =
+            "Member_ID khong ton tai.";
+
+        return result;
+    }
+
+
+    // Member cu chua duoc gan mat khau
+    // -> khong cho phep thao tac.
+    if (member->password.empty()) {
+
+        result.message =
+            "Thanh vien chua duoc dat mat khau.";
+
+        return result;
+    }
+
+
+    if (member->password != password) {
+
+        result.message =
+            "Mat khau khong dung.";
+
+        return result;
+    }
+
+
+    result.isSuccess = true;
+    result.message = "Xac thuc thanh vien thanh cong.";
+
+    return result;
 }
 
 

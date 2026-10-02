@@ -11,6 +11,14 @@
 
 class MemberService {
 
+public:
+
+    // Ket qua xac thuc mat khau thanh vien.
+    struct AuthResult {
+        bool isSuccess;
+        string message;
+    };
+
 private:
 
     MemberRepository& repository;
@@ -31,6 +39,14 @@ public:
     Member* getMemberById(
         const std::string& memberId
     );
+
+    // Xac thuc Member_ID + mat khau.
+    // Moi nghiep vu co the thao tac duoc yeu cau mat khau
+    // deu phai di qua ham nay.
+    AuthResult authenticate(
+        const std::string& memberId,
+        const std::string& password
+    ) const;
 
     bool updateMember(
         const Member& member

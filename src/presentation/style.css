@@ -8,6 +8,25 @@ html {
 }
 
 :root {
+    /* =====================================
+       DESIGN SYSTEM
+       ===================================== */
+    --primary: #2563eb;
+    --primary-hover: #3b82f6;
+    --background: #040811;
+    --surface: rgba(13, 20, 36, 0.92);
+    --surface-hover: rgba(18, 28, 48, 0.94);
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: rgba(148, 163, 184, 0.18);
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    --radius: 12px;
+    --font-sans: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
     --bg-main: #040811;
     --bg-secondary: #0a1122;
     --bg-tertiary: #0e172a;
@@ -44,10 +63,35 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12), transparent 25%), radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.1), transparent 25%), radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.08), transparent 30%), var(--bg-main);
-    color: var(--text-main);
+    font-family: var(--font-sans);
+    background: radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12), transparent 25%), radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.1), transparent 25%), radial-gradient(circle at 50% 90%, rgba(6, 182, 212, 0.08), transparent 30%), var(--background);
+    color: var(--text);
     line-height: 1.6;
+}
+
+/* ===================================== */
+/* TYPOGRAPHY */
+/* ===================================== */
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #475569;
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary-hover);
+    outline-offset: 2px;
 }
 
 button, input, select {
@@ -120,10 +164,43 @@ button {
     gap: 6px;
 }
 
+/* ===================================== */
+/* HEADER BRAND */
+/* ===================================== */
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    border: 1px solid rgba(147, 197, 253, 0.35);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.header-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .header h1 {
     margin: 0;
     text-align: left;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
     letter-spacing: 0.5px;
     background: linear-gradient(90deg, #ffffff, #eff6ff, #bfdbfe);
@@ -179,7 +256,17 @@ button {
 .sidebar-menu {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
+}
+
+.sidebar-group-label {
+    margin: 14px 0 4px;
+    padding: 0 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
 }
 
 .sidebar-item {
@@ -1427,6 +1514,294 @@ tbody tr {
     margin: 8px 0;
     color: #cbd5e1;
     font-size: 13px;
+}
+
+/* ===================================== */
+/* DESIGN SYSTEM - COMPONENT */
+/* ===================================== */
+
+.form-hint {
+    margin: 2px 0 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/* ---------- ALERT ---------- */
+
+.alert {
+    padding: 16px 18px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.alert p {
+    margin: 0 0 6px;
+}
+
+.alert p:last-child {
+    margin-bottom: 0;
+}
+
+.alert-title {
+    font-weight: 800;
+}
+
+.alert-success {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(74, 222, 128, 0.35);
+    color: #bbf7d0;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(248, 113, 113, 0.35);
+    color: #fecaca;
+}
+
+.alert-warning {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: rgba(251, 191, 36, 0.35);
+    color: #fde68a;
+}
+
+.alert-info {
+    background: rgba(37, 99, 235, 0.12);
+    border-color: rgba(96, 165, 250, 0.35);
+    color: #bfdbfe;
+}
+
+/* ---------- LOADING ---------- */
+
+.loading-state {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 22px 18px;
+    border-radius: var(--radius);
+    background: rgba(5, 9, 18, 0.6);
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.loading-state p {
+    margin: 0;
+}
+
+.loading-spinner {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(96, 165, 250, 0.25);
+    border-top-color: var(--primary-hover);
+    animation: loadingSpin 0.8s linear infinite;
+}
+
+@keyframes loadingSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- EMPTY / ERROR STATE ---------- */
+
+.empty-state,
+.error-state {
+    padding: 32px 24px;
+    text-align: center;
+    border-radius: var(--radius);
+    border: 1px dashed var(--border-color);
+    background: rgba(5, 9, 18, 0.55);
+}
+
+.error-state {
+    border-style: solid;
+    border-color: rgba(248, 113, 113, 0.3);
+    background: rgba(239, 68, 68, 0.08);
+}
+
+.empty-state p,
+.error-state p {
+    margin: 0;
+}
+
+.empty-state-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-secondary, #cbd5e1);
+}
+
+.error-state-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fecaca;
+}
+
+.empty-state-desc,
+.error-state-desc {
+    margin-top: 6px !important;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ---------- TABLE ---------- */
+
+.book-list table,
+.search-book-result table,
+.search-year-result table,
+.reservation-queue-result table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 560px;
+}
+
+.book-list th,
+.search-book-result th,
+.search-year-result th,
+.reservation-queue-result th {
+    text-align: left;
+    padding: 12px 14px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #bfdbfe;
+    background: rgba(37, 99, 235, 0.14);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.book-list td,
+.search-book-result td,
+.search-year-result td,
+.reservation-queue-result td {
+    padding: 12px 14px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.book-list tbody tr:hover,
+.search-book-result tbody tr:hover,
+.search-year-result tbody tr:hover,
+.reservation-queue-result tbody tr:hover {
+    background: rgba(59, 130, 246, 0.08);
+}
+
+/* ---------- TRENDING BOOK CARD ---------- */
+
+.trending-books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.trending-book-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.trending-book-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: var(--shadow);
+}
+
+.trending-book-rank {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.16);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.trending-book-badge {
+    align-self: flex-start;
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.14);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+.trending-book-body {
+    min-height: 74px;
+}
+
+.trending-book-title {
+    margin: 0 0 6px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.trending-book-author {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary, #cbd5e1);
+}
+
+.trending-book-code {
+    margin: 4px 0 0;
+    font-size: 12px;
+    font-family: Consolas, "Courier New", monospace;
+    color: var(--text-muted);
+}
+
+.trending-book-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.trending-book-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.trending-book-stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.trending-book-stat-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #dbeafe;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 600px) {
+
+    .trending-books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trending-book-stats {
+        grid-template-columns: 1fr;
+    }
 }
 
 .trending-card-info strong {

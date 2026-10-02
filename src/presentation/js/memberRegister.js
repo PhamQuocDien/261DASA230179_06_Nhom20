@@ -25,14 +25,15 @@ export function initMemberRegister() {
         const name = document.querySelector("#memberName")?.value.trim() ?? "";
         const email = document.querySelector("#memberEmail")?.value.trim() ?? "";
         const phone = document.querySelector("#memberPhone")?.value.trim() ?? "";
+        const password = document.querySelector("#memberPassword")?.value ?? "";
 
         result.style.display = "none";
         result.innerHTML = "";
         message.textContent = "";
         message.className = "member-register-message";
 
-        if (!name || !email || !phone) {
-            message.textContent = "Vui lòng nhập đầy đủ họ tên, email và số điện thoại.";
+        if (!name || !email || !phone || !password) {
+            message.textContent = "Vui lòng nhập đầy đủ họ tên, email, số điện thoại và mật khẩu.";
             message.className = "member-register-message error";
             return;
         }
@@ -52,7 +53,8 @@ export function initMemberRegister() {
                 action: "registerMember",
                 name,
                 email,
-                phone
+                phone,
+                password
             });
 
             if (!response || !response.success) {
@@ -73,6 +75,7 @@ export function initMemberRegister() {
                 <p><strong>Email:</strong> ${escapeHtml(member.email)}</p>
                 <p><strong>Số điện thoại:</strong> ${escapeHtml(member.phone)}</p>
                 <p><strong>Trạng thái:</strong> ${escapeHtml(member.status)}</p>
+                <p class="form-hint">Hãy lưu Member_ID và mật khẩu để mượn sách, đăng ký chờ và gia hạn.</p>
             `;
             result.style.display = "block";
 

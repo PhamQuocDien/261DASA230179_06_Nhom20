@@ -11,6 +11,7 @@ namespace JsonMapper {
     nlohmann::json bookToJson(const Book& book);
     Book bookFromJson(const nlohmann::json& j);
     nlohmann::json memberToJson(const Member& member);
+    nlohmann::json memberToPublicJson(const Member& member);
     Member memberFromJson(const nlohmann::json& j);
     nlohmann::json loanToJson(const Loan& loan);
     Loan loanFromJson(const nlohmann::json& j);

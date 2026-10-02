@@ -1,12 +1,68 @@
 <?php
 declare(strict_types=1);
 
+// =====================================
+// SESSION COOKIE HARDENING
+//
+// PHPSESSID chua quyen quan ly nen phai
+// dat HttpOnly + SameSite de giam rui ro
+// bi XSS doc session hoac CSRF.
+// Secure chi bat khi dang chay tren HTTPS
+// (Render), nen local http van dung.
+// =====================================
+
+$isHttps =
+    (!empty($_SERVER['HTTPS']) &&
+        $_SERVER['HTTPS'] !== 'off') ||
+    (($_SERVER['SERVER_PORT'] ?? '') === '443');
+
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path'     => '/',
+    'domain'   => '',
+    'secure'   => $isHttps,
+    'httponly' => true,
+    'samesite' => 'Lax'
+]);
+
 session_start();
 
+// =====================================
+// CORS + SESSION
+//
+// Render phuc vu ca frontend (/presentation)
+// va api.php (/api) tren mot domain nen
+// cung mot origin:
+// https://thuvienmini.onrender.com
+//
+// Khong echo HTTP_ORIGIN tu do.
+// Chi origin trong allowlist duoc phep,
+// va chi khi do moi bat Allow-Credentials
+// de session quan ly hoat dong.
+// =====================================
+
+$requestOrigin = trim($_SERVER['HTTP_ORIGIN'] ?? '');
+
+// Response nay phu thuoc Origin nen luon phai "Vary: Origin",
+// ke ca khi Origin bi tu choi. Neu chi gui Vary cho origin hop le,
+// mot shared cache/proxy co the luu ban tra loi cua mot request
+// (hoac cua request khong co Origin) roi tra lai cho origin khac,
+// gay sai lech giua cac origin.
+header('Vary: Origin');
+
+if ($requestOrigin !== '' &&
+    isAllowedOrigin($requestOrigin)) {
+
+    // Chi echo origin khi nam trong allowlist,
+    // khong bao gio "*" khi bat Allow-Credentials.
+    header('Access-Control-Allow-Origin: ' . $requestOrigin);
+    header('Access-Control-Allow-Credentials: true');
+}
+
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Max-Age: 86400');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -46,6 +102,10 @@ if ($action === 'registerMember') {
         $request['phone'] ?? ''
     );
 
+    $password = trim(
+        $request['password'] ?? ''
+    );
+
     if ($name === '') {
         sendResponse(
             false,
@@ -70,9 +130,18 @@ if ($action === 'registerMember') {
         );
     }
 
+    if ($password === '') {
+        sendResponse(
+            false,
+            null,
+            'Vui long nhap mat khau thanh vien.'
+        );
+    }
+
     $request['name'] = $name;
     $request['email'] = $email;
     $request['phone'] = $phone;
+    $request['password'] = $password;
 }
 
 $adminActions = [
@@ -192,6 +261,46 @@ if (!$syncResult['success']) {
 sendRawJson(
     $cppResponse['json']
 );
+
+
+// =====================================
+// ALLOWED ORIGIN
+// =====================================
+
+function isAllowedOrigin(string $origin): bool
+{
+    $origin = rtrim($origin, '/');
+
+    // 1. Frontend cung domain voi backend tren Render.
+    if (strcasecmp(
+        $origin,
+        'https://thuvienmini.onrender.com'
+    ) === 0) {
+        return true;
+    }
+
+    // 2. Frontend trien khai rieng (vd GitHub Pages).
+    //    Khai bao them tren Render bang env ALLOWED_ORIGINS,
+    //    nhieu origin tach nhau bang dau phay:
+    //    https://<account>.github.io,https://<ten>.onrender.com
+    $extraOrigins = getenv('ALLOWED_ORIGINS');
+
+    if ($extraOrigins !== false &&
+        trim($extraOrigins) !== '') {
+
+        foreach (explode(',', $extraOrigins) as $extraOrigin) {
+
+            $extraOrigin = rtrim(trim($extraOrigin), '/');
+
+            if ($extraOrigin !== '' &&
+                strcasecmp($origin, $extraOrigin) === 0) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
 
 
 // =====================================

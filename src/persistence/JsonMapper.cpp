@@ -87,6 +87,21 @@ namespace JsonMapper
         j["name"] = member.name;
         j["email"] = member.email;
         j["phone"] = member.phone;
+        j["password"] = member.password;
+        j["status"] = member.status;
+
+        return j;
+    }
+
+
+    json memberToPublicJson(const Member& member)
+    {
+        json j;
+
+        j["memberId"] = member.memberId;
+        j["name"] = member.name;
+        j["email"] = member.email;
+        j["phone"] = member.phone;
         j["status"] = member.status;
 
         return j;
@@ -108,6 +123,11 @@ namespace JsonMapper
 
         if (j.contains("phone"))
             member.phone = j["phone"];
+
+        // Member duoc tao truoc khi co truong password
+        // -> de trong de tuong thich du.
+        if (j.contains("password"))
+            member.password = j["password"];
 
         if (j.contains("status"))
             member.status = j["status"];

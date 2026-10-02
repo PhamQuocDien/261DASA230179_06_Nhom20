@@ -9,15 +9,16 @@
     </div>
 
 
-    <nav class="sidebar-menu">
+    <nav class="sidebar-menu" aria-label="Chức năng chính">
 
         <button type="button"
                 id="menuAllBooks"
-                class="sidebar-item">
+                class="sidebar-item"
+                aria-current="page">
             Trang chủ
         </button>
 
-         <button type="button"
+        <button type="button"
                 id="menuMemberRegister"
                 class="sidebar-item">
             Đăng ký thành viên
@@ -29,6 +30,11 @@
                 style="display: none;">
             Quản lý sách
         </button>
+
+        <span class="sidebar-group-label">
+            Tra cứu
+        </span>
+
         <button type="button"
                 id="menuSearchBook"
                 class="sidebar-item">
@@ -42,12 +48,17 @@
             Tìm kiếm sách theo năm xuất bản
         </button>
 
+
+        <span class="sidebar-group-label">
+            Nghiệp vụ mượn
+        </span>
+
         <button type="button"
                 id="menuBorrowBook"
                 class="sidebar-item">
             Mượn sách
         </button>
-        
+
         <button type="button"
                 id="menuRenewBook"
                 class="sidebar-item">
@@ -67,6 +78,10 @@
             Trả sách
         </button>
 
+
+        <span class="sidebar-group-label">
+            Theo dõi
+        </span>
 
         <button type="button"
                 id="menuLoanSlip"

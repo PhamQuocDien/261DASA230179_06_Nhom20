@@ -641,6 +641,9 @@ if (action == "searchBookByTitle") {
         string phone =
             request.value("phone", "");
 
+        string password =
+            request.value("password", "");
+
 
         auto trim = [](string value) {
 
@@ -687,9 +690,22 @@ if (action == "searchBookByTitle") {
         }
 
 
+        if (password.empty()) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Vui long nhap mat khau thanh vien."}
+            }.dump();
+
+            return 0;
+        }
+
+
         if (name.size() > 100 ||
             email.size() > 150 ||
-            phone.size() > 30) {
+            phone.size() > 30 ||
+            password.size() > 100) {
 
             cout << json{
                 {"success", false},
@@ -782,6 +798,7 @@ if (action == "searchBookByTitle") {
         member.name = name;
         member.email = email;
         member.phone = phone;
+        member.password = password;
         member.status = "ACTIVE";
 
 
@@ -821,7 +838,7 @@ if (action == "searchBookByTitle") {
         cout << json{
             {"success", true},
             {"data",
-             JsonMapper::memberToJson(member)}
+             JsonMapper::memberToPublicJson(member)}
         }.dump(
             -1,
             ' ',
@@ -1467,6 +1484,7 @@ if (action == "searchBookByTitle") {
     
     if (action == "renewBook") {
         string loanId = request.value("loanId", "");
+        string password = request.value("password", "");
 
         if (loanId.empty()) {
             cout << json{
@@ -1474,6 +1492,41 @@ if (action == "searchBookByTitle") {
                 {"error", "Thieu loanId."}
             }.dump();
             return 1;
+        }
+
+        // =================================================
+        // XAC THUC MAT KHAU THANH VIEN
+        // =================================================
+
+        string loanMemberId = "";
+
+        for (const Loan& loan : loanRepository.getAll()) {
+            if (loan.loanId == loanId) {
+                loanMemberId = loan.memberId;
+                break;
+            }
+        }
+
+        if (loanMemberId.empty()) {
+            cout << json{
+                {"success", false},
+                {"error", "Loan_ID khong ton tai."}
+            }.dump();
+            return 0;
+        }
+
+        MemberService::AuthResult renewAuth =
+            memberService.authenticate(
+                loanMemberId,
+                password
+            );
+
+        if (!renewAuth.isSuccess) {
+            cout << json{
+                {"success", false},
+                {"error", renewAuth.message}
+            }.dump();
+            return 0;
         }
 
         RenewResult result = renewService.renewBook(loanId);
@@ -1515,6 +1568,7 @@ if (action == "searchBookByTitle") {
     if (action == "borrowBook") {
         string memberId = request.value("memberId", "");
         string bookCode = request.value("bookCode", "");
+        string password = request.value("password", "");
         string borrowDate = request.value("borrowDate", "");
 
         if (memberId.empty() || bookCode.empty()) {
@@ -1523,6 +1577,24 @@ if (action == "searchBookByTitle") {
                 {"error", "Thieu memberId hoac bookCode."}
             }.dump();
             return 1;
+        }
+
+        // =================================================
+        // XAC THUC MAT KHAU THANH VIEN
+        // =================================================
+
+        MemberService::AuthResult borrowAuth =
+            memberService.authenticate(
+                memberId,
+                password
+            );
+
+        if (!borrowAuth.isSuccess) {
+            cout << json{
+                {"success", false},
+                {"error", borrowAuth.message}
+            }.dump();
+            return 0;
         }
 
         // Neu client khong gui ngay muon thi lay ngay hien tai
@@ -2043,6 +2115,9 @@ if (action == "getReservationsByBookCode") {
         string bookCode =
             request.value("bookCode", "");
 
+        string password =
+            request.value("password", "");
+
 
         if (memberId.empty() ||
             bookCode.empty()) {
@@ -2054,6 +2129,28 @@ if (action == "getReservationsByBookCode") {
             }.dump();
 
             return 1;
+        }
+
+
+        // =================================================
+        // XAC THUC MAT KHAU THANH VIEN
+        // =================================================
+
+        MemberService::AuthResult reservationAuth =
+            memberService.authenticate(
+                memberId,
+                password
+            );
+
+        if (!reservationAuth.isSuccess) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 reservationAuth.message}
+            }.dump();
+
+            return 0;
         }
 
 
