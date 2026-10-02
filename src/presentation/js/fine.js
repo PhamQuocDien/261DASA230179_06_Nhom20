@@ -15,7 +15,7 @@ export function initFine() {
     const resultBox = document.querySelector("#fineResult");
 
     if (!button || !input || !resultBox) {
-        console.warn("Fine: khong tim thay giao dien tra cuu tien phat.");
+        console.warn("Fine: không tìm thấy giao diện tra cứu tiền phạt.");
         return;
     }
 
@@ -27,13 +27,13 @@ export function initFine() {
     const search = async () => {
         const loanId = input.value.trim();
         if (!loanId) {
-            resultBox.innerHTML = `<p style="color:red;">Vui long nhap Loan_ID.</p>`;
+            resultBox.innerHTML = `<p style="color:red;">Vui lòng nhập Loan_ID.</p>`;
             input.focus();
             return;
         }
 
         button.disabled = true;
-        resultBox.innerHTML = `<p>Dang tra cuu...</p>`;
+        resultBox.innerHTML = `<p>Đang tra cứu...</p>`;
 
         try {
             const response = await sendApiRequest({
