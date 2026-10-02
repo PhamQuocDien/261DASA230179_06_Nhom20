@@ -8,7 +8,7 @@ export function initMemberRegister() {
     const result = document.querySelector("#memberRegisterResult");
 
     if (!form || !message || !result) {
-        console.error("Khong tim thay form dang ky thanh vien.");
+        console.error("Không tìm thấy form đăng ký thành viên.");
         return false;
     }
 
@@ -92,7 +92,7 @@ export function initMemberRegister() {
         }
     });
 
-    console.log("Member register da san sang.");
+    console.log("Member Register đã sẵn sàng.");
     return true;
 }
 
