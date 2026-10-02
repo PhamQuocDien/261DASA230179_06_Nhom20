@@ -322,7 +322,7 @@ string LoanService::calculateDueDate(
 BorrowResult LoanService::borrowBook(
     const string& memberId,
     const string& bookCode,
-    const string& borrowDateStr,
+    const string& borrowDateStr
    
 ) {
     BorrowResult result;
