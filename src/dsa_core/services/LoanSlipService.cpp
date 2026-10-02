@@ -68,33 +68,26 @@ bool LoanSlipService::createLoanSlip(const Loan& loan, LoanSlip& result) const {
 }
 vector<LoanSlip> LoanSlipService::getLoanSlipsByMember(const string& memberId) const {
     vector<LoanSlip> result;
-    if (memberId.empty()) {
-        return result;
-    }
+
+    if (memberId.empty()) return result;
+
     const Member* member = findMemberById(memberId);
-    if (member == nullptr) {
-        return result;
-    }
-    const vector<string>* loanIds = memberLoanIndex.find(memberId);
-    if (loanIds == nullptr) {
-        return result;
-    }
-    for (const string& loanId : *loanIds) {
-        const Loan* loan = loanRepository.findById(loanId);
-        if (loan == nullptr) {
-            continue;
-        }
+    if (member == nullptr) return result;
+
+    const vector<Loan>& loans = loanRepository.getAll();
+
+    for (const Loan& loan : loans) {
+        if (loan.memberId != memberId) continue;
+
         LoanSlip slip;
-        if (createLoanSlip(*loan, slip)) {
-            result.push_back(slip);
-        }
+        if (createLoanSlip(loan, slip)) result.push_back(slip);
     }
+
     sort(result.begin(), result.end(), [](const LoanSlip& a, const LoanSlip& b) {
-        if (a.borrowDate != b.borrowDate) {
-            return a.borrowDate < b.borrowDate;
-        }
+        if (a.borrowDate != b.borrowDate) return a.borrowDate < b.borrowDate;
         return a.loanId < b.loanId;
-        });
+    });
+
     return result;
 }
 bool LoanSlipService::getLoanSlipByLoanId(const string& loanId, LoanSlip& result) const {
