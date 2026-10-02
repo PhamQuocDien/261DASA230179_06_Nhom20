@@ -169,7 +169,23 @@ ReturnReceipt LoanService::returnBook(
             }
         }
     }
-
+    // =================================================
+    // XỬ LÝ HÀNG CHỜ SAU KHI TRẢ SÁCH
+    // =================================================
+    if(quality!="Kem"){
+        Reservation* nextReservation = reservationService.getNextEligible(book->bookCode);
+         if (nextReservation != nullptr) {
+             BorrowResult borrowResult = borrowBook(nextReservation->memberId, book->bookCode, returnDate.toString());
+             if (borrowResult.isSuccess) {
+                 reservationService.serve(nextReservation->reservationId);
+                  receipt.message = "Tra sach thanh cong. "
+                      "Da tu dong cap sach cho thanh vien "
+                       + nextReservation->memberId
+                       + ". Loan_ID: "
+                       + borrowResult.loan.loanId;
+             }
+         }
+    }
 
     // =================================================
     // TẠO / CẬP NHẬT TIỀN PHẠT
@@ -223,11 +239,13 @@ ReturnReceipt LoanService::returnBook(
     // =================================================
     // TRẢ KẾT QUẢ
     // =================================================
+    receipt.isSuccess=true;
+    if(receipt.message.empty()){
+        receipt.message="Xu ly tra sach thanh cong.";
+    }
+    return receipt; 
 
-    receipt.isSuccess = true;
-    receipt.message =
-        "Xu ly tra sach thanh cong.";
-    return receipt;
+   
 }
 
 
@@ -305,7 +323,7 @@ BorrowResult LoanService::borrowBook(
     const string& memberId,
     const string& bookCode,
     const string& borrowDateStr,
-    MemberRepository& memberRepo
+   
 ) {
     BorrowResult result;
     result.isSuccess = false;
