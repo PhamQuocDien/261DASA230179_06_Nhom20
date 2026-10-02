@@ -23,7 +23,7 @@ export function initReturnBook() {
     const resultBox = document.querySelector("#returnBookResult");
 
     if (!button || !input || !dateInput || !qualityInput || !confirmationInput || !resultBox) {
-        console.warn("ReturnBook: khong tim thay giao dien tra sach.");
+        console.warn("ReturnBook: Không tìm thấy giao diện trả sách.");
         return;
     }
     if (button.dataset.initialized === "true") return;
@@ -38,12 +38,12 @@ export function initReturnBook() {
         const confirmationCode = confirmationInput.value.trim();
 
         if (!loanId) {
-            resultBox.innerHTML = `<p style="color:red;">Vui long nhap Loan_ID.</p>`;
+            resultBox.innerHTML = `<p style="color:red;">Vui lòng nhập Loan_ID.</p>`;
             input.focus();
             return;
         }
         if (!returnDate) {
-            resultBox.innerHTML = `<p style="color:red;">Vui long chon ngay tra.</p>`;
+            resultBox.innerHTML = `<p style="color:red;">Vui lòng chọn ngày trả.</p>`;
             return;
         }
 
@@ -60,7 +60,7 @@ export function initReturnBook() {
         }
 
         button.disabled = true;
-        resultBox.innerHTML = `<p>Dang xu ly...</p>`;
+        resultBox.innerHTML = `<p>Đang xử lý...</p>`;
 
         try {
             const response = await sendApiRequest({
@@ -72,7 +72,7 @@ export function initReturnBook() {
             });
 
             if (!response.success) {
-                resultBox.innerHTML = `<p style="color:red;">${escapeHtml(response.error || response.message || "Khong the tra sach.")}</p>`;
+                resultBox.innerHTML = `<p style="color:red;">${escapeHtml(response.error || response.message || "Không thể trả sách.")}</p>`;
                 return;
             }
 
@@ -80,19 +80,19 @@ export function initReturnBook() {
             const total = Number(data.totalFee || 0);
             resultBox.innerHTML = `
                 <div style="padding:10px;">
-                    <p style="color:green;"><b>${escapeHtml(response.message || "Tra sach thanh cong.")}</b></p>
+                    <p style="color:green;"><b>${escapeHtml(response.message || "Trả sách thành công.")}</b></p>
                     <p><b>Loan_ID:</b> ${escapeHtml(data.loanId)}</p>
-                    <p><b>So ngay tre:</b> ${Number(data.lateDays || 0)}</p>
-                    <p><b>Phi tre:</b> ${Number(data.lateFee || 0).toLocaleString("vi-VN")} VNĐ</p>
-                    <p><b>Phi hu hong:</b> ${Number(data.damageFee || 0).toLocaleString("vi-VN")} VNĐ</p>
-                    <p><b>Tong tien phat:</b> ${total.toLocaleString("vi-VN")} VNĐ</p>
+                    <p><b>Số ngày trễ:</b> ${Number(data.lateDays || 0)}</p>
+                    <p><b>Phí trễ:</b> ${Number(data.lateFee || 0).toLocaleString("vi-VN")} VNĐ</p>
+                    <p><b>Phí hư hỏng:</b> ${Number(data.damageFee || 0).toLocaleString("vi-VN")} VNĐ</p>
+                    <p><b>Tổng tiền phạt:</b> ${total.toLocaleString("vi-VN")} VNĐ</p>
                 </div>
             `;
             input.value = "";
             confirmationInput.value = "";
         } catch (error) {
             console.error(error);
-            resultBox.innerHTML = `<p style="color:red;">Khong the ket noi API.</p>`;
+            resultBox.innerHTML = `<p style="color:red;">Không thể kết nối API.</p>`;
         } finally {
             button.disabled = false;
         }
