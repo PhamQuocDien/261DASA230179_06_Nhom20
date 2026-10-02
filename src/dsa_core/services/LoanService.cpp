@@ -322,8 +322,8 @@ string LoanService::calculateDueDate(
 BorrowResult LoanService::borrowBook(
     const string& memberId,
     const string& bookCode,
-    const string& borrowDateStr
-   
+    const string& borrowDateStr,
+    const string& password
 ) {
     BorrowResult result;
     result.isSuccess = false;
