@@ -123,7 +123,7 @@
                 },
                 {
                     "bookId": "KTLT005",
-                    "status": "BORROWED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "KTLT006",
@@ -5649,6 +5649,14 @@
             "memberId": "M018",
             "reason": "Trả sách trễ 3 ngày",
             "status": "UNPAID"
+        },
+        {
+            "amount": 30000.0,
+            "fineId": "F_L0020",
+            "loanId": "L0020",
+            "memberId": "M020",
+            "reason": "Tre 3 ngay. ",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -5849,8 +5857,8 @@
             "loanId": "L0020",
             "memberId": "M020",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
+            "returnDate": "2026-10-10",
+            "status": "RETURNED"
         },
         {
             "bookId": "KTLT006",
