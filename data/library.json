@@ -4,11 +4,6 @@
             "author": "Trần Trọng Kim",
             "bookCode": "LSVN",
             "category": "Lịch sử",
-            "price": 220000.0,
-            "title": "Việt Nam sử lược",
-            "year": 1920,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "LSVN001",
@@ -50,17 +45,17 @@
                     "bookId": "LSVN010",
                     "status": "BORROWED"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 220000.0,
+            "title": "Việt Nam sử lược",
+            "year": 1920
         },
         {
             "author": "Ngô Sĩ Liên và các sử thần triều Lê",
             "bookCode": "DVSKTT",
             "category": "Lịch sử",
-            "price": 380000.0,
-            "title": "Đại Việt sử ký toàn thư",
-            "year": 1697,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "DVSKTT001",
@@ -102,17 +97,17 @@
                     "bookId": "DVSKTT010",
                     "status": "BORROWED"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 380000.0,
+            "title": "Đại Việt sử ký toàn thư",
+            "year": 1697
         },
         {
             "author": "Ngô gia văn phái",
             "bookCode": "HLNTC",
             "category": "Lịch sử",
-            "price": 145000.0,
-            "title": "Hoàng Lê nhất thống chí",
-            "year": 1782,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HLNTC001",
@@ -154,17 +149,17 @@
                     "bookId": "HLNTC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 145000.0,
+            "title": "Hoàng Lê nhất thống chí",
+            "year": 1782
         },
         {
             "author": "Quốc sử quán triều Nguyễn",
             "bookCode": "DNTH",
             "category": "Lịch sử",
-            "price": 450000.0,
-            "title": "Đại Nam thực lục",
-            "year": 1848,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DNTH001",
@@ -206,17 +201,17 @@
                     "bookId": "DNTH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 450000.0,
+            "title": "Đại Nam thực lục",
+            "year": 1848
         },
         {
             "author": "Quốc sử quán triều Nguyễn",
             "bookCode": "DNNTC",
             "category": "Lịch sử",
-            "price": 420000.0,
-            "title": "Đại Nam nhất thống chí",
-            "year": 1882,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DNNTC001",
@@ -258,17 +253,17 @@
                     "bookId": "DNNTC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 420000.0,
+            "title": "Đại Nam nhất thống chí",
+            "year": 1882
         },
         {
             "author": "Dương Quảng Hàm",
             "bookCode": "VNVHSY",
             "category": "Văn học Việt Nam",
-            "price": 180000.0,
-            "title": "Việt Nam văn học sử yếu",
-            "year": 1941,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "VNVHSY001",
@@ -310,17 +305,17 @@
                     "bookId": "VNVHSY010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 180000.0,
+            "title": "Việt Nam văn học sử yếu",
+            "year": 1941
         },
         {
             "author": "Hoài Thanh, Hoài Chân",
             "bookCode": "TNVN",
             "category": "Văn học Việt Nam",
-            "price": 180000.0,
-            "title": "Thi nhân Việt Nam",
-            "year": 1942,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TNVN001",
@@ -362,17 +357,17 @@
                     "bookId": "TNVN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 180000.0,
+            "title": "Thi nhân Việt Nam",
+            "year": 1942
         },
         {
             "author": "Phan Huy Chú",
             "bookCode": "LTHC",
             "category": "Lịch sử",
-            "price": 420000.0,
-            "title": "Lịch triều hiến chương loại chí",
-            "year": 1821,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LTHC001",
@@ -414,17 +409,17 @@
                     "bookId": "LTHC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 420000.0,
+            "title": "Lịch triều hiến chương loại chí",
+            "year": 1821
         },
         {
             "author": "Nguyễn Trãi",
             "bookCode": "DDC",
             "category": "Địa lý",
-            "price": 160000.0,
-            "title": "Dư địa chí",
-            "year": 1435,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DDC001",
@@ -466,17 +461,17 @@
                     "bookId": "DDC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 160000.0,
+            "title": "Dư địa chí",
+            "year": 1435
         },
         {
             "author": "Trịnh Hoài Đức",
             "bookCode": "GDTT",
             "category": "Lịch sử",
-            "price": 300000.0,
-            "title": "Gia Định thành thông chí",
-            "year": 1820,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "GDTT001",
@@ -518,17 +513,17 @@
                     "bookId": "GDTT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 300000.0,
+            "title": "Gia Định thành thông chí",
+            "year": 1820
         },
         {
             "author": "Nguyễn Du",
             "bookCode": "TK",
             "category": "Văn học Việt Nam",
-            "price": 160000.0,
-            "title": "Truyện Kiều",
-            "year": 1820,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TK001",
@@ -570,17 +565,17 @@
                     "bookId": "TK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 160000.0,
+            "title": "Truyện Kiều",
+            "year": 1820
         },
         {
             "author": "Nguyễn Đình Chiểu",
             "bookCode": "LVT",
             "category": "Văn học Việt Nam",
-            "price": 130000.0,
-            "title": "Lục Vân Tiên",
-            "year": 1855,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "LVT001",
@@ -622,17 +617,17 @@
                     "bookId": "LVT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 130000.0,
+            "title": "Lục Vân Tiên",
+            "year": 1855
         },
         {
             "author": "Đặng Trần Côn, Đoàn Thị Điểm",
             "bookCode": "CPN",
             "category": "Văn học Việt Nam",
-            "price": 130000.0,
-            "title": "Chinh phụ ngâm",
-            "year": 1741,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CPN001",
@@ -674,17 +669,17 @@
                     "bookId": "CPN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 130000.0,
+            "title": "Chinh phụ ngâm",
+            "year": 1741
         },
         {
             "author": "Nguyễn Gia Thiều",
             "bookCode": "CONK",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Cung oán ngâm khúc",
-            "year": 1783,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CONK001",
@@ -726,17 +721,17 @@
                     "bookId": "CONK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Cung oán ngâm khúc",
+            "year": 1783
         },
         {
             "author": "Hồ Xuân Hương",
             "bookCode": "THXH",
             "category": "Thơ",
-            "price": 150000.0,
-            "title": "Thơ Hồ Xuân Hương",
-            "year": 1800,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "THXH001",
@@ -778,17 +773,17 @@
                     "bookId": "THXH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 150000.0,
+            "title": "Thơ Hồ Xuân Hương",
+            "year": 1800
         },
         {
             "author": "Hồ Chí Minh",
             "bookCode": "NKTT",
             "category": "Thơ",
-            "price": 95000.0,
-            "title": "Nhật ký trong tù",
-            "year": 1943,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "NKTT001",
@@ -830,17 +825,17 @@
                     "bookId": "NKTT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 95000.0,
+            "title": "Nhật ký trong tù",
+            "year": 1943
         },
         {
             "author": "Tố Hữu",
             "bookCode": "TA",
             "category": "Thơ",
-            "price": 90000.0,
-            "title": "Từ ấy",
-            "year": 1938,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TA001",
@@ -882,17 +877,17 @@
                     "bookId": "TA010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 90000.0,
+            "title": "Từ ấy",
+            "year": 1938
         },
         {
             "author": "Tố Hữu",
             "bookCode": "VB",
             "category": "Thơ",
-            "price": 95000.0,
-            "title": "Việt Bắc",
-            "year": 1954,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "VB001",
@@ -934,17 +929,17 @@
                     "bookId": "VB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 95000.0,
+            "title": "Việt Bắc",
+            "year": 1954
         },
         {
             "author": "Nguyễn Khoa Điềm",
             "bookCode": "MDKV",
             "category": "Thơ",
-            "price": 110000.0,
-            "title": "Mặt đường khát vọng",
-            "year": 1971,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MDKV001",
@@ -986,17 +981,17 @@
                     "bookId": "MDKV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Mặt đường khát vọng",
+            "year": 1971
         },
         {
             "author": "Xuân Diệu",
             "bookCode": "TXD",
             "category": "Thơ",
-            "price": 120000.0,
-            "title": "Thơ Xuân Diệu",
-            "year": 1938,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TXD001",
@@ -1038,17 +1033,17 @@
                     "bookId": "TXD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Thơ Xuân Diệu",
+            "year": 1938
         },
         {
             "author": "Nguyễn Bính",
             "bookCode": "TNB",
             "category": "Thơ",
-            "price": 120000.0,
-            "title": "Thơ Nguyễn Bính",
-            "year": 1940,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TNB001",
@@ -1090,17 +1085,17 @@
                     "bookId": "TNB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Thơ Nguyễn Bính",
+            "year": 1940
         },
         {
             "author": "Nguyễn Tuân",
             "bookCode": "VBMT",
             "category": "Văn học Việt Nam",
-            "price": 140000.0,
-            "title": "Vang bóng một thời",
-            "year": 1940,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "VBMT001",
@@ -1142,17 +1137,17 @@
                     "bookId": "VBMT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 140000.0,
+            "title": "Vang bóng một thời",
+            "year": 1940
         },
         {
             "author": "Phạm Đình Hổ",
             "bookCode": "CCPCT",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Chuyện cũ trong phủ chúa Trịnh",
-            "year": 1820,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CCPCT001",
@@ -1194,17 +1189,17 @@
                     "bookId": "CCPCT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Chuyện cũ trong phủ chúa Trịnh",
+            "year": 1820
         },
         {
             "author": "Thạch Lam",
             "bookCode": "HN36P",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Hà Nội băm sáu phố phường",
-            "year": 1943,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HN36P001",
@@ -1246,17 +1241,17 @@
                     "bookId": "HN36P010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Hà Nội băm sáu phố phường",
+            "year": 1943
         },
         {
             "author": "Vũ Trọng Phụng",
             "bookCode": "SĐ",
             "category": "Văn học Việt Nam",
-            "price": 125000.0,
-            "title": "Số đỏ",
-            "year": 1936,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "SĐ001",
@@ -1298,17 +1293,17 @@
                     "bookId": "SĐ010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 125000.0,
+            "title": "Số đỏ",
+            "year": 1936
         },
         {
             "author": "Vũ Trọng Phụng",
             "bookCode": "GT",
             "category": "Văn học Việt Nam",
-            "price": 130000.0,
-            "title": "Giông tố",
-            "year": 1936,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "GT001",
@@ -1350,17 +1345,17 @@
                     "bookId": "GT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 130000.0,
+            "title": "Giông tố",
+            "year": 1936
         },
         {
             "author": "Vũ Trọng Phụng",
             "bookCode": "VD",
             "category": "Văn học Việt Nam",
-            "price": 125000.0,
-            "title": "Vỡ đê",
-            "year": 1936,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "VD001",
@@ -1402,17 +1397,17 @@
                     "bookId": "VD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 125000.0,
+            "title": "Vỡ đê",
+            "year": 1936
         },
         {
             "author": "Vũ Trọng Phụng",
             "bookCode": "LD",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Làm đĩ",
-            "year": 1936,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LD001",
@@ -1454,17 +1449,17 @@
                     "bookId": "LD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Làm đĩ",
+            "year": 1936
         },
         {
             "author": "Ngô Tất Tố",
             "bookCode": "TD",
             "category": "Văn học Việt Nam",
-            "price": 115000.0,
-            "title": "Tắt đèn",
-            "year": 1939,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TD001",
@@ -1506,17 +1501,17 @@
                     "bookId": "TD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 115000.0,
+            "title": "Tắt đèn",
+            "year": 1939
         },
         {
             "author": "Ngô Tất Tố",
             "bookCode": "LC",
             "category": "Văn học Việt Nam",
-            "price": 115000.0,
-            "title": "Lều chõng",
-            "year": 1939,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LC001",
@@ -1558,17 +1553,17 @@
                     "bookId": "LC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 115000.0,
+            "title": "Lều chõng",
+            "year": 1939
         },
         {
             "author": "Nam Cao",
             "bookCode": "CP",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Chí Phèo",
-            "year": 1941,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "CP001",
@@ -1610,17 +1605,17 @@
                     "bookId": "CP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Chí Phèo",
+            "year": 1941
         },
         {
             "author": "Nam Cao",
             "bookCode": "SM",
             "category": "Văn học Việt Nam",
-            "price": 135000.0,
-            "title": "Sống mòn",
-            "year": 1956,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "SM001",
@@ -1662,17 +1657,17 @@
                     "bookId": "SM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 135000.0,
+            "title": "Sống mòn",
+            "year": 1956
         },
         {
             "author": "Nam Cao",
             "bookCode": "DT",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Đời thừa",
-            "year": 1943,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DT001",
@@ -1714,17 +1709,17 @@
                     "bookId": "DT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Đời thừa",
+            "year": 1943
         },
         {
             "author": "Nam Cao",
             "bookCode": "LH",
             "category": "Văn học Việt Nam",
-            "price": 100000.0,
-            "title": "Lão Hạc",
-            "year": 1943,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "LH001",
@@ -1766,17 +1761,17 @@
                     "bookId": "LH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Lão Hạc",
+            "year": 1943
         },
         {
             "author": "Tô Hoài",
             "bookCode": "DMPLK",
             "category": "Văn học thiếu nhi",
-            "price": 120000.0,
-            "title": "Dế Mèn phiêu lưu ký",
-            "year": 1941,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "DMPLK001",
@@ -1818,17 +1813,17 @@
                     "bookId": "DMPLK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Dế Mèn phiêu lưu ký",
+            "year": 1941
         },
         {
             "author": "Tô Hoài",
             "bookCode": "OC",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "O chuột",
-            "year": 1942,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "OC001",
@@ -1870,17 +1865,17 @@
                     "bookId": "OC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "O chuột",
+            "year": 1942
         },
         {
             "author": "Tô Hoài",
             "bookCode": "VCAP",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Vợ chồng A Phủ",
-            "year": 1952,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "VCAP001",
@@ -1922,17 +1917,17 @@
                     "bookId": "VCAP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Vợ chồng A Phủ",
+            "year": 1952
         },
         {
             "author": "Tô Hoài",
             "bookCode": "CBCA",
             "category": "Hồi ký",
-            "price": 150000.0,
-            "title": "Cát bụi chân ai",
-            "year": 1992,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CBCA001",
@@ -1974,17 +1969,17 @@
                     "bookId": "CBCA010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 150000.0,
+            "title": "Cát bụi chân ai",
+            "year": 1992
         },
         {
             "author": "Hồ Biểu Chánh",
             "bookCode": "NCGD",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Những ngọn cỏ gió đùa",
-            "year": 1926,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NCGD001",
@@ -2026,17 +2021,17 @@
                     "bookId": "NCGD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Những ngọn cỏ gió đùa",
+            "year": 1926
         },
         {
             "author": "Kim Lân",
             "bookCode": "VN",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Vợ nhặt",
-            "year": 1962,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "VN001",
@@ -2078,17 +2073,17 @@
                     "bookId": "VN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Vợ nhặt",
+            "year": 1962
         },
         {
             "author": "Kim Lân",
             "bookCode": "CDXX",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Con chó xấu xí",
-            "year": 1962,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CDXX001",
@@ -2130,17 +2125,17 @@
                     "bookId": "CDXX010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Con chó xấu xí",
+            "year": 1962
         },
         {
             "author": "Kim Lân",
             "bookCode": "LANG",
             "category": "Văn học Việt Nam",
-            "price": 100000.0,
-            "title": "Làng",
-            "year": 1948,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LANG001",
@@ -2182,17 +2177,17 @@
                     "bookId": "LANG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Làng",
+            "year": 1948
         },
         {
             "author": "Nguyễn Trung Thành",
             "bookCode": "RXN",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Rừng xà nu",
-            "year": 1965,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "RXN001",
@@ -2234,17 +2229,17 @@
                     "bookId": "RXN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Rừng xà nu",
+            "year": 1965
         },
         {
             "author": "Đoàn Giỏi",
             "bookCode": "DRPN",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Đất rừng phương Nam",
-            "year": 1957,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "DRPN001",
@@ -2286,17 +2281,17 @@
                     "bookId": "DRPN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Đất rừng phương Nam",
+            "year": 1957
         },
         {
             "author": "Nguyễn Thi",
             "bookCode": "NDCGT",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Những đứa con trong gia đình",
-            "year": 1966,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NDCGT001",
@@ -2338,17 +2333,17 @@
                     "bookId": "NDCGT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Những đứa con trong gia đình",
+            "year": 1966
         },
         {
             "author": "Nguyễn Quang Sáng",
             "bookCode": "CLN",
             "category": "Văn học Việt Nam",
-            "price": 100000.0,
-            "title": "Chiếc lược ngà",
-            "year": 1966,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "CLN001",
@@ -2390,17 +2385,17 @@
                     "bookId": "CLN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Chiếc lược ngà",
+            "year": 1966
         },
         {
             "author": "Ma Văn Kháng",
             "bookCode": "MLRTV",
             "category": "Văn học Việt Nam",
-            "price": 145000.0,
-            "title": "Mùa lá rụng trong vườn",
-            "year": 1985,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "MLRTV001",
@@ -2442,17 +2437,17 @@
                     "bookId": "MLRTV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 145000.0,
+            "title": "Mùa lá rụng trong vườn",
+            "year": 1985
         },
         {
             "author": "Nguyễn Minh Châu",
             "bookCode": "BQ",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Bến quê",
-            "year": 1985,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "BQ001",
@@ -2494,17 +2489,17 @@
                     "bookId": "BQ010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Bến quê",
+            "year": 1985
         },
         {
             "author": "Nguyễn Minh Châu",
             "bookCode": "CTX",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Chiếc thuyền ngoài xa",
-            "year": 1983,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CTX001",
@@ -2546,17 +2541,17 @@
                     "bookId": "CTX010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Chiếc thuyền ngoài xa",
+            "year": 1983
         },
         {
             "author": "Bảo Ninh",
             "bookCode": "NBC",
             "category": "Văn học Việt Nam",
-            "price": 160000.0,
-            "title": "Nỗi buồn chiến tranh",
-            "year": 1990,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "NBC001",
@@ -2598,17 +2593,17 @@
                     "bookId": "NBC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 160000.0,
+            "title": "Nỗi buồn chiến tranh",
+            "year": 1990
         },
         {
             "author": "Lê Lựu",
             "bookCode": "TXV",
             "category": "Văn học Việt Nam",
-            "price": 145000.0,
-            "title": "Thời xa vắng",
-            "year": 1986,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TXV001",
@@ -2650,17 +2645,17 @@
                     "bookId": "TXV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 145000.0,
+            "title": "Thời xa vắng",
+            "year": 1986
         },
         {
             "author": "Nguyễn Khắc Trường",
             "bookCode": "MDLM",
             "category": "Văn học Việt Nam",
-            "price": 165000.0,
-            "title": "Mảnh đất lắm người nhiều ma",
-            "year": 1990,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MDLM001",
@@ -2702,17 +2697,17 @@
                     "bookId": "MDLM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 165000.0,
+            "title": "Mảnh đất lắm người nhiều ma",
+            "year": 1990
         },
         {
             "author": "Nguyễn Minh Châu",
             "bookCode": "PCG",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Phiên chợ Giát",
-            "year": 1989,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "PCG001",
@@ -2754,17 +2749,17 @@
                     "bookId": "PCG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Phiên chợ Giát",
+            "year": 1989
         },
         {
             "author": "Nguyễn Xuân Khánh",
             "bookCode": "MTN",
             "category": "Văn học Việt Nam",
-            "price": 185000.0,
-            "title": "Mẫu Thượng Ngàn",
-            "year": 2006,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MTN001",
@@ -2806,17 +2801,17 @@
                     "bookId": "MTN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 185000.0,
+            "title": "Mẫu Thượng Ngàn",
+            "year": 2006
         },
         {
             "author": "Nguyễn Xuân Khánh",
             "bookCode": "HQL",
             "category": "Văn học Việt Nam",
-            "price": 185000.0,
-            "title": "Hồ Quý Ly",
-            "year": 2000,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HQL001",
@@ -2858,17 +2853,17 @@
                     "bookId": "HQL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 185000.0,
+            "title": "Hồ Quý Ly",
+            "year": 2000
         },
         {
             "author": "Đỗ Hoàng Diệu",
             "bookCode": "BD",
             "category": "Văn học Việt Nam",
-            "price": 130000.0,
-            "title": "Bóng đè",
-            "year": 2005,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "BD001",
@@ -2910,17 +2905,17 @@
                     "bookId": "BD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 130000.0,
+            "title": "Bóng đè",
+            "year": 2005
         },
         {
             "author": "Nguyễn Minh Châu",
             "bookCode": "NDB",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Người đàn bà trên chuyến tàu tốc hành",
-            "year": 1983,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NDB001",
@@ -2962,17 +2957,17 @@
                     "bookId": "NDB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Người đàn bà trên chuyến tàu tốc hành",
+            "year": 1983
         },
         {
             "author": "Nguyễn Huy Thiệp",
             "bookCode": "TVH",
             "category": "Văn học Việt Nam",
-            "price": 125000.0,
-            "title": "Tướng về hưu",
-            "year": 1987,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TVH001",
@@ -3014,17 +3009,17 @@
                     "bookId": "TVH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 125000.0,
+            "title": "Tướng về hưu",
+            "year": 1987
         },
         {
             "author": "Nguyễn Khải",
             "bookCode": "MLMD",
             "category": "Văn học Việt Nam",
-            "price": 140000.0,
-            "title": "Mười lẻ một đêm",
-            "year": 2006,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MLMD001",
@@ -3066,17 +3061,17 @@
                     "bookId": "MLMD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 140000.0,
+            "title": "Mười lẻ một đêm",
+            "year": 2006
         },
         {
             "author": "Nguyên Hồng",
             "bookCode": "NNTA",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Những ngày thơ ấu",
-            "year": 1938,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NNTA001",
@@ -3118,17 +3113,17 @@
                     "bookId": "NNTA010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Những ngày thơ ấu",
+            "year": 1938
         },
         {
             "author": "Nguyên Hồng",
             "bookCode": "BV",
             "category": "Văn học Việt Nam",
-            "price": 125000.0,
-            "title": "Bỉ vỏ",
-            "year": 1938,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "BV001",
@@ -3170,17 +3165,17 @@
                     "bookId": "BV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 125000.0,
+            "title": "Bỉ vỏ",
+            "year": 1938
         },
         {
             "author": "Thạch Lam",
             "bookCode": "GLDM",
             "category": "Văn học Việt Nam",
-            "price": 105000.0,
-            "title": "Gió lạnh đầu mùa",
-            "year": 1937,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "GLDM001",
@@ -3222,17 +3217,17 @@
                     "bookId": "GLDM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Gió lạnh đầu mùa",
+            "year": 1937
         },
         {
             "author": "Thạch Lam",
             "bookCode": "HDT",
             "category": "Văn học Việt Nam",
-            "price": 100000.0,
-            "title": "Hai đứa trẻ",
-            "year": 1938,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HDT001",
@@ -3274,17 +3269,17 @@
                     "bookId": "HDT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Hai đứa trẻ",
+            "year": 1938
         },
         {
             "author": "Khái Hưng",
             "bookCode": "NCX",
             "category": "Văn học Việt Nam",
-            "price": 115000.0,
-            "title": "Nửa chừng xuân",
-            "year": 1934,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NCX001",
@@ -3326,17 +3321,17 @@
                     "bookId": "NCX010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 115000.0,
+            "title": "Nửa chừng xuân",
+            "year": 1934
         },
         {
             "author": "Nhất Linh",
             "bookCode": "DTUYET",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Đoạn tuyệt",
-            "year": 1935,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DTUYET001",
@@ -3378,17 +3373,17 @@
                     "bookId": "DTUYET010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Đoạn tuyệt",
+            "year": 1935
         },
         {
             "author": "Hoàng Ngọc Phách",
             "bookCode": "TT",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Tố Tâm",
-            "year": 1925,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TT001",
@@ -3430,17 +3425,17 @@
                     "bookId": "TT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Tố Tâm",
+            "year": 1925
         },
         {
             "author": "Võ Quảng",
             "bookCode": "QN",
             "category": "Văn học thiếu nhi",
-            "price": 105000.0,
-            "title": "Quê nội",
-            "year": 1970,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "QN001",
@@ -3482,17 +3477,17 @@
                     "bookId": "QN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Quê nội",
+            "year": 1970
         },
         {
             "author": "Phùng Quán",
             "bookCode": "TTDD",
             "category": "Văn học thiếu nhi",
-            "price": 150000.0,
-            "title": "Tuổi thơ dữ dội",
-            "year": 1988,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TTDD001",
@@ -3534,17 +3529,17 @@
                     "bookId": "TTDD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 150000.0,
+            "title": "Tuổi thơ dữ dội",
+            "year": 1988
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "CBRR",
             "category": "Văn học thiếu nhi",
-            "price": 105000.0,
-            "title": "Chú bé rắc rối",
-            "year": 1989,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CBRR001",
@@ -3586,17 +3581,17 @@
                     "bookId": "CBRR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Chú bé rắc rối",
+            "year": 1989
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "MB",
             "category": "Văn học Việt Nam",
-            "price": 138000.0,
-            "title": "Mắt biếc",
-            "year": 1990,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "MB001",
@@ -3638,17 +3633,17 @@
                     "bookId": "MB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 138000.0,
+            "title": "Mắt biếc",
+            "year": 1990
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "THVTCX",
             "category": "Văn học thiếu nhi",
-            "price": 125000.0,
-            "title": "Tôi thấy hoa vàng trên cỏ xanh",
-            "year": 2010,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "THVTCX001",
@@ -3690,17 +3685,17 @@
                     "bookId": "THVTCX010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 125000.0,
+            "title": "Tôi thấy hoa vàng trên cỏ xanh",
+            "year": 2010
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "CTMV",
             "category": "Văn học thiếu nhi",
-            "price": 90000.0,
-            "title": "Cho tôi xin một vé đi tuổi thơ",
-            "year": 2008,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "CTMV001",
@@ -3742,17 +3737,17 @@
                     "bookId": "CTMV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 90000.0,
+            "title": "Cho tôi xin một vé đi tuổi thơ",
+            "year": 2008
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "CGDTHQ",
             "category": "Văn học thiếu nhi",
-            "price": 95000.0,
-            "title": "Cô gái đến từ hôm qua",
-            "year": 1989,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CGDTHQ001",
@@ -3794,17 +3789,17 @@
                     "bookId": "CGDTHQ010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 95000.0,
+            "title": "Cô gái đến từ hôm qua",
+            "year": 1989
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "NXC1CT",
             "category": "Văn học Việt Nam",
-            "price": 120000.0,
-            "title": "Ngày xưa có một chuyện tình",
-            "year": 2016,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NXC1CT001",
@@ -3846,17 +3841,17 @@
                     "bookId": "NXC1CT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Ngày xưa có một chuyện tình",
+            "year": 2016
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "NKTC",
             "category": "Văn học Việt Nam",
-            "price": 110000.0,
-            "title": "Ngồi khóc trên cây",
-            "year": 2013,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NKTC001",
@@ -3898,17 +3893,17 @@
                     "bookId": "NKTC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Ngồi khóc trên cây",
+            "year": 2013
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "B7TMH",
             "category": "Văn học thiếu nhi",
-            "price": 105000.0,
-            "title": "Bảy bước tới mùa hè",
-            "year": 2015,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "B7TMH001",
@@ -3950,17 +3945,17 @@
                     "bookId": "B7TMH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 105000.0,
+            "title": "Bảy bước tới mùa hè",
+            "year": 2015
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "TLB",
             "category": "Văn học thiếu nhi",
-            "price": 100000.0,
-            "title": "Tôi là Bêtô",
-            "year": 2007,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TLB001",
@@ -4002,17 +3997,17 @@
                     "bookId": "TLB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Tôi là Bêtô",
+            "year": 2007
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "KVH",
             "category": "Văn học thiếu nhi",
-            "price": 130000.0,
-            "title": "Kính vạn hoa",
-            "year": 1995,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "KVH001",
@@ -4054,17 +4049,17 @@
                     "bookId": "KVH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 130000.0,
+            "title": "Kính vạn hoa",
+            "year": 1995
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "DQHC",
             "category": "Văn học Việt Nam",
-            "price": 100000.0,
-            "title": "Đi qua hoa cúc",
-            "year": 1991,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DQHC001",
@@ -4106,17 +4101,17 @@
                     "bookId": "DQHC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Đi qua hoa cúc",
+            "year": 1991
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "HD",
             "category": "Văn học Việt Nam",
-            "price": 100000.0,
-            "title": "Hạ đỏ",
-            "year": 1991,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HD001",
@@ -4158,17 +4153,17 @@
                     "bookId": "HD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 100000.0,
+            "title": "Hạ đỏ",
+            "year": 1991
         },
         {
             "author": "Nguyễn Nhật Ánh",
             "bookCode": "CCGNR",
             "category": "Văn học Việt Nam",
-            "price": 95000.0,
-            "title": "Còn chút gì để nhớ",
-            "year": 1988,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CCGNR001",
@@ -4210,17 +4205,17 @@
                     "bookId": "CCGNR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 95000.0,
+            "title": "Còn chút gì để nhớ",
+            "year": 1988
         },
         {
             "author": "Nguyễn Duy Cần",
             "bookCode": "TTH",
             "category": "Kỹ năng sống",
-            "price": 140000.0,
-            "title": "Tôi tự học",
-            "year": 1959,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TTH001",
@@ -4262,17 +4257,17 @@
                     "bookId": "TTH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 140000.0,
+            "title": "Tôi tự học",
+            "year": 1959
         },
         {
             "author": "Nguyễn Duy Cần",
             "bookCode": "TXXNX",
             "category": "Kỹ năng sống",
-            "price": 135000.0,
-            "title": "Thuật xử thế của người xưa",
-            "year": 1957,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TXXNX001",
@@ -4314,17 +4309,17 @@
                     "bookId": "TXXNX010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 135000.0,
+            "title": "Thuật xử thế của người xưa",
+            "year": 1957
         },
         {
             "author": "Minh Niệm",
             "bookCode": "HVTT",
             "category": "Kỹ năng sống",
-            "price": 150000.0,
-            "title": "Hiểu về trái tim",
-            "year": 2011,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HVTT001",
@@ -4366,17 +4361,17 @@
                     "bookId": "HVTT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 150000.0,
+            "title": "Hiểu về trái tim",
+            "year": 2011
         },
         {
             "author": "Rosie Nguyễn",
             "bookCode": "TTDGBN",
             "category": "Kỹ năng sống",
-            "price": 120000.0,
-            "title": "Tuổi trẻ đáng giá bao nhiêu?",
-            "year": 2016,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TTDGBN001",
@@ -4418,17 +4413,17 @@
                     "bookId": "TTDGBN010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 120000.0,
+            "title": "Tuổi trẻ đáng giá bao nhiêu?",
+            "year": 2016
         },
         {
             "author": "Tony Buổi Sáng",
             "bookCode": "TDB",
             "category": "Kỹ năng sống",
-            "price": 110000.0,
-            "title": "Trên đường băng",
-            "year": 2015,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TDB001",
@@ -4470,17 +4465,17 @@
                     "bookId": "TDB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Trên đường băng",
+            "year": 2015
         },
         {
             "author": "Tony Buổi Sáng",
             "bookCode": "CCT",
             "category": "Kỹ năng sống",
-            "price": 110000.0,
-            "title": "Cà phê cùng Tony",
-            "year": 2014,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "CCT001",
@@ -4522,17 +4517,17 @@
                     "bookId": "CCT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 110000.0,
+            "title": "Cà phê cùng Tony",
+            "year": 2014
         },
         {
             "author": "Phan Văn Trường",
             "bookCode": "MDNTD",
             "category": "Kỹ năng sống",
-            "price": 145000.0,
-            "title": "Một đời như kẻ tìm đường",
-            "year": 2020,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MDNTD001",
@@ -4574,17 +4569,17 @@
                     "bookId": "MDNTD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 145000.0,
+            "title": "Một đời như kẻ tìm đường",
+            "year": 2020
         },
         {
             "author": "Nguyễn Minh Châu",
             "bookCode": "CLAU",
             "category": "Văn học Việt Nam",
-            "price": 115000.0,
-            "title": "Cỏ lau",
-            "year": 1989,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CLAU001",
@@ -4626,17 +4621,17 @@
                     "bookId": "CLAU010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 115000.0,
+            "title": "Cỏ lau",
+            "year": 1989
         },
         {
             "author": "Dương Hướng",
             "bookCode": "BKCH",
             "category": "Văn học Việt Nam",
-            "price": 150000.0,
-            "title": "Bến không chồng",
-            "year": 1990,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "BKCH001",
@@ -4678,17 +4673,17 @@
                     "bookId": "BKCH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 150000.0,
+            "title": "Bến không chồng",
+            "year": 1990
         },
         {
             "author": "Nguyễn Đình Trí, Tạ Văn Đĩnh, Nguyễn Hồ Quỳnh",
             "bookCode": "BTCC1",
             "category": "Toán học",
-            "price": 370000.0,
-            "title": "Bài tập toán cao cấp T1",
-            "year": 2006,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "BTCC1001",
@@ -4730,17 +4725,17 @@
                     "bookId": "BTCC1010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 370000.0,
+            "title": "Bài tập toán cao cấp T1",
+            "year": 2006
         },
         {
             "author": "Nguyễn Đình Trí, Tạ Văn Đĩnh, Nguyễn Hồ Quỳnh",
             "bookCode": "BTCC2",
             "category": "Toán học",
-            "price": 390000.0,
-            "title": "Bài tập toán cao cấp T2",
-            "year": 2007,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "BTCC2001",
@@ -4782,17 +4777,17 @@
                     "bookId": "BTCC2010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 390000.0,
+            "title": "Bài tập toán cao cấp T2",
+            "year": 2007
         },
         {
             "author": "Nguyễn Đình Trí",
             "bookCode": "TCC",
             "category": "Toán học",
-            "price": 260000.0,
-            "title": "Toán học cao cấp T1",
-            "year": 2013,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TCC001",
@@ -4834,17 +4829,17 @@
                     "bookId": "TCC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 260000.0,
+            "title": "Toán học cao cấp T1",
+            "year": 2013
         },
         {
             "author": "Nguyễn Cao Văn, Trần Thái Ninh",
             "bookCode": "XSTK",
             "category": "Toán học",
-            "price": 240000.0,
-            "title": "Xác suất thống kê",
-            "year": 2015,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "XSTK001",
@@ -4886,17 +4881,17 @@
                     "bookId": "XSTK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 240000.0,
+            "title": "Xác suất thống kê",
+            "year": 2015
         },
         {
             "author": "Lương Duyên Bình",
             "bookCode": "VL",
             "category": "Vật lý",
-            "price": 250000.0,
-            "title": "Vật lý đại cương T1",
-            "year": 2000,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "VL001",
@@ -4938,17 +4933,17 @@
                     "bookId": "VL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 250000.0,
+            "title": "Vật lý đại cương T1",
+            "year": 2000
         },
         {
             "author": "Lương Duyên Bình",
             "bookCode": "VL2",
             "category": "Vật lý",
-            "price": 260000.0,
-            "title": "Vật lý đại cương T2",
-            "year": 2005,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "VL2001",
@@ -4990,17 +4985,17 @@
                     "bookId": "VL2010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 260000.0,
+            "title": "Vật lý đại cương T2",
+            "year": 2005
         },
         {
             "author": "Nguyễn Đình Chi, Trần Thành Huế",
             "bookCode": "HDC",
             "category": "Hóa học",
-            "price": 260000.0,
-            "title": "Hóa học đại cương",
-            "year": 2009,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "HDC001",
@@ -5042,17 +5037,17 @@
                     "bookId": "HDC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 260000.0,
+            "title": "Hóa học đại cương",
+            "year": 2009
         },
         {
             "author": "Phạm Văn Ất",
             "bookCode": "KTLT",
             "category": "Lập trình",
-            "price": 150000.0,
-            "title": "Kỹ thuật lập trình C",
-            "year": 1999,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "KTLT001",
@@ -5094,17 +5089,17 @@
                     "bookId": "KTLT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 150000.0,
+            "title": "Kỹ thuật lập trình C",
+            "year": 1999
         },
         {
             "author": "Trần Đan Thư, Nguyễn Thanh Phương, Đinh Bá Tiến, Trần Minh Triết",
             "bookCode": "NMLT",
             "category": "Lập trình",
-            "price": 160000.0,
-            "title": "Nhập môn lập trình",
-            "year": 2021,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "NMLT001",
@@ -5146,17 +5141,17 @@
                     "bookId": "NMLT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 160000.0,
+            "title": "Nhập môn lập trình",
+            "year": 2021
         },
         {
             "author": "Nguyễn Đức Nghĩa, Nguyễn Tấn Trần Minh Khang",
             "bookCode": "CTDLGT",
             "category": "Lập trình",
-            "price": 220000.0,
-            "title": "Cấu trúc dữ liệu và giải thuật",
-            "year": 2009,
-            "origin": "Viet Nam",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "CTDLGT001",
@@ -5198,17 +5193,17 @@
                     "bookId": "CTDLGT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Viet Nam",
+            "price": 220000.0,
+            "title": "Cấu trúc dữ liệu và giải thuật",
+            "year": 2009
         },
         {
             "author": "Nguyễn Tuệ",
             "bookCode": "CSDL",
             "category": "Công nghệ thông tin",
-            "price": 220000.0,
-            "title": "Cơ sở dữ liệu",
-            "year": 2008,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CSDL001",
@@ -5250,17 +5245,17 @@
                     "bookId": "CSDL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 220000.0,
+            "title": "Cơ sở dữ liệu",
+            "year": 2008
         },
         {
             "author": "Nguyễn Thanh Thúy",
             "bookCode": "TTNT",
             "category": "Công nghệ thông tin",
-            "price": 240000.0,
-            "title": "Trí tuệ nhân tạo",
-            "year": 1999,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TTNT001",
@@ -5302,17 +5297,17 @@
                     "bookId": "TTNT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 240000.0,
+            "title": "Trí tuệ nhân tạo",
+            "year": 1999
         },
         {
             "author": "Nguyễn Thúc Hải",
             "bookCode": "MMT",
             "category": "Công nghệ thông tin",
-            "price": 250000.0,
-            "title": "Mạng máy tính",
-            "year": 2006,
-            "origin": "Viet Nam",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "MMT001",
@@ -5354,17 +5349,17 @@
                     "bookId": "MMT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Viet Nam",
+            "price": 250000.0,
+            "title": "Mạng máy tính",
+            "year": 2006
         },
         {
             "author": "Bộ Giáo dục và Đào tạo",
             "bookCode": "LSD",
             "category": "Lịch sử",
-            "price": 200000.0,
-            "title": "Giáo trình Lịch sử Đảng Cộng sản Việt Nam",
-            "year": 2021,
-            "origin": "Viet Nam",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LSD001",
@@ -5406,17 +5401,17 @@
                     "bookId": "LSD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Viet Nam",
+            "price": 200000.0,
+            "title": "Giáo trình Lịch sử Đảng Cộng sản Việt Nam",
+            "year": 2021
         },
         {
             "author": "George Orwell",
             "bookCode": "N1984",
             "category": "Văn học nước ngoài",
-            "price": 180000.0,
-            "title": "1984",
-            "year": 1949,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "N1984001",
@@ -5458,17 +5453,17 @@
                     "bookId": "N1984010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 180000.0,
+            "title": "1984",
+            "year": 1949
         },
         {
             "author": "George Orwell",
             "bookCode": "ANF",
             "category": "Văn học nước ngoài",
-            "price": 150000.0,
-            "title": "Animal Farm",
-            "year": 1945,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "ANF001",
@@ -5510,17 +5505,17 @@
                     "bookId": "ANF010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 150000.0,
+            "title": "Animal Farm",
+            "year": 1945
         },
         {
             "author": "F. Scott Fitzgerald",
             "bookCode": "TGG",
             "category": "Văn học nước ngoài",
-            "price": 170000.0,
-            "title": "The Great Gatsby",
-            "year": 1925,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TGG001",
@@ -5562,17 +5557,17 @@
                     "bookId": "TGG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 170000.0,
+            "title": "The Great Gatsby",
+            "year": 1925
         },
         {
             "author": "Jane Austen",
             "bookCode": "PNP",
             "category": "Văn học nước ngoài",
-            "price": 170000.0,
-            "title": "Pride and Prejudice",
-            "year": 1813,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "PNP001",
@@ -5614,17 +5609,17 @@
                     "bookId": "PNP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 170000.0,
+            "title": "Pride and Prejudice",
+            "year": 1813
         },
         {
             "author": "Harper Lee",
             "bookCode": "TKAM",
             "category": "Văn học nước ngoài",
-            "price": 190000.0,
-            "title": "To Kill a Mockingbird",
-            "year": 1960,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TKAM001",
@@ -5666,17 +5661,17 @@
                     "bookId": "TKAM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 190000.0,
+            "title": "To Kill a Mockingbird",
+            "year": 1960
         },
         {
             "author": "J. D. Salinger",
             "bookCode": "TCIR",
             "category": "Văn học nước ngoài",
-            "price": 175000.0,
-            "title": "The Catcher in the Rye",
-            "year": 1951,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TCIR001",
@@ -5718,17 +5713,17 @@
                     "bookId": "TCIR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 175000.0,
+            "title": "The Catcher in the Rye",
+            "year": 1951
         },
         {
             "author": "Aldous Huxley",
             "bookCode": "BNW",
             "category": "Văn học nước ngoài",
-            "price": 185000.0,
-            "title": "Brave New World",
-            "year": 1932,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "BNW001",
@@ -5770,17 +5765,17 @@
                     "bookId": "BNW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 185000.0,
+            "title": "Brave New World",
+            "year": 1932
         },
         {
             "author": "Ray Bradbury",
             "bookCode": "F451",
             "category": "Văn học nước ngoài",
-            "price": 175000.0,
-            "title": "Fahrenheit 451",
-            "year": 1953,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "F451001",
@@ -5822,17 +5817,17 @@
                     "bookId": "F451010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 175000.0,
+            "title": "Fahrenheit 451",
+            "year": 1953
         },
         {
             "author": "J. R. R. Tolkien",
             "bookCode": "HOB",
             "category": "Văn học giả tưởng",
-            "price": 240000.0,
-            "title": "The Hobbit",
-            "year": 1937,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "HOB001",
@@ -5874,17 +5869,17 @@
                     "bookId": "HOB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "The Hobbit",
+            "year": 1937
         },
         {
             "author": "J. R. R. Tolkien",
             "bookCode": "LOTR",
             "category": "Văn học giả tưởng",
-            "price": 420000.0,
-            "title": "The Lord of the Rings",
-            "year": 1954,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "LOTR001",
@@ -5926,17 +5921,17 @@
                     "bookId": "LOTR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 420000.0,
+            "title": "The Lord of the Rings",
+            "year": 1954
         },
         {
             "author": "Miguel de Cervantes",
             "bookCode": "DQ",
             "category": "Văn học kinh điển",
-            "price": 320000.0,
-            "title": "Don Quixote",
-            "year": 1605,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "DQ001",
@@ -5978,17 +5973,17 @@
                     "bookId": "DQ010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 320000.0,
+            "title": "Don Quixote",
+            "year": 1605
         },
         {
             "author": "Herman Melville",
             "bookCode": "MD",
             "category": "Văn học kinh điển",
-            "price": 300000.0,
-            "title": "Moby-Dick",
-            "year": 1851,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MD001",
@@ -6030,17 +6025,17 @@
                     "bookId": "MD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 300000.0,
+            "title": "Moby-Dick",
+            "year": 1851
         },
         {
             "author": "Leo Tolstoy",
             "bookCode": "WAP",
             "category": "Văn học kinh điển",
-            "price": 380000.0,
-            "title": "War and Peace",
-            "year": 1869,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "WAP001",
@@ -6082,17 +6077,17 @@
                     "bookId": "WAP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 380000.0,
+            "title": "War and Peace",
+            "year": 1869
         },
         {
             "author": "Fyodor Dostoevsky",
             "bookCode": "CAP",
             "category": "Văn học kinh điển",
-            "price": 280000.0,
-            "title": "Crime and Punishment",
-            "year": 1866,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "CAP001",
@@ -6134,17 +6129,17 @@
                     "bookId": "CAP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 280000.0,
+            "title": "Crime and Punishment",
+            "year": 1866
         },
         {
             "author": "Fyodor Dostoevsky",
             "bookCode": "TBK",
             "category": "Văn học kinh điển",
-            "price": 320000.0,
-            "title": "The Brothers Karamazov",
-            "year": 1880,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TBK001",
@@ -6186,17 +6181,17 @@
                     "bookId": "TBK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 320000.0,
+            "title": "The Brothers Karamazov",
+            "year": 1880
         },
         {
             "author": "Leo Tolstoy",
             "bookCode": "AK",
             "category": "Văn học kinh điển",
-            "price": 320000.0,
-            "title": "Anna Karenina",
-            "year": 1878,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "AK001",
@@ -6238,17 +6233,17 @@
                     "bookId": "AK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 320000.0,
+            "title": "Anna Karenina",
+            "year": 1878
         },
         {
             "author": "Fyodor Dostoevsky",
             "bookCode": "IDI",
             "category": "Văn học kinh điển",
-            "price": 280000.0,
-            "title": "The Idiot",
-            "year": 1869,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "IDI001",
@@ -6290,17 +6285,17 @@
                     "bookId": "IDI010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 280000.0,
+            "title": "The Idiot",
+            "year": 1869
         },
         {
             "author": "Fyodor Dostoevsky",
             "bookCode": "NFU",
             "category": "Văn học kinh điển",
-            "price": 220000.0,
-            "title": "Notes from Underground",
-            "year": 1864,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NFU001",
@@ -6342,17 +6337,17 @@
                     "bookId": "NFU010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Notes from Underground",
+            "year": 1864
         },
         {
             "author": "Dante Alighieri",
             "bookCode": "TDC",
             "category": "Văn học kinh điển",
-            "price": 330000.0,
-            "title": "The Divine Comedy",
-            "year": 1320,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TDC001",
@@ -6394,17 +6389,17 @@
                     "bookId": "TDC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 330000.0,
+            "title": "The Divine Comedy",
+            "year": 1320
         },
         {
             "author": "Victor Hugo",
             "bookCode": "LES",
             "category": "Văn học kinh điển",
-            "price": 360000.0,
-            "title": "Les Misérables",
-            "year": 1862,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "LES001",
@@ -6446,17 +6441,17 @@
                     "bookId": "LES010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 360000.0,
+            "title": "Les Misérables",
+            "year": 1862
         },
         {
             "author": "Alexandre Dumas",
             "bookCode": "CMDC",
             "category": "Văn học kinh điển",
-            "price": 360000.0,
-            "title": "The Count of Monte Cristo",
-            "year": 1844,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "CMDC001",
@@ -6498,17 +6493,17 @@
                     "bookId": "CMDC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 360000.0,
+            "title": "The Count of Monte Cristo",
+            "year": 1844
         },
         {
             "author": "Charlotte Brontë",
             "bookCode": "JE",
             "category": "Văn học kinh điển",
-            "price": 220000.0,
-            "title": "Jane Eyre",
-            "year": 1847,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "JE001",
@@ -6550,17 +6545,17 @@
                     "bookId": "JE010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Jane Eyre",
+            "year": 1847
         },
         {
             "author": "Emily Brontë",
             "bookCode": "WH",
             "category": "Văn học kinh điển",
-            "price": 220000.0,
-            "title": "Wuthering Heights",
-            "year": 1847,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "WH001",
@@ -6602,17 +6597,17 @@
                     "bookId": "WH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Wuthering Heights",
+            "year": 1847
         },
         {
             "author": "Charles Dickens",
             "bookCode": "GE",
             "category": "Văn học kinh điển",
-            "price": 260000.0,
-            "title": "Great Expectations",
-            "year": 1861,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "GE001",
@@ -6654,17 +6649,17 @@
                     "bookId": "GE010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "Great Expectations",
+            "year": 1861
         },
         {
             "author": "Charles Dickens",
             "bookCode": "ATC",
             "category": "Văn học kinh điển",
-            "price": 250000.0,
-            "title": "A Tale of Two Cities",
-            "year": 1859,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "ATC001",
@@ -6706,17 +6701,17 @@
                     "bookId": "ATC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "A Tale of Two Cities",
+            "year": 1859
         },
         {
             "author": "Charles Dickens",
             "bookCode": "OT",
             "category": "Văn học kinh điển",
-            "price": 230000.0,
-            "title": "Oliver Twist",
-            "year": 1838,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "OT001",
@@ -6758,17 +6753,17 @@
                     "bookId": "OT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "Oliver Twist",
+            "year": 1838
         },
         {
             "author": "Oscar Wilde",
             "bookCode": "PDG",
             "category": "Văn học kinh điển",
-            "price": 210000.0,
-            "title": "The Picture of Dorian Gray",
-            "year": 1890,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "PDG001",
@@ -6810,17 +6805,17 @@
                     "bookId": "PDG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "The Picture of Dorian Gray",
+            "year": 1890
         },
         {
             "author": "Arthur Conan Doyle",
             "bookCode": "ASH",
             "category": "Trinh thám",
-            "price": 210000.0,
-            "title": "The Adventures of Sherlock Holmes",
-            "year": 1892,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "ASH001",
@@ -6862,17 +6857,17 @@
                     "bookId": "ASH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "The Adventures of Sherlock Holmes",
+            "year": 1892
         },
         {
             "author": "Arthur Conan Doyle",
             "bookCode": "HOBV",
             "category": "Trinh thám",
-            "price": 200000.0,
-            "title": "The Hound of the Baskervilles",
-            "year": 1902,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HOBV001",
@@ -6914,17 +6909,17 @@
                     "bookId": "HOBV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 200000.0,
+            "title": "The Hound of the Baskervilles",
+            "year": 1902
         },
         {
             "author": "Bram Stoker",
             "bookCode": "DRC",
             "category": "Kinh dị",
-            "price": 230000.0,
-            "title": "Dracula",
-            "year": 1897,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "DRC001",
@@ -6966,17 +6961,17 @@
                     "bookId": "DRC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "Dracula",
+            "year": 1897
         },
         {
             "author": "Mary Shelley",
             "bookCode": "FRK",
             "category": "Kinh điển",
-            "price": 210000.0,
-            "title": "Frankenstein",
-            "year": 1818,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "FRK001",
@@ -7018,17 +7013,17 @@
                     "bookId": "FRK010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "Frankenstein",
+            "year": 1818
         },
         {
             "author": "Ernest Hemingway",
             "bookCode": "OMAS",
             "category": "Văn học nước ngoài",
-            "price": 170000.0,
-            "title": "The Old Man and the Sea",
-            "year": 1952,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "OMAS001",
@@ -7070,17 +7065,17 @@
                     "bookId": "OMAS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 170000.0,
+            "title": "The Old Man and the Sea",
+            "year": 1952
         },
         {
             "author": "John Steinbeck",
             "bookCode": "TGW",
             "category": "Văn học nước ngoài",
-            "price": 250000.0,
-            "title": "The Grapes of Wrath",
-            "year": 1939,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TGW001",
@@ -7122,17 +7117,17 @@
                     "bookId": "TGW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "The Grapes of Wrath",
+            "year": 1939
         },
         {
             "author": "John Steinbeck",
             "bookCode": "OMM",
             "category": "Văn học nước ngoài",
-            "price": 175000.0,
-            "title": "Of Mice and Men",
-            "year": 1937,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "OMM001",
@@ -7174,17 +7169,17 @@
                     "bookId": "OMM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 175000.0,
+            "title": "Of Mice and Men",
+            "year": 1937
         },
         {
             "author": "Khaled Hosseini",
             "bookCode": "TKR",
             "category": "Văn học nước ngoài",
-            "price": 220000.0,
-            "title": "The Kite Runner",
-            "year": 2003,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TKR001",
@@ -7226,17 +7221,17 @@
                     "bookId": "TKR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "The Kite Runner",
+            "year": 2003
         },
         {
             "author": "Yann Martel",
             "bookCode": "LOP",
             "category": "Văn học nước ngoài",
-            "price": 220000.0,
-            "title": "Life of Pi",
-            "year": 2001,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "LOP001",
@@ -7278,17 +7273,17 @@
                     "bookId": "LOP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Life of Pi",
+            "year": 2001
         },
         {
             "author": "Markus Zusak",
             "bookCode": "TBT",
             "category": "Văn học nước ngoài",
-            "price": 240000.0,
-            "title": "The Book Thief",
-            "year": 2005,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TBT001",
@@ -7330,17 +7325,17 @@
                     "bookId": "TBT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "The Book Thief",
+            "year": 2005
         },
         {
             "author": "John Green",
             "bookCode": "TFIOS",
             "category": "Văn học nước ngoài",
-            "price": 200000.0,
-            "title": "The Fault in Our Stars",
-            "year": 2012,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TFIOS001",
@@ -7382,17 +7377,17 @@
                     "bookId": "TFIOS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 200000.0,
+            "title": "The Fault in Our Stars",
+            "year": 2012
         },
         {
             "author": "Suzanne Collins",
             "bookCode": "THG",
             "category": "Văn học giả tưởng",
-            "price": 230000.0,
-            "title": "The Hunger Games",
-            "year": 2008,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "THG001",
@@ -7434,17 +7429,17 @@
                     "bookId": "THG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "The Hunger Games",
+            "year": 2008
         },
         {
             "author": "Margaret Atwood",
             "bookCode": "THT",
             "category": "Văn học nước ngoài",
-            "price": 230000.0,
-            "title": "The Handmaid’s Tale",
-            "year": 1985,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "THT001",
@@ -7486,17 +7481,17 @@
                     "bookId": "THT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "The Handmaid’s Tale",
+            "year": 1985
         },
         {
             "author": "Alice Walker",
             "bookCode": "TCP",
             "category": "Văn học nước ngoài",
-            "price": 220000.0,
-            "title": "The Color Purple",
-            "year": 1982,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TCP001",
@@ -7538,17 +7533,17 @@
                     "bookId": "TCP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "The Color Purple",
+            "year": 1982
         },
         {
             "author": "Toni Morrison",
             "bookCode": "BEL",
             "category": "Văn học nước ngoài",
-            "price": 230000.0,
-            "title": "Beloved",
-            "year": 1987,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "BEL001",
@@ -7590,17 +7585,17 @@
                     "bookId": "BEL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "Beloved",
+            "year": 1987
         },
         {
             "author": "Amy Tan",
             "bookCode": "TJLC",
             "category": "Văn học nước ngoài",
-            "price": 220000.0,
-            "title": "The Joy Luck Club",
-            "year": 1989,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TJLC001",
@@ -7642,17 +7637,17 @@
                     "bookId": "TJLC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "The Joy Luck Club",
+            "year": 1989
         },
         {
             "author": "Khaled Hosseini",
             "bookCode": "ATSS",
             "category": "Văn học nước ngoài",
-            "price": 230000.0,
-            "title": "A Thousand Splendid Suns",
-            "year": 2007,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "ATSS001",
@@ -7694,17 +7689,17 @@
                     "bookId": "ATSS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "A Thousand Splendid Suns",
+            "year": 2007
         },
         {
             "author": "Jhumpa Lahiri",
             "bookCode": "NAMES",
             "category": "Văn học nước ngoài",
-            "price": 210000.0,
-            "title": "The Namesake",
-            "year": 2003,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "NAMES001",
@@ -7746,17 +7741,17 @@
                     "bookId": "NAMES010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "The Namesake",
+            "year": 2003
         },
         {
             "author": "Haruki Murakami",
             "bookCode": "NW",
             "category": "Văn học nước ngoài",
-            "price": 230000.0,
-            "title": "Norwegian Wood",
-            "year": 1987,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "NW001",
@@ -7798,17 +7793,17 @@
                     "bookId": "NW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "Norwegian Wood",
+            "year": 1987
         },
         {
             "author": "Haruki Murakami",
             "bookCode": "KOTS",
             "category": "Văn học nước ngoài",
-            "price": 250000.0,
-            "title": "Kafka on the Shore",
-            "year": 2002,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "KOTS001",
@@ -7850,17 +7845,17 @@
                     "bookId": "KOTS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "Kafka on the Shore",
+            "year": 2002
         },
         {
             "author": "Franz Kafka",
             "bookCode": "TM",
             "category": "Văn học kinh điển",
-            "price": 160000.0,
-            "title": "The Metamorphosis",
-            "year": 1915,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TM001",
@@ -7902,17 +7897,17 @@
                     "bookId": "TM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 160000.0,
+            "title": "The Metamorphosis",
+            "year": 1915
         },
         {
             "author": "Franz Kafka",
             "bookCode": "TRIAL",
             "category": "Văn học kinh điển",
-            "price": 220000.0,
-            "title": "The Trial",
-            "year": 1925,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TRIAL001",
@@ -7954,17 +7949,17 @@
                     "bookId": "TRIAL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "The Trial",
+            "year": 1925
         },
         {
             "author": "Albert Camus",
             "bookCode": "STR",
             "category": "Văn học kinh điển",
-            "price": 180000.0,
-            "title": "The Stranger",
-            "year": 1942,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "STR001",
@@ -8006,17 +8001,17 @@
                     "bookId": "STR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 180000.0,
+            "title": "The Stranger",
+            "year": 1942
         },
         {
             "author": "Albert Camus",
             "bookCode": "PLG",
             "category": "Văn học kinh điển",
-            "price": 220000.0,
-            "title": "The Plague",
-            "year": 1947,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "PLG001",
@@ -8058,17 +8053,17 @@
                     "bookId": "PLG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "The Plague",
+            "year": 1947
         },
         {
             "author": "Antoine de Saint-Exupéry",
             "bookCode": "LP",
             "category": "Văn học thiếu nhi",
-            "price": 160000.0,
-            "title": "The Little Prince",
-            "year": 1943,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "LP001",
@@ -8110,17 +8105,17 @@
                     "bookId": "LP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 160000.0,
+            "title": "The Little Prince",
+            "year": 1943
         },
         {
             "author": "Paulo Coelho",
             "bookCode": "ALC",
             "category": "Văn học nước ngoài",
-            "price": 180000.0,
-            "title": "The Alchemist",
-            "year": 1988,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "ALC001",
@@ -8162,17 +8157,17 @@
                     "bookId": "ALC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 180000.0,
+            "title": "The Alchemist",
+            "year": 1988
         },
         {
             "author": "Gabriel García Márquez",
             "bookCode": "OHY",
             "category": "Văn học nước ngoài",
-            "price": 260000.0,
-            "title": "One Hundred Years of Solitude",
-            "year": 1967,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "OHY001",
@@ -8214,17 +8209,17 @@
                     "bookId": "OHY010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "One Hundred Years of Solitude",
+            "year": 1967
         },
         {
             "author": "Gabriel García Márquez",
             "bookCode": "LTTC",
             "category": "Văn học nước ngoài",
-            "price": 250000.0,
-            "title": "Love in the Time of Cholera",
-            "year": 1985,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LTTC001",
@@ -8266,17 +8261,17 @@
                     "bookId": "LTTC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "Love in the Time of Cholera",
+            "year": 1985
         },
         {
             "author": "Mikhail Bulgakov",
             "bookCode": "MAM",
             "category": "Văn học kinh điển",
-            "price": 250000.0,
-            "title": "The Master and Margarita",
-            "year": 1967,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MAM001",
@@ -8318,17 +8313,17 @@
                     "bookId": "MAM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "The Master and Margarita",
+            "year": 1967
         },
         {
             "author": "Gustave Flaubert",
             "bookCode": "MBV",
             "category": "Văn học kinh điển",
-            "price": 220000.0,
-            "title": "Madame Bovary",
-            "year": 1857,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MBV001",
@@ -8370,17 +8365,17 @@
                     "bookId": "MBV010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Madame Bovary",
+            "year": 1857
         },
         {
             "author": "H. G. Wells",
             "bookCode": "TTM",
             "category": "Khoa học viễn tưởng",
-            "price": 170000.0,
-            "title": "The Time Machine",
-            "year": 1895,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TTM001",
@@ -8422,17 +8417,17 @@
                     "bookId": "TTM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 170000.0,
+            "title": "The Time Machine",
+            "year": 1895
         },
         {
             "author": "H. G. Wells",
             "bookCode": "TWOW",
             "category": "Khoa học viễn tưởng",
-            "price": 180000.0,
-            "title": "The War of the Worlds",
-            "year": 1898,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TWOW001",
@@ -8474,17 +8469,17 @@
                     "bookId": "TWOW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 180000.0,
+            "title": "The War of the Worlds",
+            "year": 1898
         },
         {
             "author": "Jack London",
             "bookCode": "COW",
             "category": "Văn học nước ngoài",
-            "price": 170000.0,
-            "title": "The Call of the Wild",
-            "year": 1903,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "COW001",
@@ -8526,17 +8521,17 @@
                     "bookId": "COW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 170000.0,
+            "title": "The Call of the Wild",
+            "year": 1903
         },
         {
             "author": "Marcus Aurelius",
             "bookCode": "MED",
             "category": "Triết học",
-            "price": 190000.0,
-            "title": "Meditations",
-            "year": 180,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "MED001",
@@ -8578,17 +8573,17 @@
                     "bookId": "MED010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 190000.0,
+            "title": "Meditations",
+            "year": 180
         },
         {
             "author": "Seneca",
             "bookCode": "LFS",
             "category": "Triết học",
-            "price": 190000.0,
-            "title": "Letters from a Stoic",
-            "year": 65,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "LFS001",
@@ -8630,17 +8625,17 @@
                     "bookId": "LFS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 190000.0,
+            "title": "Letters from a Stoic",
+            "year": 65
         },
         {
             "author": "Viktor E. Frankl",
             "bookCode": "MSFM",
             "category": "Tâm lý học",
-            "price": 210000.0,
-            "title": "Man’s Search for Meaning",
-            "year": 1946,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "MSFM001",
@@ -8682,17 +8677,17 @@
                     "bookId": "MSFM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "Man’s Search for Meaning",
+            "year": 1946
         },
         {
             "author": "Yuval Noah Harari",
             "bookCode": "SAP",
             "category": "Lịch sử",
-            "price": 260000.0,
-            "title": "Sapiens",
-            "year": 2011,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "SAP001",
@@ -8734,17 +8729,17 @@
                     "bookId": "SAP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "Sapiens",
+            "year": 2011
         },
         {
             "author": "Jared Diamond",
             "bookCode": "GGS",
             "category": "Lịch sử",
-            "price": 260000.0,
-            "title": "Guns, Germs, and Steel",
-            "year": 1997,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "GGS001",
@@ -8786,17 +8781,17 @@
                     "bookId": "GGS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "Guns, Germs, and Steel",
+            "year": 1997
         },
         {
             "author": "Stephen Hawking",
             "bookCode": "ABHOT",
             "category": "Khoa học",
-            "price": 230000.0,
-            "title": "A Brief History of Time",
-            "year": 1988,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "ABHOT001",
@@ -8838,17 +8833,17 @@
                     "bookId": "ABHOT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "A Brief History of Time",
+            "year": 1988
         },
         {
             "author": "Carl Sagan",
             "bookCode": "COS",
             "category": "Khoa học",
-            "price": 240000.0,
-            "title": "Cosmos",
-            "year": 1980,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "COS001",
@@ -8890,17 +8885,17 @@
                     "bookId": "COS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "Cosmos",
+            "year": 1980
         },
         {
             "author": "Richard Dawkins",
             "bookCode": "TSG",
             "category": "Khoa học",
-            "price": 240000.0,
-            "title": "The Selfish Gene",
-            "year": 1976,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TSG001",
@@ -8942,17 +8937,17 @@
                     "bookId": "TSG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "The Selfish Gene",
+            "year": 1976
         },
         {
             "author": "Charles Darwin",
             "bookCode": "OOS",
             "category": "Khoa học",
-            "price": 250000.0,
-            "title": "On the Origin of Species",
-            "year": 1859,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "OOS001",
@@ -8994,17 +8989,17 @@
                     "bookId": "OOS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "On the Origin of Species",
+            "year": 1859
         },
         {
             "author": "Rachel Carson",
             "bookCode": "SS",
             "category": "Khoa học",
-            "price": 220000.0,
-            "title": "Silent Spring",
-            "year": 1962,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "SS001",
@@ -9046,17 +9041,17 @@
                     "bookId": "SS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Silent Spring",
+            "year": 1962
         },
         {
             "author": "Albert Einstein",
             "bookCode": "REL",
             "category": "Khoa học",
-            "price": 210000.0,
-            "title": "Relativity: The Special and the General Theory",
-            "year": 1916,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "REL001",
@@ -9098,17 +9093,17 @@
                     "bookId": "REL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "Relativity: The Special and the General Theory",
+            "year": 1916
         },
         {
             "author": "Thomas S. Kuhn",
             "bookCode": "SSR",
             "category": "Khoa học",
-            "price": 230000.0,
-            "title": "The Structure of Scientific Revolutions",
-            "year": 1962,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "SSR001",
@@ -9150,17 +9145,17 @@
                     "bookId": "SSR010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "The Structure of Scientific Revolutions",
+            "year": 1962
         },
         {
             "author": "Adam Smith",
             "bookCode": "WON",
             "category": "Kinh tế",
-            "price": 330000.0,
-            "title": "The Wealth of Nations",
-            "year": 1776,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "WON001",
@@ -9202,17 +9197,17 @@
                     "bookId": "WON010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 330000.0,
+            "title": "The Wealth of Nations",
+            "year": 1776
         },
         {
             "author": "Thomas Piketty",
             "bookCode": "C21",
             "category": "Kinh tế",
-            "price": 350000.0,
-            "title": "Capital in the Twenty-First Century",
-            "year": 2013,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "C21001",
@@ -9254,17 +9249,17 @@
                     "bookId": "C21010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 350000.0,
+            "title": "Capital in the Twenty-First Century",
+            "year": 2013
         },
         {
             "author": "Steven D. Levitt, Stephen J. Dubner",
             "bookCode": "FRKX",
             "category": "Kinh tế",
-            "price": 220000.0,
-            "title": "Freakonomics",
-            "year": 2005,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "FRKX001",
@@ -9306,17 +9301,17 @@
                     "bookId": "FRKX010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Freakonomics",
+            "year": 2005
         },
         {
             "author": "Benjamin Graham",
             "bookCode": "TII",
             "category": "Tài chính",
-            "price": 280000.0,
-            "title": "The Intelligent Investor",
-            "year": 1949,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TII001",
@@ -9358,17 +9353,17 @@
                     "bookId": "TII010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 280000.0,
+            "title": "The Intelligent Investor",
+            "year": 1949
         },
         {
             "author": "Robert T. Kiyosaki, Sharon L. Lechter",
             "bookCode": "RDPPD",
             "category": "Tài chính",
-            "price": 210000.0,
-            "title": "Rich Dad Poor Dad",
-            "year": 1997,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "RDPPD001",
@@ -9410,17 +9405,17 @@
                     "bookId": "RDPPD010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "Rich Dad Poor Dad",
+            "year": 1997
         },
         {
             "author": "Peter Thiel, Blake Masters",
             "bookCode": "ZTO",
             "category": "Kinh doanh",
-            "price": 200000.0,
-            "title": "Zero to One",
-            "year": 2014,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "ZTO001",
@@ -9462,17 +9457,17 @@
                     "bookId": "ZTO010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 200000.0,
+            "title": "Zero to One",
+            "year": 2014
         },
         {
             "author": "Eric Ries",
             "bookCode": "TLS",
             "category": "Kinh doanh",
-            "price": 210000.0,
-            "title": "The Lean Startup",
-            "year": 2011,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TLS001",
@@ -9514,17 +9509,17 @@
                     "bookId": "TLS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "The Lean Startup",
+            "year": 2011
         },
         {
             "author": "Simon Sinek",
             "bookCode": "SWW",
             "category": "Kinh doanh",
-            "price": 210000.0,
-            "title": "Start with Why",
-            "year": 2009,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "SWW001",
@@ -9566,17 +9561,17 @@
                     "bookId": "SWW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 210000.0,
+            "title": "Start with Why",
+            "year": 2009
         },
         {
             "author": "Phil Knight",
             "bookCode": "SDG",
             "category": "Kinh doanh",
-            "price": 230000.0,
-            "title": "Shoe Dog",
-            "year": 2016,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "SDG001",
@@ -9618,17 +9613,17 @@
                     "bookId": "SDG010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "Shoe Dog",
+            "year": 2016
         },
         {
             "author": "Andrew S. Grove",
             "bookCode": "HOM",
             "category": "Kinh doanh",
-            "price": 240000.0,
-            "title": "High Output Management",
-            "year": 1983,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HOM001",
@@ -9670,17 +9665,17 @@
                     "bookId": "HOM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "High Output Management",
+            "year": 1983
         },
         {
             "author": "Ben Horowitz",
             "bookCode": "HTHT",
             "category": "Kinh doanh",
-            "price": 240000.0,
-            "title": "The Hard Thing About Hard Things",
-            "year": 2014,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "HTHT001",
@@ -9722,17 +9717,17 @@
                     "bookId": "HTHT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "The Hard Thing About Hard Things",
+            "year": 2014
         },
         {
             "author": "Stephen R. Covey",
             "bookCode": "7HEP",
             "category": "Kỹ năng sống",
-            "price": 240000.0,
-            "title": "The 7 Habits of Highly Effective People",
-            "year": 1989,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "7HEP001",
@@ -9774,17 +9769,17 @@
                     "bookId": "7HEP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 240000.0,
+            "title": "The 7 Habits of Highly Effective People",
+            "year": 1989
         },
         {
             "author": "Dale Carnegie",
             "bookCode": "HTWFIP",
             "category": "Kỹ năng sống",
-            "price": 200000.0,
-            "title": "How to Win Friends and Influence People",
-            "year": 1936,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "HTWFIP001",
@@ -9826,17 +9821,17 @@
                     "bookId": "HTWFIP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 200000.0,
+            "title": "How to Win Friends and Influence People",
+            "year": 1936
         },
         {
             "author": "Robert B. Cialdini",
             "bookCode": "IPP",
             "category": "Tâm lý học",
-            "price": 260000.0,
-            "title": "Influence: The Psychology of Persuasion",
-            "year": 1984,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "IPP001",
@@ -9878,17 +9873,17 @@
                     "bookId": "IPP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "Influence: The Psychology of Persuasion",
+            "year": 1984
         },
         {
             "author": "Daniel Kahneman",
             "bookCode": "TFS",
             "category": "Tâm lý học",
-            "price": 260000.0,
-            "title": "Thinking, Fast and Slow",
-            "year": 2011,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "TFS001",
@@ -9930,17 +9925,17 @@
                     "bookId": "TFS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "Thinking, Fast and Slow",
+            "year": 2011
         },
         {
             "author": "Malcolm Gladwell",
             "bookCode": "OTL",
             "category": "Tâm lý học",
-            "price": 220000.0,
-            "title": "Outliers",
-            "year": 2008,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "OTL001",
@@ -9982,17 +9977,17 @@
                     "bookId": "OTL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Outliers",
+            "year": 2008
         },
         {
             "author": "Charles Duhigg",
             "bookCode": "POH",
             "category": "Kỹ năng sống",
-            "price": 220000.0,
-            "title": "The Power of Habit",
-            "year": 2012,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "POH001",
@@ -10034,17 +10029,17 @@
                     "bookId": "POH010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "The Power of Habit",
+            "year": 2012
         },
         {
             "author": "James Clear",
             "bookCode": "AHB",
             "category": "Kỹ năng sống",
-            "price": 250000.0,
-            "title": "Atomic Habits",
-            "year": 2018,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "AHB001",
@@ -10086,17 +10081,17 @@
                     "bookId": "AHB010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 250000.0,
+            "title": "Atomic Habits",
+            "year": 2018
         },
         {
             "author": "Susan Cain",
             "bookCode": "QUT",
             "category": "Tâm lý học",
-            "price": 220000.0,
-            "title": "Quiet",
-            "year": 2012,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "QUT001",
@@ -10138,17 +10133,17 @@
                     "bookId": "QUT010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Quiet",
+            "year": 2012
         },
         {
             "author": "Carol S. Dweck",
             "bookCode": "MDS",
             "category": "Tâm lý học",
-            "price": 220000.0,
-            "title": "Mindset",
-            "year": 2006,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "MDS001",
@@ -10190,17 +10185,17 @@
                     "bookId": "MDS010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 220000.0,
+            "title": "Mindset",
+            "year": 2006
         },
         {
             "author": "Cal Newport",
             "bookCode": "DW",
             "category": "Kỹ năng sống",
-            "price": 230000.0,
-            "title": "Deep Work",
-            "year": 2016,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "DW001",
@@ -10242,17 +10237,17 @@
                     "bookId": "DW010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "Deep Work",
+            "year": 2016
         },
         {
             "author": "Morgan Housel",
             "bookCode": "POM",
             "category": "Tài chính",
-            "price": 230000.0,
-            "title": "The Psychology of Money",
-            "year": 2020,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "POM001",
@@ -10294,17 +10289,17 @@
                     "bookId": "POM010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 230000.0,
+            "title": "The Psychology of Money",
+            "year": 2020
         },
         {
             "author": "Robert C. Martin",
             "bookCode": "CC",
             "category": "Công nghệ thông tin",
-            "price": 320000.0,
-            "title": "Clean Code",
-            "year": 2008,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "CC001",
@@ -10346,17 +10341,17 @@
                     "bookId": "CC010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 320000.0,
+            "title": "Clean Code",
+            "year": 2008
         },
         {
             "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
             "bookCode": "DP",
             "category": "Công nghệ thông tin",
-            "price": 340000.0,
-            "title": "Design Patterns",
-            "year": 1994,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "DP001",
@@ -10398,17 +10393,17 @@
                     "bookId": "DP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 340000.0,
+            "title": "Design Patterns",
+            "year": 1994
         },
         {
             "author": "Andrew Hunt, David Thomas",
             "bookCode": "TPP",
             "category": "Công nghệ thông tin",
-            "price": 360000.0,
-            "title": "The Pragmatic Programmer",
-            "year": 1999,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "TPP001",
@@ -10450,17 +10445,17 @@
                     "bookId": "TPP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 360000.0,
+            "title": "The Pragmatic Programmer",
+            "year": 1999
         },
         {
             "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
             "bookCode": "ITA",
             "category": "Công nghệ thông tin",
-            "price": 420000.0,
-            "title": "Introduction to Algorithms",
-            "year": 1990,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "ITA001",
@@ -10502,17 +10497,17 @@
                     "bookId": "ITA010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 420000.0,
+            "title": "Introduction to Algorithms",
+            "year": 1990
         },
         {
             "author": "Martin Fowler",
             "bookCode": "RF",
             "category": "Công nghệ thông tin",
-            "price": 340000.0,
-            "title": "Refactoring",
-            "year": 1999,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "RF001",
@@ -10554,17 +10549,17 @@
                     "bookId": "RF010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 340000.0,
+            "title": "Refactoring",
+            "year": 1999
         },
         {
             "author": "Steve McConnell",
             "bookCode": "CCOMP",
             "category": "Công nghệ thông tin",
-            "price": 360000.0,
-            "title": "Code Complete",
-            "year": 1993,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "CCOMP001",
@@ -10606,17 +10601,17 @@
                     "bookId": "CCOMP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 360000.0,
+            "title": "Code Complete",
+            "year": 1993
         },
         {
             "author": "Brian W. Kernighan, Dennis M. Ritchie",
             "bookCode": "TCPL",
             "category": "Công nghệ thông tin",
-            "price": 260000.0,
-            "title": "The C Programming Language",
-            "year": 1978,
-            "origin": "Nước ngoài",
-            "interestLevel": "LOW",
             "copies": [
                 {
                     "bookId": "TCPL001",
@@ -10658,17 +10653,17 @@
                     "bookId": "TCPL010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "LOW",
+            "origin": "Nước ngoài",
+            "price": 260000.0,
+            "title": "The C Programming Language",
+            "year": 1978
         },
         {
             "author": "Joshua Bloch",
             "bookCode": "EJ",
             "category": "Công nghệ thông tin",
-            "price": 340000.0,
-            "title": "Effective Java",
-            "year": 2001,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "EJ001",
@@ -10710,17 +10705,17 @@
                     "bookId": "EJ010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 340000.0,
+            "title": "Effective Java",
+            "year": 2001
         },
         {
             "author": "Gayle Laakmann McDowell",
             "bookCode": "CTCI",
             "category": "Công nghệ thông tin",
-            "price": 360000.0,
-            "title": "Cracking the Coding Interview",
-            "year": 2008,
-            "origin": "Nước ngoài",
-            "interestLevel": "HIGH",
             "copies": [
                 {
                     "bookId": "CTCI001",
@@ -10762,17 +10757,17 @@
                     "bookId": "CTCI010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "HIGH",
+            "origin": "Nước ngoài",
+            "price": 360000.0,
+            "title": "Cracking the Coding Interview",
+            "year": 2008
         },
         {
             "author": "Eric Freeman, Elisabeth Robson, Bert Bates, Kathy Sierra",
             "bookCode": "HFDP",
             "category": "Công nghệ thông tin",
-            "price": 360000.0,
-            "title": "Head First Design Patterns",
-            "year": 2004,
-            "origin": "Nước ngoài",
-            "interestLevel": "MEDIUM",
             "copies": [
                 {
                     "bookId": "HFDP001",
@@ -10814,7 +10809,12 @@
                     "bookId": "HFDP010",
                     "status": "AVAILABLE"
                 }
-            ]
+            ],
+            "interestLevel": "MEDIUM",
+            "origin": "Nước ngoài",
+            "price": 360000.0,
+            "title": "Head First Design Patterns",
+            "year": 2004
         }
     ],
     "fines": [
@@ -13181,6 +13181,14 @@
             "password": "123456",
             "phone": "0900000100",
             "status": "INACTIVE"
+        },
+        {
+            "email": "12345@gmail.com",
+            "memberId": "M101",
+            "name": "Le Trong Doan",
+            "password": "12345",
+            "phone": "0333444555",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
