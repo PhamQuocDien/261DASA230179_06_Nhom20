@@ -12765,6 +12765,14 @@
             "password": "123456",
             "phone": "0900000100",
             "status": "INACTIVE"
+        },
+        {
+            "email": "letrongdoan2007@gmail.com",
+            "memberId": "M101",
+            "name": "Le Trong Doan",
+            "password": "12345",
+            "phone": "0333444555",
+            "status": "ACTIVE"
         }
     ],
     "reservations": []
