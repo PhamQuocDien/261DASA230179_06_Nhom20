@@ -257,7 +257,7 @@
             "copies": [
                 {
                     "bookId": "TTIH001",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "TTIH002",
@@ -10666,6 +10666,16 @@
             "dueDate": "2026-10-27",
             "loanId": "L502",
             "memberId": "M211",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "TTIH001",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L503",
+            "memberId": "M501",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
