@@ -405,6 +405,231 @@ export function initReservation() {
     }
 
 
+    const cancelReservationModal =
+        document.getElementById(
+            "cancelReservationModal"
+        );
+
+
+    const cancelReservationModalBook =
+        document.getElementById(
+            "cancelReservationModalBook"
+        );
+
+
+    const cancelReservationPassword =
+        document.getElementById(
+            "cancelReservationPassword"
+        );
+
+
+    const cancelReservationModalMessage =
+        document.getElementById(
+            "cancelReservationModalMessage"
+        );
+
+
+    const btnCancelReservationCancel =
+        document.getElementById(
+            "btnCancelReservationCancel"
+        );
+
+
+    const btnCancelReservationConfirm =
+        document.getElementById(
+            "btnCancelReservationConfirm"
+        );
+
+
+    // Reservation_ID dang cho xac nhan huy
+    let pendingCancelReservationId = "";
+
+    // BookCode de tai lai danh sach cho
+    let pendingCancelBookCode = "";
+
+
+    function openCancelReservationModal(
+        reservationId,
+        bookCode
+    ) {
+
+        pendingCancelReservationId =
+            reservationId;
+
+        pendingCancelBookCode =
+            bookCode;
+
+
+        if (cancelReservationModalBook) {
+            cancelReservationModalBook.textContent =
+                bookCode;
+        }
+
+        if (cancelReservationModalMessage) {
+            cancelReservationModalMessage.textContent =
+                "";
+        }
+
+        if (cancelReservationPassword) {
+            cancelReservationPassword.value =
+                "";
+        }
+
+        if (cancelReservationModal) {
+            cancelReservationModal.style.display =
+                "flex";
+        }
+
+        if (cancelReservationPassword) {
+            cancelReservationPassword.focus();
+        }
+    }
+
+
+    function closeCancelReservationModal() {
+
+        if (cancelReservationModal) {
+            cancelReservationModal.style.display =
+                "none";
+        }
+
+        if (cancelReservationPassword) {
+            cancelReservationPassword.value =
+                "";
+        }
+
+        pendingCancelReservationId = "";
+        pendingCancelBookCode = "";
+    }
+
+
+    async function handleCancelReservationConfirm() {
+
+        const password =
+            cancelReservationPassword
+                ? cancelReservationPassword.value
+                : "";
+
+        if (password === "") {
+
+            if (cancelReservationModalMessage) {
+                cancelReservationModalMessage.textContent =
+                    "Vui long nhap mat khau thanh vien.";
+            }
+
+            return;
+        }
+
+
+        if (btnCancelReservationConfirm) {
+            btnCancelReservationConfirm.disabled =
+                true;
+        }
+
+
+        // -----------------------------
+        // GOI API HUY
+        // Mat khau chi gui len backend,
+        // backend tu kiem tra chu so huu
+        // -----------------------------
+
+        const result =
+            await callReservationApi(
+                {
+                    action:
+                        "cancelReservation",
+
+                    reservationId:
+                        pendingCancelReservationId,
+
+                    password:
+                        password
+                }
+            );
+
+
+        // Xoa mat khau khoi o nhap ngay sau khi gui
+        if (cancelReservationPassword) {
+            cancelReservationPassword.value =
+                "";
+        }
+
+
+        if (btnCancelReservationConfirm) {
+            btnCancelReservationConfirm.disabled =
+                false;
+        }
+
+
+        // -----------------------------
+        // THAT BAI
+        // Chi hien thi message backend
+        // -----------------------------
+
+        if (!result.success) {
+
+            if (cancelReservationModalMessage) {
+                cancelReservationModalMessage.textContent =
+                    result.error ||
+                    "Khong the huy dang ky.";
+            }
+
+            return;
+        }
+
+
+        const bookCode =
+            pendingCancelBookCode;
+
+        closeCancelReservationModal();
+
+
+        console.log(
+            "Da huy dang ky thanh cong."
+        );
+
+
+        // -----------------------------
+        // LOAD LAI DANH SACH
+        // -----------------------------
+
+        await loadReservationQueue(
+            bookCode,
+            reservationQueueResult
+        );
+    }
+
+
+    // =================================
+    // MODAL HUY CHO
+    // =================================
+
+    if (btnCancelReservationCancel) {
+        btnCancelReservationCancel.addEventListener(
+            "click",
+            closeCancelReservationModal
+        );
+    }
+
+    if (btnCancelReservationConfirm) {
+        btnCancelReservationConfirm.addEventListener(
+            "click",
+            handleCancelReservationConfirm
+        );
+    }
+
+    if (cancelReservationPassword) {
+        cancelReservationPassword.addEventListener(
+            "keydown",
+            event => {
+                if (event.key === "Enter") {
+                    handleCancelReservationConfirm();
+                }
+            }
+        );
+    }
+
+
     // =================================
     // DANG KY CHO
     // =================================
@@ -616,81 +841,13 @@ export function initReservation() {
             }
 
 
-            const confirmed =
-                confirm(
-                    "Ban co chac chan muon huy dang ky nay?"
-                );
-
-
-            if (!confirmed) {
-                return;
-            }
-
-
-            cancelButton.disabled =
-                true;
-
-
-            cancelButton.textContent =
-                "Dang huy...";
-
-
             // -----------------------------
-            // GOI API HUY
+            // MO MODAL XAC THUC
             // -----------------------------
 
-            const result =
-                await callReservationApi(
-                    {
-                        action:
-                            "cancelReservation",
-
-                        reservationId:
-                            reservationId
-                    }
-                );
-
-
-            // -----------------------------
-            // HUY THAT BAI
-            // -----------------------------
-
-            if (!result.success) {
-
-                alert(
-                    result.error ||
-                    "Khong the huy dang ky."
-                );
-
-
-                cancelButton.disabled =
-                    false;
-
-
-                cancelButton.textContent =
-                    "Hủy đăng ký";
-
-
-                return;
-            }
-
-
-            // -----------------------------
-            // HUY THANH CONG
-            // -----------------------------
-
-            alert(
-                "Da huy dang ky thanh cong."
-            );
-
-
-            // -----------------------------
-            // LOAD LAI DANH SACH
-            // -----------------------------
-
-            await loadReservationQueue(
-                bookCode,
-                reservationQueueResult
+            openCancelReservationModal(
+                reservationId,
+                bookCode
             );
         }
     );

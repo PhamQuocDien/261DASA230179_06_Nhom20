@@ -1564,6 +1564,64 @@ if (action == "searchBookByTitle") {
         cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
         return 0;
     }
+
+    // =================================================
+    // DELETE LOAN
+    // =================================================
+
+    if (action == "deleteLoan") {
+        string loanId = request.value("loanId", "");
+        string password = request.value("password", "");
+
+        if (loanId.empty()) {
+            cout << json{
+                {"success", false},
+                {"error", "Thieu loanId."}
+            }.dump();
+            return 1;
+        }
+
+        // LoanService chiu trach nhiem xac thuc
+        // va kiem tra dieu kien xoa.
+        DeleteLoanResult result =
+            loanService.deleteLoan(
+                loanId,
+                password
+            );
+
+        if (!result.isSuccess) {
+            cout << json{
+                {"success", false},
+                {"error", result.message}
+            }.dump();
+            return 0;
+        }
+
+        bool saved = saveLoanAndFineDataToDatabase(
+            database,
+            data,
+            bookRepository,
+            loanRepository,
+            fineRepository
+        );
+
+        if (!saved) {
+            cout << json{
+                {"success", false},
+                {"error", "Xoa phieu thanh cong nhung khong the luu library.json."}
+            }.dump();
+            return 1;
+        }
+
+        json response = {
+            {"success", true},
+            {"message", result.message},
+            {"data", {{"loanId", result.loanId}}}
+        };
+
+        cout << response.dump(-1, ' ', false, json::error_handler_t::replace);
+        return 0;
+    }
     
     if (action == "borrowBook") {
         string memberId = request.value("memberId", "");
@@ -2138,6 +2196,9 @@ if (action == "getReservationsByBookCode") {
         string reservationId =
             request.value("reservationId", "");
 
+        string password =
+            request.value("password", "");
+
 
         if (reservationId.empty()) {
 
@@ -2151,18 +2212,26 @@ if (action == "getReservationsByBookCode") {
         }
 
 
-        bool cancelled =
-            reservationService.cancel(
-                reservationId
+        // =================================================
+        // XAC THUC MAT KHAU VA HUY RESERVATION
+        //
+        // Chuoi xac thuc do ReservationService lay
+        // tu du lieu Reservation, khong tin client.
+        // =================================================
+
+        CancelReservationResult cancelResult =
+            reservationService.cancelWithPassword(
+                reservationId,
+                password
             );
 
 
-        if (!cancelled) {
+        if (!cancelResult.isSuccess) {
 
             cout << json{
                 {"success", false},
                 {"error",
-                 "Khong the huy yeu cau dat cho."}
+                 cancelResult.message}
             }.dump();
 
             return 0;
@@ -2198,6 +2267,7 @@ if (action == "getReservationsByBookCode") {
 
         json response = {
             {"success", true},
+            {"message", cancelResult.message},
             {"data",
              reservation == nullptr
                 ? json{}

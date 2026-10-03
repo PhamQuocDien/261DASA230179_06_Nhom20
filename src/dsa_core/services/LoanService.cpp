@@ -469,3 +469,136 @@ BorrowResult LoanService::borrowBook(
         newLoan;
     return result;
 }
+
+
+// =====================================================
+// XÓA PHIẾU MƯỢN
+// =====================================================
+
+DeleteLoanResult LoanService::deleteLoan(
+    const string& loanId,
+    const string& password
+) {
+    DeleteLoanResult result{};
+    result.isSuccess = false;
+    result.loanId = loanId;
+
+    if (loanId.empty()) {
+        result.message =
+            "Thieu Loan_ID.";
+        return result;
+    }
+
+    Loan* loan = loanRepo.findById(loanId);
+
+    if (loan == nullptr) {
+        result.message =
+            "Loi: Khong tim thay phieu muon voi Loan_ID nay.";
+        return result;
+    }
+
+    // Chủ sở hữu luôn lấy từ Loan trong dữ liệu,
+    // không dùng Member_ID do client gửi lên.
+    const Member* owner =
+        memberRepo.findById(loan->memberId);
+
+    if (owner == nullptr) {
+        result.message =
+            "Loi: Khong tim thay thanh vien so huu phieu muon.";
+        return result;
+    }
+
+    if (password.empty()) {
+        result.message =
+            "Vui long nhap mat khau thanh vien.";
+        return result;
+    }
+
+    if (owner->password != password) {
+        result.message =
+            "Mat khau khong dung.";
+        return result;
+    }
+
+    // Phòng thủ: chấp nhận cả chữ thường và IN HOA từ file JSON cũ
+    const string upperStatus = [&]() {
+        string upper = loan->status;
+        for (char& c : upper) {
+            c = static_cast<char>(
+                toupper(static_cast<unsigned char>(c))
+            );
+        }
+        return upper;
+    }();
+
+    // =================================================
+    // KHÔNG XÓA PHIẾU ĐANG MƯỢN
+    //
+    // Xóa phiếu BORROWING sẽ làm BookCopy mắc kẹt
+    // ở trạng thái "borrowed" vĩnh viễn và bản sách
+    // biến mất khỏi thư viện. Phải trả sách trước.
+    // =================================================
+
+    if (upperStatus == "BORROWING") {
+        result.message =
+            "Khong the xoa phieu muon dang duoc muon. "
+            "Vui long tra sach truoc.";
+        return result;
+    }
+
+    // =================================================
+    // KIỂM TRA FINE LIÊN QUAN
+    //
+    // Fine dang chưa thanh toan la no phai thu
+    // -> không xóa phiếu để khong mat du lieu phat.
+    // =================================================
+
+    const Fine* relatedFine =
+        fineRepo.findByLoanId(loanId);
+
+    if (relatedFine != nullptr) {
+        string fineStatus = relatedFine->status;
+        for (char& c : fineStatus) {
+            c = static_cast<char>(
+                toupper(static_cast<unsigned char>(c))
+            );
+        }
+
+        if (fineStatus != "PAID") {
+            result.message =
+                "Khong the xoa phieu muon dang co tien phat chua thanh toan.";
+            return result;
+        }
+    }
+
+    // =================================================
+    // XÓA FINE ĐÃ THANH TOÁN
+    //
+    // Fine tham chiếu tới Loan đã xóa sẽ thành
+    // dangling reference -> xóa luôn để dữ liệu sạch.
+    // =================================================
+
+    if (relatedFine != nullptr) {
+        fineRepo.removeById(relatedFine->fineId);
+    }
+
+    // =================================================
+    // XÓA PHIẾU
+    //
+    // Phiếu đã RETURNED nên BookCopy đã AVAILABLE/DAMAGED,
+    // giữ nguyên trạng thái bản sách.
+    // =================================================
+
+    if (!loanRepo.removeById(loanId)) {
+        result.message =
+            "Loi: Khong the xoa phieu muon trong he thong.";
+        return result;
+    }
+
+    result.isSuccess = true;
+    result.message =
+        "Xoa phieu muon thanh cong. Loan_ID: "
+        + loanId;
+
+    return result;
+}

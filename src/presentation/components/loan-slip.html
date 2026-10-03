@@ -86,4 +86,54 @@
 
     </div>
 
+    <!-- ===================================== -->
+    <!-- MODAL XÁC THỰC MẬT KHẨU: XÓA PHIẾU -->
+    <!-- ===================================== -->
+
+    <div id="deleteLoanModal"
+         class="password-modal">
+
+        <div class="password-modal-box">
+
+            <h3>
+                Xóa phiếu mượn
+            </h3>
+
+            <p class="password-modal-desc">
+                Loan ID: <strong id="deleteLoanModalLoanId">-</strong>
+            </p>
+
+            <p class="password-modal-desc">
+                Bạn có chắc muốn xóa phiếu này?
+            </p>
+
+            <div class="form-group">
+                <label for="deleteLoanPassword">
+                    Mật khẩu thành viên
+                </label>
+                <input type="password"
+                       id="deleteLoanPassword"
+                       placeholder="Nhập mật khẩu..."
+                       autocomplete="current-password">
+            </div>
+
+            <p id="deleteLoanModalMessage"
+               class="password-modal-message"></p>
+
+            <div class="password-modal-actions">
+                <button type="button"
+                        id="btnDeleteLoanCancel">
+                    Hủy
+                </button>
+
+                <button type="button"
+                        id="btnDeleteLoanConfirm">
+                    Xác nhận xóa
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
 </section>

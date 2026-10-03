@@ -248,6 +248,90 @@ bool ReservationService::cancel(
     return true;
 }
 
+
+// =========================================================
+// CANCEL RESERVATION + XAC THUC MAT KHAU
+// =========================================================
+
+CancelReservationResult ReservationService::cancelWithPassword(
+    const string& reservationId,
+    const string& password
+)
+{
+    CancelReservationResult result{};
+    result.isSuccess = false;
+    result.reservationId = reservationId;
+
+    // Reservation khong ton tai
+    Reservation* reservation =
+        reservationRepository.findById(
+            reservationId
+        );
+
+    if (reservation == nullptr)
+    {
+        result.message =
+            "Khong tim thay yeu cau cho nay.";
+
+        return result;
+    }
+
+    // Khong cho huy lai reservation da duoc xu ly
+    if (reservation->status != "WAITING")
+    {
+        result.message =
+            "Yeu cau cho nay khong con o trang thai cho.";
+
+        return result;
+    }
+
+    // Chuoi xac thuc luon lay tu du lieu Reservation
+    const Member* owner =
+        memberRepository.findById(
+            reservation->memberId
+        );
+
+    if (owner == nullptr)
+    {
+        result.message =
+            "Khong tim thay thanh vien so huu yeu cau cho.";
+
+        return result;
+    }
+
+    // Mat khau rong -> khong cho thao tac
+    if (password.empty())
+    {
+        result.message =
+            "Vui long nhap mat khau thanh vien.";
+
+        return result;
+    }
+
+    if (owner->password != password)
+    {
+        result.message =
+            "Mat khau khong dung.";
+
+        return result;
+    }
+
+    // Xac thuc thanh cong -> chay logic huy hien co
+    if (!cancel(reservationId))
+    {
+        result.message =
+            "Khong the huy yeu cau cho.";
+
+        return result;
+    }
+
+    result.isSuccess = true;
+    result.message =
+        "Da huy yeu cau cho thanh cong.";
+
+    return result;
+}
+
 //GET NEXT ELIGIBL RESERVATION
 Reservation* ReservationService::getNextEligible(const string& bookCode) {
     auto it = waitQueues.find(bookCode);

@@ -14,6 +14,13 @@
 
 using namespace std;
 
+struct CancelReservationResult
+{
+    bool isSuccess;
+    string message;
+    string reservationId;
+};
+
 class ReservationService
 {
 private:
@@ -32,6 +39,14 @@ public:
     bool enqueue(const string& memberId, const string& bookCode);
 
     bool cancel(const string& reservationId);
+
+    // Huy Reservation co xac thuc mat khau.
+    // Chuoi xac thuc lay tu Reservation trong du lieu,
+    // khong tin Member_ID do client gui len.
+    CancelReservationResult cancelWithPassword(
+        const string& reservationId,
+        const string& password
+    );
 
     Reservation* getNextEligible(const string& bookCode);
 

@@ -59,6 +59,30 @@ async function getLoanSlipsByMember(
 
 
 // =====================================
+// XOA PHIEU MUON
+// Backend tu xac thuc chu so huu phieu
+// va tu quyet dinh co the xoa hay khong
+// =====================================
+
+async function deleteLoan(
+    loanId,
+    password
+) {
+
+    return await sendApiRequest({
+        action:
+            "deleteLoan",
+
+        loanId:
+            loanId,
+
+        password:
+            password
+    });
+}
+
+
+// =====================================
 // CHUYEN SANG DANG KY THANH VIEN
 // =====================================
 
@@ -174,7 +198,7 @@ function createLoanInfo(
         "loan-slip-label";
 
     labelElement.textContent =
-        label;
+        label + ":";
 
 
     const valueElement =
@@ -231,11 +255,10 @@ function createLoanSlipCard(
         "loan-slip-card-header";
 
 
-    const title =
-        document.createElement("h4");
-
-    title.textContent =
-        "Phiếu mượn";
+    const isBorrowing =
+        loan.status &&
+        loan.status.toUpperCase() ===
+        "BORROWING";
 
 
     const loanId =
@@ -248,12 +271,27 @@ function createLoanSlipCard(
         loan.loanId || "-";
 
 
-    cardHeader.appendChild(
-        title
-    );
+    const statusBadge =
+        document.createElement("span");
+
+    statusBadge.className =
+        "loan-slip-status " +
+        (isBorrowing
+            ? "borrowing"
+            : "returned");
+
+    statusBadge.textContent =
+        isBorrowing
+        ? "ĐANG MƯỢN"
+        : "ĐÃ TRẢ";
+
 
     cardHeader.appendChild(
         loanId
+    );
+
+    cardHeader.appendChild(
+        statusBadge
     );
 
 
@@ -268,26 +306,24 @@ function createLoanSlipCard(
         "loan-slip-card-body";
 
 
+    const title =
+        document.createElement("div");
+
+    title.className =
+        "loan-slip-title";
+
+    title.textContent =
+        loan.bookTitle || "-";
+
     cardBody.appendChild(
-        createLoanInfo(
-            "Loan_ID",
-            loan.loanId
-        )
+        title
     );
 
 
     cardBody.appendChild(
         createLoanInfo(
-            "Member_ID",
-            loan.memberId
-        )
-    );
-
-
-    cardBody.appendChild(
-        createLoanInfo(
-            "Book_ID",
-            loan.bookId
+            "Mã sách",
+            loan.bookCode
         )
     );
 
@@ -300,105 +336,59 @@ function createLoanSlipCard(
     );
 
 
-    cardBody.appendChild(
-        createLoanInfo(
-            "Ngày đến hạn",
-            loan.dueDate
-        )
-    );
+    // Chỉ hiện hạn trả hoặc ngày trả
+    // cho đúng trạng thái phiếu
 
+    if (isBorrowing) {
 
-    cardBody.appendChild(
-        createLoanInfo(
-            "Ngày trả",
-            loan.returnDate
-        )
-    );
-
-
-    cardBody.appendChild(
-        createLoanInfo(
-            "Số lần gia hạn",
-            loan.renewalCount
-        )
-    );
-
-
-    // =================================
-    // TRẠNG THÁI
-    // =================================
-
-    const statusInfo =
-        document.createElement("div");
-
-    statusInfo.className =
-        "loan-slip-info";
-
-
-    const statusLabel =
-        document.createElement("span");
-
-    statusLabel.className =
-        "loan-slip-label";
-
-    statusLabel.textContent =
-        "Trạng thái";
-
-
-    const statusValue =
-        document.createElement("span");
-
-    statusValue.className =
-        "loan-slip-status";
-
-
-    statusValue.textContent =
-        loan.status || "-";
-
-
-    // =================================
-    // GAN CLASS THEO TRANG THAI
-    // =================================
-
-    if (
-        loan.status &&
-        loan.status.toUpperCase() ===
-        "BORROWING"
-    ) {
-
-        statusValue.classList.add(
-            "borrowing"
-        );
-
-    } else if (
-        loan.status &&
-        loan.status.toUpperCase() ===
-        "RETURNED"
-    ) {
-
-        statusValue.classList.add(
-            "returned"
+        cardBody.appendChild(
+            createLoanInfo(
+                "Hạn trả",
+                loan.dueDate
+            )
         );
 
     } else {
 
-        statusValue.classList.add(
-            "other"
+        cardBody.appendChild(
+            createLoanInfo(
+                "Ngày trả",
+                loan.returnDate
+            )
         );
+
     }
 
 
-    statusInfo.appendChild(
-        statusLabel
-    );
+    // =================================
+    // THAO TAC: CHI XOA PHIEU
+    // Gia han nam o man hinh rieng
+    // =================================
 
-    statusInfo.appendChild(
-        statusValue
-    );
+    const cardFooter =
+        document.createElement("div");
+
+    cardFooter.className =
+        "loan-slip-card-footer";
 
 
-    cardBody.appendChild(
-        statusInfo
+    const deleteButton =
+        document.createElement("button");
+
+    deleteButton.type =
+        "button";
+
+    deleteButton.className =
+        "loan-slip-delete-btn";
+
+    deleteButton.dataset.loanId =
+        loan.loanId || "";
+
+    deleteButton.textContent =
+        "Xóa phiếu";
+
+    cardFooter.appendChild(
+        deleteButton
     );
 
 
@@ -412,6 +402,10 @@ function createLoanSlipCard(
 
     card.appendChild(
         cardBody
+    );
+
+    card.appendChild(
+        cardFooter
     );
 
 
@@ -593,6 +587,251 @@ export function initLoanSlip() {
 
         return;
     }
+const deleteLoanModal =
+        document.querySelector(
+            "#deleteLoanModal"
+        );
+
+
+    const deleteLoanModalLoanId =
+        document.querySelector(
+            "#deleteLoanModalLoanId"
+        );
+
+
+    const deleteLoanPassword =
+        document.querySelector(
+            "#deleteLoanPassword"
+        );
+
+
+    const deleteLoanModalMessage =
+        document.querySelector(
+            "#deleteLoanModalMessage"
+        );
+
+
+    const btnDeleteLoanCancel =
+        document.querySelector(
+            "#btnDeleteLoanCancel"
+        );
+
+
+    const btnDeleteLoanConfirm =
+        document.querySelector(
+            "#btnDeleteLoanConfirm"
+        );
+
+
+    // Loan_ID dang cho xac nhan xoa
+    let pendingDeleteLoanId = "";
+
+
+    function openDeleteLoanModal(
+        loanId
+    ) {
+
+        pendingDeleteLoanId =
+            loanId;
+
+        if (deleteLoanModalLoanId) {
+            deleteLoanModalLoanId.textContent =
+                loanId;
+        }
+
+        if (deleteLoanModalMessage) {
+            deleteLoanModalMessage.textContent =
+                "";
+        }
+
+        if (deleteLoanPassword) {
+            deleteLoanPassword.value =
+                "";
+        }
+
+        if (deleteLoanModal) {
+            deleteLoanModal.style.display =
+                "flex";
+        }
+
+        if (deleteLoanPassword) {
+            deleteLoanPassword.focus();
+        }
+    }
+
+
+    function closeDeleteLoanModal() {
+
+        if (deleteLoanModal) {
+            deleteLoanModal.style.display =
+                "none";
+        }
+
+        if (deleteLoanPassword) {
+            deleteLoanPassword.value =
+                "";
+        }
+
+        pendingDeleteLoanId = "";
+    }
+
+
+    async function handleDeleteLoanConfirm() {
+
+        const password =
+            deleteLoanPassword
+                ? deleteLoanPassword.value
+                : "";
+
+        if (password === "") {
+
+            if (deleteLoanModalMessage) {
+                deleteLoanModalMessage.textContent =
+                    "Vui long nhap mat khau thanh vien.";
+            }
+
+            return;
+        }
+
+
+        if (btnDeleteLoanConfirm) {
+            btnDeleteLoanConfirm.disabled =
+                true;
+        }
+
+
+        const result =
+            await deleteLoan(
+                pendingDeleteLoanId,
+                password
+            );
+
+
+        // Xoa mat khau khoi o nhap ngay sau khi gui
+        if (deleteLoanPassword) {
+            deleteLoanPassword.value =
+                "";
+        }
+
+
+        if (btnDeleteLoanConfirm) {
+            btnDeleteLoanConfirm.disabled =
+                false;
+        }
+
+
+        // Chi hien thi message tu backend tra ve
+        if (!result.success) {
+
+            if (deleteLoanModalMessage) {
+                deleteLoanModalMessage.textContent =
+                    result.error ||
+                    "Khong the xoa phieu muon.";
+            }
+
+            return;
+        }
+
+
+        closeDeleteLoanModal();
+
+
+        console.log(
+            "Xoa phieu muon thanh cong."
+        );
+
+
+        // Tai lai danh sach phieu cua thanh vien
+        const memberId =
+            memberIdInput.value.trim();
+
+        if (memberId !== "") {
+
+            const reload =
+                await getLoanSlipsByMember(
+                    memberId
+                );
+
+            if (reload && reload.success) {
+
+                renderLoanSlips(
+                    loanSlipList,
+                    reload.data,
+                    returnedLoanSlipList
+                );
+            }
+        }
+    }
+
+
+    // =================================
+    // MODAL XOA PHIEU
+    // =================================
+
+    if (btnDeleteLoanCancel) {
+        btnDeleteLoanCancel.addEventListener(
+            "click",
+            closeDeleteLoanModal
+        );
+    }
+
+    if (btnDeleteLoanConfirm) {
+        btnDeleteLoanConfirm.addEventListener(
+            "click",
+            handleDeleteLoanConfirm
+        );
+    }
+
+    if (deleteLoanPassword) {
+        deleteLoanPassword.addEventListener(
+            "keydown",
+            event => {
+                if (event.key === "Enter") {
+                    handleDeleteLoanConfirm();
+                }
+            }
+        );
+    }
+
+    // Mo modal khi bam nut Xoa phieu tren card
+    loanSlipList.addEventListener(
+        "click",
+        event => {
+
+            const deleteButton =
+                event.target.closest(
+                    ".loan-slip-delete-btn"
+                );
+
+            if (!deleteButton) {
+                return;
+            }
+
+            openDeleteLoanModal(
+                deleteButton.dataset.loanId
+            );
+        }
+    );
+
+
+    returnedLoanSlipList.addEventListener(
+        "click",
+        event => {
+
+            const deleteButton =
+                event.target.closest(
+                    ".loan-slip-delete-btn"
+                );
+
+            if (!deleteButton) {
+                return;
+            }
+
+            openDeleteLoanModal(
+                deleteButton.dataset.loanId
+            );
+        }
+    );
 
 
     // =================================
