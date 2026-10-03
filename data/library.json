@@ -14671,6 +14671,14 @@
             "password": "123456",
             "phone": "0900000500",
             "status": "INACTIVE"
+        },
+        {
+            "email": "25110272@student.hcmute.vn",
+            "memberId": "M501",
+            "name": "Truong Quang Minh",
+            "password": "0338860950Hm",
+            "phone": "0338860950",
+            "status": "ACTIVE"
         }
     ],
     "reservations": [
