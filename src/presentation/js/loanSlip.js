@@ -255,10 +255,18 @@ function createLoanSlipCard(
         "loan-slip-card-header";
 
 
+    const statusKey =
+        loan.status
+            ? String(loan.status).toUpperCase()
+            : "";
+
+
     const isBorrowing =
-        loan.status &&
-        loan.status.toUpperCase() ===
-        "BORROWING";
+        statusKey === "BORROWING";
+
+
+    const isReturned =
+        statusKey === "RETURNED";
 
 
     const loanId =
@@ -278,12 +286,26 @@ function createLoanSlipCard(
         "loan-slip-status " +
         (isBorrowing
             ? "borrowing"
-            : "returned");
+            : isReturned
+                ? "returned"
+                : "other");
 
-    statusBadge.textContent =
-        isBorrowing
-        ? "ĐANG MƯỢN"
-        : "ĐÃ TRẢ";
+    if (isBorrowing) {
+
+        statusBadge.textContent =
+            "ĐANG MƯỢN";
+
+    } else if (isReturned) {
+
+        statusBadge.textContent =
+            "ĐÃ TRẢ";
+
+    } else {
+
+        statusBadge.textContent =
+            loan.status || "-";
+
+    }
 
 
     cardHeader.appendChild(
@@ -348,7 +370,7 @@ function createLoanSlipCard(
             )
         );
 
-    } else {
+    } else if (isReturned) {
 
         cardBody.appendChild(
             createLoanInfo(
@@ -460,9 +482,11 @@ function renderLoanSlips(
     const returnedLoanSlips =
         loanSlips.filter(
             loan =>
-                loan.status &&
-                loan.status.toUpperCase() ===
-                "RETURNED"
+                !(
+                    loan.status &&
+                    loan.status.toUpperCase() ===
+                    "BORROWING"
+                )
         );
 
 
@@ -566,6 +590,15 @@ export function initLoanSlip() {
         document.querySelector(
             "#tabReturned"
         );
+
+
+    // Tránh đăng ký sự kiện nhiều lần
+    if (btnLoadLoanSlips.dataset.initialized === "true") {
+
+        return;
+    }
+
+    btnLoadLoanSlips.dataset.initialized = "true";
 
 
     // =================================

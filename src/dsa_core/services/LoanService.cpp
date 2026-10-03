@@ -572,6 +572,22 @@ DeleteLoanResult LoanService::deleteLoan(
     }
 
     // =================================================
+    // XÓA PHIẾU
+    //
+    // Phiếu đã RETURNED nên BookCopy đã AVAILABLE/DAMAGED,
+    // giữ nguyên trạng thái bản sách.
+    //
+    // Xóa phiếu trước, xóa Fine sau để không bao giờ
+    // mất tiền phạt khi phiếu chưa xóa được.
+    // =================================================
+
+    if (!loanRepo.removeById(loanId)) {
+        result.message =
+            "Loi: Khong the xoa phieu muon trong he thong.";
+        return result;
+    }
+
+    // =================================================
     // XÓA FINE ĐÃ THANH TOÁN
     //
     // Fine tham chiếu tới Loan đã xóa sẽ thành
@@ -580,19 +596,6 @@ DeleteLoanResult LoanService::deleteLoan(
 
     if (relatedFine != nullptr) {
         fineRepo.removeById(relatedFine->fineId);
-    }
-
-    // =================================================
-    // XÓA PHIẾU
-    //
-    // Phiếu đã RETURNED nên BookCopy đã AVAILABLE/DAMAGED,
-    // giữ nguyên trạng thái bản sách.
-    // =================================================
-
-    if (!loanRepo.removeById(loanId)) {
-        result.message =
-            "Loi: Khong the xoa phieu muon trong he thong.";
-        return result;
     }
 
     result.isSuccess = true;

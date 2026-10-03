@@ -405,6 +405,15 @@ export function initReservation() {
     }
 
 
+    // Tránh đăng ký sự kiện nhiều lần
+    if (btnReservation.dataset.initialized === "true") {
+
+        return;
+    }
+
+    btnReservation.dataset.initialized = "true";
+
+
     const cancelReservationModal =
         document.getElementById(
             "cancelReservationModal"
