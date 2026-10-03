@@ -7,7 +7,7 @@
             "copies": [
                 {
                     "bookId": "LSVN001",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LSVN002",
@@ -10679,6 +10679,16 @@
             "renewalCount": 0,
             "returnDate": "2026-10-03",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "LSVN001",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L504",
+            "memberId": "M501",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
