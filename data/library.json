@@ -57,7 +57,7 @@
             "copies": [
                 {
                     "bookId": "TCC001",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "TCC002",
@@ -10706,6 +10706,16 @@
             "dueDate": "2026-11-01",
             "loanId": "L506",
             "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "TCC001",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L507",
+            "memberId": "M501",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
