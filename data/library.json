@@ -5664,7 +5664,7 @@
             "loanId": "L507",
             "memberId": "M501",
             "reason": "Tình trạng: Kem",
-            "status": "UNPAID"
+            "status": "PAID"
         }
     ],
     "loans": [
