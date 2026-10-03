@@ -10765,8 +10765,8 @@
             "loanId": "L511",
             "memberId": "M062",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "borrowing"
+            "returnDate": "2026-10-03",
+            "status": "RETURNED"
         },
         {
             "bookId": "LH005",
@@ -10794,6 +10794,16 @@
             "dueDate": "2026-11-01",
             "loanId": "L514",
             "memberId": "M065",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "LH004",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L515",
+            "memberId": "M070",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
@@ -15054,7 +15064,7 @@
             "memberId": "M070",
             "reservationDate": "2026-10-03",
             "reservationId": "R34",
-            "status": "WAITING"
+            "status": "SERVED"
         }
     ]
 }
