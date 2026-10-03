@@ -7521,16 +7521,6 @@
             "status": "RETURNED"
         },
         {
-            "bookId": "DAYG005",
-            "borrowDate": "2026-07-06",
-            "dueDate": "2026-08-05",
-            "loanId": "L0187",
-            "memberId": "M005",
-            "renewalCount": 0,
-            "returnDate": "2026-08-05",
-            "status": "RETURNED"
-        },
-        {
             "bookId": "WON002",
             "borrowDate": "2026-07-08",
             "dueDate": "2026-07-22",
