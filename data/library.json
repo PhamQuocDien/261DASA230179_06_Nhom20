@@ -15016,6 +15016,13 @@
             "reservationDate": "2026-10-03",
             "reservationId": "R31",
             "status": "SERVED"
+        },
+        {
+            "bookCode": "LH",
+            "memberId": "M065",
+            "reservationDate": "2026-10-03",
+            "reservationId": "R32",
+            "status": "WAITING"
         }
     ]
 }
