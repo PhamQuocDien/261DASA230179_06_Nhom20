@@ -1157,7 +1157,7 @@
             "copies": [
                 {
                     "bookId": "LH001",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LH002",
@@ -10727,6 +10727,16 @@
             "renewalCount": 0,
             "returnDate": "2026-10-03",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "LH001",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L508",
+            "memberId": "M067",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
