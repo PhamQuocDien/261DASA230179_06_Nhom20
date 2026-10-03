@@ -381,9 +381,13 @@ vector<Book> BookService::getAvailableBooks() const {
             : book.copies
             ) {
 
+            // Phòng thủ: chấp nhận cả chữ thường
+            // và IN HOA từ file JSON cũ
             if (
                 bookCopy.status ==
-                "available"
+                    "available" ||
+                bookCopy.status ==
+                    "AVAILABLE"
                 ) {
 
                 filteredBook.copies.push_back(
@@ -437,9 +441,13 @@ vector<Book> BookService::getBorrowedBooks() const {
             : book.copies
             ) {
 
+            // Phòng thủ: chấp nhận cả chữ thường
+            // và IN HOA từ file JSON cũ
             if (
                 bookCopy.status ==
-                "borrowed"
+                    "borrowed" ||
+                bookCopy.status ==
+                    "BORROWED"
                 ) {
 
                 filteredBook.copies.push_back(
