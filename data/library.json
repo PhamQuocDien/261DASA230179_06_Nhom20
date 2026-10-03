@@ -307,7 +307,7 @@
             "copies": [
                 {
                     "bookId": "NNA001",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "NNA002",
@@ -10699,6 +10699,16 @@
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
+        },
+        {
+            "bookId": "NNA001",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L506",
+            "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
@@ -14921,6 +14931,13 @@
             "reservationDate": "2026-10-01",
             "reservationId": "R030",
             "status": "WAITING"
+        },
+        {
+            "bookCode": "NNA",
+            "memberId": "M004",
+            "reservationDate": "2026-10-03",
+            "reservationId": "R31",
+            "status": "SERVED"
         }
     ]
 }
