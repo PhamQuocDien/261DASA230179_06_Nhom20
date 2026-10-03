@@ -11967,10 +11967,10 @@
         {
             "bookId": "NNA004",
             "borrowDate": "2026-10-03",
-            "dueDate": "2026-11-01",
+            "dueDate": "2026-11-08",
             "loanId": "L141",
             "memberId": "M101",
-            "renewalCount": 0,
+            "renewalCount": 1,
             "returnDate": null,
             "status": "borrowing"
         }
