@@ -319,7 +319,7 @@
                 },
                 {
                     "bookId": "NNA004",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "NNA005",
@@ -11963,6 +11963,16 @@
             "renewalCount": 0,
             "returnDate": "2026-09-28",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "NNA004",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L141",
+            "memberId": "M101",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
