@@ -62,4 +62,81 @@
 
     </div>
 
+
+    <!-- ===================================== -->
+    <!-- NÚT XÁC NHẬN ĐÃ TRẢ TIỀN -->
+    <!-- ===================================== -->
+
+    <div id="payFineActions"
+         class="pay-fine-actions">
+
+        <button type="button"
+                id="btnPayFine">
+            Xác nhận đã trả tiền
+        </button>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- MODAL NHẬP ADMIN ID + MẬT KHẨU -->
+    <!-- ===================================== -->
+
+    <div id="payFineModal"
+         class="password-modal">
+
+        <div class="password-modal-box">
+
+            <h3>
+                Xác nhận đã trả tiền phạt
+            </h3>
+
+            <p class="password-modal-desc">
+                Mã phạt:
+                <strong id="payFineModalFineId">-</strong>
+            </p>
+
+            <p class="password-modal-desc">
+                Chỉ quản lý mới được xác nhận thanh toán.
+            </p>
+
+            <div class="form-group">
+                <label for="payFineAdminId">
+                    Admin ID
+                </label>
+                <input type="text"
+                       id="payFineAdminId"
+                       placeholder="Nhập Admin ID..."
+                       autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="payFinePassword">
+                    Mật khẩu quản lý
+                </label>
+                <input type="password"
+                       id="payFinePassword"
+                       placeholder="Nhập mật khẩu..."
+                       autocomplete="current-password">
+            </div>
+
+            <p id="payFineModalMessage"
+               class="password-modal-message"></p>
+
+            <div class="password-modal-actions">
+                <button type="button"
+                        id="btnPayFineCancel">
+                    Hủy
+                </button>
+
+                <button type="button"
+                        id="btnPayFineConfirm">
+                    Xác nhận
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
 </section>

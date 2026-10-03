@@ -43,12 +43,14 @@ ReservationService::ReservationService(
     MemberRepository& memberRepository,
     BookRepository& bookRepository,
     LoanRepository& loanRepository,
-    ReservationRepository& reservationRepository
+    ReservationRepository& reservationRepository,
+    FineRepository& fineRepository
 )
     : memberRepository(memberRepository),
       bookRepository(bookRepository),
       loanRepository(loanRepository),
-      reservationRepository(reservationRepository)
+      reservationRepository(reservationRepository),
+      fineRepository(fineRepository)
 {
     // Khôi phục Queue từ các Reservation WAITING
     for (const Reservation& reservation :
@@ -128,26 +130,12 @@ bool ReservationService::enqueue(
     
  
 
-    // 3. Chỉ cho đăng ký chờ khi
-    //    KHÔNG còn bản sách available
-
-    bool hasAvailableCopy = false;
-
-    for (const BookCopy& copy : book->copies)
-    {
-        if ((copy.status == "available" ||
-            copy.status == "AVAILABLE"))
-        {
-            hasAvailableCopy = true;
-            break;
-        }
-    }
-
-    // Vẫn còn sách để mượn
-    // -> không cần đăng ký chờ
-    if (hasAvailableCopy) {
-        return false;
-    }
+    // 3. Khong chan dang ky cho khi con ban sach available.
+    //
+    //    Yeu cau cho duoc tao vao hang doi voi dung thu tu
+    //    FIFO. Cac banh xu ly cap sach cho nguoi dang cho
+    //    (serve) nam o LoanService, nen Reservation khong
+    //    duoc bo qua khi con ban AVAILABLE.
 
 
     // 4. Kiểm tra Member có đang mượn
@@ -332,6 +320,27 @@ CancelReservationResult ReservationService::cancelWithPassword(
     return result;
 }
 
+//KIEM TRA THANH VIEN CO CON FINE CHUA THANH TOAN
+//Fine status trong du lieu chi co UNPAID va PAID.
+//Chua co trang thai moi, khong them trang thai moi.
+bool ReservationService::hasUnpaidFine(const string& memberId) {
+    for (const Fine& fine : fineRepository.getAll()) {
+        if (fine.memberId != memberId)
+            continue;
+
+        string status = fine.status;
+        for (char& c : status) {
+            c = static_cast<char>(
+                toupper(static_cast<unsigned char>(c))
+            );
+        }
+
+        if (status != "PAID")
+            return true;
+    }
+    return false;
+}
+
 //GET NEXT ELIGIBL RESERVATION
 Reservation* ReservationService::getNextEligible(const string& bookCode) {
     auto it = waitQueues.find(bookCode);
@@ -381,6 +390,24 @@ Reservation* ReservationService::getNextEligible(const string& bookCode) {
         }
         //Người này không còn đủ điều kiện 
         if (alreadyBorrowing) {
+            it->second.pop();
+            continue;
+        }
+        //kiểm tra giới hạn số sách đang mượn
+        int activeLoans = 0;
+        for (const Loan& loan : loanRepository.getAll()) {
+            if (loan.memberId == reservation->memberId
+                && (loan.status == "borrowing" || loan.status == "BORROWING")) {
+                activeLoans++;
+            }
+        }
+        //đã đạt giới hạn mượn
+        if (activeLoans >= 10) {
+            it->second.pop();
+            continue;
+        }
+        //còn tiền phạt chưa thanh toán -> chưa đủ điều kiện mượn
+        if (hasUnpaidFine(reservation->memberId)) {
             it->second.pop();
             continue;
         }

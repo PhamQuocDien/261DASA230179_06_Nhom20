@@ -35,6 +35,24 @@ using nlohmann::json;
 
 
 // =====================================================
+// LẤY NGÀY HIỆN TẠI: YYYY-MM-DD
+// =====================================================
+
+string static getCurrentDateStr() {
+    time_t now = time(nullptr);
+    tm localTime{};
+#ifdef _WIN32
+    localtime_s(&localTime, &now);
+#else
+    localtime_r(&now, &localTime);
+#endif
+    char buffer[20];
+    strftime(buffer, sizeof(buffer), "%Y-%m-%d", &localTime);
+    return string(buffer);
+}
+
+
+// =====================================================
 // BOOK -> JSON
 // =====================================================
 
@@ -1683,6 +1701,21 @@ if (action == "searchBookByTitle") {
             return 0;
         }
 
+        // =================================================
+        // PHỤC VỤ HÀNG CHỜ NẾU VẪN CÒN SÁCH TRỐNG
+        //
+        // Thành viên không có Reservation vẫn mượn được
+        // như mọi khi. Sau đó nếu đầu sách còn bản
+        // AVAILABLE và đang có người chờ thì phục vụ
+        // người đứng đầu hàng chờ ngay trong backend.
+        // =================================================
+
+        int servedCount =
+            loanService.serveWaitingReservations(
+                bookCode,
+                borrowDate
+            );
+
         // Luu lai thay doi cua Book va Loan xuong library.json
         bool saved = saveLoanAndFineDataToDatabase(
             database,
@@ -1700,9 +1733,35 @@ if (action == "searchBookByTitle") {
             return 1;
         }
 
+        // Luu Reservation vì có thể đã phục vụ lượt chờ
+        bool reservationSaved =
+            saveReservationsToDatabase(
+                database,
+                data,
+                reservationRepository
+            );
+
+        if (!reservationSaved) {
+            cout << json{
+                {"success", false},
+                {"error", "Da cap nhat trong bo nho "
+                "nhung khong the luu Reservation vao library.json."}
+            }.dump();
+            return 1;
+        }
+
+        string borrowMessage = result.message;
+
+        if (servedCount > 0) {
+            borrowMessage +=
+                " Da tu dong cap sach cho "
+                + to_string(servedCount)
+                + " thanh vien trong hang cho.";
+        }
+
         json response = {
             {"success", true},
-            {"message", result.message},
+            {"message", borrowMessage},
             {"data", JsonMapper::loanToJson(result.loan)}
         };
 
@@ -1994,6 +2053,86 @@ if (action == "returnBook") {
     }
 
     // =================================================
+    // PAY FINE (Admin xác nhận đã trả tiền)
+    // =================================================
+
+    if (action == "payFine") {
+
+        string fineId =
+            request.value("fineId", "");
+
+        string idAdmin =
+            request.value("idAdmin", "");
+
+        string password =
+            request.value("password", "");
+
+
+        // Chuoi xac thuc do C++ kiem tra,
+        // khong tin frontend.
+        PayFineResult payResult =
+            adminService.payFine(
+                fineId,
+                idAdmin,
+                password
+            );
+
+
+        if (!payResult.isSuccess) {
+
+            cout << json{
+                {"success", false},
+                {"error", payResult.message}
+            }.dump();
+
+            return 0;
+        }
+
+
+        bool saved =
+            saveLoanAndFineDataToDatabase(
+                database,
+                data,
+                bookRepository,
+                loanRepository,
+                fineRepository
+            );
+
+
+        if (!saved) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da cap nhat trong bo nho "
+                 "nhung khong the luu library.json."}
+            }.dump();
+
+            return 1;
+        }
+
+
+        json response = {
+            {"success", true},
+            {"message", payResult.message},
+            {"data", {
+                {"fineId", payResult.fineId},
+                {"status", payResult.status}
+            }}
+        };
+
+
+        cout << response.dump(
+            -1,
+            ' ',
+            false,
+            json::error_handler_t::replace
+        );
+
+        return 0;
+    }
+
+// =================================================
 // GET RESERVATIONS BY BOOK CODE
 // =================================================
 
@@ -2146,6 +2285,52 @@ if (action == "getReservationsByBookCode") {
         }
 
 
+        string reservationId =
+            reservation->reservationId;
+
+
+        // =================================================
+        // PHỤC VỤ NGAY NẾU ĐẦU SÁCH ĐANG CÓ SÁCH TRỐNG
+        //
+        // Đăng ký chờ khi vẫn còn bản AVAILABLE thì người
+        // đứng đầu hàng chờ đủ điều kiện được cấp sách
+        // ngay, không để Reservation nằm chờ trong khi sách
+        // đã có sẵn.
+        // =================================================
+
+        string enqueueDate = getCurrentDateStr();
+
+        int servedCount =
+            loanService.serveWaitingReservations(
+                bookCode,
+                enqueueDate
+            );
+
+        if (servedCount > 0) {
+
+            bool loanSaved =
+                saveLoanAndFineDataToDatabase(
+                    database,
+                    data,
+                    bookRepository,
+                    loanRepository,
+                    fineRepository
+                );
+
+            if (!loanSaved) {
+
+                cout << json{
+                    {"success", false},
+                    {"error",
+                     "Da cap sach trong bo nho "
+                     "nhung khong the luu library.json."}
+                }.dump();
+
+                return 1;
+            }
+        }
+
+
         bool saved =
             saveReservationsToDatabase(
                 database,
@@ -2167,11 +2352,30 @@ if (action == "getReservationsByBookCode") {
         }
 
 
+        // Đọc lại theo Reservation_ID sau khi phục vụ
+        // hàng chờ để trả về đúng trạng thái hiện tại
+        Reservation* servedReservation =
+            reservationRepository.findById(
+                reservationId
+            );
+
+        if (servedReservation == nullptr) {
+
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong doc lai duoc Reservation."}
+            }.dump();
+
+            return 1;
+        }
+
+
         json response = {
             {"success", true},
             {"data",
              JsonMapper::reservationToJson(
-                 *reservation
+                 *servedReservation
              )}
         };
 
@@ -2493,7 +2697,8 @@ int main(int argc, char* argv[]) {
         memberRepository,
         bookRepository,
         loanRepository,
-        reservationRepository
+        reservationRepository,
+        fineRepository
     );
 
     LoanService loanService(
@@ -2509,7 +2714,7 @@ int main(int argc, char* argv[]) {
         bookRepository,
         reservationRepository
     );
-    AdminService adminService;
+    AdminService adminService(fineRepository);
     // =================================================
     // API MODE
     // =================================================

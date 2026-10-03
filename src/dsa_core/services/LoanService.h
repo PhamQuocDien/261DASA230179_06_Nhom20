@@ -55,6 +55,11 @@ public:
     BorrowResult borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr,const string& password);
     BorrowResult borrowBook(const string& memberId, const string& bookCode, const string& borrowDateStr);
 
+    // Cấp sách cho người đang chờ của đầu sách.
+    // Lặp lại cho tới khi hết bản AVAILABLE hoặc hết
+    // người đủ điều kiện. Trả về số lượt chờ đã phục vụ.
+    int serveWaitingReservations(const string& bookCode, const string& borrowDateStr);
+
     // Xoa phieu muon. Chuoi xac thuc lay tu Loan trong du lieu,
     // khong tin Member_ID do client gui len.
     DeleteLoanResult deleteLoan(const string& loanId, const string& password);

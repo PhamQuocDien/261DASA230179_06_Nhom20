@@ -14,6 +14,7 @@ public:
     const Fine* findById(const std::string& fineId) const;
     Fine* findByLoanId(const std::string& loanId);
     const Fine* findByLoanId(const std::string& loanId) const;
+    Fine* findByMemberId(const std::string& memberId);
     bool add(const Fine& fine);
     bool update(const Fine& fine);
     bool removeById(const std::string& fineId);

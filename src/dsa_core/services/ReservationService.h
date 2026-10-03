@@ -9,6 +9,7 @@
 #include "../repositories/BookRepository.h"
 #include "../repositories/LoanRepository.h"
 #include "../repositories/ReservationRepository.h"
+#include "../repositories/FineRepository.h"
 
 #include "../models/Reservation.h"
 
@@ -28,13 +29,17 @@ private:
     BookRepository& bookRepository;
     LoanRepository& loanRepository;
     ReservationRepository& reservationRepository;
+    FineRepository& fineRepository;
 
     int nextReservationId = 1;
 
     unordered_map<string, queue<string>> waitQueues;
 
+    // Tra ve true neu thanh vien con Fine chua thanh toan.
+    bool hasUnpaidFine(const string& memberId);
+
 public:
-    ReservationService(MemberRepository& memberRepository, BookRepository& bookRepository, LoanRepository& loanRepository, ReservationRepository& reservationRepository);
+    ReservationService(MemberRepository& memberRepository, BookRepository& bookRepository, LoanRepository& loanRepository, ReservationRepository& reservationRepository, FineRepository& fineRepository);
 
     bool enqueue(const string& memberId, const string& bookCode);
 

@@ -147,17 +147,12 @@ ReturnReceipt LoanService::returnBook(
     // XỬ LÝ HÀNG CHỜ SAU KHI TRẢ SÁCH
     // =================================================
     if(quality!="Kem"){
-        Reservation* nextReservation = reservationService.getNextEligible(book->bookCode);
-         if (nextReservation != nullptr) {
-             BorrowResult borrowResult = borrowBook(nextReservation->memberId, book->bookCode, returnDate.toString());
-             if (borrowResult.isSuccess) {
-                 reservationService.serve(nextReservation->reservationId);
-                  receipt.message = "Trả sách thành công. "
-                      "Đã tự dộng cấp sách cho thành viên "
-                       + nextReservation->memberId
-                       + ". Loan_ID: "
-                       + borrowResult.loan.loanId;
-             }
+        int servedCount = serveWaitingReservations(book->bookCode, returnDate.toString());
+         if (servedCount > 0) {
+             receipt.message = "Trả sách thành công. "
+                 "Đã tự động cấp sách cho "
+                  + to_string(servedCount)
+                  + " thành viên trong hàng chờ.";
          }
     }
 
@@ -337,6 +332,33 @@ BorrowResult LoanService::borrowBook(
         return result;
     }
 
+    // =================================================
+    // KIỂM TRA TIỀN PHẠT CHƯA THANH TOÁN
+    //
+    // Thành viên còn nợ tiền phạt thì không được mượn.
+    // Fine status trong dữ liệu chỉ có UNPAID và PAID,
+    // không tạo status mới.
+    // =================================================
+
+    for (const Fine& fine : fineRepo.getAll()) {
+        if (fine.memberId != memberId)
+            continue;
+
+        string fineStatus = fine.status;
+        for (char& c : fineStatus) {
+            c = static_cast<char>(
+                toupper(static_cast<unsigned char>(c))
+            );
+        }
+
+        if (fineStatus != "PAID") {
+            result.message =
+                "Thanh vien dang co tien phat "
+                "chua thanh toan, khong the muon sach.";
+            return result;
+        }
+    }
+
     Book* book =
         bookRepo.findByCode(bookCode);
     if (book == nullptr) {
@@ -442,6 +464,74 @@ BorrowResult LoanService::borrowBook(
     result.loan =
         newLoan;
     return result;
+}
+
+
+// =====================================================
+// PHỤC VỤ HÀNG CHỜ
+// =====================================================
+//
+// Cấp sách cho các thành viên đang chờ của một đầu sách.
+// Mỗi lượt:
+//   1. Tìm người đứng đầu hàng chờ còn đủ điều kiện
+//   2. Tạo Loan và gán đúng BookCopy AVAILABLE
+//   3. Chuyển Reservation sang SERVED
+// Lặp lại cho tới khi hết bản AVAILABLE hoặc hết người
+// đủ điều kiện, nên không bao giờ tạo Loan vượt quá số
+// bản sách còn trống.
+//
+int LoanService::serveWaitingReservations(
+    const string& bookCode,
+    const string& borrowDateStr
+) {
+    int servedCount = 0;
+
+    while (true) {
+        // Hết bản AVAILABLE -> dừng, không cấp vượt số sách
+        Book* book = bookRepo.findByCode(bookCode);
+
+        if (book == nullptr)
+            break;
+
+        bool hasAvailableCopy = false;
+
+        for (const BookCopy& copy : book->copies) {
+            if (copy.status == "available" ||
+                copy.status == "AVAILABLE") {
+                hasAvailableCopy = true;
+                break;
+            }
+        }
+
+        if (!hasAvailableCopy)
+            break;
+
+        // Lấy người đứng đầu hàng chờ còn đủ điều kiện
+        Reservation* nextReservation =
+            reservationService.getNextEligible(bookCode);
+
+        if (nextReservation == nullptr)
+            break;
+
+        const string reservationId =
+            nextReservation->reservationId;
+        const string memberId =
+            nextReservation->memberId;
+
+        BorrowResult borrowResult =
+            borrowBook(memberId, bookCode, borrowDateStr);
+
+        // Không đủ điều kiện mượn -> giữ nguyên Reservation
+        // đang chờ, không đánh dấu đã phục vụ
+        if (!borrowResult.isSuccess)
+            break;
+
+        reservationService.serve(reservationId);
+
+        servedCount++;
+    }
+
+    return servedCount;
 }
 
 
