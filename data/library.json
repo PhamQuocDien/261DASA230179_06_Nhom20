@@ -57,7 +57,7 @@
             "copies": [
                 {
                     "bookId": "TCC001",
-                    "status": "borrowed"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "TCC002",
@@ -5657,6 +5657,14 @@
             "memberId": "M020",
             "reason": "Tre 3 ngay. ",
             "status": "UNPAID"
+        },
+        {
+            "amount": 370000.0,
+            "fineId": "F_L507",
+            "loanId": "L507",
+            "memberId": "M501",
+            "reason": "Tình trạng: Kem",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -10717,8 +10725,8 @@
             "loanId": "L507",
             "memberId": "M501",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "borrowing"
+            "returnDate": "2026-10-03",
+            "status": "RETURNED"
         }
     ],
     "members": [
