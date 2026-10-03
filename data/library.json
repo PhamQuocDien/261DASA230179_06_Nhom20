@@ -46,8 +46,6 @@
                     "status": "BORROWED"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 220000.0,
             "title": "Việt Nam sử lược",
             "year": 1920
@@ -98,8 +96,6 @@
                     "status": "BORROWED"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 380000.0,
             "title": "Đại Việt sử ký toàn thư",
             "year": 1697
@@ -150,8 +146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 145000.0,
             "title": "Hoàng Lê nhất thống chí",
             "year": 1782
@@ -202,8 +196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 450000.0,
             "title": "Đại Nam thực lục",
             "year": 1848
@@ -254,8 +246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 420000.0,
             "title": "Đại Nam nhất thống chí",
             "year": 1882
@@ -306,8 +296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 180000.0,
             "title": "Việt Nam văn học sử yếu",
             "year": 1941
@@ -323,7 +311,7 @@
                 },
                 {
                     "bookId": "TNVN002",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "TNVN003",
@@ -358,8 +346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 180000.0,
             "title": "Thi nhân Việt Nam",
             "year": 1942
@@ -410,8 +396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 420000.0,
             "title": "Lịch triều hiến chương loại chí",
             "year": 1821
@@ -462,8 +446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 160000.0,
             "title": "Dư địa chí",
             "year": 1435
@@ -514,8 +496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 300000.0,
             "title": "Gia Định thành thông chí",
             "year": 1820
@@ -566,8 +546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 160000.0,
             "title": "Truyện Kiều",
             "year": 1820
@@ -618,8 +596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 130000.0,
             "title": "Lục Vân Tiên",
             "year": 1855
@@ -670,8 +646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 130000.0,
             "title": "Chinh phụ ngâm",
             "year": 1741
@@ -722,8 +696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Cung oán ngâm khúc",
             "year": 1783
@@ -774,8 +746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 150000.0,
             "title": "Thơ Hồ Xuân Hương",
             "year": 1800
@@ -826,8 +796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 95000.0,
             "title": "Nhật ký trong tù",
             "year": 1943
@@ -878,8 +846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 90000.0,
             "title": "Từ ấy",
             "year": 1938
@@ -930,8 +896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 95000.0,
             "title": "Việt Bắc",
             "year": 1954
@@ -982,8 +946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Mặt đường khát vọng",
             "year": 1971
@@ -1034,8 +996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Thơ Xuân Diệu",
             "year": 1938
@@ -1086,8 +1046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Thơ Nguyễn Bính",
             "year": 1940
@@ -1138,8 +1096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 140000.0,
             "title": "Vang bóng một thời",
             "year": 1940
@@ -1190,8 +1146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Chuyện cũ trong phủ chúa Trịnh",
             "year": 1820
@@ -1242,8 +1196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Hà Nội băm sáu phố phường",
             "year": 1943
@@ -1294,8 +1246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 125000.0,
             "title": "Số đỏ",
             "year": 1936
@@ -1346,8 +1296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 130000.0,
             "title": "Giông tố",
             "year": 1936
@@ -1398,8 +1346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 125000.0,
             "title": "Vỡ đê",
             "year": 1936
@@ -1450,8 +1396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Làm đĩ",
             "year": 1936
@@ -1502,8 +1446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 115000.0,
             "title": "Tắt đèn",
             "year": 1939
@@ -1554,8 +1496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 115000.0,
             "title": "Lều chõng",
             "year": 1939
@@ -1606,8 +1546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Chí Phèo",
             "year": 1941
@@ -1658,8 +1596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 135000.0,
             "title": "Sống mòn",
             "year": 1956
@@ -1710,8 +1646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Đời thừa",
             "year": 1943
@@ -1762,8 +1696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Lão Hạc",
             "year": 1943
@@ -1814,8 +1746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Dế Mèn phiêu lưu ký",
             "year": 1941
@@ -1866,8 +1796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "O chuột",
             "year": 1942
@@ -1918,8 +1846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Vợ chồng A Phủ",
             "year": 1952
@@ -1970,8 +1896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 150000.0,
             "title": "Cát bụi chân ai",
             "year": 1992
@@ -2022,8 +1946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Những ngọn cỏ gió đùa",
             "year": 1926
@@ -2074,8 +1996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Vợ nhặt",
             "year": 1962
@@ -2126,8 +2046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Con chó xấu xí",
             "year": 1962
@@ -2178,8 +2096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Làng",
             "year": 1948
@@ -2230,8 +2146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Rừng xà nu",
             "year": 1965
@@ -2282,8 +2196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Đất rừng phương Nam",
             "year": 1957
@@ -2334,8 +2246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Những đứa con trong gia đình",
             "year": 1966
@@ -2386,8 +2296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Chiếc lược ngà",
             "year": 1966
@@ -2438,8 +2346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 145000.0,
             "title": "Mùa lá rụng trong vườn",
             "year": 1985
@@ -2490,8 +2396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Bến quê",
             "year": 1985
@@ -2542,8 +2446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Chiếc thuyền ngoài xa",
             "year": 1983
@@ -2594,8 +2496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 160000.0,
             "title": "Nỗi buồn chiến tranh",
             "year": 1990
@@ -2646,8 +2546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 145000.0,
             "title": "Thời xa vắng",
             "year": 1986
@@ -2698,8 +2596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 165000.0,
             "title": "Mảnh đất lắm người nhiều ma",
             "year": 1990
@@ -2750,8 +2646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Phiên chợ Giát",
             "year": 1989
@@ -2802,8 +2696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 185000.0,
             "title": "Mẫu Thượng Ngàn",
             "year": 2006
@@ -2854,8 +2746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 185000.0,
             "title": "Hồ Quý Ly",
             "year": 2000
@@ -2906,8 +2796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 130000.0,
             "title": "Bóng đè",
             "year": 2005
@@ -2958,8 +2846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Người đàn bà trên chuyến tàu tốc hành",
             "year": 1983
@@ -3010,8 +2896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 125000.0,
             "title": "Tướng về hưu",
             "year": 1987
@@ -3062,8 +2946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 140000.0,
             "title": "Mười lẻ một đêm",
             "year": 2006
@@ -3114,8 +2996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Những ngày thơ ấu",
             "year": 1938
@@ -3166,8 +3046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 125000.0,
             "title": "Bỉ vỏ",
             "year": 1938
@@ -3218,8 +3096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Gió lạnh đầu mùa",
             "year": 1937
@@ -3270,8 +3146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Hai đứa trẻ",
             "year": 1938
@@ -3322,8 +3196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 115000.0,
             "title": "Nửa chừng xuân",
             "year": 1934
@@ -3374,8 +3246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Đoạn tuyệt",
             "year": 1935
@@ -3426,8 +3296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Tố Tâm",
             "year": 1925
@@ -3478,8 +3346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Quê nội",
             "year": 1970
@@ -3530,8 +3396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 150000.0,
             "title": "Tuổi thơ dữ dội",
             "year": 1988
@@ -3582,8 +3446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Chú bé rắc rối",
             "year": 1989
@@ -3634,8 +3496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 138000.0,
             "title": "Mắt biếc",
             "year": 1990
@@ -3686,8 +3546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 125000.0,
             "title": "Tôi thấy hoa vàng trên cỏ xanh",
             "year": 2010
@@ -3738,8 +3596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 90000.0,
             "title": "Cho tôi xin một vé đi tuổi thơ",
             "year": 2008
@@ -3790,8 +3646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 95000.0,
             "title": "Cô gái đến từ hôm qua",
             "year": 1989
@@ -3842,8 +3696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Ngày xưa có một chuyện tình",
             "year": 2016
@@ -3894,8 +3746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Ngồi khóc trên cây",
             "year": 2013
@@ -3946,8 +3796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 105000.0,
             "title": "Bảy bước tới mùa hè",
             "year": 2015
@@ -3998,8 +3846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Tôi là Bêtô",
             "year": 2007
@@ -4050,8 +3896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 130000.0,
             "title": "Kính vạn hoa",
             "year": 1995
@@ -4102,8 +3946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Đi qua hoa cúc",
             "year": 1991
@@ -4154,8 +3996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 100000.0,
             "title": "Hạ đỏ",
             "year": 1991
@@ -4206,8 +4046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 95000.0,
             "title": "Còn chút gì để nhớ",
             "year": 1988
@@ -4258,8 +4096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 140000.0,
             "title": "Tôi tự học",
             "year": 1959
@@ -4310,8 +4146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 135000.0,
             "title": "Thuật xử thế của người xưa",
             "year": 1957
@@ -4362,8 +4196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 150000.0,
             "title": "Hiểu về trái tim",
             "year": 2011
@@ -4414,8 +4246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 120000.0,
             "title": "Tuổi trẻ đáng giá bao nhiêu?",
             "year": 2016
@@ -4466,8 +4296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Trên đường băng",
             "year": 2015
@@ -4518,8 +4346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 110000.0,
             "title": "Cà phê cùng Tony",
             "year": 2014
@@ -4570,8 +4396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 145000.0,
             "title": "Một đời như kẻ tìm đường",
             "year": 2020
@@ -4622,8 +4446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 115000.0,
             "title": "Cỏ lau",
             "year": 1989
@@ -4674,8 +4496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 150000.0,
             "title": "Bến không chồng",
             "year": 1990
@@ -4726,8 +4546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 370000.0,
             "title": "Bài tập toán cao cấp T1",
             "year": 2006
@@ -4778,8 +4596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 390000.0,
             "title": "Bài tập toán cao cấp T2",
             "year": 2007
@@ -4830,8 +4646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 260000.0,
             "title": "Toán học cao cấp T1",
             "year": 2013
@@ -4882,8 +4696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 240000.0,
             "title": "Xác suất thống kê",
             "year": 2015
@@ -4934,8 +4746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 250000.0,
             "title": "Vật lý đại cương T1",
             "year": 2000
@@ -4986,8 +4796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 260000.0,
             "title": "Vật lý đại cương T2",
             "year": 2005
@@ -5038,8 +4846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 260000.0,
             "title": "Hóa học đại cương",
             "year": 2009
@@ -5090,8 +4896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 150000.0,
             "title": "Kỹ thuật lập trình C",
             "year": 1999
@@ -5142,8 +4946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 160000.0,
             "title": "Nhập môn lập trình",
             "year": 2021
@@ -5194,8 +4996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Viet Nam",
             "price": 220000.0,
             "title": "Cấu trúc dữ liệu và giải thuật",
             "year": 2009
@@ -5246,8 +5046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 220000.0,
             "title": "Cơ sở dữ liệu",
             "year": 2008
@@ -5298,8 +5096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 240000.0,
             "title": "Trí tuệ nhân tạo",
             "year": 1999
@@ -5350,8 +5146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Viet Nam",
             "price": 250000.0,
             "title": "Mạng máy tính",
             "year": 2006
@@ -5402,8 +5196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Viet Nam",
             "price": 200000.0,
             "title": "Giáo trình Lịch sử Đảng Cộng sản Việt Nam",
             "year": 2021
@@ -5454,8 +5246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 180000.0,
             "title": "1984",
             "year": 1949
@@ -5506,8 +5296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 150000.0,
             "title": "Animal Farm",
             "year": 1945
@@ -5558,8 +5346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 170000.0,
             "title": "The Great Gatsby",
             "year": 1925
@@ -5610,8 +5396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 170000.0,
             "title": "Pride and Prejudice",
             "year": 1813
@@ -5662,8 +5446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 190000.0,
             "title": "To Kill a Mockingbird",
             "year": 1960
@@ -5714,8 +5496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 175000.0,
             "title": "The Catcher in the Rye",
             "year": 1951
@@ -5766,8 +5546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 185000.0,
             "title": "Brave New World",
             "year": 1932
@@ -5818,8 +5596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 175000.0,
             "title": "Fahrenheit 451",
             "year": 1953
@@ -5870,8 +5646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "The Hobbit",
             "year": 1937
@@ -5922,8 +5696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 420000.0,
             "title": "The Lord of the Rings",
             "year": 1954
@@ -5974,8 +5746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 320000.0,
             "title": "Don Quixote",
             "year": 1605
@@ -6026,8 +5796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 300000.0,
             "title": "Moby-Dick",
             "year": 1851
@@ -6078,8 +5846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 380000.0,
             "title": "War and Peace",
             "year": 1869
@@ -6130,8 +5896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 280000.0,
             "title": "Crime and Punishment",
             "year": 1866
@@ -6182,8 +5946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 320000.0,
             "title": "The Brothers Karamazov",
             "year": 1880
@@ -6234,8 +5996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 320000.0,
             "title": "Anna Karenina",
             "year": 1878
@@ -6286,8 +6046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 280000.0,
             "title": "The Idiot",
             "year": 1869
@@ -6338,8 +6096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Notes from Underground",
             "year": 1864
@@ -6390,8 +6146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 330000.0,
             "title": "The Divine Comedy",
             "year": 1320
@@ -6442,8 +6196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 360000.0,
             "title": "Les Misérables",
             "year": 1862
@@ -6494,8 +6246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 360000.0,
             "title": "The Count of Monte Cristo",
             "year": 1844
@@ -6546,8 +6296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Jane Eyre",
             "year": 1847
@@ -6598,8 +6346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Wuthering Heights",
             "year": 1847
@@ -6650,8 +6396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "Great Expectations",
             "year": 1861
@@ -6702,8 +6446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "A Tale of Two Cities",
             "year": 1859
@@ -6754,8 +6496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "Oliver Twist",
             "year": 1838
@@ -6806,8 +6546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "The Picture of Dorian Gray",
             "year": 1890
@@ -6858,8 +6596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "The Adventures of Sherlock Holmes",
             "year": 1892
@@ -6910,8 +6646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 200000.0,
             "title": "The Hound of the Baskervilles",
             "year": 1902
@@ -6962,8 +6696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "Dracula",
             "year": 1897
@@ -7014,8 +6746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "Frankenstein",
             "year": 1818
@@ -7066,8 +6796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 170000.0,
             "title": "The Old Man and the Sea",
             "year": 1952
@@ -7118,8 +6846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "The Grapes of Wrath",
             "year": 1939
@@ -7170,8 +6896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 175000.0,
             "title": "Of Mice and Men",
             "year": 1937
@@ -7222,8 +6946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "The Kite Runner",
             "year": 2003
@@ -7274,8 +6996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Life of Pi",
             "year": 2001
@@ -7326,8 +7046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "The Book Thief",
             "year": 2005
@@ -7378,8 +7096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 200000.0,
             "title": "The Fault in Our Stars",
             "year": 2012
@@ -7430,8 +7146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "The Hunger Games",
             "year": 2008
@@ -7482,8 +7196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "The Handmaid’s Tale",
             "year": 1985
@@ -7534,8 +7246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "The Color Purple",
             "year": 1982
@@ -7586,8 +7296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "Beloved",
             "year": 1987
@@ -7638,8 +7346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "The Joy Luck Club",
             "year": 1989
@@ -7690,8 +7396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "A Thousand Splendid Suns",
             "year": 2007
@@ -7742,8 +7446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "The Namesake",
             "year": 2003
@@ -7794,8 +7496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "Norwegian Wood",
             "year": 1987
@@ -7846,8 +7546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "Kafka on the Shore",
             "year": 2002
@@ -7898,8 +7596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 160000.0,
             "title": "The Metamorphosis",
             "year": 1915
@@ -7950,8 +7646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "The Trial",
             "year": 1925
@@ -8002,8 +7696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 180000.0,
             "title": "The Stranger",
             "year": 1942
@@ -8054,8 +7746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "The Plague",
             "year": 1947
@@ -8106,8 +7796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 160000.0,
             "title": "The Little Prince",
             "year": 1943
@@ -8158,8 +7846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 180000.0,
             "title": "The Alchemist",
             "year": 1988
@@ -8210,8 +7896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "One Hundred Years of Solitude",
             "year": 1967
@@ -8262,8 +7946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "Love in the Time of Cholera",
             "year": 1985
@@ -8314,8 +7996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "The Master and Margarita",
             "year": 1967
@@ -8366,8 +8046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Madame Bovary",
             "year": 1857
@@ -8418,8 +8096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 170000.0,
             "title": "The Time Machine",
             "year": 1895
@@ -8470,8 +8146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 180000.0,
             "title": "The War of the Worlds",
             "year": 1898
@@ -8522,8 +8196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 170000.0,
             "title": "The Call of the Wild",
             "year": 1903
@@ -8574,8 +8246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 190000.0,
             "title": "Meditations",
             "year": 180
@@ -8626,8 +8296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 190000.0,
             "title": "Letters from a Stoic",
             "year": 65
@@ -8678,8 +8346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "Man’s Search for Meaning",
             "year": 1946
@@ -8730,8 +8396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "Sapiens",
             "year": 2011
@@ -8782,8 +8446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "Guns, Germs, and Steel",
             "year": 1997
@@ -8834,8 +8496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "A Brief History of Time",
             "year": 1988
@@ -8886,8 +8546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "Cosmos",
             "year": 1980
@@ -8938,8 +8596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "The Selfish Gene",
             "year": 1976
@@ -8990,8 +8646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "On the Origin of Species",
             "year": 1859
@@ -9042,8 +8696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Silent Spring",
             "year": 1962
@@ -9094,8 +8746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "Relativity: The Special and the General Theory",
             "year": 1916
@@ -9146,8 +8796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "The Structure of Scientific Revolutions",
             "year": 1962
@@ -9198,8 +8846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 330000.0,
             "title": "The Wealth of Nations",
             "year": 1776
@@ -9250,8 +8896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 350000.0,
             "title": "Capital in the Twenty-First Century",
             "year": 2013
@@ -9302,8 +8946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Freakonomics",
             "year": 2005
@@ -9354,8 +8996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 280000.0,
             "title": "The Intelligent Investor",
             "year": 1949
@@ -9406,8 +9046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "Rich Dad Poor Dad",
             "year": 1997
@@ -9458,8 +9096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 200000.0,
             "title": "Zero to One",
             "year": 2014
@@ -9510,8 +9146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "The Lean Startup",
             "year": 2011
@@ -9562,8 +9196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 210000.0,
             "title": "Start with Why",
             "year": 2009
@@ -9614,8 +9246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "Shoe Dog",
             "year": 2016
@@ -9666,8 +9296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "High Output Management",
             "year": 1983
@@ -9718,8 +9346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "The Hard Thing About Hard Things",
             "year": 2014
@@ -9770,8 +9396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 240000.0,
             "title": "The 7 Habits of Highly Effective People",
             "year": 1989
@@ -9822,8 +9446,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 200000.0,
             "title": "How to Win Friends and Influence People",
             "year": 1936
@@ -9874,8 +9496,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "Influence: The Psychology of Persuasion",
             "year": 1984
@@ -9926,8 +9546,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "Thinking, Fast and Slow",
             "year": 2011
@@ -9978,8 +9596,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Outliers",
             "year": 2008
@@ -10030,8 +9646,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "The Power of Habit",
             "year": 2012
@@ -10082,8 +9696,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 250000.0,
             "title": "Atomic Habits",
             "year": 2018
@@ -10134,8 +9746,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Quiet",
             "year": 2012
@@ -10186,8 +9796,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 220000.0,
             "title": "Mindset",
             "year": 2006
@@ -10238,8 +9846,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "Deep Work",
             "year": 2016
@@ -10290,8 +9896,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 230000.0,
             "title": "The Psychology of Money",
             "year": 2020
@@ -10342,8 +9946,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 320000.0,
             "title": "Clean Code",
             "year": 2008
@@ -10394,8 +9996,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 340000.0,
             "title": "Design Patterns",
             "year": 1994
@@ -10446,8 +10046,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 360000.0,
             "title": "The Pragmatic Programmer",
             "year": 1999
@@ -10498,8 +10096,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 420000.0,
             "title": "Introduction to Algorithms",
             "year": 1990
@@ -10550,8 +10146,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 340000.0,
             "title": "Refactoring",
             "year": 1999
@@ -10602,8 +10196,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 360000.0,
             "title": "Code Complete",
             "year": 1993
@@ -10654,8 +10246,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "LOW",
-            "origin": "Nước ngoài",
             "price": 260000.0,
             "title": "The C Programming Language",
             "year": 1978
@@ -10706,8 +10296,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 340000.0,
             "title": "Effective Java",
             "year": 2001
@@ -10758,8 +10346,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "HIGH",
-            "origin": "Nước ngoài",
             "price": 360000.0,
             "title": "Cracking the Coding Interview",
             "year": 2008
@@ -10810,8 +10396,6 @@
                     "status": "AVAILABLE"
                 }
             ],
-            "interestLevel": "MEDIUM",
-            "origin": "Nước ngoài",
             "price": 360000.0,
             "title": "Head First Design Patterns",
             "year": 2004
@@ -12379,6 +11963,16 @@
             "renewalCount": 0,
             "returnDate": "2026-09-28",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "TNVN002",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L141",
+            "memberId": "M101",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
