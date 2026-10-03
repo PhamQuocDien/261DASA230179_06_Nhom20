@@ -10687,6 +10687,16 @@
             "loanId": "L504",
             "memberId": "M501",
             "renewalCount": 0,
+            "returnDate": "2026-10-03",
+            "status": "RETURNED"
+        },
+        {
+            "bookId": "LSVN001",
+            "borrowDate": "2026-10-03",
+            "dueDate": "2026-11-01",
+            "loanId": "L505",
+            "memberId": "M214",
+            "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
         }
@@ -14791,7 +14801,7 @@
             "memberId": "M214",
             "reservationDate": "2026-09-29",
             "reservationId": "R013",
-            "status": "WAITING"
+            "status": "SERVED"
         },
         {
             "bookCode": "TCC",
