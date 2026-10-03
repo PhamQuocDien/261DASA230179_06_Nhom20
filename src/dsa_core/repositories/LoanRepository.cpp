@@ -38,6 +38,15 @@ bool LoanRepository::update(const Loan& loan) {
     *existingLoan = loan;
     return true;
 }
+bool LoanRepository::removeById(const std::string& loanId) {
+    for (auto it = loans.begin(); it != loans.end(); ++it) {
+        if (it->loanId == loanId) {
+            loans.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
 const Loan* LoanRepository::findByMemberAndBook(
     const std::string& memberId,
     const std::string& bookId
