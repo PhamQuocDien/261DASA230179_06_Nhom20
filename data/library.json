@@ -11,7 +11,7 @@
                 },
                 {
                     "bookId": "LSVN002",
-                    "status": "borrowed"
+                    "status": "BORROWED"
                 },
                 {
                     "bookId": "LSVN003",
@@ -31,7 +31,7 @@
                 },
                 {
                     "bookId": "LSVN007",
-                    "status": "borrowed"
+                    "status": "BORROWED"
                 },
                 {
                     "bookId": "LSVN008",
