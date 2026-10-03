@@ -7,7 +7,7 @@
             "copies": [
                 {
                     "bookId": "LSVN001",
-                    "status": "DAMAGED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "LSVN002",
@@ -57,7 +57,7 @@
             "copies": [
                 {
                     "bookId": "TCC001",
-                    "status": "DAMAGED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "TCC002",
@@ -157,11 +157,11 @@
             "copies": [
                 {
                     "bookId": "NMLT001",
-                    "status": "DAMAGED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "NMLT002",
-                    "status": "DAMAGED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "NMLT003",
@@ -757,7 +757,7 @@
             "copies": [
                 {
                     "bookId": "HOB001",
-                    "status": "DAMAGED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "HOB002",

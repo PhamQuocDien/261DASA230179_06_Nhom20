@@ -133,40 +133,14 @@ ReturnReceipt LoanService::returnBook(
     // CẬP NHẬT TRẠNG THÁI SÁCH
     // =================================================
 
-    // Chỉ tình trạng "Kém" mới đánh dấu bản sách là DAMAGED.
-    if (quality != "Kem") {
-        bool restored = false;
-        for (BookCopy& copy : book->copies) {
-            if (copy.bookId == loan->bookId) {
-                // Nếu sách đang được mượn
-                if (copy.status == "BORROWED") {
-                    // Trả sách về trạng thái có thể mượn
-                    copy.status = "AVAILABLE";
-                    restored = true;
-                }
-                break;
-            }
-        }
-
-        // Trường hợp trạng thái trước đó không đúng
-        // vẫn đưa bản sách về AVAILABLE
-        if (!restored) {
-            for (BookCopy& copy : book->copies) {
-                if (copy.bookId == loan->bookId) {
-                    copy.status = "AVAILABLE";
-                    break;
-                }
-            }
-        }
-    }
-    // Nếu sách hư hỏng nặng
-    else {
-        for (BookCopy& copy : book->copies) {
-            if (copy.bookId == loan->bookId) {
-                // Đánh dấu sách bị hư
-                copy.status = "DAMAGED";
-                break;
-            }
+    // Bản sách đã trả về kho nên trở lại
+    // trạng thái có thể mượn. Tình trạng hư hỏng
+    // được xử lý qua phí hư hỏng, không dùng
+    // trạng thái riêng cho bản sách.
+    for (BookCopy& copy : book->copies) {
+        if (copy.bookId == loan->bookId) {
+            copy.status = "AVAILABLE";
+            break;
         }
     }
     // =================================================
@@ -574,7 +548,7 @@ DeleteLoanResult LoanService::deleteLoan(
     // =================================================
     // XÓA PHIẾU
     //
-    // Phiếu đã RETURNED nên BookCopy đã AVAILABLE/DAMAGED,
+    // Phiếu đã RETURNED nên BookCopy đã AVAILABLE,
     // giữ nguyên trạng thái bản sách.
     //
     // Xóa phiếu trước, xóa Fine sau để không bao giờ
