@@ -12896,6 +12896,13 @@
             "reservationDate": "2026-10-04",
             "reservationId": "R3",
             "status": "WAITING"
+        },
+        {
+            "bookCode": "MB",
+            "memberId": "M014",
+            "reservationDate": "2026-10-04",
+            "reservationId": "R4",
+            "status": "WAITING"
         }
     ]
 }
