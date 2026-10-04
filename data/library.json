@@ -3481,7 +3481,7 @@
                 },
                 {
                     "bookId": "MB007",
-                    "status": "borrowed"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "MB008",
@@ -12037,8 +12037,8 @@
             "loanId": "L146",
             "memberId": "M008",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "borrowing"
+            "returnDate": "2026-10-04",
+            "status": "RETURNED"
         },
         {
             "bookId": "MB008",
