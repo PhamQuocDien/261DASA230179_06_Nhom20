@@ -10456,7 +10456,7 @@
             "loanId": "L0087",
             "memberId": "M007",
             "reason": "Trả sách trễ 2 ngày",
-            "status": "UNPAID"
+            "status": "PAID"
         },
         {
             "amount": 10000.0,
