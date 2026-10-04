@@ -3485,7 +3485,7 @@
                 },
                 {
                     "bookId": "MB008",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "MB009",
@@ -12109,6 +12109,16 @@
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
+        },
+        {
+            "bookId": "MB008",
+            "borrowDate": "2026-10-04",
+            "dueDate": "2026-11-02",
+            "loanId": "L154",
+            "memberId": "M009",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
@@ -12948,6 +12958,13 @@
             "memberId": "M014",
             "reservationDate": "2026-10-04",
             "reservationId": "R4",
+            "status": "SERVED"
+        },
+        {
+            "bookCode": "MB",
+            "memberId": "M009",
+            "reservationDate": "2026-10-04",
+            "reservationId": "R5",
             "status": "SERVED"
         }
     ]
