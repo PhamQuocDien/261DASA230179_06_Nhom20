@@ -10584,7 +10584,7 @@
             "loanId": "L0010",
             "memberId": "M020",
             "reason": "Tình trạng: Kem",
-            "status": "UNPAID"
+            "status": "PAID"
         }
     ],
     "loans": [
