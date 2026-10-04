@@ -12125,6 +12125,16 @@
             "loanId": "L154",
             "memberId": "M009",
             "renewalCount": 0,
+            "returnDate": "2026-10-04",
+            "status": "RETURNED"
+        },
+        {
+            "bookId": "MB008",
+            "borrowDate": "2026-10-04",
+            "dueDate": "2026-11-02",
+            "loanId": "L155",
+            "memberId": "M021",
+            "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
         }
@@ -12987,7 +12997,7 @@
             "memberId": "M021",
             "reservationDate": "2026-10-04",
             "reservationId": "R7",
-            "status": "WAITING"
+            "status": "SERVED"
         }
     ]
 }
