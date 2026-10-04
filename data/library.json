@@ -11,7 +11,7 @@
                 },
                 {
                     "bookId": "LSVN002",
-                    "status": "BORROWED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "LSVN003",
@@ -10561,6 +10561,14 @@
             "memberId": "M020",
             "reason": "Trả sách trễ 5 ngày",
             "status": "PAID"
+        },
+        {
+            "amount": 220000.0,
+            "fineId": "F_L0002",
+            "loanId": "L0002",
+            "memberId": "M012",
+            "reason": "Tình trạng: Kem",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -10581,8 +10589,8 @@
             "loanId": "L0002",
             "memberId": "M012",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
+            "returnDate": "2026-10-04",
+            "status": "RETURNED"
         },
         {
             "bookId": "TK001",
