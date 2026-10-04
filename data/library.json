@@ -10440,7 +10440,7 @@
             "loanId": "L0085",
             "memberId": "M005",
             "reason": "Trả sách trễ 5 ngày",
-            "status": "UNPAID"
+            "status": "PAID"
         },
         {
             "amount": 60000.0,
