@@ -10399,6 +10399,76 @@
             "price": 360000.0,
             "title": "Head First Design Patterns",
             "year": 2004
+        },
+        {
+            "author": "Tố Hữu",
+            "bookCode": "HSGDHS",
+            "category": "Hồi ký",
+            "copies": [
+                {
+                    "bookId": "HSGDHS001",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS002",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS003",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS004",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS005",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS006",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS007",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS008",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS009",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS010",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS011",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS012",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS013",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS014",
+                    "status": "available"
+                },
+                {
+                    "bookId": "HSGDHS015",
+                    "status": "available"
+                }
+            ],
+            "price": 0.0,
+            "title": "HSJSKSKSKS",
+            "year": 2000
         }
     ],
     "fines": [
