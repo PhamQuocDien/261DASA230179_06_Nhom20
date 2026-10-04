@@ -12057,10 +12057,10 @@
         {
             "bookId": "LH002",
             "borrowDate": "2026-10-04",
-            "dueDate": "2026-11-02",
+            "dueDate": "2026-11-09",
             "loanId": "L150",
             "memberId": "M012",
-            "renewalCount": 0,
+            "renewalCount": 1,
             "returnDate": null,
             "status": "borrowing"
         },
