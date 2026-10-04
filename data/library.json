@@ -10432,7 +10432,7 @@
             "loanId": "L0084",
             "memberId": "M004",
             "reason": "Trả sách trễ 4 ngày",
-            "status": "UNPAID"
+            "status": "PAID"
         },
         {
             "amount": 50000.0,
