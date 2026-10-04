@@ -12865,5 +12865,13 @@
             "status": "ACTIVE"
         }
     ],
-    "reservations": []
+    "reservations": [
+        {
+            "bookCode": "MB",
+            "memberId": "M012",
+            "reservationDate": "2026-10-04",
+            "reservationId": "R1",
+            "status": "WAITING"
+        }
+    ]
 }
