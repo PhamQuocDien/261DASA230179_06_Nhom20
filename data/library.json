@@ -1669,7 +1669,7 @@
                 },
                 {
                     "bookId": "LH004",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LH005",
@@ -12245,6 +12245,16 @@
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
+        },
+        {
+            "bookId": "LH004",
+            "borrowDate": "2026-10-05",
+            "dueDate": "2026-11-03",
+            "loanId": "L159",
+            "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
@@ -13135,6 +13145,13 @@
             "memberId": "M021",
             "reservationDate": "2026-10-05",
             "reservationId": "R9",
+            "status": "SERVED"
+        },
+        {
+            "bookCode": "LH",
+            "memberId": "M004",
+            "reservationDate": "2026-10-05",
+            "reservationId": "R10",
             "status": "SERVED"
         }
     ]
