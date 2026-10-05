@@ -4707,7 +4707,7 @@
             "copies": [
                 {
                     "bookId": "VL001",
-                    "status": "BORROWED"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "VL002",
@@ -10655,6 +10655,14 @@
             "memberId": "M020",
             "reason": "Tình trạng: Kem",
             "status": "PAID"
+        },
+        {
+            "amount": 250000.0,
+            "fineId": "F_L0031",
+            "loanId": "L0031",
+            "memberId": "M041",
+            "reason": "Tình trạng: Kem",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -10965,8 +10973,8 @@
             "loanId": "L0031",
             "memberId": "M041",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "BORROWING"
+            "returnDate": "2026-10-05",
+            "status": "RETURNED"
         },
         {
             "bookId": "VL002",
