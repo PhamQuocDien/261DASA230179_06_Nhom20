@@ -10662,7 +10662,7 @@
             "loanId": "L0031",
             "memberId": "M041",
             "reason": "Tình trạng: Kem",
-            "status": "UNPAID"
+            "status": "PAID"
         }
     ],
     "loans": [
