@@ -1669,7 +1669,7 @@
                 },
                 {
                     "bookId": "LH004",
-                    "status": "borrowed"
+                    "status": "AVAILABLE"
                 },
                 {
                     "bookId": "LH005",
@@ -10671,6 +10671,14 @@
             "memberId": "M004",
             "reason": "Tình trạng: Kem",
             "status": "PAID"
+        },
+        {
+            "amount": 100000.0,
+            "fineId": "F_L163",
+            "loanId": "L163",
+            "memberId": "M053",
+            "reason": "Tình trạng: Kem",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -12301,8 +12309,8 @@
             "loanId": "L163",
             "memberId": "M053",
             "renewalCount": 1,
-            "returnDate": null,
-            "status": "borrowing"
+            "returnDate": "2026-10-05",
+            "status": "RETURNED"
         }
     ],
     "members": [
