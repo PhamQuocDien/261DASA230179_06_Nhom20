@@ -13045,6 +13045,14 @@
             "password": "123456",
             "phone": "3648826864",
             "status": "ACTIVE"
+        },
+        {
+            "email": "Phttt@gmail.com",
+            "memberId": "M103",
+            "name": "Phan Thị Thanh Trúc",
+            "password": "12345678",
+            "phone": "3748279387",
+            "status": "ACTIVE"
         }
     ],
     "reservations": [
