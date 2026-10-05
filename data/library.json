@@ -1673,7 +1673,7 @@
                 },
                 {
                     "bookId": "LH005",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LH006",
@@ -12252,6 +12252,16 @@
             "dueDate": "2026-11-03",
             "loanId": "L159",
             "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "LH005",
+            "borrowDate": "2026-10-05",
+            "dueDate": "2026-11-03",
+            "loanId": "L160",
+            "memberId": "M050",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
