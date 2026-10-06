@@ -5157,7 +5157,7 @@
             "copies": [
                 {
                     "bookId": "LSD001",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "LSD002",
@@ -12354,6 +12354,16 @@
             "dueDate": "2026-11-04",
             "loanId": "L166",
             "memberId": "M004",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "LSD001",
+            "borrowDate": "2026-10-06",
+            "dueDate": "2026-11-04",
+            "loanId": "L167",
+            "memberId": "M108",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
