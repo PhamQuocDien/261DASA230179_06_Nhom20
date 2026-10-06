@@ -394,6 +394,7 @@ Reservation* ReservationService::getNextEligible(const string& bookCode) {
         }
         //Người này không còn đủ điều kiện 
         if (alreadyBorrowing) {
+            reservation->status = "CANCELLED";
             it->second.pop();
             continue;
         }
@@ -407,11 +408,13 @@ Reservation* ReservationService::getNextEligible(const string& bookCode) {
         }
         //đã đạt giới hạn mượn
         if (activeLoans >= 10) {
+            reservation->status = "CANCELLED";
             it->second.pop();
             continue;
         }
         //còn tiền phạt chưa thanh toán -> chưa đủ điều kiện mượn
         if (hasUnpaidFine(reservation->memberId)) {
+            reservation->status = "CANCELLED";
             it->second.pop();
             continue;
         }
