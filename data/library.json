@@ -4615,7 +4615,7 @@
                 },
                 {
                     "bookId": "TCC003",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 },
                 {
                     "bookId": "TCC004",
@@ -12363,6 +12363,16 @@
             "borrowDate": "2026-10-06",
             "dueDate": "2026-11-04",
             "loanId": "L167",
+            "memberId": "M108",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "TCC003",
+            "borrowDate": "2026-10-06",
+            "dueDate": "2026-11-04",
+            "loanId": "L168",
             "memberId": "M108",
             "renewalCount": 0,
             "returnDate": null,
