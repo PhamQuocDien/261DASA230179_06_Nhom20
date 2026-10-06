@@ -13161,6 +13161,14 @@
             "password": "123456",
             "phone": "1234567889",
             "status": "ACTIVE"
+        },
+        {
+            "email": "tht@gmail.com",
+            "memberId": "M107",
+            "name": "Phan Thị Thanh Trúc",
+            "password": "123456",
+            "phone": "1233456789",
+            "status": "ACTIVE"
         }
     ],
     "reservations": [
