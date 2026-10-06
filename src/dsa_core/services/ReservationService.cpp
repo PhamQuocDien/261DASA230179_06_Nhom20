@@ -127,16 +127,26 @@ bool ReservationService::enqueue(
 
     if (book == nullptr) 
         return false;
-    
- 
+    // 3. Chỉ cho đăng ký chờ khi
+    //    KHÔNG còn bản sách available
 
-    // 3. Khong chan dang ky cho khi con ban sach available.
-    //
-    //    Yeu cau cho duoc tao vao hang doi voi dung thu tu
-    //    FIFO. Cac banh xu ly cap sach cho nguoi dang cho
-    //    (serve) nam o LoanService, nen Reservation khong
-    //    duoc bo qua khi con ban AVAILABLE.
+    bool hasAvailableCopy = false;
 
+    for (const BookCopy& copy : book->copies)
+    {
+        if ((copy.status == "available" ||
+            copy.status == "AVAILABLE"))
+        {
+            hasAvailableCopy = true;
+            break;
+        }
+    }
+
+    // Vẫn còn sách để mượn
+    // -> không cần đăng ký chờ
+    if (hasAvailableCopy) {
+        return false;
+    }
 
     // 4. Kiểm tra Member có đang mượn
     //    một bản của đầu sách này không
