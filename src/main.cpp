@@ -2198,189 +2198,111 @@ if (action == "getReservationsByBookCode") {
     // =================================================
     // ENQUEUE RESERVATION
     // =================================================
-
+// =================================================
+// ENQUEUE RESERVATION
+// =================================================
+    
     if (action == "enqueueReservation") {
-
+    
         string memberId =
             request.value("memberId", "");
-
+    
         string bookCode =
             request.value("bookCode", "");
-
+    
         string password =
             request.value("password", "");
-
-
+    
         if (memberId.empty() ||
             bookCode.empty()) {
-
+    
             cout << json{
                 {"success", false},
                 {"error",
                  "Thieu memberId hoac bookCode."}
             }.dump();
-
+    
             return 1;
         }
-
-
+    
         // =================================================
         // XAC THUC MAT KHAU THANH VIEN
         // =================================================
-
+    
         MemberService::AuthResult reservationAuth =
             memberService.authenticate(
                 memberId,
                 password
             );
-
+    
         if (!reservationAuth.isSuccess) {
-
+    
             cout << json{
                 {"success", false},
                 {"error",
                  reservationAuth.message}
             }.dump();
-
+    
             return 0;
         }
-
-            string enqueueDate = getCurrentDateStr();
-            Book* book =
-                bookService.getBookByCode(
+    
+        string enqueueDate =
+            getCurrentDateStr();
+    
+        Book* book =
+            bookService.getBookByCode(
                 bookCode
             );
-            if (book == nullptr) {
+    
+        if (book == nullptr) {
+    
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Book khong ton tai."}
+            }.dump();
+    
+            return 0;
+        }
+    
+        bool hasAvailableCopy = false;
+    
+        for (const BookCopy& bookCopy :
+             book->copies) {
+    
+            if (bookCopy.status == "AVAILABLE" ||
+                bookCopy.status == "available") {
+    
+                hasAvailableCopy = true;
+                break;
+            }
+        }
+    
+        // =================================================
+        // CO SACH TRONG -> MUON NGAY, KHONG TAO RESERVATION
+        // =================================================
+    
+        if (hasAvailableCopy) {
+    
+            BorrowResult borrowResult =
+                loanService.borrowBook(
+                    memberId,
+                    bookCode,
+                    enqueueDate
+                );
+    
+            if (!borrowResult.isSuccess) {
+    
                 cout << json{
                     {"success", false},
-                    {"error", "Book khong ton tai."}
+                    {"error",
+                     borrowResult.message}
                 }.dump();
-
-               return 0;
-            }
-            bool hasAvailableCopy = false;
-            for (const BookCopy& copy : book->copies) {
-                if (copy.status == "AVAILABLE" ||
-                    copy.status == "available") {
-                    hasAvailableCopy = true;
-                    break;
-                }
-            }
-            if (hasAvailableCopy) {
-            
-                BorrowResult borrowResult =
-                    loanService.borrowBook(
-                        memberId,
-                        bookCode,
-                        enqueueDate
-                    );
-            
-                if (!borrowResult.isSuccess) {
-                    cout << json{
-                        {"success", false},
-                        {"error", borrowResult.message}
-                    }.dump();
-            
-                    return 0;
-                }
-            
-                bool loanSaved =
-                    saveLoanAndFineDataToDatabase(
-                        database,
-                        data,
-                        bookRepository,
-                        loanRepository,
-                        fineRepository
-                    );
-            
-                if (!loanSaved) {
-                    cout << json{
-                        {"success", false},
-                        {"error",
-                         "Muon thanh cong nhung khong the luu library.json."}
-                    }.dump();
-            
-                    return 1;
-                }
-            
-                json response = {
-                    {"success", true},
-                    {"message", "Sach con ban co the muon, da tu dong cap sach."},
-                    {"data", JsonMapper::loanToJson(borrowResult.loan)}
-                };
-            
-                cout << response.dump(
-                    -1,
-                    ' ',
-                    false,
-                    json::error_handler_t::replace
-                );
-            
+    
                 return 0;
             }
-        bool created =
-            reservationService.enqueue(
-                memberId,
-                bookCode
-            );
-
-
-        if (!created) {
-
-            cout << json{
-                {"success", false},
-                {"error",
-                 "Khong the tao yeu cau dat cho."}
-            }.dump();
-
-            return 0;
-        }
-
-
-        Reservation* reservation =
-            reservationRepository.findByMemberAndBook(
-                memberId,
-                bookCode
-            );
-
-
-        if (reservation == nullptr) {
-
-            cout << json{
-                {"success", false},
-                {"error",
-                 "Da tao Reservation "
-                 "nhung khong doc lai duoc du lieu."}
-            }.dump();
-
-            return 1;
-        }
-
-
-        string reservationId =
-            reservation->reservationId;
-
-
-        // =================================================
-        // PHỤC VỤ NGAY NẾU ĐẦU SÁCH ĐANG CÓ SÁCH TRỐNG
-        //
-        // Đăng ký chờ khi vẫn còn bản AVAILABLE thì người
-        // đứng đầu hàng chờ đủ điều kiện được cấp sách
-        // ngay, không để Reservation nằm chờ trong khi sách
-        // đã có sẵn.
-        // =================================================
-
-        string enqueueDate = getCurrentDateStr();
-
-        int servedCount =
-            loanService.serveWaitingReservations(
-                bookCode,
-                enqueueDate
-            );
-
-        if (servedCount > 0) {
-
-            bool loanSaved =
+    
+            bool saved =
                 saveLoanAndFineDataToDatabase(
                     database,
                     data,
@@ -2388,81 +2310,134 @@ if (action == "getReservationsByBookCode") {
                     loanRepository,
                     fineRepository
                 );
-
-            if (!loanSaved) {
-
+    
+            if (!saved) {
+    
                 cout << json{
                     {"success", false},
                     {"error",
-                     "Da cap sach trong bo nho "
+                     "Muon sach thanh cong "
                      "nhung khong the luu library.json."}
                 }.dump();
-
+    
                 return 1;
             }
+    
+            json response = {
+                {"success", true},
+                {"message",
+                 "Sach dang co san. Da tu dong tao phieu muon."},
+                {"data",
+                 JsonMapper::loanToJson(
+                     borrowResult.loan
+                 )}
+            };
+    
+            cout << response.dump(
+                -1,
+                ' ',
+                false,
+                json::error_handler_t::replace
+            );
+    
+            return 0;
         }
-
-
+    
+        // =================================================
+        // KHONG CO SACH TRONG -> TAO RESERVATION WAITING
+        // =================================================
+    
+        bool created =
+            reservationService.enqueue(
+                memberId,
+                bookCode
+            );
+    
+        if (!created) {
+    
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Khong the tao yeu cau dat cho."}
+            }.dump();
+    
+            return 0;
+        }
+    
+        Reservation* reservation =
+            reservationRepository.findByMemberAndBook(
+                memberId,
+                bookCode
+            );
+    
+        if (reservation == nullptr) {
+    
+            cout << json{
+                {"success", false},
+                {"error",
+                 "Da tao Reservation "
+                 "nhung khong doc lai duoc du lieu."}
+            }.dump();
+    
+            return 1;
+        }
+    
+        string reservationId =
+            reservation->reservationId;
+    
         bool saved =
             saveReservationsToDatabase(
                 database,
                 data,
                 reservationRepository
             );
-
-
+    
         if (!saved) {
-
+    
             cout << json{
                 {"success", false},
                 {"error",
                  "Da tao Reservation trong bo nho "
                  "nhung khong the luu library.json."}
             }.dump();
-
+    
             return 1;
         }
-
-
-        // Đọc lại theo Reservation_ID sau khi phục vụ
-        // hàng chờ để trả về đúng trạng thái hiện tại
-        Reservation* servedReservation =
+    
+        Reservation* createdReservation =
             reservationRepository.findById(
                 reservationId
             );
-
-        if (servedReservation == nullptr) {
-
+    
+        if (createdReservation == nullptr) {
+    
             cout << json{
                 {"success", false},
                 {"error",
                  "Khong doc lai duoc Reservation."}
             }.dump();
-
+    
             return 1;
         }
-
-
+    
         json response = {
             {"success", true},
             {"data",
              JsonMapper::reservationToJson(
-                 *servedReservation
+                 *createdReservation
              )}
         };
-
-
+    
         cout << response.dump(
             -1,
             ' ',
             false,
             json::error_handler_t::replace
         );
-
+    
         return 0;
     }
-
-
+   
     // =================================================
     // CANCEL RESERVATION
     // =================================================
