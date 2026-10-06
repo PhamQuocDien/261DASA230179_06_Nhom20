@@ -103,6 +103,27 @@ ReservationService::ReservationService(
 }
 
 
+//KIEM TRA THANH VIEN CO CON FINE CHUA THANH TOAN
+//Fine status trong du lieu chi co UNPAID va PAID.
+//Chua co trang thai moi, khong them trang thai moi.
+bool ReservationService::hasUnpaidFine(const string& memberId) {
+    for (const Fine& fine : fineRepository.getAll()) {
+        if (fine.memberId != memberId)
+            continue;
+
+        string status = fine.status;
+        for (char& c : status) {
+            c = static_cast<char>(
+                toupper(static_cast<unsigned char>(c))
+            );
+        }
+
+        if (status != "PAID")
+            return true;
+    }
+    return false;
+}
+
 // =========================================================
 // ENQUEUE
 // =========================================================
@@ -174,11 +195,27 @@ bool ReservationService::enqueue(
     {
     return false;
     }
-
     
+    // 6. Kiểm tra Member còn nợ phạt hay không
+    if (hasUnpaidFine(memberId))
+        return false;
 
+    // 7. Kiểm tra số sách đang mượn
+    // Đăng ký chờ chỉ khi đang mượn dưới 9 cuốn
+    int activeLoans = 0;
+    for (const Loan& loan : loanRepository.getAll())
+    {
+        if (loan.memberId == memberId &&
+            (loan.status == "borrowing" || loan.status == "BORROWING"))
+        {
+            activeLoans++;
+        }
+    }
 
-    // 6. Tạo Reservation mới
+    if (activeLoans >= 9)
+        return false;
+
+    // 8. Tạo Reservation mới
 
     string reservationId =
         "R" + to_string(nextReservationId++);
@@ -196,12 +233,12 @@ bool ReservationService::enqueue(
     reservation.status = "WAITING";
 
 
-    // 7. Lưu Repository
+    // 9. Lưu Repository
 
     reservationRepository.add( reservation );
 
 
-    // 8. Đưa vào Queue FIFO
+    // 10. Đưa vào Queue FIFO
 
     waitQueues[bookCode].push(reservationId);
 
@@ -324,26 +361,6 @@ CancelReservationResult ReservationService::cancelWithPassword(
     return result;
 }
 
-//KIEM TRA THANH VIEN CO CON FINE CHUA THANH TOAN
-//Fine status trong du lieu chi co UNPAID va PAID.
-//Chua co trang thai moi, khong them trang thai moi.
-bool ReservationService::hasUnpaidFine(const string& memberId) {
-    for (const Fine& fine : fineRepository.getAll()) {
-        if (fine.memberId != memberId)
-            continue;
-
-        string status = fine.status;
-        for (char& c : status) {
-            c = static_cast<char>(
-                toupper(static_cast<unsigned char>(c))
-            );
-        }
-
-        if (status != "PAID")
-            return true;
-    }
-    return false;
-}
 
 //GET NEXT ELIGIBL RESERVATION
 Reservation* ReservationService::getNextEligible(const string& bookCode) {
