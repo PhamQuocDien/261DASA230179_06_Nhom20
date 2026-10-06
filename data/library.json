@@ -13215,6 +13215,14 @@
             "password": "123456",
             "phone": "1233456789",
             "status": "ACTIVE"
+        },
+        {
+            "email": "khangbap663@gmail.com",
+            "memberId": "M108",
+            "name": "Bắp Khang",
+            "password": "Quoc2007@",
+            "phone": "0336394622",
+            "status": "ACTIVE"
         }
     ],
     "reservations": [
