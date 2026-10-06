@@ -10687,6 +10687,14 @@
             "memberId": "M050",
             "reason": "Tình trạng: Trung binh",
             "status": "UNPAID"
+        },
+        {
+            "amount": 69000.0,
+            "fineId": "F_L144",
+            "loanId": "L144",
+            "memberId": "",
+            "reason": "Tình trạng: Trung binh",
+            "status": "UNPAID"
         }
     ],
     "loans": [
@@ -12127,8 +12135,8 @@
             "loanId": "L144",
             "memberId": "M006",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "borrowing"
+            "returnDate": "2026-10-06",
+            "status": "RETURNED"
         },
         {
             "bookId": "MB006",
@@ -12319,6 +12327,16 @@
             "renewalCount": 1,
             "returnDate": "2026-10-05",
             "status": "RETURNED"
+        },
+        {
+            "bookId": "MB005",
+            "borrowDate": "2026-10-06",
+            "dueDate": "2026-11-04",
+            "loanId": "L164",
+            "memberId": "M052",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
         }
     ],
     "members": [
@@ -13262,7 +13280,7 @@
             "memberId": "M052",
             "reservationDate": "2026-10-05",
             "reservationId": "R12",
-            "status": "WAITING"
+            "status": "SERVED"
         },
         {
             "bookCode": "MB",
