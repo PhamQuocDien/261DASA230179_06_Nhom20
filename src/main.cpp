@@ -933,79 +933,7 @@ if (action == "searchBookByTitle") {
                 JsonMapper::bookFromJson(
                     request["book"]
                 );
-            string enqueueDate = getCurrentDateStr();
-            Book* book =
-                bookService.getBookByCode(
-                bookCode
-            );
-            if (book == nullptr) {
-                cout << json{
-                    {"success", false},
-                    {"error", "Book khong ton tai."}
-                }.dump();
 
-               return 0;
-            }
-            bool hasAvailableCopy = false;
-            for (const BookCopy& copy : book->copies) {
-                if (copy.status == "AVAILABLE" ||
-                    copy.status == "available") {
-                    hasAvailableCopy = true;
-                    break;
-                }
-            }
-            if (hasAvailableCopy) {
-            
-                BorrowResult borrowResult =
-                    loanService.borrowBook(
-                        memberId,
-                        bookCode,
-                        enqueueDate
-                    );
-            
-                if (!borrowResult.isSuccess) {
-                    cout << json{
-                        {"success", false},
-                        {"error", borrowResult.message}
-                    }.dump();
-            
-                    return 0;
-                }
-            
-                bool loanSaved =
-                    saveLoanAndFineDataToDatabase(
-                        database,
-                        data,
-                        bookRepository,
-                        loanRepository,
-                        fineRepository
-                    );
-            
-                if (!loanSaved) {
-                    cout << json{
-                        {"success", false},
-                        {"error",
-                         "Muon thanh cong nhung khong the luu library.json."}
-                    }.dump();
-            
-                    return 1;
-                }
-            
-                json response = {
-                    {"success", true},
-                    {"message", "Sach con ban co the muon, da tu dong cap sach."},
-                    {"data", JsonMapper::loanToJson(borrowResult.loan)}
-                };
-            
-                cout << response.dump(
-                    -1,
-                    ' ',
-                    false,
-                    json::error_handler_t::replace
-                );
-            
-                return 0;
-            }
             bool created =
                 bookService.addBook(
                     book,
@@ -2317,7 +2245,79 @@ if (action == "getReservationsByBookCode") {
             return 0;
         }
 
+            string enqueueDate = getCurrentDateStr();
+            Book* book =
+                bookService.getBookByCode(
+                bookCode
+            );
+            if (book == nullptr) {
+                cout << json{
+                    {"success", false},
+                    {"error", "Book khong ton tai."}
+                }.dump();
 
+               return 0;
+            }
+            bool hasAvailableCopy = false;
+            for (const BookCopy& copy : book->copies) {
+                if (copy.status == "AVAILABLE" ||
+                    copy.status == "available") {
+                    hasAvailableCopy = true;
+                    break;
+                }
+            }
+            if (hasAvailableCopy) {
+            
+                BorrowResult borrowResult =
+                    loanService.borrowBook(
+                        memberId,
+                        bookCode,
+                        enqueueDate
+                    );
+            
+                if (!borrowResult.isSuccess) {
+                    cout << json{
+                        {"success", false},
+                        {"error", borrowResult.message}
+                    }.dump();
+            
+                    return 0;
+                }
+            
+                bool loanSaved =
+                    saveLoanAndFineDataToDatabase(
+                        database,
+                        data,
+                        bookRepository,
+                        loanRepository,
+                        fineRepository
+                    );
+            
+                if (!loanSaved) {
+                    cout << json{
+                        {"success", false},
+                        {"error",
+                         "Muon thanh cong nhung khong the luu library.json."}
+                    }.dump();
+            
+                    return 1;
+                }
+            
+                json response = {
+                    {"success", true},
+                    {"message", "Sach con ban co the muon, da tu dong cap sach."},
+                    {"data", JsonMapper::loanToJson(borrowResult.loan)}
+                };
+            
+                cout << response.dump(
+                    -1,
+                    ' ',
+                    false,
+                    json::error_handler_t::replace
+                );
+            
+                return 0;
+            }
         bool created =
             reservationService.enqueue(
                 memberId,
