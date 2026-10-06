@@ -170,18 +170,12 @@ bool ReservationService::enqueue(
 
     // 5. Member đã có Reservation WAITING
     //    cho Book này chưa
-
-    for (const Reservation& reservation :
-         reservationRepository.getAll())
+    if (reservationRepository.findByMemberAndBook(memberId, bookCode) != nullptr)
     {
-        if (reservation.memberId == memberId &&
-            reservation.bookCode == bookCode &&
-            reservation.status == "WAITING")
-        {
-            
-            return false;
-        }
+    return false;
     }
+
+    
 
 
     // 6. Tạo Reservation mới
