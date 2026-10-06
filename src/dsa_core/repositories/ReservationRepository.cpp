@@ -46,6 +46,10 @@ vector<Reservation>& ReservationRepository::getAll()
 {
     return reservations;
 }
+const vector<Reservation>& ReservationRepository::getAll() const
+{
+    return reservations;
+}
 Reservation* ReservationRepository::findByMemberAndBook(
     const string& memberId,
     const string& bookCode
