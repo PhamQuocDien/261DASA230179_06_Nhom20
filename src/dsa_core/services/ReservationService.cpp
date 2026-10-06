@@ -201,7 +201,7 @@ bool ReservationService::enqueue(
         return false;
 
     // 7. Kiểm tra số sách đang mượn
-    // Đăng ký chờ chỉ khi đang mượn dưới 9 cuốn
+
     int activeLoans = 0;
     for (const Loan& loan : loanRepository.getAll())
     {
@@ -212,7 +212,7 @@ bool ReservationService::enqueue(
         }
     }
 
-    if (activeLoans >= 9)
+    if (activeLoans >= 10)
         return false;
 
     // 8. Tạo Reservation mới
