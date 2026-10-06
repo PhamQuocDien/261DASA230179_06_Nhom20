@@ -31,7 +31,7 @@ public:
     );
 
     vector<Reservation>& getAll();
-
+    const vector<Reservation>& getAll() const;
     Reservation* findByMemberAndBook(
         const string& memberId,
         const string& bookCode
