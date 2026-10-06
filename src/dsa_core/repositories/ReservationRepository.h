@@ -30,7 +30,7 @@ public:
         const string& reservationId
     );
 
-    vector<Reservation>& getAll();
+    const vector<Reservation>& getAll() const;
 
     Reservation* findByMemberAndBook(
         const string& memberId,
