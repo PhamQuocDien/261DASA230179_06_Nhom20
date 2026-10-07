@@ -73,16 +73,16 @@ vector<LoanSlip> LoanSlipService::getLoanSlipsByMember(const string& memberId) c
 
     const Member* member = findMemberById(memberId);
     if (member == nullptr) return result;
-
-    const vector<Loan>& loans = loanRepository.getAll();
-
-    for (const Loan& loan : loans) {
-        if (loan.memberId != memberId) continue;
-
+    const vector<string>* loanIds=memberLoanIndex.find(memberId);
+    if(loanIds==nullptr) return result;
+    for(const string& loanId:*loanIds){
+        const Loan* loan=loanRepository.findById(loanId);
+        if(loan==nullptr) continue;
         LoanSlip slip;
-        if (createLoanSlip(loan, slip)) result.push_back(slip);
+        if(createLoanSlip(*loan,slip)){
+            result.push_back(slip);
+        }
     }
-
     sort(result.begin(), result.end(), [](const LoanSlip& a, const LoanSlip& b) {
         if (a.borrowDate != b.borrowDate) return a.borrowDate < b.borrowDate;
         return a.loanId < b.loanId;
