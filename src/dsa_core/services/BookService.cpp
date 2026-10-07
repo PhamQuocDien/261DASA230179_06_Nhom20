@@ -334,7 +334,7 @@ bool BookService::deleteBookCopy(
 
         if (it->bookId == bookId) {
 
-            if (it->status != "available") {
+            if (it->status != "available" || it->status!="AVAILABLE") {
                 return false;
             }
 
