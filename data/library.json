@@ -3493,7 +3493,7 @@
                 },
                 {
                     "bookId": "MB010",
-                    "status": "AVAILABLE"
+                    "status": "borrowed"
                 }
             ],
             "price": 138000.0,
@@ -12384,6 +12384,16 @@
             "dueDate": "2026-11-05",
             "loanId": "L169",
             "memberId": "M053",
+            "renewalCount": 0,
+            "returnDate": null,
+            "status": "borrowing"
+        },
+        {
+            "bookId": "MB010",
+            "borrowDate": "2026-10-08",
+            "dueDate": "2026-11-06",
+            "loanId": "L170",
+            "memberId": "M001",
             "renewalCount": 0,
             "returnDate": null,
             "status": "borrowing"
