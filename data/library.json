@@ -3493,7 +3493,7 @@
                 },
                 {
                     "bookId": "MB010",
-                    "status": "borrowed"
+                    "status": "AVAILABLE"
                 }
             ],
             "price": 138000.0,
@@ -12185,8 +12185,8 @@
             "loanId": "L149",
             "memberId": "M011",
             "renewalCount": 0,
-            "returnDate": null,
-            "status": "borrowing"
+            "returnDate": "2026-10-08",
+            "status": "RETURNED"
         },
         {
             "bookId": "LH002",
@@ -13366,14 +13366,14 @@
             "memberId": "M001",
             "reservationDate": "2026-10-06",
             "reservationId": "R16",
-            "status": "WAITING"
+            "status": "CANCELLED"
         },
         {
             "bookCode": "MB",
             "memberId": "M002",
             "reservationDate": "2026-10-06",
             "reservationId": "R17",
-            "status": "WAITING"
+            "status": "CANCELLED"
         }
     ]
 }
