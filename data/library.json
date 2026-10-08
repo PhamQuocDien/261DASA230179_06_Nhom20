@@ -13394,6 +13394,13 @@
             "reservationDate": "2026-10-06",
             "reservationId": "R17",
             "status": "CANCELLED"
+        },
+        {
+            "bookCode": "MB",
+            "memberId": "M004",
+            "reservationDate": "2026-10-08",
+            "reservationId": "R18",
+            "status": "WAITING"
         }
     ]
 }
